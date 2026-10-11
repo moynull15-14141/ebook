@@ -1,0 +1,258 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-12"><header class="opener"><div class="chap-label">অধ্যায় ১২</div><h1>Modern JavaScript (ES6+), Modules এবং Clean Code Practices</h1></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে তুমি (১) ES2015+ syntax চিনতে, (২) named/default export ও import ব্যবহার করতে, (৩) UI, business logic ও storage আলাদা রাখতে, (৪) immutable update লিখতে, (৫) clean-code ও refactoring সিদ্ধান্ত নিতে এবং (৬) একটি Modular Shopping Cart চালাতে পারবে।</p>
+<h2>১২.১ কেন Modern JavaScript?</h2>
+<p>JavaScript-এর ভাষাগত পরিবর্তনগুলো শুধু ছোট করে Code লেখার জন্য নয়। <code>const</code>, <code>let</code>, template literal, destructuring, modules, optional chaining, nullish coalescing ইত্যাদি সঠিকভাবে ব্যবহার করলে code intent বোঝা, refactor করা এবং test করা সহজ হয়। তবে <strong>নতুন syntax মানেই ভালো architecture নয়</strong>: অপ্রয়োজনীয় abstraction বা একটি function-এ সব কাজ রাখলে নতুন syntax দিয়েও code জটিল থাকবে।</p>
+<h3><code>const</code> এবং <code>let</code></h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> taxRate = <span class="n">0.05</span>; <span class="c">// binding reassignment নয়</span>
+<span class="k">let</span> quantity = <span class="n">2</span>;     <span class="c">// পরে পরিবর্তন হতে পারে</span>
+quantity += <span class="n">1</span>;</code></pre></figure>
+<p><code>const</code> object-কে deep immutable করে না। <code>const profile = {name:'A'}</code> হলে <code>profile.name = 'B'</code> বৈধ। তাই object mutation নিয়ন্ত্রণে immutable update pattern প্রয়োজন। <code>var</code>-এর function scope ও hoisting behaviour নতুন application code-এ সাধারণত এড়িয়ে চলাই সহজ।</p>
+<h2>১২.২ Template Literal ও Destructuring</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> booking = { passenger: <span class="s">'Nadia'</span>, fare: <span class="n">4200</span>, route: <span class="s">'DAC–CXB'</span> };
+<span class="k">const</span> { passenger, fare, route } = booking;
+<span class="k">const</span> summary = <span class="s">`${passenger}: ${route} — BDT ${fare}`</span>;
+console.log(summary);
+
+<span class="k">const</span> settings = { theme: <span class="s">'light'</span> };
+<span class="k">const</span> { theme, language = <span class="s">'bn'</span> } = settings;
+console.log(theme, language);</code></pre></figure>
+<p>Destructuring-এর default কেবল <code>undefined</code> হলে প্রয়োগ হয়; <code>null</code> হলে নয়। Nested destructuring করার সময় অনুপস্থিত parent object বিবেচনায় রাখতে হবে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> response = { user: { name: <span class="s">'Rafi'</span> } };
+<span class="k">const</span> name = response.user?.name ?? <span class="s">'Guest'</span>;</code></pre></figure>
+<h2>১২.৩ Spread, Rest ও Immutable Update</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> prices = [<span class="n">100</span>, <span class="n">200</span>];
+<span class="k">const</span> updatedPrices = [...prices, <span class="n">300</span>];
+<span class="k">const</span> student = { name: <span class="s">'Mira'</span>, score: <span class="n">72</span> };
+<span class="k">const</span> updatedStudent = { ...student, score: <span class="n">85</span> };
+
+<span class="k">function</span> total(...values) {
+  <span class="k">return</span> values.reduce((sum, value) =&gt; sum + value, <span class="n">0</span>);
+}
+console.log(total(<span class="n">10</span>, <span class="n">20</span>, <span class="n">30</span>)); <span class="c">// 60</span></code></pre></figure>
+<p>Spread একটি <strong>shallow copy</strong> তৈরি করে। Nested object একই reference ধরে রাখতে পারে:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> original = { preferences: { theme: <span class="s">'light'</span> } };
+<span class="k">const</span> copy = { ...original };
+copy.preferences.theme = <span class="s">'dark'</span>;
+console.log(original.preferences.theme); <span class="c">// dark</span>
+
+<span class="k">const</span> safeUpdate = {
+  ...original,
+  preferences: { ...original.preferences, theme: <span class="s">'light'</span> }
+};</code></pre></figure>
+<p><code>structuredClone()</code> অনেক structured value deep copy করতে পারে, কিন্তু function বা সব browser-specific object copy করতে পারে না। প্রয়োজন অনুযায়ী data model ও copy strategy বেছে নিতে হবে।</p>
+<h2>১২.৪ Optional Chaining ও Nullish Coalescing</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> customer = { address: <span class="k">null</span>, loyaltyPoints: <span class="n">0</span> };
+<span class="k">const</span> city = customer.address?.city ?? <span class="s">'Unknown'</span>;
+<span class="k">const</span> points = customer.loyaltyPoints ?? <span class="n">100</span>; <span class="c">// 0, কারণ 0 nullish নয়</span>
+<span class="k">const</span> wrong = customer.loyaltyPoints || <span class="n">100</span>;  <span class="c">// 100, কারণ 0 falsy</span></code></pre></figure>
+<p><code>?.</code> null/undefined-এ short-circuit করে; এটি সব invalid input থেকে সুরক্ষা দেয় না। <code>??</code>-এর ব্যবহার <code>||</code> থেকে আলাদা, বিশেষ করে <code>0</code>, <code>false</code> এবং empty string-এর ক্ষেত্রে।</p>
+<h2>১২.৫ ES Modules: এক ফাইলে সব নয়</h2>
+<p>Module একটি ফাইলকে আলাদা scope দেয় এবং স্পষ্ট public API তৈরি করে। Browser-এ <code>&lt;script type=&quot;module&quot;&gt;</code> দিয়ে ES Module চালানো যায়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// math.mjs</span>
+<span class="k">export</span> <span class="k">const</span> VAT = <span class="n">0.05</span>;
+<span class="k">export</span> <span class="k">function</span> withVat(amount) {
+  <span class="k">return</span> amount * (<span class="n">1</span> + VAT);
+}
+
+<span class="c">// main.mjs</span>
+<span class="k">import</span> { withVat } <span class="k">from</span> <span class="s">'./math.mjs'</span>;
+console.log(withVat(<span class="n">100</span>)); <span class="c">// 105</span></code></pre></figure>
+<p><strong>Named export</strong> একাধিক symbol প্রকাশ করে। <strong>Default export</strong> একটি primary value প্রকাশ করে। বড় project-এ named export অনেক সময় refactoring ও auto-import সহজ করে। Import path, filename casing ও file extension পরিবেশভেদে গুরুত্বপূর্ণ। Browser-এ bare import (<code>import x from 'package'</code>) সাধারণত bundler বা import map ছাড়া কাজ করবে না।</p>
+<h3>Browser Module বনাম Node.js</h3>
+<p>Browser-এ <code>file://</code> থেকে Module Import অনেক সময় CORS restriction-এ ব্যর্থ হয়। Project চালাতে local HTTP server ব্যবহার করো:</p>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code>cd source-code/chapter-12
+python -m http.server 8000</code></pre></figure>
+<p>তারপর <code>http://localhost:8000</code> খুলবে। Node.js-এ <code>.mjs</code> ফাইল native ESM হিসেবে চলে; <code>.js</code>-এর ক্ষেত্রে package configuration গুরুত্বপূর্ণ।</p>
+<h2>১২.৬ Clean Code: পাঠযোগ্যতা আগে</h2>
+<p>একটি function-এ data validation, DOM manipulation, calculation এবং storage একসঙ্গে থাকলে bug শনাক্ত করা কঠিন। তাই responsibility ভাগ করো:</p>
+<table><thead><tr><th>Layer</th><th>দায়িত্ব</th><th>উদাহরণ</th></tr></thead><tbody><tr><td>Domain</td><td>Pure cart calculation</td><td><code>cart.mjs</code></td></tr><tr><td>Persistence</td><td>Local storage</td><td><code>storage.mjs</code></td></tr><tr><td>Presentation</td><td>DOM ও events</td><td><code>app.mjs</code></td></tr><tr><td>Entry</td><td>HTML document</td><td><code>index.html</code></td></tr></tbody></table>
+<p>নামকরণে <code>x</code>, <code>tmp</code>, <code>data2</code>-এর পরিবর্তে <code>quantity</code>, <code>subtotal</code>, <code>productId</code> ব্যবহার করো। Function যেন একটি নির্দিষ্ট কাজ করে; কিন্তু অতি ক্ষুদ্র function বানিয়ে readability নষ্ট করারও দরকার নেই।</p>
+<h3>Guard Clause ও Early Return</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> discountPrice(price, percent) {
+  <span class="k">if</span> (!Number.isFinite(price) || price &lt; <span class="n">0</span>) {
+    <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">'Invalid price'</span>);
+  }
+  <span class="k">if</span> (!Number.isFinite(percent) || percent &lt; <span class="n">0</span> || percent &gt; <span class="n">100</span>) {
+    <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">'Invalid discount'</span>);
+  }
+  <span class="k">return</span> price * (<span class="n">1</span> - percent / <span class="n">100</span>);
+}</code></pre></figure>
+<p>Guard clause invalid state শুরুতেই বাদ দেয়। Data validation সবসময় application boundary-তে প্রয়োজন; UI validation একাই যথেষ্ট নয়।</p>
+<h2>১২.৭ Pure Function, Side Effect ও Dependency Direction</h2>
+<p><code>calculateTotal(cart)</code> pure হলে একই input-এ একই output দেয় এবং বাইরের state পরিবর্তন করে না। <code>localStorage.setItem()</code> বা <code>document.querySelector()</code> side effect। Pure core আলাদা রাখলে Node.js-এ browser ছাড়াই test করা যায়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">export</span> <span class="k">function</span> calculateSubtotal(items) {
+  <span class="k">return</span> items.reduce((sum, item) =&gt; sum + item.price * item.quantity, <span class="n">0</span>);
+}</code></pre></figure>
+<p><strong>Dependency direction:</strong> UI domain function-কে call করবে; domain function UI বা storage সম্পর্কে জানবে না। এতে একটি module পরিবর্তন করলে অন্য module কম প্রভাবিত হয়।</p>
+<h2>১২.৮ Practical Project — Modular Shopping Cart</h2>
+<h3>Problem Statement</h3>
+<p>একটি ছোট shop-এর জন্য Product Catalog, Cart Add/Remove, Quantity Update, Total Calculation এবং <code>localStorage</code> Persistence দরকার। এখানে উদ্দেশ্য শুধু UI বানানো নয়; <strong>modular architecture</strong> শেখা।</p>
+<h3>Project Structure</h3>
+<figure class="code keep"><pre><code>source-code/chapter-12/
+├── index.html
+├── style.css
+├── cart.mjs          # pure cart logic
+├── storage.mjs       # localStorage boundary
+├── app.mjs           # browser UI
+└── cart.test.mjs     # Node.js unit tests</code></pre></figure>
+<h3>Module 1 — Domain Logic</h3>
+<p><code>cart.mjs</code>-এ <code>CATALOG</code>, <code>addItem</code>, <code>updateQuantity</code>, <code>removeItem</code>, <code>summarizeCart</code>, <code>restoreCart</code> export করা হয়েছে। সব cart operations নতুন array/object return করে; caller-এর cart সরাসরি mutate করে না।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">import</span> { addItem, summarizeCart } <span class="k">from</span> <span class="s">'./cart.mjs'</span>;
+<span class="k">let</span> cart = [];
+cart = addItem(cart, <span class="s">'book'</span>, <span class="n">2</span>);
+cart = addItem(cart, <span class="s">'mouse'</span>);
+console.log(summarizeCart(cart));
+<span class="c">// subtotal: 2900, count: 3</span></code></pre></figure>
+<p>এখানে <code>restoreCart()</code> parsed storage input যাচাই করে। Unknown product ও invalid quantity বাদ দেয়। এটি browser storage-কে trusted ধরে নেয় না। Production application-এ server-side cart price পুনরায় যাচাই করতে হবে।</p>
+<h3>Module 2 — Persistence</h3>
+<p><code>storage.mjs</code>-এ <code>loadCart()</code> ও <code>saveCart()</code> আছে। Storage disabled/full হলে exception ধরে fallback দেয়। <code>localStorage</code> শুধুই convenience; এটি secure database নয় এবং অন্য device-এর সঙ্গে synchronize হয় না।</p>
+<h3>Module 3 — Presentation</h3>
+<p><code>app.mjs</code>-এ <code>render()</code> DOM-কে বর্তমান cart state থেকে পুনর্গঠন করে। User-generated string HTML হিসেবে inject না করে <code>textContent</code> ব্যবহার করা হয়েছে। Buttons ও Quantity Inputs-এ event listener যোগ করা হয়েছে।</p>
+<h3>Running the Project</h3>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code>cd source-code/chapter-12
+python -m http.server 8000
+<span class="c"># Browser: http://localhost:8000</span></code></pre></figure>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code>node --test cart.test.mjs</code></pre></figure>
+<h3>Manual Acceptance Checklist</h3>
+<ul><li class="task"><span class="box">☐</span> Product যোগ করলে cart line তৈরি হয়</li><li class="task"><span class="box">☐</span> একই product আবার যোগ করলে quantity বাড়ে</li><li class="task"><span class="box">☐</span> Quantity 0 দিলে product মুছে যায়</li><li class="task"><span class="box">☐</span> Reload করলে cart থাকে, যদি storage available হয়</li><li class="task"><span class="box">☐</span> Invalid quantity দিলে application crash করে না</li><li class="task"><span class="box">☐</span> Keyboard দিয়ে button/input ব্যবহার করা যায়</li><li class="task"><span class="box">☐</span> Mobile width-এ layout পাঠযোগ্য থাকে</li></ul>
+<h2>১২.৯ Common Mistakes ও Refactoring</h2>
+<p><strong>Mistake 1 — Shared reference mutate করা:</strong> <code>const next = [...cart]</code> করলেও nested item একই object হতে পারে। <code>map(item =&gt; ({...item}))</code> প্রয়োজন অনুযায়ী ব্যবহার করো।</p>
+<p><strong>Mistake 2 — Module path ভুল:</strong> <code>./cart.mjs</code> এবং <code>cart.mjs</code> একই নয়। Browser native module path resolve করে; bare specifier সরাসরি resolve নাও হতে পারে।</p>
+<p><strong>Mistake 3 — Circular imports:</strong> A যদি B-কে import করে এবং B আবার A-কে import করে, initialization order জটিল হতে পারে। Domain dependencies একমুখী রাখো।</p>
+<p><strong>Mistake 4 — UI-এর price-কে trusted ধরা:</strong> Client-side price পরিবর্তন করা যায়। বাস্তব checkout-এ server catalog থেকে total পুনর্গণনা করবে।</p>
+<p><strong>Mistake 5 — অকারণে abstraction:</strong> একবার ব্যবহার হওয়া তিন লাইনের logic-এর জন্য পাঁচটি class তৈরি করা Clean Code নয়।</p>
+<h2>১২.১০ Exercises</h2>
+<ol><li><code>formatUser({name,city})</code> function-এ destructuring ও template literal ব্যবহার করো।</li><li><code>||</code> ও <code>??</code>-এর পার্থক্য <code>0</code>, <code>false</code>, <code>''</code>, <code>null</code> দিয়ে দেখাও।</li><li><code>updateProfile(profile, name)</code> লিখো যাতে original object mutate না হয়।</li><li><code>filterExpensive(products, minPrice)</code> নামে pure function লেখো।</li><li><code>calculateSubtotal</code>-কে আলাদা <code>.mjs</code> file থেকে import করো।</li><li>Cart-এ <code>clearCart()</code> function যোগ করো।</li><li><code>summarizeCart()</code>-এর জন্য invalid discount unit test লেখো।</li><li><code>localStorage</code> unavailable হলে graceful fallback পরীক্ষা করো।</li><li><code>sortProductsByPrice()</code> লিখো যাতে input array-এর order অপরিবর্তিত থাকে।</li><li>Project-এ coupon code <code>SAVE10</code> যোগ করো; discount UI-তে নয়, domain layer-এ হিসাব করো।</li></ol>
+<h2>১২.১১ Exercise Solutions</h2>
+<figure class="code"><figcaption>JavaScript</figcaption><pre><code><span class="c">// 1</span>
+<span class="k">const</span> formatUser = ({name, city}) =&gt; <span class="s">`${name} lives in ${city}`</span>;
+<span class="c">// 2</span>
+console.log(<span class="n">0</span> || <span class="n">5</span>, <span class="n">0</span> ?? <span class="n">5</span>);           <span class="c">// 5 0</span>
+console.log(<span class="k">false</span> || <span class="k">true</span>, <span class="k">false</span> ?? <span class="k">true</span>); <span class="c">// true false</span>
+console.log(<span class="s">''</span> || <span class="s">'N/A'</span>, <span class="s">''</span> ?? <span class="s">'N/A'</span>);  <span class="c">// N/A ''</span>
+console.log(<span class="k">null</span> || <span class="s">'N/A'</span>, <span class="k">null</span> ?? <span class="s">'N/A'</span>); <span class="c">// N/A N/A</span>
+<span class="c">// 3</span>
+<span class="k">const</span> updateProfile = (profile, name) =&gt; ({...profile, name});
+<span class="c">// 4</span>
+<span class="k">const</span> filterExpensive = (products, minPrice) =&gt;
+  products.filter(({price}) =&gt; price &gt;= minPrice);
+<span class="c">// 5 — math.mjs</span>
+<span class="k">export</span> <span class="k">const</span> calculateSubtotal = items =&gt;
+  items.reduce((sum, item) =&gt; sum + item.price * item.quantity, <span class="n">0</span>);
+<span class="c">// 6</span>
+<span class="k">const</span> clearCart = () =&gt; [];
+<span class="c">// 7</span>
+<span class="c">// assert.throws(() =&gt; summarizeCart([], undefined, 101), RangeError);</span>
+<span class="c">// 8 — manually block site storage and verify no uncaught exception</span>
+<span class="c">// 9</span>
+<span class="k">const</span> sortProductsByPrice = products =&gt; [...products].sort((a, b) =&gt; a.price - b.price);
+<span class="c">// 10</span>
+<span class="k">const</span> couponPercent = code =&gt; code === <span class="s">'SAVE10'</span> ? <span class="n">10</span> : <span class="n">0</span>;
+<span class="c">// Pass couponPercent(code) into summarizeCart(cart, CATALOG, percent).</span></code></pre></figure>
+<p><strong>Exercise 5-এর নোট:</strong> <code>export</code> declaration module file-এ লিখতে হবে; একই code block-এ illustrative solutions একত্র করা হয়েছে, এগুলো এক ফাইল হিসেবে paste করে চালানোর জন্য নয়।</p>
+<h2>১২.১২ Knowledge Check — MCQ</h2>
+<ol><li><code>const</code> কী আটকায়? A. Nested mutation B. Binding reassignment C. Function call D. Array access</li><li><code>0 ?? 9</code> কত? A. 0 B. 9 C. null D. Error</li><li><code>0 || 9</code> কত? A. 0 B. 9 C. null D. Error</li><li>Spread দিয়ে object copy সাধারণত কেমন? A. Deep B. Shallow C. Serialized D. Frozen</li><li>Named import-এর syntax কোনটি? A. <code>import x</code> B. <code>import {x} from './x.mjs'</code> C. <code>require(x)</code> D. <code>export from x</code></li><li>Pure function কোনটি? A. DOM update B. <code>localStorage.setItem</code> C. Input থেকে total গণনা D. <code>alert</code></li><li>Browser module load করতে কোন attribute? A. <code>defer=&quot;module&quot;</code> B. <code>type=&quot;module&quot;</code> C. <code>async=&quot;esm&quot;</code> D. <code>lang=&quot;module&quot;</code></li><li><code>user?.name</code>-এ <code>user = null</code> হলে? A. Throw B. <code>undefined</code> C. <code>false</code> D. <code>''</code></li><li><code>Array.sort()</code> default-এ কী করে? A. Immutable copy B. Original array mutate C. JSON serialize D. Remove duplicates</li><li>Checkout-এর final price কোথায় verify করা উচিত? A. CSS B. Browser only C. Server D. URL fragment</li></ol>
+<h3>Answer Key ও Explanation</h3>
+<table><thead><tr><th>Q</th><th>Answer</th><th>কারণ</th></tr></thead><tbody><tr><td>1</td><td>B</td><td><code>const</code> binding reassignment বন্ধ করে; nested mutation নয়</td></tr><tr><td>2</td><td>A</td><td><code>0</code> nullish নয়</td></tr><tr><td>3</td><td>B</td><td><code>0</code> falsy</td></tr><tr><td>4</td><td>B</td><td>Spread shallow copy করে</td></tr><tr><td>5</td><td>B</td><td>Braces দিয়ে named import</td></tr><tr><td>6</td><td>C</td><td>Pure calculation বাইরের state পরিবর্তন করে না</td></tr><tr><td>7</td><td>B</td><td>Native ES Module script</td></tr><tr><td>8</td><td>B</td><td>Optional chaining nullish receiver-এ undefined দেয়</td></tr><tr><td>9</td><td>B</td><td><code>sort()</code> array mutate করে</td></tr><tr><td>10</td><td>C</td><td>Client data trusted নয়</td></tr></tbody></table>
+<h2>১২.১৩ Mini Capstone ও Review</h2>
+<p>নিজে একটি <code>coupon.mjs</code> যোগ করে coupon validation আলাদা করো, তারপর <code>cart.test.mjs</code>-এ edge-case test লেখো। Code review-এ প্রশ্ন করো: Domain module কি DOM import করছে? Storage unavailable হলে app কি চলছে? User data কি <code>innerHTML</code>-এ যাচ্ছে? Invalid quantity কি প্রত্যাখ্যাত হচ্ছে?</p>
+<h3>অধ্যায় সারসংক্ষেপ</h3>
+<p>Modern JavaScript-এর মূল শক্তি syntax নয়, বরং পরিষ্কার দায়িত্ব-বিভাজন ও maintainable code। Modules দিয়ে public API নির্ধারণ করো, pure functions দিয়ে domain logic test করো, browser/storage side effects boundary-তে রাখো। পরবর্তী অধ্যায়ে Classes, Prototypes ও OOP-এর মাধ্যমে আরও একটি architecture approach শিখবে।</p>
+<p><strong>Next:</strong> অধ্যায় ১৩ — Object-Oriented Programming (OOP), Classes, Prototypes, Inheritance এবং Encapsulation।</p>
+</section></body></html>

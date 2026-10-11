@@ -1,0 +1,25 @@
+body { font-family: "Segoe UI"; font-size: 10.5pt; color: #1d2433; }
+p { margin: 0 0 6pt 0; line-height: 145%; }
+h1 { font-family: "Segoe UI"; font-size: 21pt; color: #1b3a7a; margin: 4pt 0 10pt 0; border-bottom: solid #1b3a7a 1.5pt; padding-bottom: 4pt; }
+h2 { font-family: "Segoe UI"; font-size: 14pt; color: #1b3a7a; margin: 16pt 0 6pt 0; border-left: solid #f0b429 3pt; padding-left: 5pt; }
+h3 { font-family: "Segoe UI"; font-size: 11.5pt; color: #284f9e; margin: 12pt 0 4pt 0; }
+p.chap-label { font-size: 10pt; font-weight: bold; color: #3b2a00; background: #f0b429; margin: 0 0 4pt 0; }
+p.subtitle { font-size: 12.5pt; color: #284f9e; }
+p.meta { font-size: 9.5pt; color: #5b6475; }
+p.w-title { font-size: 36pt; font-weight: bold; color: #1b3a7a; margin-top: 140pt; }
+p.w-sub { font-size: 22pt; font-weight: bold; color: #b7791f; }
+p.w-tag { font-size: 12pt; color: #475569; margin-top: 20pt; }
+p.w-ed { font-size: 11pt; color: #1b3a7a; margin-top: 30pt; }
+p.w-author { font-size: 17pt; font-weight: bold; color: #1b3a7a; margin-top: 40pt; }
+p.w-copy { font-size: 9pt; color: #5b6475; }
+p.toc-head { font-size: 21pt; font-weight: bold; color: #1b3a7a; }
+pre.code { font-family: "Cascadia Mono"; font-size: 8.5pt; line-height: 125%; background: #f5f7fb; border: solid #dbe2ee 1pt; border-left: solid #f0b429 3pt; padding: 5pt; margin: 4pt 0 9pt 0; white-space: pre-wrap; }
+code { font-family: "Cascadia Mono"; font-size: 9pt; color: #8a2d0d; }
+table { border-collapse: collapse; font-size: 9.5pt; margin: 4pt 0 10pt 0; }
+th { background: #e9effb; color: #1b3a7a; font-weight: bold; border: solid #cdd6e4 1pt; padding: 3pt 5pt; }
+td { border: solid #cdd6e4 1pt; padding: 3pt 5pt; vertical-align: top; }
+blockquote { background: #fff8e6; border-left: solid #f0b429 3pt; padding: 4pt 8pt; margin: 6pt 0; }
+span.k { color: #0b4f9c; font-weight: bold; }
+span.s { color: #0f7b3f; }
+span.c { color: #6b7280; font-style: italic; }
+span.n { color: #b45309; }

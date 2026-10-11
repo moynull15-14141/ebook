@@ -1,0 +1,2 @@
+OK    node --check invoice.js   (in project/invoice-calculator)
+OK    node --check tests/invoice.test.js   (in project/invoice-calculator)

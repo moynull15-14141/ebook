@@ -1,0 +1,96 @@
+$ node --test   (in project\student-result-calculator)
+
+TAP version 13
+# Subtest: toMark: সঠিক পূর্ণসংখ্যা গ্রহণ করে
+ok 1 - toMark: সঠিক পূর্ণসংখ্যা গ্রহণ করে
+  ---
+  duration_ms: 1.2825
+  type: 'test'
+  ...
+# Subtest: toMark: আগে-পরের ফাঁকা জায়গা উপেক্ষা করে
+ok 2 - toMark: আগে-পরের ফাঁকা জায়গা উপেক্ষা করে
+  ---
+  duration_ms: 0.1996
+  type: 'test'
+  ...
+# Subtest: toMark: ফাঁকা Text শূন্য নয়, null
+ok 3 - toMark: ফাঁকা Text শূন্য নয়, null
+  ---
+  duration_ms: 0.1676
+  type: 'test'
+  ...
+# Subtest: toMark: সংখ্যা নয় এমন Text বাতিল করে
+ok 4 - toMark: সংখ্যা নয় এমন Text বাতিল করে
+  ---
+  duration_ms: 0.1666
+  type: 'test'
+  ...
+# Subtest: toMark: দশমিক সংখ্যা বাতিল করে
+ok 5 - toMark: দশমিক সংখ্যা বাতিল করে
+  ---
+  duration_ms: 0.2587
+  type: 'test'
+  ...
+# Subtest: toMark: সীমার বাইরের সংখ্যা বাতিল করে
+ok 6 - toMark: সীমার বাইরের সংখ্যা বাতিল করে
+  ---
+  duration_ms: 0.131
+  type: 'test'
+  ...
+# Subtest: getGrade: প্রতিটি সীমায় সঠিক Grade
+ok 7 - getGrade: প্রতিটি সীমায় সঠিক Grade
+  ---
+  duration_ms: 0.208
+  type: 'test'
+  ...
+# Subtest: calculateResult: সব বিষয়ে উত্তীর্ণ
+ok 8 - calculateResult: সব বিষয়ে উত্তীর্ণ
+  ---
+  duration_ms: 0.1361
+  type: 'test'
+  ...
+# Subtest: calculateResult: এক বিষয়ে অনুত্তীর্ণ হলে গড় ভালো হলেও F
+ok 9 - calculateResult: এক বিষয়ে অনুত্তীর্ণ হলে গড় ভালো হলেও F
+  ---
+  duration_ms: 0.3973
+  type: 'test'
+  ...
+# Subtest: calculateResult: ঠিক পাস নম্বরে উত্তীর্ণ
+ok 10 - calculateResult: ঠিক পাস নম্বরে উত্তীর্ণ
+  ---
+  duration_ms: 0.4455
+  type: 'test'
+  ...
+# Subtest: calculateResult: String নম্বর জোড়া লাগে না, যোগ হয়
+ok 11 - calculateResult: String নম্বর জোড়া লাগে না, যোগ হয়
+  ---
+  duration_ms: 0.9431
+  type: 'test'
+  ...
+# Subtest: calculateResult: কোন বিষয়ের নম্বর ভুল, তা জানায়
+ok 12 - calculateResult: কোন বিষয়ের নম্বর ভুল, তা জানায়
+  ---
+  duration_ms: 0.1271
+  type: 'test'
+  ...
+# Subtest: calculateResult: নামের আগে-পরের ফাঁকা জায়গা বাদ দেয়
+ok 13 - calculateResult: নামের আগে-পরের ফাঁকা জায়গা বাদ দেয়
+  ---
+  duration_ms: 0.1305
+  type: 'test'
+  ...
+# Subtest: File চালালে তিনটি উদাহরণের ফল দেখায়
+ok 14 - File চালালে তিনটি উদাহরণের ফল দেখায়
+  ---
+  duration_ms: 3.7577
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 126.6859

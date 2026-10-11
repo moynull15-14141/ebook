@@ -1,0 +1,12 @@
+{
+  "name": "travelsaga-learning-lab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "demo": "node demo.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

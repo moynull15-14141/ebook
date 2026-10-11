@@ -1,0 +1,108 @@
+$ node --test   (in project\inventory-dashboard)
+
+TAP version 13
+# Subtest: addProduct: নতুন পণ্যসহ নতুন Array
+ok 1 - addProduct: নতুন পণ্যসহ নতুন Array
+  ---
+  duration_ms: 2.4369
+  type: 'test'
+  ...
+# Subtest: addProduct: মূল Array বদলায় না
+ok 2 - addProduct: মূল Array বদলায় না
+  ---
+  duration_ms: 0.2804
+  type: 'test'
+  ...
+# Subtest: removeProduct: নির্দিষ্ট id বাদ দেয়
+ok 3 - removeProduct: নির্দিষ্ট id বাদ দেয়
+  ---
+  duration_ms: 0.1803
+  type: 'test'
+  ...
+# Subtest: removeProduct: অচেনা id-তে সব থাকে; মূল Array বদলায় না
+ok 4 - removeProduct: অচেনা id-তে সব থাকে; মূল Array বদলায় না
+  ---
+  duration_ms: 0.1585
+  type: 'test'
+  ...
+# Subtest: findProduct: id দিয়ে খুঁজে পায়
+ok 5 - findProduct: id দিয়ে খুঁজে পায়
+  ---
+  duration_ms: 0.1861
+  type: 'test'
+  ...
+# Subtest: findProduct: না পেলে undefined
+ok 6 - findProduct: না পেলে undefined
+  ---
+  duration_ms: 0.1526
+  type: 'test'
+  ...
+# Subtest: changeStock: মজুত কমায় ও বাড়ায়
+ok 7 - changeStock: মজুত কমায় ও বাড়ায়
+  ---
+  duration_ms: 0.1447
+  type: 'test'
+  ...
+# Subtest: changeStock: মজুত শূন্যের নিচে নামে না
+ok 8 - changeStock: মজুত শূন্যের নিচে নামে না
+  ---
+  duration_ms: 0.2139
+  type: 'test'
+  ...
+# Subtest: changeStock: অন্য পণ্য ও অন্য তথ্য অপরিবর্তিত
+ok 9 - changeStock: অন্য পণ্য ও অন্য তথ্য অপরিবর্তিত
+  ---
+  duration_ms: 0.4045
+  type: 'test'
+  ...
+# Subtest: changeStock: মূল Array ও তার Object বদলায় না
+ok 10 - changeStock: মূল Array ও তার Object বদলায় না
+  ---
+  duration_ms: 0.4716
+  type: 'test'
+  ...
+# Subtest: changeStock: অচেনা id-তে কোনো পরিবর্তন নয়
+ok 11 - changeStock: অচেনা id-তে কোনো পরিবর্তন নয়
+  ---
+  duration_ms: 0.4851
+  type: 'test'
+  ...
+# Subtest: lowStock: Default সীমা ৫, সীমার সমান মানসহ
+ok 12 - lowStock: Default সীমা ৫, সীমার সমান মানসহ
+  ---
+  duration_ms: 0.8937
+  type: 'test'
+  ...
+# Subtest: lowStock: নিজস্ব সীমা; না মিললে ফাঁকা Array
+ok 13 - lowStock: নিজস্ব সীমা; না মিললে ফাঁকা Array
+  ---
+  duration_ms: 0.4376
+  type: 'test'
+  ...
+# Subtest: totalValue: দাম x মজুত-এর যোগফল; ফাঁকা তালিকায় 0
+ok 14 - totalValue: দাম x মজুত-এর যোগফল; ফাঁকা তালিকায় 0
+  ---
+  duration_ms: 0.1135
+  type: 'test'
+  ...
+# Subtest: describe: প্রতিটি পণ্যের এক লাইন
+ok 15 - describe: প্রতিটি পণ্যের এক লাইন
+  ---
+  duration_ms: 0.1549
+  type: 'test'
+  ...
+# Subtest: File চালালে Dashboard দেখায় এবং শুরুর তালিকা অক্ষত থাকে
+ok 16 - File চালালে Dashboard দেখায় এবং শুরুর তালিকা অক্ষত থাকে
+  ---
+  duration_ms: 0.1138
+  type: 'test'
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 124.0185

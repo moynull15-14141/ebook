@@ -1,0 +1,13 @@
+{
+  "number": 3,
+  "source": "chapter-03-premium.md",
+  "outputBase": "chapter-03-premium",
+  "companion": ["project", "examples"],
+  "logs": "qa-logs",
+  "tests": [
+    { "name": "listings: extract, run, compare", "cwd": ".", "cmd": ["node", "../tools/extract-and-run.mjs", "."], "log": "listings-run.log" },
+    { "name": "syntax: project", "cwd": "project/shopping-discount-calculator", "cmd": ["node", "--check", "discount.js"] },
+    { "name": "syntax: tests", "cwd": "project/shopping-discount-calculator", "cmd": ["node", "--check", "tests/discount.test.js"] },
+    { "name": "unit tests", "cwd": "project/shopping-discount-calculator", "cmd": ["node", "--test"], "log": "unit-tests.log" }
+  ]
+}

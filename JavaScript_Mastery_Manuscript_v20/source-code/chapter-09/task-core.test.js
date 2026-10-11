@@ -1,0 +1,16 @@
+const test=require('node:test');const assert=require('node:assert/strict');const C=require('./task-core');
+const t=C.makeTask(' Learn DOM ','x','2026-01-01T00:00:00Z');
+test('task trims title and has default state',()=>{assert.equal(t.title,'Learn DOM');assert.equal(t.completed,false);});
+test('reject blank or oversized titles',()=>{assert.throws(()=>C.makeTask(' ',1));assert.throws(()=>C.makeTask('a'.repeat(121),1));});
+test('add immutable',()=>{const a=[t],b=C.addTask(a,'New','y');assert.equal(a.length,1);assert.equal(b.length,2);});
+test('duplicate ids rejected',()=>assert.throws(()=>C.addTask([t],'New','x')));
+test('toggle immutable',()=>{const b=C.toggleTask([t],'x');assert.equal(b[0].completed,true);assert.equal(t.completed,false);});
+test('edit title',()=>assert.equal(C.editTask([t],'x',' Updated ')[0].title,'Updated'));
+test('delete task',()=>assert.deepEqual(C.deleteTask([t],'x'),[]));
+test('clear completed',()=>{const b=C.toggleTask([t],'x');assert.equal(C.clearCompleted(b).length,0);});
+test('filter search',()=>assert.equal(C.filterTasks([t],'active','dom').length,1));
+test('filter completed',()=>assert.equal(C.filterTasks([t],'completed').length,0));
+test('stats',()=>assert.deepEqual(C.stats([t]),{total:1,active:1,completed:0}));
+test('invalid JSON safely recovers',()=>assert.deepEqual(C.parseStored('{broken'),[]));
+test('invalid storage rows ignored',()=>assert.deepEqual(C.parseStored(JSON.stringify([{},t])),[t]));
+test('reject unknown filter',()=>assert.throws(()=>C.filterTasks([t],'unknown')));

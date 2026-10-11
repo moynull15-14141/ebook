@@ -1,0 +1,166 @@
+===== node/01-hello.js  (exit code 0) =====
+Hello, JavaScript!
+
+===== node/02-console-values.js  (exit code 0) =====
+আমার প্রথম JavaScript Program
+2026
+15
+10 + 5
+
+===== node/03-strings.js  (exit code 0) =====
+Single Quote দিয়ে লেখা String
+Double Quote দিয়ে লেখা String
+Backtick দিয়ে লেখা String
+It's a good day to learn.
+শিক্ষক বললেন, "চেষ্টা চালিয়ে যান।"
+
+===== node/04-comments.js  (exit code 0) =====
+প্রথম লাইন চলল।
+Program শেষ।
+
+===== node/05-variables-functions.js  (exit code 0) =====
+Nusrat
+0
+1
+স্বাগতম, Nusrat!
+স্বাগতম, Tanvir!
+
+===== node/06-condition.js  (exit code 0) =====
+নাম পাওয়া গেছে: Karim
+নাম লেখা হয়নি।
+
+===== solutions/node/s01-about-me.js  (exit code 0) =====
+আমার নাম Sadia Rahman।
+আমি Rajshahi শহরে থাকি।
+আমি নিজের Website তৈরি করার জন্য JavaScript শিখছি।
+
+===== solutions/node/s02-predict.js  (exit code 0) =====
+15
+20 - 5
+
+===== solutions/node/s03-fix-me-fixed.js  (exit code 0) =====
+শুরু
+মাঝখান
+শেষ
+
+===== solutions/node/s04-hello-with-comments.js  (exit code 0) =====
+Hello, JavaScript!
+
+===== solutions/node/s06-farewell.js  (exit code 0) =====
+বিদায়, Rahim! আবার দেখা হবে।
+বিদায়, Nusrat! আবার দেখা হবে।
+
+===== solutions/node/s07-describe-lesson.js  (exit code 0) =====
+আজকের পাঠ: console.log()
+শিরোনাম দেওয়া হয়নি।
+
+===== errors/e1-missing-quote.js  (exit code 1) =====
+e1-missing-quote.js:1
+console.log('Hello, JavaScript!);
+            ^^^^^^^^^^^^^^^^^^^^^
+
+SyntaxError: Invalid or unexpected token
+    at wrapSafe (node:internal/modules/cjs/loader:1662:18)
+    at Module._compile (node:internal/modules/cjs/loader:1704:20)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.16.0
+
+===== errors/e2-misspelled-name.js  (exit code 1) =====
+e2-misspelled-name.js:1
+consol.log('Hello, JavaScript!');
+^
+
+ReferenceError: consol is not defined
+    at Object.<anonymous> (e2-misspelled-name.js:1:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.16.0
+
+===== errors/e3-wrong-case.js  (exit code 1) =====
+e3-wrong-case.js:1
+console.Log('Hello, JavaScript!');
+        ^
+
+TypeError: console.Log is not a function
+    at Object.<anonymous> (e3-wrong-case.js:1:9)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.16.0
+
+===== errors/e4-missing-parenthesis.js  (exit code 1) =====
+e4-missing-parenthesis.js:1
+console.log('Hello, JavaScript!';
+            ^^^^^^^^^^^^^^^^^^^^
+
+SyntaxError: missing ) after argument list
+    at wrapSafe (node:internal/modules/cjs/loader:1662:18)
+    at Module._compile (node:internal/modules/cjs/loader:1704:20)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.16.0
+
+===== errors/e5-stack-trace.js  (exit code 1) =====
+e5-stack-trace.js:2
+  console.log(lessonTitle);
+              ^
+
+ReferenceError: lessonTitle is not defined
+    at showLesson (e5-stack-trace.js:2:15)
+    at startChapter (e5-stack-trace.js:6:3)
+    at Object.<anonymous> (e5-stack-trace.js:9:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+
+Node.js v22.16.0
+
+===== errors/e6-fix-me-original.js  (exit code 1) =====
+e6-fix-me-original.js:2
+console.log('মাঝখান);
+            ^^^^^^^^^
+
+SyntaxError: Invalid or unexpected token
+    at wrapSafe (node:internal/modules/cjs/loader:1662:18)
+    at Module._compile (node:internal/modules/cjs/loader:1704:20)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.16.0
+
+সব উদাহরণ প্রত্যাশা অনুযায়ী চলেছে (errors/ Folder-এর File-গুলোতে Error হওয়াই প্রত্যাশিত)।

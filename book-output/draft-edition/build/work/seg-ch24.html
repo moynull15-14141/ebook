@@ -1,0 +1,247 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-24"><header class="opener"><div class="chap-label">অধ্যায় ২৪</div><h1>JavaScript থেকে TypeScript — Static Typing, Type Safety এবং Professional Development Workflow</h1></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে পাঠক TypeScript-এর প্রয়োজনীয়তা ব্যাখ্যা করতে, <code>strict</code> Configuration ব্যবহার করতে, <code>unknown</code> Data Validate করতে, Discriminated Union দিয়ে Success/Error Model করতে, Type-safe Service Layer লিখতে এবং Automated Tests চালাতে পারবেন। Practical Project: <strong>TypeSafe Booking API</strong>।</p>
+<h2>২৪.১ JavaScript-এর Dynamic Typing থেকে TypeScript</h2>
+<p>JavaScript Runtime-এ একটি Variable-এর Value পরিবর্তনের সঙ্গে তার Type-ও বদলাতে পারে। এই নমনীয়তা দ্রুত Prototyping-এ সুবিধা দেয়; কিন্তু বড় Codebase-এ ভুল Property Name, ভুল Argument Type, Nullable Data ও API Contract-এর অসামঞ্জস্য ধরতে বেশি সময় লাগে। TypeScript JavaScript-এর ওপর Static Type Checking যোগ করে। TypeScript Compile হলে Type Annotation মুছে JavaScript Output তৈরি হয়। <strong>TypeScript নিজে Runtime Validation করে না।</strong></p>
+<figure class="code keep"><figcaption>TypeScript</figcaption><pre><code><span class="k">function</span> total(price: <span class="k">number</span>, quantity: <span class="k">number</span>): <span class="k">number</span> {
+  <span class="k">return</span> price * quantity;
+}
+<span class="c">// total('100', 2); // Compile-time error</span></code></pre></figure>
+<p><code>tsc</code> দিয়ে Type-checking করা হয়। TypeScript Type System শক্তিশালী হলেও কিছু ক্ষেত্রে Unsoundness থাকতে পারে—<code>any</code>, Type Assertion এবং External Input-এর ক্ষেত্রে সতর্কতা প্রয়োজন।</p>
+<h2>২৪.২ Project Setup</h2>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code>mkdir typesafe-booking-api
+cd typesafe-booking-api
+npm init -y
+npm install --save-dev typescript
+npx tsc --init</code></pre></figure>
+<p>এই বইয়ের Source Folder-এ <code>package.json</code>, <code>tsconfig.json</code>, <code>src/domain.ts</code>, <code>src/service.ts</code>, <code>src/api.ts</code> এবং <code>domain.test.mjs</code> দেওয়া হয়েছে। <code>module</code> ও <code>moduleResolution</code>-এ <code>NodeNext</code> ব্যবহার করা হয়েছে। Import-এ <code>.js</code> Extension লেখা হলেও TypeScript Source <code>.ts</code> File Resolve করে; Compiled ESM-এ Extension সঠিক থাকে।</p>
+<h2>২৪.৩ Basic Types ও Inference</h2>
+<figure class="code keep"><figcaption>TypeScript</figcaption><pre><code><span class="k">let</span> customerName: <span class="k">string</span> = <span class="s">'Amina'</span>;
+<span class="k">let</span> travelers = <span class="n">2</span>; <span class="c">// inferred as number</span>
+<span class="k">const</span> active: <span class="k">boolean</span> = <span class="k">true</span>;
+<span class="k">const</span> destinations: <span class="k">string</span>[] = [<span class="s">'Sylhet'</span>, <span class="s">'Cox’s Bazar'</span>];
+<span class="k">const</span> scores: Array&lt;<span class="k">number</span>&gt; = [<span class="n">80</span>, <span class="n">90</span>];</code></pre></figure>
+<p><code>const</code> Variable Reassignment আটকায়, কিন্তু Object-এর ভেতরের Property স্বয়ংক্রিয়ভাবে Immutable করে না। <code>readonly</code> Compile-time Protection দেয়; Runtime-এ Object Freeze করে না।</p>
+<h2>২৪.৪ <code>type</code>, <code>interface</code>, Union ও Literal Types</h2>
+<figure class="code keep"><figcaption>TypeScript</figcaption><pre><code><span class="k">type</span> BookingStatus = <span class="s">'pending'</span> | <span class="s">'confirmed'</span> | <span class="s">'cancelled'</span>;
+<span class="k">type</span> Currency = <span class="s">'BDT'</span>;
+<span class="k">interface</span> Package {
+  <span class="k">readonly</span> id: <span class="k">string</span>;
+  <span class="k">readonly</span> title: <span class="k">string</span>;
+  <span class="k">readonly</span> priceBDT: <span class="k">number</span>;
+}</code></pre></figure>
+<p><code>interface</code> Object Contract ও Extensibility-তে সুবিধাজনক। <code>type</code> Union, Tuple, Conditional Type ও Composite Type প্রকাশ করতে পারে। একটি Team-এর Consistent Convention সবচেয়ে গুরুত্বপূর্ণ।</p>
+<h2>২৪.৫ Optional Properties, Null এবং Strict Mode</h2>
+<figure class="code keep"><figcaption>TypeScript</figcaption><pre><code><span class="k">interface</span> Customer {
+  id: <span class="k">string</span>;
+  email?: <span class="k">string</span>;
+}
+<span class="k">function</span> displayEmail(customer: Customer): <span class="k">string</span> {
+  <span class="k">return</span> customer.email?.toLowerCase() ?? <span class="s">'No email'</span>;
+}</code></pre></figure>
+<p><code>strictNullChecks</code> চালু থাকলে <code>null</code>/<code>undefined</code> ভুলভাবে ব্যবহার করার সম্ভাবনা কমে। <code>noUncheckedIndexedAccess</code> Array Indexing-এর ফলকে Potentially Undefined ধরে; <code>exactOptionalPropertyTypes</code> Optional Property-এর Semantics স্পষ্ট করে।</p>
+<h2>২৪.৬ <code>unknown</code> বনাম <code>any</code>: Trust Boundary</h2>
+<p>HTTP Request, JSON File ও <code>localStorage</code> থেকে আসা Data <strong>অবিশ্বস্ত</strong>। <code>JSON.parse()</code>-এর Result-কে সরাসরি Domain Type হিসেবে Cast করা বিপজ্জনক। <code>unknown</code> গ্রহণ করে Runtime Check করুন।</p>
+<figure class="code keep"><figcaption>TypeScript</figcaption><pre><code><span class="k">function</span> isRecord(value: <span class="k">unknown</span>): value is Record&lt;<span class="k">string</span>, <span class="k">unknown</span>&gt; {
+  <span class="k">return</span> <span class="k">typeof</span> value === <span class="s">'object'</span> &amp;&amp; value !== <span class="k">null</span> &amp;&amp; !Array.isArray(value);
+}
+<span class="k">function</span> getCustomerName(input: <span class="k">unknown</span>): <span class="k">string</span> | <span class="k">null</span> {
+  <span class="k">if</span> (!isRecord(input)) <span class="k">return</span> <span class="k">null</span>;
+  <span class="k">return</span> <span class="k">typeof</span> input.customerName === <span class="s">'string'</span> ? input.customerName : <span class="k">null</span>;
+}</code></pre></figure>
+<p>Production-এ Zod বা অনুরূপ Schema Validation Library ব্যবহার করা যায়, তবে এখানে Dependency ছাড়াই Validation দেখানো হয়েছে। Type Assertion (<code>as</code>) Runtime-এ Value রূপান্তর করে না।</p>
+<h2>২৪.৭ Discriminated Union দিয়ে Error Handling</h2>
+<figure class="code keep"><figcaption>TypeScript</figcaption><pre><code><span class="k">type</span> Result&lt;T, E&gt; =
+  | { ok: <span class="k">true</span>; value: T }
+  | { ok: <span class="k">false</span>; error: E };
+
+<span class="k">function</span> divide(a: <span class="k">number</span>, b: <span class="k">number</span>): Result&lt;<span class="k">number</span>, <span class="k">string</span>&gt; {
+  <span class="k">return</span> b === <span class="n">0</span> ? { ok: <span class="k">false</span>, error: <span class="s">'Cannot divide by zero'</span> }
+                 : { ok: <span class="k">true</span>, value: a / b };
+}
+<span class="k">const</span> answer = divide(<span class="n">10</span>, <span class="n">2</span>);
+<span class="k">if</span> (answer.ok) console.log(answer.value);
+<span class="k">else</span> console.error(answer.error);</code></pre></figure>
+<p><code>ok</code> Field দেখে Compiler Narrowing করতে পারে। এতে Error Path বাদ পড়ার ঝুঁকি কমে।</p>
+<h2>২৪.৮ Generics এবং Reusable Abstractions</h2>
+<figure class="code keep"><figcaption>TypeScript</figcaption><pre><code><span class="k">function</span> first&lt;T&gt;(items: <span class="k">readonly</span> T[]): T | <span class="k">undefined</span> {
+  <span class="k">return</span> items[<span class="n">0</span>];
+}
+<span class="k">const</span> n = first([<span class="n">10</span>, <span class="n">20</span>]); <span class="c">// number | undefined</span>
+<span class="k">const</span> s = first([<span class="s">'a'</span>, <span class="s">'b'</span>]); <span class="c">// string | undefined</span></code></pre></figure>
+<p>Generics দিয়ে Reusable Function Type Information ধরে রাখে। অপ্রয়োজনীয় Complex Generic-এর বদলে পরিষ্কার Domain Type ব্যবহার করুন।</p>
+<h2>২৪.৯ <code>keyof</code>, <code>Pick</code>, <code>Omit</code>, <code>Partial</code>, <code>Record</code></h2>
+<figure class="code keep"><figcaption>TypeScript</figcaption><pre><code><span class="k">interface</span> User { id: <span class="k">string</span>; name: <span class="k">string</span>; role: <span class="s">'admin'</span> | <span class="s">'viewer'</span> }
+<span class="k">type</span> PublicUser = Pick&lt;User, <span class="s">'id'</span> | <span class="s">'name'</span>&gt;;
+<span class="k">type</span> NewUser = Omit&lt;User, <span class="s">'id'</span>&gt;;
+<span class="k">type</span> UserPatch = Partial&lt;NewUser&gt;;
+<span class="k">const</span> labels: Record&lt;User[<span class="s">'role'</span>], <span class="k">string</span>&gt; = {
+  admin: <span class="s">'Administrator'</span>, viewer: <span class="s">'Read-only'</span>
+};</code></pre></figure>
+<p>Utility Types Domain Contract রূপান্তরে সাহায্য করে; এগুলো Runtime Sanitization বা Authorization-এর বিকল্প নয়।</p>
+<h2>২৪.১০ Exhaustiveness Checking এবং State Machines</h2>
+<figure class="code keep"><figcaption>TypeScript</figcaption><pre><code><span class="k">type</span> Status = <span class="s">'pending'</span> | <span class="s">'confirmed'</span> | <span class="s">'cancelled'</span>;
+<span class="k">function</span> assertNever(value: <span class="k">never</span>): <span class="k">never</span> {
+  <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">`Unexpected: ${String(value)}`</span>);
+}
+<span class="k">function</span> label(status: Status): <span class="k">string</span> {
+  <span class="k">switch</span> (status) {
+    <span class="k">case</span> <span class="s">'pending'</span>: <span class="k">return</span> <span class="s">'Pending'</span>;
+    <span class="k">case</span> <span class="s">'confirmed'</span>: <span class="k">return</span> <span class="s">'Confirmed'</span>;
+    <span class="k">case</span> <span class="s">'cancelled'</span>: <span class="k">return</span> <span class="s">'Cancelled'</span>;
+    <span class="k">default</span>: <span class="k">return</span> assertNever(status);
+  }
+}</code></pre></figure>
+<p>নতুন Status যোগ করলে Exhaustive Switch Compile-time Feedback দিতে পারে। কিন্তু Business Transition Rules আলাদা Validate করতে হবে—যেমন <code>cancelled</code> থেকে <code>confirmed</code>-এ ফেরানো নিষিদ্ধ।</p>
+<h2>২৪.১১ Practical Project — TypeSafe Booking API</h2>
+<p>এই Project-এর Architecture:</p>
+<figure class="code keep"><pre><code>Unknown Input
+   ↓ Runtime validation (domain.ts)
+Typed CreateBookingInput
+   ↓ BookingService (service.ts)
+InMemoryBookingRepository
+   ↓
+Typed Booking Result
+   ↓
+Transport Adapter (api.ts)</code></pre></figure>
+<p><strong>Features:</strong> Package Catalog, Booking Validation, Price Calculation, Duplicate ID Check, Status Transition, Typed Error Codes এবং Automated Tests। Sample Packages ও Prices শুধুই শিক্ষামূলক; বাস্তব Booking বা Payment Processing নেই।</p>
+<h3>File Responsibilities</h3>
+<ul><li><code>domain.ts</code>: Type Definitions, <code>Result</code>, Validation, Calculation, Exhaustive Status Label।</li><li><code>service.ts</code>: Dependency-injected Repository, Booking Business Rules।</li><li><code>api.ts</code>: HTTP-like Request Adapter; এটি Network Server নয়।</li><li><code>domain.test.ts</code>: Positive, Negative, Boundary ও State Transition Tests।</li><li><code>tsconfig.json</code>: Strict Compiler Settings।</li></ul>
+<h3>Build ও Test</h3>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code>cd source-code/chapter-24
+npm install
+npm run build
+npm test</code></pre></figure>
+<p><code>npm run build</code> TypeScript Source-কে <code>dist/</code> Folder-এ JavaScript হিসেবে Emit করবে। <code>npm test</code> Build করে Node.js Test Runner চালাবে। Dependency Installation-এর জন্য Internet প্রয়োজন হতে পারে।</p>
+<h3>Architecture Decisions</h3>
+<p><strong>Repository Interface:</strong> Business Logic Data Storage-এর নির্দিষ্ট Implementation-এর ওপর নির্ভরশীল নয়। <strong>Unknown Input:</strong> API Boundary-তে Validation বাধ্যতামূলক। <strong>Discriminated Result:</strong> Failure Cases Explicit। <strong>Immutable Booking Update:</strong> Status Change-এ Spread দিয়ে নতুন Object তৈরি হয়। <strong>Integer BDT:</strong> Demo-তে পূর্ণ টাকায় হিসাব; Fractional Currency থাকলে Minor Unit Strategy ব্যবহার করুন।</p>
+<h2>২৪.১২ Common Mistakes</h2>
+<p>১. <code>any</code> দিয়ে Type Error চেপে দেওয়া। ২. <code>as Booking</code> লিখে JSON-কে Trusted ধরে নেওয়া। ৩. <code>strict</code> বন্ধ রাখা। ৪. <code>readonly</code>-কে Deep Runtime Immutability ভাবা। ৫. API Contract আর Database Constraint এক জিনিস মনে করা। ৬. Status Transition Validation বাদ দেওয়া। ৭. Domain Logic সরাসরি UI বা Route Handler-এ লেখা। ৮. Compile Success-কে Full Security Assurance মনে করা।</p>
+<h2>২৪.১৩ Exercises — ১০টি</h2>
+<p>১. <code>Trip</code> Interface তৈরি করুন, যেখানে <code>id</code>, <code>destination</code>, <code>priceBDT</code> থাকবে।<br>২. <code>PaymentStatus</code> Literal Union তৈরি করুন: <code>unpaid</code>, <code>paid</code>, <code>refunded</code>।<br>৩. <code>first&lt;T&gt;()</code> Function-এর Empty Array Case Handle করুন।<br>৪. <code>unknown</code> Input থেকে Valid Phone String বের করার Type Guard লিখুন।<br>৫. <code>Result&lt;number,string&gt;</code> দিয়ে Discount Calculation করুন।<br>৬. <code>Pick</code> দিয়ে <code>PublicBooking</code> Type তৈরি করুন।<br>৭. <code>BookingStatus</code>-এ নতুন <code>expired</code> Value যোগ করে Exhaustiveness Error পর্যবেক্ষণ করুন।<br>৮. Travelers <code>0</code>, <code>21</code>, <code>2.5</code> দিয়ে Validation Test করুন।<br>৯. Duplicate Booking ID-এর Negative Test লিখুন।<br>১০. <code>InMemoryBookingRepository</code> বদলে File-backed Repository-এর Interface Design করুন (Implementation ঐচ্ছিক)।</p>
+<h3>Sample Solutions</h3>
+<figure class="code"><figcaption>TypeScript</figcaption><pre><code><span class="c">// 1</span>
+<span class="k">type</span> Trip = { id: <span class="k">string</span>; destination: <span class="k">string</span>; priceBDT: <span class="k">number</span> };
+<span class="c">// 2</span>
+<span class="k">type</span> PaymentStatus = <span class="s">'unpaid'</span> | <span class="s">'paid'</span> | <span class="s">'refunded'</span>;
+<span class="c">// 3</span>
+<span class="k">function</span> first&lt;T&gt;(items: <span class="k">readonly</span> T[]): T | <span class="k">undefined</span> { <span class="k">return</span> items[<span class="n">0</span>]; }
+<span class="c">// 4</span>
+<span class="k">function</span> isPhone(input: <span class="k">unknown</span>): input is <span class="k">string</span> {
+  <span class="k">return</span> <span class="k">typeof</span> input === <span class="s">'string'</span> &amp;&amp; /^\+?[<span class="n">0</span>-<span class="n">9</span>]{<span class="n">7</span>,<span class="n">15</span>}$/.test(input);
+}
+<span class="c">// 5</span>
+<span class="k">type</span> Result&lt;T,E&gt; = {ok:<span class="k">true</span>;value:T}|{ok:<span class="k">false</span>;error:E};
+<span class="k">function</span> discount(amount:<span class="k">number</span>, percent:<span class="k">number</span>):Result&lt;<span class="k">number</span>,<span class="k">string</span>&gt;{
+  <span class="k">if</span>(!Number.isFinite(amount)||amount&lt;<span class="n">0</span>||percent&lt;<span class="n">0</span>||percent&gt;<span class="n">100</span>)
+    <span class="k">return</span> {ok:<span class="k">false</span>,error:<span class="s">'Invalid amount or percent'</span>};
+  <span class="k">return</span> {ok:<span class="k">true</span>,value:amount*(<span class="n">1</span>-percent/<span class="n">100</span>)};
+}
+<span class="c">// 6</span>
+<span class="k">type</span> Booking = {id:<span class="k">string</span>;customerName:<span class="k">string</span>;totalBDT:<span class="k">number</span>};
+<span class="k">type</span> PublicBooking = Pick&lt;Booking,<span class="s">'id'</span>|<span class="s">'totalBDT'</span>&gt;;
+<span class="c">// 7: Add 'expired' to the union, then update the exhaustive switch.</span>
+<span class="c">// 8–9: See domain.test.mjs for boundary and duplicate tests.</span>
+<span class="c">// 10: Implement the BookingRepository interface in a new class.</span></code></pre></figure>
+<h2>২৪.১৪ Knowledge Check — ১০টি MCQ</h2>
+<p>১. TypeScript Type Annotation Runtime-এ থাকে? A) সবসময় B) না C) শুধু Browser-এ D) শুধু Node-এ<br>২. External JSON-এর জন্য নিরাপদ Starting Type? A) any B) never C) unknown D) void<br>৩. <code>strictNullChecks</code> কী করে? A) Null Risk Check B) Network Security C) CSS Validation D) Bundle Compression<br>৪. <code>readonly</code> কি Object Deep Freeze করে? A) হ্যাঁ B) না C) শুধু Array D) শুধু Class<br>৫. Generic-এর উদ্দেশ্য কী? A) Reusable Typed Logic B) HTML Styling C) Runtime Encryption D) Database Migration<br>৬. <code>Pick&lt;User,'id'&gt;</code> কী? A) Selected Properties Type B) Delete User C) Fetch API D) CSS Selector<br>৭. Discriminated Union Narrowing-এর ভিত্তি কী? A) Shared Literal Field B) File Name C) Comment D) Folder<br>৮. <code>never</code> কোন কাজে উপযোগী? A) Exhaustiveness Check B) Image Resize C) Cache Expiry D) HTTP Request<br>৯. <code>as Booking</code> কি Runtime Validation? A) হ্যাঁ B) না C) শুধু Test-এ D) শুধু Production-এ<br>১০. Type-safe Project-এর Production Security-এর জন্য আর কী দরকার? A) Runtime Validation ও Authorization B) শুধু Compile C) শুধু CSS D) শুধু Comments</p>
+<h3>Answer Key ও Explanations</h3>
+<p>১. <strong>B</strong> — Compile-এর পরে Type Annotation সাধারণত থাকে না। ২. <strong>C</strong> — <code>unknown</code> ব্যবহারে Narrowing বাধ্যতামূলক। ৩. <strong>A</strong> — Nullable Value Access Check করে। ৪. <strong>B</strong> — এটি Static Constraint। ৫. <strong>A</strong> — Type Information ধরে Reuse করা যায়। ৬. <strong>A</strong> — নির্দিষ্ট Properties নির্বাচন করে। ৭. <strong>A</strong> — <code>ok</code>-এর মতো Literal Field। ৮. <strong>A</strong> — Unhandled Case ধরতে। ৯. <strong>B</strong> — Type Assertion Runtime Check নয়। ১০. <strong>A</strong> — Compiler Security Boundary নয়।</p>
+<h2>২৪.১৫ Chapter Summary</h2>
+<p>TypeScript JavaScript-এর সঙ্গে Type Safety ও Maintainability যোগ করে, কিন্তু Runtime Input, Authentication, Authorization এবং Database Consistency আলাদাভাবে নিশ্চিত করতে হয়। TypeSafe Booking API-এর Typed Domain, Service, Repository ও Adapter Design পরবর্তী <strong>Chapter 25: Node.js Backend, Express, Database ও Authentication</strong>-এর ভিত্তি।</p>
+</section></body></html>

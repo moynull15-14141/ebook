@@ -1,0 +1,14 @@
+PASS  source listings: 24 identical to a real file, 3 partial snippets whose every line exists in a tested file, 0 unverified
+PASS  output/error panels: 54 lines checked against recorded run logs, 0 not found
+PASS  every source listing states where it runs (27 listings)
+PASS  MCQs: 10 questions, 40 options
+PASS  MCQ answers with explanations: 10
+PASS  answer key uses all four positions: গকঘখগখগকঘক
+PASS  required sections present: 14 of 14
+PASS  exercise level present: প্রাথমিক স্তর
+PASS  exercise level present: মধ্যম স্তর
+PASS  exercise level present: চ্যালেঞ্জ স্তর
+PASS  exercise solutions: 12 of 12
+PASS  informal address forms in prose: চালাও। চালাও। চালাও।
+
+All manuscript checks passed

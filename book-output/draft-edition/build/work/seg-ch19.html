@@ -1,0 +1,259 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-19"><header class="opener"><div class="chap-label">অধ্যায় ১৯</div><h1>JavaScript Performance Optimization, Memory Management এবং Web Application Efficiency</h1><p class="meta"><strong>Practical Project:</strong> DataPulse Explorer — ১০,০০০ রেকর্ডের Search, Sort ও Virtual Scrolling Dashboard।</p></header>
+<h2>Learning Outcomes</h2>
+<p>এই অধ্যায় শেষে তুমি পারবে (১) Performance Bottleneck চিহ্নিত করতে, (২) Time Complexity ও বাস্তব Benchmark-এর পার্থক্য বুঝতে, (৩) Browser Main Thread-এর কাজ কমাতে, (৪) Memory Leak প্রতিরোধ করতে, (৫) Virtualization ও Debounce প্রয়োগ করতে, এবং (৬) DevTools দিয়ে পরিবর্তনের ফল যাচাই করতে।</p>
+<h2>১৯.১ Performance বলতে কী বোঝায়?</h2>
+<p>একটি Web Application দ্রুত মনে হওয়ার জন্য শুধু JavaScript Function দ্রুত হওয়া যথেষ্ট নয়। Network, JavaScript Execution, Style Calculation, Layout, Paint এবং User Input Response—সবকিছু মিলে ব্যবহারকারীর অভিজ্ঞতা তৈরি হয়। <strong>Latency</strong> হলো একটি কাজ শেষ হতে সময়; <strong>Throughput</strong> হলো নির্দিষ্ট সময়ে কত কাজ করা যায়। ১০,০০০ রেকর্ড Filter করতে ৩ ms লাগলেও ১০,০০০ DOM Row আঁকতে ২০০ ms লাগতে পারে। তাই Optimization-এর আগে কোথায় সময় ব্যয় হচ্ছে তা জানতে হবে।</p>
+<p><strong>Rule:</strong> Measure → Identify Bottleneck → Change One Thing → Measure Again। অকারণে <code>for</code> বনাম <code>map</code> নিয়ে Micro-optimization করলে বড় Bottleneck অমীমাংসিত থাকতে পারে।</p>
+<h2>১৯.২ Big-O: Algorithmic Growth</h2>
+<table><thead><tr><th>Complexity</th><th>সাধারণ উদাহরণ</th><th>১০ থেকে ১০,০০০ Input হলে</th></tr></thead><tbody><tr><td>O(1)</td><td><code>Map.get(key)</code> — average-case</td><td>তুলনামূলক স্থির</td></tr><tr><td>O(log n)</td><td>Sorted Data-তে Binary Search</td><td>ধীরে বাড়ে</td></tr><tr><td>O(n)</td><td>Array Scan</td><td>প্রায় Input-এর অনুপাতে</td></tr><tr><td>O(n log n)</td><td>Efficient Comparison Sort</td><td>n-এর চেয়ে দ্রুত বাড়ে</td></tr><tr><td>O(n²)</td><td>Nested Pairwise Comparison</td><td>বড় Data-তে অত্যন্ত ব্যয়বহুল</td></tr></tbody></table>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// O(n²): প্রতিটি Product-এর সঙ্গে সব Product মিলানো</span>
+<span class="k">for</span> (<span class="k">const</span> a <span class="k">of</span> products) {
+  <span class="k">for</span> (<span class="k">const</span> b <span class="k">of</span> products) {
+    <span class="k">if</span> (a.id === b.id) { <span class="c">/* ... */</span> }
+  }
+}
+
+<span class="c">// ID Lookup বারবার দরকার হলে একটি Map তৈরি করা ভালো।</span>
+<span class="k">const</span> byId = <span class="k">new</span> Map(products.map(item =&gt; [item.id, item]));
+<span class="k">const</span> product = byId.<span class="k">get</span>(<span class="n">42</span>); <span class="c">// average-case O(1)</span></code></pre></figure>
+<p><code>Map</code> তৈরিতে O(n) সময় ও অতিরিক্ত Memory লাগে। তাই একবার Lookup-এর জন্য সবসময় <code>Map</code> বানানো লাভজনক নয়। <strong>Time–Space Tradeoff</strong> বুঝে সিদ্ধান্ত নিতে হবে।</p>
+<h2>১৯.৩ Performance Measurement</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> start = performance.now();
+<span class="k">const</span> result = expensiveCalculation();
+<span class="k">const</span> duration = performance.now() - start;
+console.log({ duration, result });</code></pre></figure>
+<p><code>performance.now()</code> High-Resolution Clock দেয়। কিন্তু একটি Measurement যথেষ্ট নয়: JIT Warm-up, Garbage Collection, Background Tab Throttling ও Machine Load-এর কারণে ফল বদলায়। একই Data দিয়ে বহুবার চালিয়ে Median/Distribution দেখো। Production User Experience যাচাই করতে Browser Performance Panel ও Real-User Metrics ব্যবহার করো।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> benchmark(fn, iterations = <span class="n">30</span>) {
+  <span class="k">for</span> (<span class="k">let</span> i = <span class="n">0</span>; i &lt; <span class="n">5</span>; i++) fn(); <span class="c">// warm-up</span>
+  <span class="k">const</span> samples = [];
+  <span class="k">for</span> (<span class="k">let</span> i = <span class="n">0</span>; i &lt; iterations; i++) {
+    <span class="k">const</span> t = performance.now();
+    fn();
+    samples.push(performance.now() - t);
+  }
+  samples.sort((a, b) =&gt; a - b);
+  <span class="k">return</span> { medianMs: samples[Math.floor(samples.length / <span class="n">2</span>)], samples };
+}</code></pre></figure>
+<p><strong>সতর্কতা:</strong> Benchmark-এ Result ব্যবহার না করলে Optimizer কাজ বাদ দিতে পারে; Browser Rendering Benchmark-এ DOM Paint-এর খরচ আলাদা বিবেচনা করতে হবে।</p>
+<h2>১৯.৪ Main Thread ও Long Tasks</h2>
+<p>Browser-এর Main Thread JavaScript, Input Processing এবং Rendering-এর বহু কাজ সামলায়। দীর্ঘ Synchronous Loop User Interaction আটকে দিতে পারে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// বড় কাজকে Chunk-এ ভাগ করা: Browser-কে মাঝে কাজের সুযোগ দেওয়া।</span>
+<span class="k">async</span> <span class="k">function</span> processInChunks(items, process, chunkSize = <span class="n">500</span>) {
+  <span class="k">for</span> (<span class="k">let</span> i = <span class="n">0</span>; i &lt; items.length; i += chunkSize) {
+    <span class="k">for</span> (<span class="k">const</span> item <span class="k">of</span> items.slice(i, i + chunkSize)) process(item);
+    <span class="k">await</span> <span class="k">new</span> Promise(resolve =&gt; setTimeout(resolve, <span class="n">0</span>));
+  }
+}</code></pre></figure>
+<p><code>setTimeout(0)</code> সঙ্গে সঙ্গে চলার নিশ্চয়তা দেয় না; এটি শুধু পরবর্তী Task-এ কাজ সরায়। Heavy CPU Computation-এর জন্য <strong>Web Worker</strong> ব্যবহার করা যায়; Worker সরাসরি DOM পরিবর্তন করতে পারে না। Large Data Transfer-এ Structured Clone ও Transferable Objects বিবেচনা করতে হয়।</p>
+<h2>১৯.৫ DOM Rendering কেন ধীর হয়?</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// সমস্যা: প্রতিবার ১০,০০০ Row DOM-এ রাখা</span>
+<span class="k">for</span> (<span class="k">const</span> item <span class="k">of</span> items) {
+  list.append(createRow(item));
+}</code></pre></figure>
+<p>অনেক DOM Node Memory ও Layout Cost বাড়ায়। <code>DocumentFragment</code> দিয়ে Batch Append কিছু Overhead কমাতে পারে, কিন্তু DOM-এ ১০,০০০ Row থাকলে সমস্যার মূল সমাধান হয় না। <strong>Virtualization</strong> শুধু দৃশ্যমান Row এবং সামান্য Overscan Render করে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> rowHeight = <span class="n">40</span>;
+<span class="k">const</span> start = Math.max(<span class="n">0</span>, Math.floor(scrollTop / rowHeight) - <span class="n">5</span>);
+<span class="k">const</span> end = Math.min(total, Math.ceil((scrollTop + viewportHeight) / rowHeight) + <span class="n">5</span>);
+<span class="k">const</span> visibleItems = items.slice(start, end);</code></pre></figure>
+<p>এই কৌশলটি Fixed-Height Rows ধরে। Variable-Height Rows হলে Measurement Cache ও Dynamic Positioning দরকার। Accessibility, Keyboard Navigation ও Screen Reader Support-ও পরীক্ষা করতে হবে।</p>
+<h2>১৯.৬ Debounce ও Throttle</h2>
+<p>User প্রতিটি Key চাপলে ১০,০০০ Item Search চালানো অপ্রয়োজনীয় হতে পারে। <strong>Debounce</strong> শেষ Input-এর পর নির্দিষ্ট সময় অপেক্ষা করে; <strong>Throttle</strong> নির্দিষ্ট Interval-এ সর্বোচ্চ একবার কাজ চালায়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> debounce(fn, delay = <span class="n">200</span>) {
+  <span class="k">let</span> timer;
+  <span class="k">return</span> (...args) =&gt; {
+    clearTimeout(timer);
+    timer = setTimeout(() =&gt; fn(...args), delay);
+  };
+}
+searchInput.addEventListener(<span class="s">'input'</span>, debounce(updateResults, <span class="n">180</span>));</code></pre></figure>
+<p>Debounce-এর ফলে Response একটু দেরিতে আসে; Input Type ও UX অনুযায়ী Delay বেছে নিতে হবে। Scroll Rendering-এ <code>requestAnimationFrame</code> সাধারণত উপযোগী।</p>
+<h2>১৯.৭ Memory Model ও Garbage Collection</h2>
+<p>JavaScript Engine Reachability অনুসারে অপ্রয়োজনীয় Object-এর Memory Reclaim করে। <code>const</code>/<code>let</code> ব্যবহার করলেই Memory Leak বন্ধ হয় না। <strong>Leak</strong> হলো প্রয়োজন শেষ হওয়ার পরও কোনো Object Reference ধরে রাখা।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> handler = () =&gt; console.log(<span class="s">'resize'</span>);
+window.addEventListener(<span class="s">'resize'</span>, handler);
+
+<span class="c">// Component বা Feature বন্ধ করার সময়:</span>
+window.removeEventListener(<span class="s">'resize'</span>, handler);</code></pre></figure>
+<p>সম্ভাব্য Leak Source: Unremoved Event Listener, <code>setInterval</code>, Unbounded Cache, Detached DOM Nodes, Global Collections, Long-Lived Closure। <code>WeakMap</code>-এ Object Key-এর Weak Reference থাকে, তবে এটি সব Leak-এর সমাধান নয়। Memory Tab-এ Heap Snapshot ও Retainer Paths দেখো।</p>
+<h2>১৯.৮ Cache: সুবিধা ও ঝুঁকি</h2>
+<p>Repeated Expensive Computation-এর জন্য Memoization উপকারী, তবে Cache Memory নেয় এবং Stale Data-এর ঝুঁকি থাকে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> cache = <span class="k">new</span> Map();
+<span class="k">function</span> cachedSummary(key, items) {
+  <span class="k">if</span> (cache.has(key)) <span class="k">return</span> cache.<span class="k">get</span>(key);
+  <span class="k">const</span> value = items.reduce((sum, x) =&gt; sum + x.price, <span class="n">0</span>);
+  cache.<span class="k">set</span>(key, value);
+  <span class="k">return</span> value;
+}</code></pre></figure>
+<p>এখানে <code>key</code> যদি Data Version অনুযায়ী না বদলায়, ভুল Result পাওয়া যাবে। Unbounded <code>Map</code> সময়ের সঙ্গে বড় হতে পারে। TTL, LRU, Max Size অথবা Explicit Invalidation প্রয়োজন হতে পারে।</p>
+<h2>১৯.৯ Network, Bundles ও Lazy Loading</h2>
+<p>সব Performance সমস্যা JavaScript Loop-এর নয়। বড় Bundle, Blocking Script, Large Images, অতিরিক্ত API Calls এবং Third-Party Scripts Page Slow করতে পারে। <code>defer</code>, ES Modules, Dynamic <code>import()</code>, Code Splitting, Compression, Cache Headers ও Image Optimization প্রাসঙ্গিক।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// ব্যবহারকারী Feature খুললেই Heavy Module Load</span>
+button.addEventListener(<span class="s">'click'</span>, <span class="k">async</span> () =&gt; {
+  <span class="k">const</span> { renderChart } = <span class="k">await</span> <span class="k">import</span>(<span class="s">'./charts.js'</span>);
+  renderChart();
+});</code></pre></figure>
+<p><code>import()</code> Promise Return করে; Loading Error Handle করতে হবে। Browser DevTools Network Panel-এ Download Size, Waterfall ও Cache Behavior যাচাই করো।</p>
+<h2>১৯.১০ Practical Project — DataPulse Explorer</h2>
+<p><strong>Scenario:</strong> একটি Dashboard-এ ১০,০০০ Product-like Record আছে। Search, Category Filter ও Sorting থাকবে। কিন্তু Screen-এ একসঙ্গে হাজার হাজার Row না এঁকে Virtual Window ব্যবহার করব।</p>
+<p><strong>Project Structure</strong></p>
+<figure class="code keep"><pre><code>source-code/chapter-19/
+├── index.html
+├── style.css
+├── data-core.mjs
+├── app.mjs
+└── data-core.test.mjs</code></pre></figure>
+<p><strong>Run:</strong> Project Directory-তে <code>python -m http.server 8000</code> চালিয়ে <code>http://localhost:8000</code> খুলো। ES Modules <code>file://</code> থেকে চালালে Browser Security Restrictions দেখা দিতে পারে। Tests: <code>node --test data-core.test.mjs</code>।</p>
+<p><strong>Domain Logic:</strong> <code>createDataset()</code> Deterministic Records তৈরি করে; <code>queryDataset()</code> Filter ও Sort করে, Original Array Mutate করে না; <code>summarize()</code> Count ও Average হিসাব করে; <code>windowRange()</code> Visible Slice-এর Index দেয়। Source Files-এ সম্পূর্ণ Implementation আছে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> all = createDataset(<span class="n">10000</span>);
+<span class="k">const</span> result = queryDataset(all, { category: <span class="s">'Books'</span>, sort: <span class="s">'price-desc'</span> });
+<span class="k">const</span> { start, end } = windowRange(result.length, <span class="n">1200</span>, <span class="n">40</span>, <span class="n">400</span>, <span class="n">6</span>);
+<span class="k">const</span> visible = result.slice(start, end);</code></pre></figure>
+<p><strong>UI Rendering:</strong> <code>app.mjs</code>-এ Scroll Event-কে <code>requestAnimationFrame</code> দিয়ে Batch করা হয়েছে; DOM-এ শুধু Visible Rows রাখা হয়। <code>textContent</code> দিয়ে Safe Text Rendering করা হয়েছে। Search Input Debounced; Filter ও Sort Change সঙ্গে সঙ্গে Apply হয়। Query Duration <code>performance.now()</code> দিয়ে মাপা হয়।</p>
+<p><strong>Performance Experiment:</strong> DevTools Elements Panel-এ দেখো ১০,০০০ Record থাকা সত্ত্বেও Rendered Row সাধারণত কয়েক ডজন। তারপর Search ও Scroll করে FPS/Responsiveness পর্যবেক্ষণ করো। এটি Virtualization-এর সুফল দেখায়; সব Device-এ নির্দিষ্ট Millisecond Performance-এর নিশ্চয়তা নয়।</p>
+<h2>১৯.১১ Debugging &amp; Profiling Checklist</h2>
+<ol><li>Performance Panel-এ Record চালু করে Search/Scroll করো।</li><li>Main Thread-এ Long Task আছে কি না দেখো।</li><li>Scripting, Rendering ও Painting Time আলাদা করো।</li><li>Memory Heap Snapshot নিয়ে Repeat Interaction-এর পরে Compare করো।</li><li>Filter/Sort Result Correct কি না Automated Tests চালাও।</li><li>Low-End Device ও Slow Network Emulation-এ Test করো।</li><li>Keyboard, Focus ও Screen Reader Usability যাচাই করো।</li></ol>
+<h2>১৯.১২ Common Mistakes</h2>
+<ul><li><strong>Premature Optimization:</strong> Problem না মেপে Code জটিল করা।</li><li><strong><code>sort()</code> Mutation:</strong> Original Array বদলে যায়; Copy করে Sort করো।</li><li><strong>Unbounded Cache:</strong> Cached Object কখনো Clear না করা।</li><li><strong>Scroll Handler Overwork:</strong> প্রতিটি Scroll Event-এ Heavy Computation চালানো।</li><li><strong>Virtualization = Free Performance:</strong> Filtering/Sorting এখনো সম্পূর্ণ Array-এ চলে।</li><li><strong>Benchmark Confusion:</strong> One-off Local Timing-কে Production Performance ধরে নেওয়া।</li><li><strong>Detached DOM Leak:</strong> Listener/Reference Cleanup না করা।</li></ul>
+<h2>১৯.১৩ Exercises — ১০টি</h2>
+<ol><li><code>performance.now()</code> দিয়ে Array Filter-এর Duration মাপো।</li><li>১০,০০০ Record থেকে <code>category === 'Books'</code> Filter করো।</li><li>Original Array অপরিবর্তিত রেখে Price Descending Sort করো।</li><li>Empty Array-এর Average শূন্য Return করার Function লেখো।</li><li>৪০ px Row Height ও ৪০০ px Viewport-এর Visible Range বের করো।</li><li>Debounce Function লেখো এবং Rapid Calls-এর Result পরীক্ষা করো।</li><li><code>Map</code>-ভিত্তিক ID Lookup তৈরি করো।</li><li><code>setInterval</code>-এর Cleanup Function লেখো।</li><li>৫০০টি Item করে Async Chunk Processing Implement করো।</li><li>DataPulse-এর Filter/Sort ও Virtualization Test Cases যোগ করো।</li></ol>
+<h2>১৯.১৪ Sample Solutions</h2>
+<figure class="code"><figcaption>JavaScript</figcaption><pre><code><span class="c">// 1</span>
+<span class="k">const</span> t0 = performance.now();
+<span class="k">const</span> expensiveResult = numbers.filter(n =&gt; n % <span class="n">2</span> === <span class="n">0</span>);
+console.log(performance.now() - t0);
+
+<span class="c">// 2</span>
+<span class="k">const</span> books = items.filter(item =&gt; item.category === <span class="s">'Books'</span>);
+
+<span class="c">// 3</span>
+<span class="k">const</span> descending = [...items].sort((a, b) =&gt; b.price - a.price);
+
+<span class="c">// 4</span>
+<span class="k">const</span> average = xs =&gt; xs.length ? xs.reduce((s, x) =&gt; s + x, <span class="n">0</span>) / xs.length : <span class="n">0</span>;
+
+<span class="c">// 5</span>
+<span class="k">const</span> start = Math.max(<span class="n">0</span>, Math.floor(scrollTop / <span class="n">40</span>) - <span class="n">5</span>);
+<span class="k">const</span> end = Math.min(totalRows, Math.ceil((scrollTop + <span class="n">400</span>) / <span class="n">40</span>) + <span class="n">5</span>);
+
+<span class="c">// 6: source-code/chapter-19/data-core.mjs → debounce()</span>
+
+<span class="c">// 7</span>
+<span class="k">const</span> byId = <span class="k">new</span> Map(items.map(item =&gt; [item.id, item]));
+console.log(byId.<span class="k">get</span>(<span class="n">42</span>));
+
+<span class="c">// 8</span>
+<span class="k">const</span> interval = setInterval(refresh, <span class="n">1000</span>);
+<span class="k">function</span> cleanup() { clearInterval(interval); }
+
+<span class="c">// 9</span>
+<span class="k">async</span> <span class="k">function</span> chunk(items, fn) {
+  <span class="k">for</span> (<span class="k">let</span> i = <span class="n">0</span>; i &lt; items.length; i += <span class="n">500</span>) {
+    items.slice(i, i + <span class="n">500</span>).forEach(fn);
+    <span class="k">await</span> <span class="k">new</span> Promise(resolve =&gt; setTimeout(resolve, <span class="n">0</span>));
+  }
+}
+
+<span class="c">// 10: source-code/chapter-19/data-core.test.mjs দেখো।</span></code></pre></figure>
+<p><strong>Exercise Note:</strong> <code>numbers</code>, <code>items</code>, <code>scrollTop</code>, <code>totalRows</code>, <code>refresh</code> এগুলো নিজস্ব Example Data/Function দিয়ে Define করতে হবে।</p>
+<h2>১৯.১৫ Knowledge Check — ১০টি MCQ</h2>
+<p>১. Virtualization-এর মূল সুবিধা কী? A) API Faster B) DOM Nodes কমানো C) Database Encryption D) Type Checking<br>২. <code>Array.sort()</code> কী করে? A) Always New Array B) Original Mutate C) Network Request D) Promise Return<br>৩. Debounce কখন উপকারী? A) Rapid Search Input B) Password Hashing C) CSS Color D) Database Migration<br>৪. <code>performance.now()</code> কী মাপে? A) Duration Timing B) Disk Size C) IP Address D) Heap Object Count<br>৫. Memory Leak-এর একটি কারণ? A) Removed Listener B) Unbounded Cache C) Local Constant D) Small Function<br>৬. Web Worker কি DOM সরাসরি পরিবর্তন করতে পারে? A) হ্যাঁ B) না C) শুধু Chrome-এ D) শুধু CSS-এ<br>৭. <code>Map.get()</code> Average-case Lookup? A) O(n²) B) O(log n) C) O(1) D) O(n!)<br>৮. <code>requestAnimationFrame</code> সাধারণত কোথায় উপকারী? A) Visual Update B) SQL Query C) File Compression D) Password Storage<br>৯. <code>WeakMap</code> Key হিসেবে কী নেয়? A) Arbitrary String B) Objects এবং Non-registered Symbols C) Numbers only D) Arrays only<br>১০. Optimization-এর প্রথম ধাপ কী? A) Guess B) Measure C) Rewrite Everything D) Add More Libraries</p>
+<h3>Answers &amp; Explanations</h3>
+<ol><li><strong>B</strong> — দৃশ্যমান Row-এর বাইরে DOM তৈরি না করলে Rendering Cost কমে।</li><li><strong>B</strong> — <code>sort()</code> In-place Mutate করে।</li><li><strong>A</strong> — দ্রুত Input Events Coalesce করা যায়।</li><li><strong>A</strong> — High-Resolution Timestamp দিয়ে Elapsed Time মাপা হয়।</li><li><strong>B</strong> — Unlimited Cache Reference ধরে রাখে।</li><li><strong>B</strong> — Worker-এর সরাসরি DOM Access নেই।</li><li><strong>C</strong> — সাধারণ Hash Map Implementation-এ Average-case Constant Time।</li><li><strong>A</strong> — Browser Paint Cycle-এর সঙ্গে Visual Work Schedule করে।</li><li><strong>B</strong> — Object এবং Non-registered Symbol Key Supported।</li><li><strong>B</strong> — Measurement ছাড়া Bottleneck নির্ধারণ করা যায় না।</li></ol>
+<h2>১৯.১৬ Chapter Recap ও Next Step</h2>
+<p>Performance Engineering হলো <strong>Measured Tradeoff</strong>। Algorithm, DOM, Main Thread, Memory ও Network একসঙ্গে দেখতে হয়। DataPulse Explorer-এ Pure Data Queries, Debounce, Virtual Window এবং Profiling-এর ভিত্তি তৈরি হলো। পরবর্তী Chapter 20-এ Web Application Security ও Secure Coding Practices শিখব।</p>
+</section></body></html>

@@ -1,0 +1,99 @@
+{
+  "chapter": 1,
+  "ran": "2026-10-11T10:20:20.275Z",
+  "passed": 13,
+  "failed": 0,
+  "results": [
+    {
+      "name": "syntax: app.js",
+      "ok": true,
+      "exit": 0,
+      "log": "syntax-checks.log",
+      "summary": ""
+    },
+    {
+      "name": "syntax: unit test file",
+      "ok": true,
+      "exit": 0,
+      "log": "syntax-checks.log",
+      "summary": ""
+    },
+    {
+      "name": "syntax: browser test file",
+      "ok": true,
+      "exit": 0,
+      "log": "syntax-checks.log",
+      "summary": ""
+    },
+    {
+      "name": "syntax: challenge solution",
+      "ok": true,
+      "exit": 0,
+      "log": "syntax-checks.log",
+      "summary": ""
+    },
+    {
+      "name": "unit tests",
+      "ok": true,
+      "exit": 0,
+      "log": "unit-tests.log",
+      "summary": "# duration_ms 118.1029"
+    },
+    {
+      "name": "browser tests",
+      "ok": true,
+      "exit": 0,
+      "log": "browser-tests.log",
+      "summary": "12 passed, 0 failed (মোট 12)"
+    },
+    {
+      "name": "node examples",
+      "ok": true,
+      "exit": 0,
+      "log": "node-examples.log",
+      "summary": "সব উদাহরণ প্রত্যাশা অনুযায়ী চলেছে (errors/ Folder-এর File-গুলোতে Error হওয়াই প্রত্যাশিত)।"
+    },
+    {
+      "name": "page examples",
+      "ok": true,
+      "exit": 0,
+      "log": "page-examples.log",
+      "summary": "      0"
+    },
+    {
+      "name": "manuscript rules",
+      "ok": true,
+      "exit": 0,
+      "log": "manuscript-check.log",
+      "summary": "All manuscript rules passed, 1 warning(s)"
+    },
+    {
+      "name": "colour tokens",
+      "ok": true,
+      "exit": 0,
+      "log": "tokens-check.log",
+      "summary": "All colour checks passed"
+    },
+    {
+      "name": "PDF checks",
+      "ok": true,
+      "exit": 0,
+      "log": "pdf-check.log",
+      "summary": "All PDF checks passed"
+    },
+    {
+      "name": "DOCX checks",
+      "ok": true,
+      "exit": 0,
+      "log": "docx-check.log",
+      "summary": "All DOCX checks passed"
+    },
+    {
+      "name": "Bengali typography audit",
+      "ok": true,
+      "exit": 0,
+      "log": "typography-audit.log",
+      "summary": "   ৮ (advance 0.69 em): 2"
+    }
+  ]
+}

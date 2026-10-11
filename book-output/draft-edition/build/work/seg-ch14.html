@@ -1,0 +1,243 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-14"><header class="opener"><div class="chap-label">অধ্যায় ১৪</div><h1>Advanced Functions, Closures, Higher-Order Patterns এবং Functional Programming</h1></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে তুমি lexical scope ও closure ব্যাখ্যা করতে, callback ও higher-order function ডিজাইন করতে, <code>this</code> binding বুঝতে, function composition ও currying প্রয়োগ করতে, এবং immutable data transformation দিয়ে একটি ছোট analytics application বানাতে পারবে।</p>
+<h2>১৪.১ JavaScript-এ Function কেন First-Class Value?</h2>
+<p>JavaScript-এ function একটি value। Variable-এ রাখা, argument হিসেবে পাঠানো এবং অন্য function থেকে return করা যায়। এই বৈশিষ্ট্য reusable logic ও event-driven architecture-এর ভিত্তি।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> greet = name =&gt; <span class="s">`স্বাগতম, ${name}!`</span>;
+<span class="k">const</span> apply = (fn, value) =&gt; fn(value);
+console.log(apply(greet, <span class="s">'রাহিম'</span>));
+
+<span class="k">function</span> makeMultiplier(factor) {
+  <span class="k">return</span> value =&gt; value * factor;
+}
+<span class="k">const</span> double = makeMultiplier(<span class="n">2</span>);
+console.log(double(<span class="n">12</span>)); <span class="c">// 24</span></code></pre></figure>
+<p><code>makeMultiplier</code> একটি নতুন function return করে। <code>factor</code>-এর মান return-এর পরেও সংরক্ষিত থাকে—এটাই closure-এর মূল ধারণা।</p>
+<h2>১৪.২ Lexical Scope ও Closure</h2>
+<p><strong>Lexical scope</strong> অর্থ function কোথায় <em>লেখা হয়েছে</em>, তার ভিত্তিতে outer variable খুঁজে পাওয়া। Closure হলো function এবং তার lexical environment-এর সংযোগ।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> createCounter(initial = <span class="n">0</span>) {
+  <span class="k">let</span> count = initial;
+  <span class="k">return</span> {
+    increment(step = <span class="n">1</span>) { count += step; <span class="k">return</span> count; },
+    decrement(step = <span class="n">1</span>) { count -= step; <span class="k">return</span> count; },
+    getValue() { <span class="k">return</span> count; }
+  };
+}
+<span class="k">const</span> a = createCounter(<span class="n">10</span>);
+<span class="k">const</span> b = createCounter();
+a.increment(); <span class="c">// 11</span>
+b.increment(); <span class="c">// 1 — state আলাদা</span></code></pre></figure>
+<p>Closure private state-এর জন্য উপযোগী, কিন্তু এটি নিরাপত্তার পূর্ণ বিকল্প নয়। কোনো sensitive secret frontend source code-এ রাখা উচিত নয়।</p>
+<h3>Loop-এর closure trap</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">for</span> (<span class="k">var</span> i = <span class="n">0</span>; i &lt; <span class="n">3</span>; i++) {
+  setTimeout(() =&gt; console.log(i), <span class="n">0</span>); <span class="c">// 3, 3, 3</span>
+}
+<span class="k">for</span> (<span class="k">let</span> j = <span class="n">0</span>; j &lt; <span class="n">3</span>; j++) {
+  setTimeout(() =&gt; console.log(j), <span class="n">0</span>); <span class="c">// 0, 1, 2</span>
+}</code></pre></figure>
+<p><code>var</code>-এর একই binding পুনঃব্যবহার হয়; <code>let</code> প্রতিটি iteration-এ নতুন binding তৈরি করে।</p>
+<h2>১৪.৩ Higher-Order Functions</h2>
+<p>যে function অন্য function গ্রহণ করে অথবা return করে তাকে higher-order function বলা হয়। <code>map</code>, <code>filter</code>, <code>reduce</code>, <code>some</code>, <code>every</code> এর পরিচিত উদাহরণ।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> prices = [<span class="n">100</span>, <span class="n">250</span>, <span class="n">400</span>];
+<span class="k">const</span> taxed = prices.map(price =&gt; price * <span class="n">1.05</span>);
+<span class="k">const</span> expensive = taxed.filter(price =&gt; price &gt;= <span class="n">200</span>);
+<span class="k">const</span> total = expensive.reduce((sum, price) =&gt; sum + price, <span class="n">0</span>);</code></pre></figure>
+<p><strong>কখন কোনটি?</strong> <code>map</code> প্রতিটি item বদলে নতুন array, <code>filter</code> শর্তসাপেক্ষ subset, <code>reduce</code> একটি accumulated result তৈরি করে। <code>forEach</code> side effect-এর জন্য ব্যবহার করো; এটি নতুন transformed array return করে না।</p>
+<h2>১৪.৪ Callback, <code>this</code> ও Arrow Function</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> account = {
+  owner: <span class="s">'Mina'</span>,
+  balance: <span class="n">500</span>,
+  print() { <span class="k">return</span> <span class="s">`${this.owner}: ${this.balance}`</span>; }
+};
+console.log(account.print());
+<span class="k">const</span> detached = account.print;
+<span class="c">// detached() strict-mode context-এ this undefined হতে পারে</span>
+<span class="k">const</span> bound = account.print.bind(account);
+console.log(bound());</code></pre></figure>
+<p>Arrow function নিজস্ব <code>this</code> তৈরি করে না। Object method-এ সাধারণ method syntax ভালো default; nested callback-এ arrow function প্রাসঙ্গিক হতে পারে।</p>
+<h2>১৪.৫ Function Composition এবং Pipeline</h2>
+<p>একাধিক ছোট function একত্র করে বড় transformation তৈরি করা যায়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> pipe = (...fns) =&gt; input =&gt; fns.reduce((value, fn) =&gt; fn(value), input);
+<span class="k">const</span> trim = value =&gt; value.trim();
+<span class="k">const</span> lower = value =&gt; value.toLowerCase();
+<span class="k">const</span> slugify = value =&gt; value.replace(/\s+/g, <span class="s">'-'</span>);
+<span class="k">const</span> toSlug = pipe(trim, lower, slugify);
+console.log(toSlug(<span class="s">'  Hello JavaScript  '</span>)); <span class="c">// hello-javascript</span></code></pre></figure>
+<p><code>pipe(f, g)(x)</code> মানে <code>g(f(x))</code>। বিপরীতে <code>compose(f, g)(x)</code> মানে <code>f(g(x))</code>। Production-এ প্রতিটি transformation-এর input/output contract স্পষ্ট রাখো।</p>
+<h2>১৪.৬ Currying এবং Partial Application</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> add = a =&gt; b =&gt; a + b;
+<span class="k">const</span> addVat = rate =&gt; amount =&gt; amount + amount * rate;
+<span class="k">const</span> withVat15 = addVat(<span class="n">0.15</span>);
+console.log(withVat15(<span class="n">100</span>)); <span class="c">// 115</span></code></pre></figure>
+<p>Currying একাধিক argument-এর function-কে এক-argument function-এর ধারায় প্রকাশ করে। Partial application কিছু argument আগেই নির্ধারণ করে। দুটোই reusable configuration তৈরিতে কাজে লাগে, তবে অকারণে nested function বাড়িয়ে readability কমানো ঠিক নয়।</p>
+<h2>১৪.৭ Pure Function, Immutability ও Side Effects</h2>
+<p>Pure function একই input-এ একই output দেয় এবং বাইরের state বদলায় না।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> addItem = (items, item) =&gt; [...items, item];
+<span class="k">const</span> updatePrice = (items, id, price) =&gt;
+  items.map(item =&gt; item.id === id ? { ...item, price } : item);</code></pre></figure>
+<p><code>sort()</code> মূল array বদলে দেয়; <code>toSorted()</code> নতুন array return করে (পুরোনো runtime-এ নাও থাকতে পারে)। Compatible বিকল্প <code>[...items].sort(...)</code>। Spread একটি <strong>shallow copy</strong>; nested object স্বয়ংক্রিয়ভাবে deep-clone হয় না।</p>
+<h2>১৪.৮ Memoization: লাভ এবং সতর্কতা</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> memoizeUnary(fn) {
+  <span class="k">const</span> cache = <span class="k">new</span> Map();
+  <span class="k">return</span> value =&gt; {
+    <span class="k">if</span> (cache.has(value)) <span class="k">return</span> cache.<span class="k">get</span>(value);
+    <span class="k">const</span> result = fn(value);
+    cache.<span class="k">set</span>(value, result);
+    <span class="k">return</span> result;
+  };
+}
+<span class="k">const</span> square = memoizeUnary(n =&gt; n * n);</code></pre></figure>
+<p>Memoization pure এবং costly computation-এ সহায়ক। কিন্তু unbounded <code>Map</code> memory বাড়াতে পারে। Object keys-এর ক্ষেত্রে identity-ভিত্তিক caching, mutation এবং stale result-এর সমস্যা বিবেচনা করো।</p>
+<h2>১৪.৯ Debounce ও Throttle</h2>
+<p>Search input-এ প্রতি keystroke-এ network request না পাঠিয়ে debounce ব্যবহার করা হয়। Scroll বা resize-এর frequent handler-এ throttle কার্যকর হতে পারে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> debounce(fn, delay = <span class="n">250</span>) {
+  <span class="k">let</span> timer;
+  <span class="k">return</span> (...args) =&gt; {
+    clearTimeout(timer);
+    timer = setTimeout(() =&gt; fn(...args), delay);
+  };
+}</code></pre></figure>
+<p>এই সাধারণ implementation-এ <code>this</code> preserve হয় না এবং <code>cancel()</code> নেই; production utility-তে প্রয়োজন অনুযায়ী দুটোই যোগ করো।</p>
+<h2>১৪.১০ Practical Project — Sales Function Lab</h2>
+<p>এখানে functional patterns দিয়ে sales records filter, normalize, aggregate এবং rank করা হবে। Source files: <code>source-code/chapter-14/</code>।</p>
+<h3>Data Contract</h3>
+<p>প্রতিটি sale: <code>{ id, category, quantity, unitPrice }</code>। <code>quantity</code> positive integer এবং <code>unitPrice</code> non-negative finite number হতে হবে। Total = quantity × unitPrice।</p>
+<h3>Functional Pipeline</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> categorySummary = pipe(
+  records =&gt; records.filter(row =&gt; row.category === <span class="s">'Books'</span>),
+  records =&gt; records.map(row =&gt; ({ ...row, total: row.quantity * row.unitPrice })),
+  records =&gt; records.reduce((sum, row) =&gt; sum + row.total, <span class="n">0</span>)
+);</code></pre></figure>
+<p>Actual project-এ shared validation, category aggregation, ranking ও HTML table rendering রয়েছে। User input DOM-এ <code>textContent</code> দিয়ে render করা হয়; raw HTML injection নয়।</p>
+<h3>Run Instructions</h3>
+<ol><li><code>source-code/chapter-14/</code> folder খোলো।</li><li><code>index.html</code> browser-এ open করো। Sample sales load, category filter এবং summary পরীক্ষা করো।</li><li>Terminal-এ <code>node --test source-code/chapter-14/analytics.test.mjs</code> চালাও (Node.js-এর সাম্প্রতিক version প্রয়োজন)।</li></ol>
+<h2>১৪.১১ সাধারণ ভুল ও Debugging Checklist</h2>
+<ul><li><code>map</code>-এ return ভুলে গেলে result-এ <code>undefined</code> আসতে পারে।</li><li><code>reduce</code>-এর initial value না দিলে empty array-এ error হতে পারে।</li><li><code>sort</code> mutate করে; original data রাখতে copy করো।</li><li>Closure-এর private state-কে shared global state ভেবে ভুল করো না।</li><li>Floating-point অর্থের হিসাবের ক্ষেত্রে currency minor units (যেমন পয়সা) অথবা decimal library বিবেচনা করো।</li><li>Function-এর মধ্যে DOM, storage, network এবং business calculation গুলিয়ে ফেলো না।</li></ul>
+<h2>১৪.১২ অনুশীলন</h2>
+<ol><li><code>createCounter(5)</code> দিয়ে দুটি independent counter তৈরি করো।</li><li><code>pipe</code> লিখে trim → lowercase → whitespace replace করো।</li><li><code>filter</code> + <code>reduce</code> দিয়ে 1000-এর বেশি মোট বিক্রয় বের করো।</li><li><code>makeDiscount(rate)</code> নামের curried function তৈরি করো।</li><li>Mutation ছাড়া একটি object-এর nested <code>address.city</code> update করো।</li><li><code>memoizeUnary</code>-তে <code>cache.has</code> কেন <code>cache.get(...) || ...</code> থেকে নিরাপদ?</li><li><code>debounce</code> ও <code>throttle</code>-এর ব্যবহারিক পার্থক্য লিখো।</li><li>Sales Function Lab-এ category অনুযায়ী highest revenue highlight করো।</li><li>Invalid quantity ও negative price-এর জন্য unit test লেখো।</li><li><code>map</code>, <code>filter</code>, <code>reduce</code>-এর প্রত্যেকটির জন্য একটি real-world উদাহরণ লেখো।</li></ol>
+<h2>১৪.১৩ অনুশীলনের নমুনা সমাধান</h2>
+<figure class="code"><figcaption>JavaScript</figcaption><pre><code><span class="c">// 1</span>
+<span class="k">const</span> first = createCounter(<span class="n">5</span>), second = createCounter(<span class="n">5</span>);
+first.increment(); <span class="c">// 6; second.getValue() এখনও 5</span>
+
+<span class="c">// 2</span>
+<span class="k">const</span> slug = pipe(s =&gt; s.trim(), s =&gt; s.toLowerCase(), s =&gt; s.replace(/\s+/g, <span class="s">'-'</span>));
+
+<span class="c">// 3</span>
+<span class="k">const</span> bigSales = sales =&gt; sales.filter(s =&gt; s.quantity * s.unitPrice &gt; <span class="n">1000</span>)
+  .reduce((sum, s) =&gt; sum + s.quantity * s.unitPrice, <span class="n">0</span>);
+
+<span class="c">// 4</span>
+<span class="k">const</span> makeDiscount = rate =&gt; amount =&gt; amount * (<span class="n">1</span> - rate);
+
+<span class="c">// 5</span>
+<span class="k">const</span> changeCity = (person, city) =&gt; ({
+  ...person, address: { ...person.address, city }
+});
+
+<span class="c">// 6: Cached result 0, false, '' বা undefined হলেও has() key presence যাচাই করে।</span>
+<span class="c">// 7: debounce শেষ event-এর পরে অপেক্ষা করে; throttle সময়সীমায় call rate সীমিত করে।</span>
+<span class="c">// 8: Object.entries(summary).sort((a,b) =&gt; b[1]-a[1])[0] থেকে top category।</span>
+<span class="c">// 9: Test file-এ invalid input-এর assert.throws() আছে।</span>
+<span class="c">// 10: map = price transform, filter = in-stock products, reduce = cart total।</span></code></pre></figure>
+<h2>১৪.১৪ Knowledge Check — MCQ</h2>
+<ol><li>Closure কোনটি ধরে রাখে? A. HTML B. Lexical environment C. CSS D. Browser tab</li><li><code>map()</code> কী return করে? A. নতুন array B. Boolean C. DOM D. কিছুই না</li><li><code>filter()</code>-এর কাজ কী? A. sort B. subset C. mutation বাধ্যতামূলক D. JSON parse</li><li><code>reduce()</code>-এ initial value কেন ভালো? A. CSS B. empty input safety C. network D. hoisting</li><li>Arrow function-এর নিজস্ব কোনটি নেই? A. lexical <code>this</code> binding B. body C. return D. parameter</li><li>Pure function কী করে না? A. calculation B. return C. external state mutation D. parameters গ্রহণ</li><li><code>pipe(f,g)(x)</code> কী? A. f(g(x)) B. g(f(x)) C. x D. undefined</li><li><code>sort()</code>-এর আচরণ? A. original array mutate B. always immutable C. Promise D. closure</li><li>Memoization-এর ঝুঁকি? A. memory growth B. HTML parsing C. CSS conflict D. syntax always fails</li><li>Search typing-এ request কমাতে কোনটি সাধারণত উপযোগী? A. debounce B. recursion C. prototype D. <code>var</code></li></ol>
+<p><strong>Answer Key:</strong> 1-B (lexical variables), 2-A (mapped array), 3-B (matching subset), 4-B (empty array-এ safe accumulation), 5-A (arrow lexical <code>this</code> ব্যবহার করে), 6-C (side-effect এড়িয়ে চলে), 7-B (left-to-right pipeline), 8-A (in-place sort), 9-A (unbounded cache), 10-A (typing থামার পরে action)।</p>
+<h2>১৪.১৫ Chapter Summary ও Next Steps</h2>
+<p>Function-কে value হিসেবে ব্যবহার, closure দিয়ে private state, higher-order transformation, composition, immutability এবং memoization-এর সীমাবদ্ধতা—এগুলো বড় JavaScript application-এ modular design-এর ভিত্তি। পরের অধ্যায়ে Browser APIs, Storage, Fetch এবং বাস্তব Web Application তৈরি করা হবে।</p>
+</section></body></html>

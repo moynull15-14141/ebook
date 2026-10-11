@@ -1,0 +1,279 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-7"><header class="opener"><div class="chap-label">অধ্যায় ৭</div><h1>Objects: Properties, Methods, Destructuring এবং Real-World Data Modeling</h1></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে পাঠক JavaScript Object তৈরি, পড়া, পরিবর্তন, Method লেখা, Reference বোঝা, Destructuring ও Spread ব্যবহার, Object Validation এবং Student Management Application তৈরি করতে পারবেন। আগের অধ্যায়ে Array-তে অনেক Record রাখা শিখেছি; এখানে প্রতিটি Record-এর অর্থপূর্ণ Structure তৈরি করব।</p>
+<h2>৭.১ Object কেন প্রয়োজন?</h2>
+<p>ধরুন একটি শিক্ষার্থীর নাম, বয়স ও নম্বর আছে। তিনটি পৃথক Variable-এ রাখা যায়, কিন্তু একাধিক শিক্ষার্থী এলে কোন নামের সঙ্গে কোন নম্বর যুক্ত তা বোঝা কঠিন হয়। Object একই Entity-এর সম্পর্কিত তথ্যকে Key–Value Pair-এ সংগঠিত করে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> student = {
+  id: <span class="s">'ST-101'</span>,
+  name: <span class="s">'Amina Rahman'</span>,
+  age: <span class="n">19</span>,
+  marks: <span class="n">86</span>,
+  isActive: <span class="k">true</span>
+};
+console.log(student.name);       <span class="c">// Amina Rahman</span>
+console.log(student[<span class="s">'marks'</span>]);   <span class="c">// 86</span></code></pre></figure>
+<p><code>student</code> একটি Object Reference ধরে। <code>id</code>, <code>name</code>, <code>age</code>, <code>marks</code> হলো Properties। Array সাধারণত Ordered Collection, আর Object সাধারণত Named Fields-এর জন্য ব্যবহার হয়। তবে JavaScript-এ Array-ও এক ধরনের Object; প্রয়োগের উদ্দেশ্য আলাদা।</p>
+<h2>৭.২ Object Literal, Constructor এবং <code>Object.create()</code></h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> book = { title: <span class="s">'JavaScript Mastery'</span>, pages: <span class="n">300</span> };
+<span class="k">const</span> settings = <span class="k">new</span> Object();
+settings.theme = <span class="s">'light'</span>;
+<span class="k">const</span> dictionary = Object.create(<span class="k">null</span>);
+dictionary[<span class="s">'__proto__'</span>] = <span class="s">'safe as an ordinary key'</span>;</code></pre></figure>
+<p>অধিকাংশ Application Data-এর জন্য Object Literal সহজ। <code>Object.create(null)</code>-এর Prototype নেই, তাই Dictionary-সদৃশ কাজে বিশেষ সুবিধা দিতে পারে; তবে এতে <code>toString()</code>-এর মতো স্বাভাবিক Inherited Method থাকে না।</p>
+<h2>৭.৩ Dot Notation বনাম Bracket Notation</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> profile = { firstName: <span class="s">'Amina'</span>, <span class="s">'home-city'</span>: <span class="s">'Dhaka'</span> };
+console.log(profile.firstName);
+console.log(profile[<span class="s">'home-city'</span>]);
+<span class="k">const</span> field = <span class="s">'firstName'</span>;
+console.log(profile[field]);</code></pre></figure>
+<p>Key যদি Dynamic হয়, Space/Hyphen থাকে, অথবা Runtime-এ নির্ধারিত হয়, Bracket Notation ব্যবহার করতে হবে। <code>profile.field</code> এবং <code>profile[field]</code> এক নয়: প্রথমটি আক্ষরিক <code>field</code> Property খোঁজে, দ্বিতীয়টি Variable-এর Value ব্যবহার করে।</p>
+<h2>৭.৪ Property Read, Update, Delete এবং Existence</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> user = { name: <span class="s">'Rahim'</span>, city: <span class="s">'Dhaka'</span> };
+user.city = <span class="s">'Chattogram'</span>;
+user.email = <span class="s">'rahim@example.com'</span>;
+<span class="k">delete</span> user.email;
+console.log(Object.hasOwn(user, <span class="s">'name'</span>)); <span class="c">// true</span>
+console.log(<span class="s">'toString'</span> <span class="k">in</span> user);          <span class="c">// true: inherited</span></code></pre></figure>
+<p><code>Object.hasOwn()</code> শুধু Object-এর নিজস্ব Property পরীক্ষা করে; <code>in</code> Operator Prototype Chain-এও খোঁজে। Property অনুপস্থিত এবং Property-এর Value <code>undefined</code>—এ দুটো আলাদা ঘটনা।</p>
+<h2>৭.৫ Methods এবং <code>this</code></h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> account = {
+  owner: <span class="s">'Amina'</span>,
+  balance: <span class="n">500</span>,
+  deposit(amount) {
+    <span class="k">if</span> (!Number.isFinite(amount) || amount &lt;= <span class="n">0</span>) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'Invalid amount'</span>);
+    <span class="k">this</span>.balance += amount;
+    <span class="k">return</span> <span class="k">this</span>.balance;
+  }
+};
+console.log(account.deposit(<span class="n">200</span>)); <span class="c">// 700</span></code></pre></figure>
+<p>Method-এর <code>this</code> সাধারণত Call-site-এর ওপর নির্ভর করে। <code>account.deposit()</code>-এ <code>this</code> হলো <code>account</code>; Method আলাদা Variable-এ রেখে Call করলে <code>this</code> হারাতে পারে। Arrow Function-এর নিজস্ব <code>this</code> নেই, তাই Object Method-এ প্রয়োজন বুঝে ব্যবহার করুন।</p>
+<h2>৭.৬ Nested Objects এবং Optional Chaining</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> traveler = {
+  name: <span class="s">'Nadia'</span>,
+  contact: { phone: <span class="s">'01700000000'</span>, address: { city: <span class="s">'Dhaka'</span> } }
+};
+console.log(traveler.contact?.address?.city); <span class="c">// Dhaka</span>
+console.log(traveler.passport?.<span class="k">number</span> ?? <span class="s">'Not provided'</span>);</code></pre></figure>
+<p><code>?.</code> অনুপস্থিত Nested Data Access-এ TypeError এড়াতে সাহায্য করে; <code>??</code> শুধু <code>null</code> বা <code>undefined</code> হলে Fallback দেয়। তবে এটি Schema Validation-এর বিকল্প নয়।</p>
+<h2>৭.৭ Object Destructuring এবং Defaults</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> student = { id: <span class="s">'ST-101'</span>, name: <span class="s">'Amina'</span>, marks: <span class="n">86</span> };
+<span class="k">const</span> { name, marks: score, city = <span class="s">'Unknown'</span> } = student;
+console.log(name, score, city);
+
+<span class="k">function</span> printStudent({ name, marks = <span class="n">0</span> }) {
+  <span class="k">return</span> <span class="s">`${name}: ${marks}`</span>;
+}</code></pre></figure>
+<p><code>marks: score</code> মানে <code>marks</code> Property-এর Value নতুন <code>score</code> Variable-এ যাবে। Default Value কেবল <code>undefined</code> হলে প্রযোজ্য; <code>null</code> হলে নয়। Function Parameter-এ Destructuring API-কে স্পষ্ট করে।</p>
+<h2>৭.৮ Spread, Rest এবং Shallow Copy</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> original = { id: <span class="s">'ST-101'</span>, name: <span class="s">'Amina'</span>, address: { city: <span class="s">'Dhaka'</span> } };
+<span class="k">const</span> updated = { ...original, name: <span class="s">'Amina Rahman'</span> };
+<span class="k">const</span> { id, ...publicInfo } = updated;
+console.log(publicInfo.name);
+console.log(updated.address === original.address); <span class="c">// true</span></code></pre></figure>
+<p>Spread Copy <strong>Shallow</strong>: প্রথম স্তরের Property Copy হয়, কিন্তু Nested Object-এর Reference ভাগাভাগি হতে পারে। Nested Data বদলাতে হলে প্রয়োজনমতো Nested Copy তৈরি করুন। <code>structuredClone()</code> অনেক Built-in Data Type Deep-copy করতে পারে, কিন্তু Function, DOM Node ইত্যাদি Clone করতে পারে না।</p>
+<h2>৭.৯ Reference, Equality ও Mutation</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> a = { marks: <span class="n">80</span> };
+<span class="k">const</span> b = a;
+<span class="k">const</span> c = { marks: <span class="n">80</span> };
+console.log(a === b); <span class="c">// true</span>
+console.log(a === c); <span class="c">// false</span>
+b.marks = <span class="n">90</span>;
+console.log(a.marks); <span class="c">// 90</span></code></pre></figure>
+<p>Object Equality সাধারণত Reference Identity পরীক্ষা করে, Content Equality নয়। তাই State Management-এ পুরোনো Object পরিবর্তন না করে নতুন Object Return করা সুবিধাজনক।</p>
+<h2>৭.১০ Object Utility Methods</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> scores = { math: <span class="n">80</span>, english: <span class="n">75</span>, science: <span class="n">90</span> };
+console.log(Object.keys(scores));
+console.log(Object.values(scores));
+console.log(Object.entries(scores));
+<span class="k">const</span> doubled = Object.fromEntries(
+  Object.entries(scores).map(([subject, mark]) =&gt; [subject, mark * <span class="n">2</span>])
+);
+console.log(doubled);</code></pre></figure>
+<p><code>Object.keys()</code>/<code>values()</code>/<code>entries()</code> Enumerable Own String-Keyed Properties নিয়ে কাজ করে। <code>Object.freeze()</code>-ও Shallow; Nested Objects স্বয়ংক্রিয়ভাবে Deep-Freeze হয় না।</p>
+<h2>৭.১১ JSON এবং Browser Storage</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> record = { id: <span class="s">'ST-101'</span>, name: <span class="s">'Amina'</span>, marks: <span class="n">86</span> };
+<span class="k">const</span> serialized = JSON.stringify(record);
+<span class="k">const</span> restored = JSON.parse(serialized);</code></pre></figure>
+<p>JSON Data Exchange-এর Format, JavaScript Object-এর পূর্ণ বিকল্প নয়। JSON-এ Function, <code>undefined</code>, Circular Reference এবং <code>BigInt</code>-এর মতো Value-এর সীমাবদ্ধতা আছে। Untrusted JSON Parse করার পর Schema Validation জরুরি। <code>localStorage</code> String রাখে, তাই Serialize/Parse করতে হয়। Browser Storage-এ Password, Secret Token বা Sensitive Student Data রাখা উচিত নয়।</p>
+<h2>৭.১২ Real-World Data Modeling: Student Schema</h2>
+<p>এই অধ্যায়ের Project-এ একটি Student Record-এর Schema:</p>
+<table><thead><tr><th>Field</th><th>Type</th><th>Validation</th></tr></thead><tbody><tr><td><code>id</code></td><td>String</td><td>২–২০ Character, Unique</td></tr><tr><td><code>name</code></td><td>String</td><td>২–৮০ Character</td></tr><tr><td><code>age</code></td><td>Integer</td><td>৫–১০০</td></tr><tr><td><code>marks</code></td><td>Number</td><td>০–১০০</td></tr></tbody></table>
+<p>একজন শিক্ষার্থীকে এভাবে Represent করা হবে:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> student = { id: <span class="s">'ST-101'</span>, name: <span class="s">'Amina Rahman'</span>, age: <span class="n">19</span>, marks: <span class="n">86</span> };</code></pre></figure>
+<p>Project-এর Business Logic-এ <code>add</code>, <code>update</code>, <code>remove</code>, <code>search</code>, <code>gradeFor</code>, <code>summary</code> Function থাকবে। প্রতিটি Function Data Return করবে; Browser DOM Logic আলাদা File-এ থাকবে। এতে Testing ও Maintenance সহজ হয়।</p>
+<h2>৭.১৩ Practical Project — Student Management Dashboard</h2>
+<h3>Feature List</h3>
+<ol><li>Student Add, Edit এবং Delete</li><li>Duplicate Student ID প্রতিরোধ</li><li>Name ও ID দিয়ে Search</li><li>Grade Calculation (A+, A, A−, B, C, D, F)</li><li>Total Students, Average Marks, Passed Students, Topper</li><li><code>localStorage</code> Persistence এবং Invalid Stored Record Filtering</li><li>DOM-এ User Input Render করার সময় <code>textContent</code> ব্যবহার</li></ol>
+<h3>File Structure</h3>
+<figure class="code keep"><pre><code>source-code/chapter-07/
+├── index.html
+├── style.css
+├── students.js
+├── app.js
+└── students.test.js</code></pre></figure>
+<p><strong>Runnable Code:</strong> বইয়ের Companion Source Code-এর <code>source-code/chapter-07/</code> Folder-এ প্রতিটি সম্পূর্ণ File সংযুক্ত আছে।</p>
+<h3>Business Logic-এর গুরুত্বপূর্ণ অংশ</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> add(students, input) {
+  <span class="k">return</span> [...students, validateStudent(input, students)];
+}
+<span class="k">function</span> update(students, id, patch) {
+  <span class="k">const</span> old = students.find(s =&gt; s.id === id);
+  <span class="k">if</span> (!old) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'Student not found'</span>);
+  <span class="k">const</span> next = validateStudent({ ...old, ...patch }, students, id);
+  <span class="k">return</span> students.map(s =&gt; s.id === id ? next : s);
+}</code></pre></figure>
+<p>এখানে <code>add</code> এবং <code>update</code> পুরোনো Array পরিবর্তন করে না। একই সঙ্গে Duplicate ID, Invalid Marks ও Age Reject করা হয়।</p>
+<h3>Run Instructions</h3>
+<ol><li><code>source-code/chapter-07/index.html</code> Browser-এ Open করুন।</li><li>Student ID, Name, Age, Marks দিয়ে Save করুন।</li><li>Search, Edit, Delete এবং Refresh করে Persistence পরীক্ষা করুন।</li><li>Node.js Installed থাকলে Terminal-এ <code>node students.test.js</code> চালান।</li></ol>
+<h3>Manual Test Checklist</h3>
+<ul><li class="task"><span class="box">☐</span> Add করার পর Table-এ Student দেখা যায়</li><li class="task"><span class="box">☐</span> Duplicate ID দিলে Error দেখায়</li><li class="task"><span class="box">☐</span> Edit করলে Student-এর Data Update হয়</li><li class="task"><span class="box">☐</span> Delete করলে Confirmation চায়</li><li class="task"><span class="box">☐</span> Search Uppercase/Lowercase নির্বিশেষে কাজ করে</li><li class="task"><span class="box">☐</span> Page Refresh-এর পর Valid Data থাকে</li><li class="task"><span class="box">☐</span> Keyboard দিয়ে Form ব্যবহার করা যায়</li></ul>
+<h2>৭.১৪ Common Mistakes</h2>
+<p><strong>Mistake 1: Object Copy মানেই Deep Copy ভাবা।</strong> Spread-এর Nested Reference একই থাকতে পারে।</p>
+<p><strong>Mistake 2: <code>for...in</code> দিয়ে Blind Iteration।</strong> এটি Inherited Enumerable Properties-ও দেখতে পারে। Own Data-এর জন্য <code>Object.keys()</code>/<code>entries()</code> ব্যবহার করুন।</p>
+<p><strong>Mistake 3: Untrusted Data সরাসরি <code>innerHTML</code>-এ বসানো।</strong> XSS Risk তৈরি হতে পারে; Plain Text-এর জন্য <code>textContent</code> ব্যবহার করুন।</p>
+<p><strong>Mistake 4: <code>Number('')</code> যে <code>0</code> হয় তা ভুলে যাওয়া।</strong> Form Validation-এ Empty Input আলাদাভাবে Reject করতে হবে।</p>
+<p><strong>Mistake 5: Frontend Validation-কে Security Boundary ভাবা।</strong> Real Server Application-এ Backend Validation ও Authorization প্রয়োজন।</p>
+<h2>৭.১৫ Exercises</h2>
+<ol><li>একটি <code>book</code> Object তৈরি করুন, যার <code>title</code>, <code>author</code>, <code>price</code> আছে। Price ১০% কমিয়ে নতুন Object তৈরি করুন।</li><li><code>getFullName({ firstName, lastName })</code> Function লিখুন।</li><li><code>Object.entries()</code> ব্যবহার করে Subject-wise Marks-এর Total বের করুন।</li><li><code>address?.city ?? 'Unknown'</code> Expression কীভাবে কাজ করে ব্যাখ্যা করুন।</li><li>একটি Array of Student Objects থেকে ৮০ বা বেশি Marks পাওয়া Student Filter করুন।</li><li><code>Object.hasOwn()</code> এবং <code>in</code>-এর পার্থক্য Code দিয়ে দেখান।</li><li>Nested Object-এর Shallow Copy Problem দেখিয়ে Corrected Copy তৈরি করুন।</li><li>Student Dashboard-এ Sort by Marks Feature যুক্ত করুন।</li><li><code>validateStudent()</code>-এ Duplicate ID Checking কেন দরকার ব্যাখ্যা করুন।</li><li>Student Data Export-এর জন্য <code>JSON.stringify()</code> ব্যবহার করুন এবং Import-এর সময় Validation যুক্ত করুন।</li></ol>
+<h2>৭.১৬ Exercise Solutions</h2>
+<figure class="code"><figcaption>JavaScript</figcaption><pre><code><span class="c">// 1</span>
+<span class="k">const</span> book = { title: <span class="s">'JS'</span>, author: <span class="s">'A'</span>, price: <span class="n">500</span> };
+<span class="k">const</span> discounted = { ...book, price: book.price * <span class="n">0.9</span> };
+
+<span class="c">// 2</span>
+<span class="k">const</span> getFullName = ({ firstName, lastName }) =&gt; <span class="s">`${firstName} ${lastName}`</span>.trim();
+
+<span class="c">// 3</span>
+<span class="k">const</span> marks = { math: <span class="n">80</span>, english: <span class="n">70</span>, science: <span class="n">90</span> };
+<span class="k">const</span> total = Object.entries(marks).reduce((sum, [, value]) =&gt; sum + value, <span class="n">0</span>);
+
+<span class="c">// 4: address null/undefined হলে city access বন্ধ হয়; result null/undefined হলে Unknown</span>
+<span class="k">const</span> profile = {};
+<span class="k">const</span> city = profile.address?.city ?? <span class="s">'Unknown'</span>;
+
+<span class="c">// 5</span>
+<span class="k">const</span> topStudents = [{name:<span class="s">'A'</span>,marks:<span class="n">82</span>},{name:<span class="s">'B'</span>,marks:<span class="n">65</span>}].filter(s =&gt; s.marks &gt;= <span class="n">80</span>);
+
+<span class="c">// 6</span>
+<span class="k">const</span> obj = Object.create({ inherited: <span class="k">true</span> });
+obj.own = <span class="k">true</span>;
+console.log(<span class="s">'inherited'</span> <span class="k">in</span> obj);          <span class="c">// true</span>
+console.log(Object.hasOwn(obj,<span class="s">'inherited'</span>)); <span class="c">// false</span>
+
+<span class="c">// 7</span>
+<span class="k">const</span> oldRecord = { name: <span class="s">'A'</span>, address: { city: <span class="s">'Dhaka'</span> } };
+<span class="k">const</span> newRecord = { ...oldRecord, address: { ...oldRecord.address, city: <span class="s">'Khulna'</span> } };
+
+<span class="c">// 8: data sorting; UI-তে sort select-এর change handler-এ ব্যবহার করুন</span>
+<span class="k">const</span> sortByMarks = students =&gt; [...students].sort((a, b) =&gt; b.marks - a.marks);
+
+<span class="c">// 9: unique ID ছাড়া update/delete ভুল শিক্ষার্থীকে প্রভাবিত করতে পারে</span>
+<span class="c">// 10: parse-এর পর প্রত্যেক Record validate করে গ্রহণ করুন</span>
+<span class="k">const</span> exportJSON = students =&gt; JSON.stringify(students, <span class="k">null</span>, <span class="n">2</span>);
+<span class="k">const</span> importJSON = text =&gt; {
+  <span class="k">const</span> parsed = JSON.parse(text);
+  <span class="k">if</span> (!Array.isArray(parsed)) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'Expected array'</span>);
+  <span class="k">return</span> parsed.reduce((acc, record) =&gt; StudentStore.add(acc, record), []);
+};</code></pre></figure>
+<h2>৭.১৭ Knowledge Check — ১০টি MCQ</h2>
+<ol><li>Object Property Access-এর জন্য কোনটি সঠিক? A. <code>obj.name</code> B. <code>obj-&gt;name</code> C. <code>obj::name</code> D. <code>obj#name</code></li><li>Dynamic Key-এর জন্য কোন Syntax? A. <code>obj.key</code> B. <code>obj[key]</code> C. <code>obj(key)</code> D. <code>obj{key}</code></li><li>Spread দিয়ে Nested Object Copy করলে কী হয়? A. Deep Copy B. Shallow Copy C. JSON Copy D. Freeze</li><li>Own Property পরীক্ষা করে কোনটি? A. <code>Object.hasOwn()</code> B. <code>in</code> only C. <code>typeof</code> D. <code>Array.isArray()</code></li><li><code>const a={}; const b=a; a===b</code>? A. false B. true C. null D. Error</li><li><code>Object.entries()</code> কী Return করে? A. String B. Key–Value Pair Array C. Set D. Number</li><li><code>user.profile?.name</code>-এ <code>profile</code> অনুপস্থিত হলে Result? A. Error B. 0 C. undefined D. false</li><li>JSON Data Parse করার Method? A. <code>JSON.read</code> B. <code>JSON.parse</code> C. <code>JSON.open</code> D. <code>JSON.decodeObject</code></li><li>User Text DOM-এ নিরাপদ Plain Text হিসেবে বসাতে কোনটি? A. <code>innerHTML</code> B. <code>eval</code> C. <code>textContent</code> D. <code>document.write</code></li><li>Student Marks 0–100 নিশ্চিত করার সঠিক পদ্ধতি? A. Only HTML <code>min/max</code> B. Explicit Validation C. <code>parseInt</code> only D. Ignore</li></ol>
+<h3>Answer Key এবং Explanation</h3>
+<table><thead><tr><th>Q</th><th>Answer</th><th>কারণ</th></tr></thead><tbody><tr><td>1</td><td>A</td><td>Dot Notation সরাসরি Named Property Access করে</td></tr><tr><td>2</td><td>B</td><td>Bracket Notation Variable-এর Value ব্যবহার করে</td></tr><tr><td>3</td><td>B</td><td>Spread Nested Reference Deep Copy করে না</td></tr><tr><td>4</td><td>A</td><td>Own Property-ই পরীক্ষা করে</td></tr><tr><td>5</td><td>B</td><td>দুই Variable একই Object Reference ধরে</td></tr><tr><td>6</td><td>B</td><td><code>[key, value]</code> Pair-এর Array দেয়</td></tr><tr><td>7</td><td>C</td><td>Optional Chaining Access বন্ধ করে <code>undefined</code> দেয়</td></tr><tr><td>8</td><td>B</td><td>JSON Text-কে JavaScript Value-তে রূপান্তর করে</td></tr><tr><td>9</td><td>C</td><td>HTML হিসেবে Interpret না করে Text বসায়</td></tr><tr><td>10</td><td>B</td><td>Explicit Validation দরকার; HTML Constraint Bypass হতে পারে</td></tr></tbody></table>
+<h2>৭.১৮ Chapter Summary এবং পরবর্তী অধ্যায়</h2>
+<p>Objects আমাদের Named Data, Methods, Nested Records এবং Real-World Entity Modeling-এর ভিত্তি। Destructuring, Spread, Optional Chaining ও Object Utilities দিয়ে Maintainable Code লেখা যায়। Student Management Project-এ এই ধারণাগুলো একসঙ্গে ব্যবহার করা হয়েছে। পরবর্তী অধ্যায় <strong>Chapter 8 — Strings এবং Modern Text Processing</strong>-এ Text Transformation, Unicode, Search এবং Input Processing শিখব।</p>
+</section></body></html>

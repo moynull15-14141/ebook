@@ -1,0 +1,308 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-21"><header class="opener"><div class="chap-label">অধ্যায় ২১</div><h1>JavaScript Design Patterns, Software Architecture এবং Scalable Application Structure</h1><p class="meta"><strong>Hands-on Project:</strong> TravelFlow Booking Manager</p></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে তুমি (১) Design Pattern ও Architecture-এর পার্থক্য বুঝবে, (২) Factory, Strategy, Observer, Repository এবং Dependency Injection ব্যবহার করতে পারবে, (৩) Domain, Application ও Presentation Layer আলাদা করতে পারবে, (৪) State Transition এবং Error Handling সঠিকভাবে ডিজাইন করতে পারবে, (৫) Testable Booking Application তৈরি করতে পারবে।</p>
+<h2>২১.১ ছোট কোড থেকে বড় Application: সমস্যাটা কোথায়?</h2>
+<p>একটি ৫০ লাইনের JavaScript ফাইলে DOM Update, Price Calculation ও Storage একসঙ্গে লিখলে প্রথমে সহজ মনে হয়। কিন্তু Project বড় হলে একটি পরিবর্তনে একাধিক Feature ভেঙে যায়। উদাহরণস্বরূপ, Booking Price যদি Button Click Handler-এর মধ্যে হিসাব করা হয়, সেই হিসাব Unit Test, Server API বা অন্য UI-তে পুনর্ব্যবহার কঠিন।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// Anti-pattern: UI এবং Business Logic এক জায়গায়।</span>
+document.querySelector(<span class="s">'#save'</span>).addEventListener(<span class="s">'click'</span>, () =&gt; {
+  <span class="k">const</span> price = Number(document.querySelector(<span class="s">'#price'</span>).value);
+  localStorage.setItem(<span class="s">'booking'</span>, JSON.stringify({ price }));
+});</code></pre></figure>
+<p>এখানে User নিজেই Price পরিবর্তন করতে পারে। Storage Failure, Validation, State Transition ও Future API Migration-এর ব্যবস্থা নেই। <strong>Separation of Concerns</strong> অনুসারে দায়িত্বগুলো আলাদা করা ভালো।</p>
+<h2>২১.২ Design Pattern বনাম Architecture</h2>
+<p><strong>Design Pattern</strong> হলো পুনরাবৃত্ত Design Problem সমাধানের পরীক্ষিত কাঠামো; যেমন Observer বা Factory। <strong>Architecture</strong> হলো পুরো System-এর Component, Dependency ও Data Flow সাজানোর সিদ্ধান্ত; যেমন Layered বা Hexagonal Architecture। Pattern কোনো বাধ্যতামূলক Recipe নয়—প্রয়োজন ছাড়া Pattern ব্যবহার করলে অকারণ Complexity বাড়ে।</p>
+<table><thead><tr><th>Concept</th><th>Focus</th><th>Example</th></tr></thead><tbody><tr><td>Factory</td><td>Object creation</td><td><code>createBookingService()</code></td></tr><tr><td>Strategy</td><td>Swappable algorithm</td><td>Discount strategies</td></tr><tr><td>Observer</td><td>Event notification</td><td>Booking created event</td></tr><tr><td>Repository</td><td>Data access abstraction</td><td>Memory/Browser storage</td></tr><tr><td>Dependency Injection</td><td>Dependency externalize</td><td>Service receives repository</td></tr><tr><td>Layered Architecture</td><td>Responsibility separation</td><td>UI → Service → Domain → Repository</td></tr></tbody></table>
+<h2>২১.৩ Single Responsibility এবং Cohesion</h2>
+<p>Single Responsibility Principle (SRP) বোঝায়: একটি Module-এর পরিবর্তনের প্রধান কারণ একটি হওয়া উচিত। UI Module User Interaction সামলাবে, Domain Module Business Rules, Repository Data Persistence। Cohesion বেশি এবং Coupling কম থাকলে Refactoring ও Testing সহজ হয়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// Domain: কোনো Browser API নেই।</span>
+<span class="k">export</span> <span class="k">function</span> calculateTotal(unitPrice, travelers) {
+  <span class="k">if</span> (!Number.isFinite(unitPrice) || unitPrice &lt; <span class="n">0</span>) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'Invalid price'</span>);
+  <span class="k">if</span> (!Number.isSafeInteger(travelers) || travelers &lt; <span class="n">1</span>) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'Invalid travelers'</span>);
+  <span class="k">return</span> unitPrice * travelers;
+}</code></pre></figure>
+<p>এটি Browser, Node.js এবং Test Runner—সব জায়গায় চলতে পারে।</p>
+<h2>২১.৪ Factory Pattern</h2>
+<p>Factory Object Creation-এর Details লুকায়। Constructor Call ছড়িয়ে না রেখে একটি Function দিয়ে Configured Instance তৈরি করা যায়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> createNotifier(channel) {
+  <span class="k">if</span> (channel === <span class="s">'console'</span>) <span class="k">return</span> { send: message =&gt; console.log(message) };
+  <span class="k">if</span> (channel === <span class="s">'silent'</span>) <span class="k">return</span> { send: () =&gt; {} };
+  <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'Unknown channel'</span>);
+}
+<span class="k">const</span> notifier = createNotifier(<span class="s">'console'</span>);
+notifier.send(<span class="s">'Booking created'</span>);</code></pre></figure>
+<p>Factory Test-এ Fake Dependency দেওয়ার পথও খুলে দেয়।</p>
+<h2>২১.৫ Strategy Pattern</h2>
+<p>একাধিক Algorithm একই Interface অনুসরণ করলে Strategy উপকারী। যেমন বিভিন্ন Discount Rule:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> strategies = {
+  regular: total =&gt; total,
+  member: total =&gt; total * <span class="n">0.95</span>,
+  seasonal: total =&gt; total * <span class="n">0.90</span>
+};
+<span class="k">function</span> applyDiscount(total, <span class="k">type</span> = <span class="s">'regular'</span>) {
+  <span class="k">const</span> strategy = strategies[<span class="k">type</span>];
+  <span class="k">if</span> (!strategy) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'Unknown discount strategy'</span>);
+  <span class="k">return</span> Math.round(strategy(total));
+}
+console.log(applyDiscount(<span class="n">10000</span>, <span class="s">'member'</span>)); <span class="c">// 9500</span></code></pre></figure>
+<p>Real Payment বা Price-এর ক্ষেত্রে Discount Server-side পুনরায় যাচাই করতে হবে।</p>
+<h2>২১.৬ Observer / Publish–Subscribe Pattern</h2>
+<p>একটি Booking তৈরি হলে UI Refresh, Analytics ও Notification—একাধিক Consumer-কে জানানোর প্রয়োজন হতে পারে। Observer Pattern-এ Producer সরাসরি Consumer-এর Implementation জানে না।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> createEventBus() {
+  <span class="k">const</span> handlers = <span class="k">new</span> Map();
+  <span class="k">return</span> {
+    on(<span class="k">type</span>, handler) {
+      <span class="k">const</span> group = handlers.<span class="k">get</span>(<span class="k">type</span>) ?? <span class="k">new</span> Set();
+      group.add(handler);
+      handlers.<span class="k">set</span>(<span class="k">type</span>, group);
+      <span class="k">return</span> () =&gt; group.<span class="k">delete</span>(handler);
+    },
+    emit(<span class="k">type</span>, payload) {
+      <span class="k">for</span> (<span class="k">const</span> handler <span class="k">of</span> handlers.<span class="k">get</span>(<span class="k">type</span>) ?? []) handler(payload);
+    }
+  };
+}</code></pre></figure>
+<p><strong>সতর্কতা:</strong> Synchronous <code>emit()</code>-এ Listener Exception ছুড়লে পরের Listener আর নাও চলতে পারে। Production System-এ Error Isolation, Logging এবং Async Delivery Semantics আলাদাভাবে ডিজাইন করতে হয়। Unsubscribe না করলে Memory Leak হতে পারে।</p>
+<h2>২১.৭ Repository Pattern</h2>
+<p>Business Logic যেন সরাসরি <code>localStorage</code> বা Database Query না জানে—Repository সেই Boundary তৈরি করে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> createMemoryRepository() {
+  <span class="k">const</span> records = <span class="k">new</span> Map();
+  <span class="k">return</span> {
+    <span class="k">async</span> <span class="k">get</span>(id) { <span class="k">return</span> records.<span class="k">get</span>(id) ?? <span class="k">null</span>; },
+    <span class="k">async</span> save(record) { records.<span class="k">set</span>(record.id, record); },
+    <span class="k">async</span> list() { <span class="k">return</span> [...records.values()]; }
+  };
+}</code></pre></figure>
+<p><code>async</code> Interface ব্যবহার করায় পরবর্তীতে HTTP API বা Database Repository-তে বদলানো সহজ। তবে Production Repository-তে Concurrency, Transactions, Error Handling ও Authorization প্রয়োজন।</p>
+<h2>২১.৮ Dependency Injection (DI)</h2>
+<p>Service-এর ভেতরে Storage ও Event Bus তৈরি না করে বাইরে থেকে পাঠালে Testability বাড়ে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> createService({ repository, events }) {
+  <span class="k">return</span> {
+    <span class="k">async</span> save(record) {
+      <span class="k">await</span> repository.save(record);
+      events.emit(<span class="s">'saved'</span>, record);
+      <span class="k">return</span> record;
+    }
+  };
+}</code></pre></figure>
+<p>এই পদ্ধতিকে <strong>Constructor/Function Injection</strong> বলা যায়। এটি Framework ছাড়াই করা যায়।</p>
+<h2>২১.৯ Layered Architecture ও Dependency Direction</h2>
+<figure class="code keep"><pre><code>┌──────────────────────────────────────────┐
+│ Presentation Layer (DOM / Browser UI)    │
+└─────────────────┬────────────────────────┘
+                  │ calls
+┌─────────────────▼────────────────────────┐
+│ Application Layer (Booking Service)      │
+└──────────────┬──────────────┬────────────┘
+               │              │
+┌──────────────▼──────┐ ┌─────▼────────────┐
+│ Domain Layer        │ │ Repository Port  │
+│ validation, status  │ │ list/get/save    │
+└─────────────────────┘ └─────┬────────────┘
+                              │
+                    ┌─────────▼────────────┐
+                    │ Browser / DB Adapter │
+                    └──────────────────────┘</code></pre></figure>
+<p>Domain Layer Browser DOM-এর উপর নির্ভর করবে না। Repository-এর Storage Implementation বদলালেও Service-এর Public Contract একই থাকতে পারে।</p>
+<h2>২১.১০ State Machine ও Business Rules</h2>
+<p>Booking Status যেকোনো Value থেকে যেকোনো Value-তে পরিবর্তন করা উচিত নয়। এই Project-এ Transition Rules:</p>
+<table><thead><tr><th>Current</th><th>Allowed Next</th></tr></thead><tbody><tr><td><code>pending</code></td><td><code>confirmed</code>, <code>cancelled</code></td></tr><tr><td><code>confirmed</code></td><td><code>cancelled</code></td></tr><tr><td><code>cancelled</code></td><td>কোনো Transition নয়</td></tr></tbody></table>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> allowed = {
+  pending: [<span class="s">'confirmed'</span>, <span class="s">'cancelled'</span>],
+  confirmed: [<span class="s">'cancelled'</span>],
+  cancelled: []
+};
+<span class="k">function</span> canTransition(current, next) {
+  <span class="k">return</span> (allowed[current] ?? []).includes(next);
+}</code></pre></figure>
+<p>State Machine Invalid Transition আটকায় এবং Workflow-কে স্পষ্ট করে।</p>
+<h2>২১.১১ Practical Project — TravelFlow Booking Manager</h2>
+<p><strong>Project Goal:</strong> একটি Educational Booking Dashboard তৈরি করা, যেখানে Customer Package নির্বাচন করে Booking Request তৈরি করবে এবং Status Update করা যাবে। Architecture-এ Domain, Repository, Event Bus, Service ও UI আলাদা থাকবে। এটি বাস্তব Booking Engine নয়।</p>
+<h3>Folder Structure</h3>
+<figure class="code keep"><pre><code>source-code/chapter-21/
+├── index.html
+├── style.css
+├── booking-core.mjs
+├── repository.mjs
+├── events.mjs
+├── service.mjs
+├── app.mjs
+└── booking-core.test.mjs</code></pre></figure>
+<h3>গুরুত্বপূর্ণ File Responsibilities</h3>
+<p><strong><code>booking-core.mjs</code></strong>: <code>validateRequest()</code>, <code>createBooking()</code>, <code>transitionBooking()</code>, <code>summarize()</code>। User Input থেকে Price গ্রহণ না করে Catalog থেকে Price হিসাব করা হয়।</p>
+<p><strong><code>repository.mjs</code></strong>: <code>createMemoryRepository()</code> এবং <code>createBrowserRepository()</code>। দুটিই <code>list/get/save</code> Interface অনুসরণ করে।</p>
+<p><strong><code>events.mjs</code></strong>: <code>createEventBus()</code> এবং Unsubscribe Function।</p>
+<p><strong><code>service.mjs</code></strong>: <code>createBookingService()</code>—Booking Creation ও State Change-এর Orchestration।</p>
+<p><strong><code>app.mjs</code></strong>: DOM Rendering, Form Submission, Event Listener ও UI Feedback। User-provided Text প্রদর্শনে <code>textContent</code> ব্যবহার করা হয়েছে।</p>
+<p>সম্পূর্ণ Runnable Source Code ও Tests Companion Source Code-এর <code>source-code/chapter-21/</code> Folder-এ রয়েছে। অধ্যায়ের এই ব্যাখ্যার সঙ্গে ওই Files পড়বে।</p>
+<h3>Run Instructions</h3>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code><span class="c"># Project folder থেকে:</span>
+python -m http.server 8000
+<span class="c"># Browser: http://localhost:8000</span>
+
+<span class="c"># Node.js installed থাকলে:</span>
+node --test booking-core.test.mjs</code></pre></figure>
+<p>ES Modules Browser-এ সাধারণত <code>file://</code> দিয়ে চালানোর বদলে Local HTTP Server ব্যবহার করবে।</p>
+<h3>Data Flow</h3>
+<ol><li>User Form Submit করে।</li><li>UI → Service-এ Request পাঠায়।</li><li>Service → Domain Validation ও Booking Creation করে।</li><li>Service → Repository-তে Save করে।</li><li>Service → Event Bus-এ <code>booking:created</code> Emit করে।</li><li>UI Listener → নতুন Data Load করে Table Refresh করে।</li></ol>
+<h3>Important Limitations</h3>
+<p>এই Browser Demo-র <code>localStorage</code> Trusted Database নয়। User Data পরিবর্তন করতে পারে। Multi-user Access, Authentication, Authorization, Real Booking Confirmation, Inventory Locking, Payment, Audit Trail এবং Server-side Validation এখানে নেই। Production Implementation-এ Backend API ও Database Transaction প্রয়োজন।</p>
+<h2>২১.১২ Testing Strategy</h2>
+<p>এই Project-এ Unit ও Integration Tests দুটোই আছে। Unit Test-এ Price Calculation, Invalid Input ও State Transition যাচাই করা হয়। Integration Test-এ Service, Repository এবং Event Bus একসঙ্গে কাজ করছে কি না দেখা হয়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">import</span> test <span class="k">from</span> <span class="s">'node:test'</span>;
+<span class="k">import</span> assert <span class="k">from</span> <span class="s">'node:assert/strict'</span>;
+<span class="k">import</span> { validateRequest } <span class="k">from</span> <span class="s">'./booking-core.mjs'</span>;
+
+test(<span class="s">'price comes from catalog'</span>, () =&gt; {
+  <span class="k">const</span> result = validateRequest({
+    customer: <span class="s">'Amina Khan'</span>, packageId: <span class="s">'cox'</span>, travelers: <span class="n">2</span>, total: <span class="n">1</span>
+  });
+  assert.equal(result.total, <span class="n">13000</span>);
+});</code></pre></figure>
+<p>Browser UI-এর Keyboard Navigation, Accessibility, LocalStorage Error Handling এবং Manual End-to-End Testing আলাদা Review-এর অংশ।</p>
+<h2>২১.১৩ Common Architecture Mistakes</h2>
+<ul><li><strong>God Object:</strong> সব Business Rule ও UI Logic একটি Module-এ রাখা।</li><li><strong>Overengineering:</strong> ছোট Application-এ অপ্রয়োজনীয় ১০টি Pattern যোগ করা।</li><li><strong>Hidden Dependency:</strong> Service-এর মধ্যে সরাসরি Global <code>localStorage</code> ব্যবহার করা।</li><li><strong>Mutable Shared State:</strong> Reference Copy-এর কারণে অনিচ্ছাকৃত পরিবর্তন।</li><li><strong>Missing Error Boundary:</strong> Storage Failure-এর পরে Success Message দেখানো।</li><li><strong>Trusting the Client:</strong> Browser-এর Price/Status-কে Authoritative ধরে নেওয়া।</li><li><strong>Unmanaged Listeners:</strong> Event Subscription পরিষ্কার না করা।</li></ul>
+<h2>২১.১৪ অনুশীলন — ১০টি</h2>
+<p>১. SRP অনুযায়ী একটি Monolithic Form Handler-কে তিনটি Function-এ ভাগ করো।</p>
+<p>২. <code>createNotifier('console')</code> ও <code>createNotifier('silent')</code> Factory তৈরি করো।</p>
+<p>৩. Student Discount-এর জন্য নতুন Strategy যোগ করো।</p>
+<p>৪. Event Bus-এর <code>on()</code> Function থেকে Unsubscribe Return করো।</p>
+<p>৫. Repository-তে <code>remove(id)</code> Method যোগ করো।</p>
+<p>৬. <code>confirmed → pending</code> Transition কেন Invalid, ব্যাখ্যা করো।</p>
+<p>৭. Booking Service-এ <code>repository</code> Mock করে Unit Test লেখো।</p>
+<p>৮. <code>localStorage</code>-এ Invalid JSON থাকলে App কী করবে, পরিকল্পনা করো।</p>
+<p>৯. Domain Layer থেকে DOM Dependency সরানোর উদাহরণ দাও।</p>
+<p>১০. TravelFlow-এ <code>booking:updated</code> Event দিয়ে Audit Logger যুক্ত করো।</p>
+<h3>Sample Solutions</h3>
+<p><strong>১.</strong> <code>readForm()</code> Input পড়ে; <code>validateRequest()</code> Business Rule যাচাই করে; <code>renderResult()</code> UI Update করে।</p>
+<p><strong>২.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> createNotifier = <span class="k">type</span> =&gt; <span class="k">type</span> === <span class="s">'console'</span>
+  ? { send: message =&gt; console.log(message) }
+  : { send: () =&gt; {} };</code></pre></figure>
+<p><strong>৩.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>strategies.student = total =&gt; total * <span class="n">0.92</span>;</code></pre></figure>
+<p><strong>৪.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> off = bus.on(<span class="s">'saved'</span>, console.log);
+off(); <span class="c">// Listener removed</span></code></pre></figure>
+<p><strong>৫.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">async</span> remove(id) { <span class="k">return</span> records.<span class="k">delete</span>(id); }</code></pre></figure>
+<p><strong>৬.</strong> Confirmed Booking-কে Pending করলে Workflow History অসংগত হতে পারে। নতুন Business Process ছাড়া Backward Transition নিষিদ্ধ রাখা সহজ ও নিরাপদ।</p>
+<p><strong>৭.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> saved = [];
+<span class="k">const</span> repository = { save: <span class="k">async</span> x =&gt; saved.push(x) };</code></pre></figure>
+<p><strong>৮.</strong> JSON Parse <code>try/catch</code>-এ রেখে Safe Fallback দেখাতে হবে; Corrupt Data-কে চুপচাপ মুছে না দিয়ে Recovery/Export Strategy রাখা ভালো।</p>
+<p><strong>৯.</strong> <code>document.querySelector()</code>-এর বদলে Domain Function-এ Plain Object Input দাও।</p>
+<p><strong>১০.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> unsubscribe = events.on(<span class="s">'booking:updated'</span>, booking =&gt; {
+  console.info(<span class="s">'Updated booking'</span>, booking.id, booking.status);
+});</code></pre></figure>
+<h2>২১.১৫ MCQ — ১০টি</h2>
+<p>১. Repository Pattern মূলত কী Abstract করে? A) CSS B) Data Access C) Typography D) HTML</p>
+<p>২. Observer Pattern-এর উদ্দেশ্য কী? A) Object creation B) Event notification C) Database migration D) Password hashing</p>
+<p>৩. Dependency Injection-এর সুবিধা কী? A) Testing easier B) No errors ever C) Browser faster always D) No security needed</p>
+<p>৪. Domain Layer-এ সাধারণত কোনটি থাকা উচিত? A) DOM Event Listener B) Business Rules C) CSS Grid D) Browser History</p>
+<p>৫. Factory Pattern কী করে? A) Creates configured objects B) Compresses images C) Encrypts tokens D) Renders tables</p>
+<p>৬. <code>cancelled → confirmed</code> এই Project-এ কী? A) Valid B) Invalid C) Always automatic D) CSS state</p>
+<p>৭. <code>textContent</code> ব্যবহারের একটি কারণ কী? A) Safe plain-text rendering B) Faster payment C) Password hashing D) DB indexing</p>
+<p>৮. Browser <code>localStorage</code> কি Trusted Server Database? A) Yes B) No C) Only Chrome D) Only HTTPS</p>
+<p>৯. Strategy Pattern কখন উপযোগী? A) Swappable algorithms B) One fixed color C) One paragraph D) Static HTML only</p>
+<p>১০. Service Layer সাধারণত কী করে? A) Orchestrates use cases B) Sets font family C) Manages DNS D) Paints pixels</p>
+<h3>MCQ Answers ও ব্যাখ্যা</h3>
+<ol><li><strong>B</strong> — Data Persistence-এর Implementation আড়াল করে।</li><li><strong>B</strong> — Event ঘটলে Subscriber-দের জানায়।</li><li><strong>A</strong> — Fake/Mock Dependency দিয়ে Test সহজ হয়।</li><li><strong>B</strong> — Business Validation ও State Rule Domain-এর দায়িত্ব।</li><li><strong>A</strong> — Object Creation-এর Logic Encapsulate করে।</li><li><strong>B</strong> — State Transition Rules অনুমতি দেয় না।</li><li><strong>A</strong> — Plain Text HTML হিসেবে Parse হয় না।</li><li><strong>B</strong> — Browser Storage User পরিবর্তন করতে পারে।</li><li><strong>A</strong> — Algorithm পরিবর্তনযোগ্য হলে Strategy উপকারী।</li><li><strong>A</strong> — Use Case-এ বিভিন্ন Layer সমন্বয় করে।</li></ol>
+<h2>২১.১৬ Chapter Recap ও পরবর্তী অধ্যায়</h2>
+<p>Design Patterns কোনো Magic Solution নয়; সঠিক Responsibility, Testable Boundaries এবং Explicit Business Rules-এর সঙ্গে ব্যবহার করলেই উপকার পাওয়া যায়। TravelFlow Project-এ Factory, Observer, Repository, Dependency Injection এবং Layered Architecture একসঙ্গে প্রয়োগ করেছি। পরবর্তী অধ্যায় <strong>JavaScript Testing Mastery</strong>-তে Unit, Integration, Mocking, TDD ও End-to-End Testing আরও গভীরভাবে শিখব।</p>
+</section></body></html>

@@ -1,0 +1,340 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-5"><header class="opener"><div class="chap-label">অধ্যায় ৫</div><h1>Functions: Reusable Code, Parameters, Return Values এবং Scope</h1></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে তুমি (১) Function Declaration, Expression ও Arrow Function লিখতে, (২) Parameter এবং Argument-এর পার্থক্য বুঝতে, (৩) Return Value দিয়ে ছোট ছোট Function যুক্ত করতে, (৪) Scope, Closure, Hoisting ও Recursion ব্যাখ্যা করতে, (৫) Pure Function ও Side Effect আলাদা করতে, (৬) একটি বাস্তব <strong>Invoice Calculator</strong> তৈরি ও Test করতে পারবে।</p>
+<h2>৫.১ Function কেন প্রয়োজন?</h2>
+<p>ধরো, একটি অনলাইন দোকানে তিন জায়গায় মোট দাম হিসাব করতে হচ্ছে। একই Calculation বারবার লিখলে একটি Bug ঠিক করার জন্য তিনটি জায়গায় পরিবর্তন করতে হবে। Function একটি নির্দিষ্ট কাজকে নাম দিয়ে পুনরায় ব্যবহারযোগ্য করে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> calculateLineTotal(price, quantity) {
+  <span class="k">return</span> price * quantity;
+}
+console.log(calculateLineTotal(<span class="n">120</span>, <span class="n">3</span>)); <span class="c">// 360</span>
+console.log(calculateLineTotal(<span class="n">75</span>, <span class="n">2</span>));  <span class="c">// 150</span></code></pre></figure>
+<p>এখানে <code>calculateLineTotal</code> হলো Function Name; <code>price</code> ও <code>quantity</code> হলো Parameters; <code>120</code> ও <code>3</code> হলো Arguments; <code>return</code> Function-এর Result ফেরত দেয়।</p>
+<p><strong>মনে রাখবে:</strong> <code>console.log()</code> Output দেখায়, কিন্তু <code>return</code> Caller-কে Value দেয়। এগুলো একই কাজ করে না।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> showTotal(a, b) {
+  console.log(a + b);
+}
+<span class="k">const</span> result = showTotal(<span class="n">4</span>, <span class="n">6</span>); <span class="c">// Console: 10</span>
+console.log(result);            <span class="c">// undefined</span></code></pre></figure>
+<h2>৫.২ Function Declaration, Expression ও Arrow Function</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// Declaration</span>
+<span class="k">function</span> add(a, b) { <span class="k">return</span> a + b; }
+
+<span class="c">// Expression</span>
+<span class="k">const</span> subtract = <span class="k">function</span> (a, b) { <span class="k">return</span> a - b; };
+
+<span class="c">// Arrow</span>
+<span class="k">const</span> multiply = (a, b) =&gt; a * b;
+
+console.log(add(<span class="n">2</span>, <span class="n">3</span>));      <span class="c">// 5</span>
+console.log(subtract(<span class="n">8</span>, <span class="n">3</span>)); <span class="c">// 5</span>
+console.log(multiply(<span class="n">4</span>, <span class="n">5</span>)); <span class="c">// 20</span></code></pre></figure>
+<p>Function Declaration সাধারণত Declaration-এর আগেও Call করা যায়, কারণ এটি Hoisted হয়। <code>const</code>-এ রাখা Function Expression বা Arrow Function তার Initialization-এর আগে ব্যবহার করা যায় না।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>sayHello(); <span class="c">// works</span>
+<span class="k">function</span> sayHello() { console.log(<span class="s">&quot;Hello!&quot;</span>); }
+
+<span class="c">// greet(); // ReferenceError: initialization-এর আগে access</span>
+<span class="k">const</span> greet = () =&gt; console.log(<span class="s">&quot;Hi!&quot;</span>);</code></pre></figure>
+<p><strong>Arrow Function-এর <code>this</code>:</strong> Arrow Function নিজের <code>this</code> Binding তৈরি করে না; চারপাশের Lexical Scope-এর <code>this</code> ব্যবহার করে। Object Method-এ <code>this</code> প্রয়োজন হলে সাধারণ Method Syntax অধিক উপযুক্ত।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> account = {
+  owner: <span class="s">&quot;Rafi&quot;</span>,
+  describe() { <span class="k">return</span> <span class="s">`Account: ${this.owner}`</span>; }
+};
+console.log(account.describe());</code></pre></figure>
+<h2>৫.৩ Parameters, Default Values এবং Rest Parameters</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> greet(name = <span class="s">&quot;Guest&quot;</span>, prefix = <span class="s">&quot;Welcome&quot;</span>) {
+  <span class="k">return</span> <span class="s">`${prefix}, ${name}!`</span>;
+}
+console.log(greet());
+console.log(greet(<span class="s">&quot;Nila&quot;</span>, <span class="s">&quot;Hello&quot;</span>));</code></pre></figure>
+<p>Default Parameter তখন কার্যকর হয় যখন Argument দেওয়া হয়নি অথবা Argument <code>undefined</code>। <code>null</code> পাঠালে Default বসে না।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> sumAll(...numbers) {
+  <span class="k">return</span> numbers.reduce((sum, value) =&gt; sum + value, <span class="n">0</span>);
+}
+console.log(sumAll(<span class="n">10</span>, <span class="n">20</span>, <span class="n">30</span>)); <span class="c">// 60</span></code></pre></figure>
+<p><code>...numbers</code> Rest Parameter: একাধিক Argument-কে একটি Array-তে সংগ্রহ করে। বিপরীতে Function Call-এর সময় <code>...array</code> ব্যবহার করলে সেটি Spread Syntax।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> values = [<span class="n">5</span>, <span class="n">8</span>, <span class="n">12</span>];
+console.log(sumAll(...values)); <span class="c">// 25</span></code></pre></figure>
+<h2>৫.৪ Return, Early Return এবং Guard Clause</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> getShippingFee(total) {
+  <span class="k">if</span> (!Number.isFinite(total) || total &lt; <span class="n">0</span>) {
+    <span class="k">throw</span> <span class="k">new</span> TypeError(<span class="s">&quot;Invalid total&quot;</span>);
+  }
+  <span class="k">if</span> (total &gt;= <span class="n">2000</span>) <span class="k">return</span> <span class="n">0</span>;
+  <span class="k">return</span> <span class="n">120</span>;
+}</code></pre></figure>
+<p>Guard Clause অগ্রহণযোগ্য Input শুরুতেই Reject করে; Nested <code>if</code> কমিয়ে Code পড়া সহজ করে। <code>return</code> Execute হলে Function-এর পরের Statement আর চলে না।</p>
+<h2>৫.৫ Scope: Global, Function ও Block</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> shopName = <span class="s">&quot;JS Store&quot;</span>; <span class="c">// module/global-level binding</span>
+<span class="k">function</span> createReceipt() {
+  <span class="k">const</span> receiptId = <span class="s">&quot;R-101&quot;</span>; <span class="c">// function scope</span>
+  <span class="k">if</span> (<span class="k">true</span>) {
+    <span class="k">const</span> message = <span class="s">`${shopName}: ${receiptId}`</span>; <span class="c">// block scope</span>
+    console.log(message);
+  }
+  <span class="c">// console.log(message); // ReferenceError</span>
+}
+createReceipt();</code></pre></figure>
+<p><code>let</code> এবং <code>const</code> Block Scoped; <code>var</code> Function Scoped। Browser Script-এর Top-Level <code>var</code>-এর Global Object-এর সঙ্গে সম্পর্ক এবং Module-এর Scope ভিন্ন হতে পারে। নতুন Code-এ সাধারণত <code>const</code> ও প্রয়োজনমতো <code>let</code> ব্যবহার করবে।</p>
+<h3>Shadowing</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> rate = <span class="n">5</span>;
+<span class="k">function</span> printRate() {
+  <span class="k">const</span> rate = <span class="n">10</span>;
+  console.log(rate); <span class="c">// 10</span>
+}
+printRate();
+console.log(rate); <span class="c">// 5</span></code></pre></figure>
+<p>Inner Binding একই নামের Outer Binding-কে ওই Scope-এ Shadow করে। অতিরিক্ত Shadowing বিভ্রান্তি সৃষ্টি করতে পারে।</p>
+<h2>৫.৬ Closure: Function কীভাবে State মনে রাখে?</h2>
+<p>Closure মানে Function তার তৈরি হওয়ার সময়কার Lexical Environment-এর Binding-এ Access ধরে রাখতে পারে—Outer Function Return করার পরও।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> createCounter(start = <span class="n">0</span>) {
+  <span class="k">let</span> count = start;
+  <span class="k">return</span> <span class="k">function</span> increment() {
+    count += <span class="n">1</span>;
+    <span class="k">return</span> count;
+  };
+}
+<span class="k">const</span> counterA = createCounter();
+console.log(counterA()); <span class="c">// 1</span>
+console.log(counterA()); <span class="c">// 2</span>
+<span class="k">const</span> counterB = createCounter(<span class="n">10</span>);
+console.log(counterB()); <span class="c">// 11</span></code></pre></figure>
+<p>প্রতিটি <code>createCounter()</code> Call আলাদা State তৈরি করে। Closure ব্যবহার হয় Event Handler, Configuration, Factory Function, Memoization এবং Encapsulation-এ। তবে বড় Data অপ্রয়োজনে Capture করলে Memory Retention হতে পারে।</p>
+<h2>৫.৭ Callback ও Higher-Order Function</h2>
+<p>Function JavaScript-এ First-Class Value; Variable-এ রাখা, Argument হিসেবে পাঠানো এবং Return করা যায়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> applyOperation(a, b, operation) {
+  <span class="k">return</span> operation(a, b);
+}
+<span class="k">const</span> result = applyOperation(<span class="n">10</span>, <span class="n">5</span>, (x, y) =&gt; x - y);
+console.log(result); <span class="c">// 5</span></code></pre></figure>
+<p>যে Function অন্য Function নেয় বা Return করে তাকে Higher-Order Function বলে। Array-এর <code>map</code>, <code>filter</code>, <code>reduce</code>-এ এটি প্রচুর ব্যবহৃত হয়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> prices = [<span class="n">100</span>, <span class="n">250</span>, <span class="n">500</span>];
+<span class="k">const</span> discounted = prices.map(price =&gt; price * <span class="n">0.9</span>);
+console.log(discounted); <span class="c">// [90, 225, 450]</span></code></pre></figure>
+<h2>৫.৮ Recursion: Function নিজেকেই Call করে</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> factorial(n) {
+  <span class="k">if</span> (!Number.isSafeInteger(n) || n &lt; <span class="n">0</span> || n &gt; <span class="n">170</span>) {
+    <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">&quot;n must be an integer between 0 and 170&quot;</span>);
+  }
+  <span class="k">if</span> (n &lt;= <span class="n">1</span>) <span class="k">return</span> <span class="n">1</span>; <span class="c">// base case</span>
+  <span class="k">return</span> n * factorial(n - <span class="n">1</span>); <span class="c">// recursive case</span>
+}
+console.log(factorial(<span class="n">5</span>)); <span class="c">// 120</span></code></pre></figure>
+<p>Recursion-এ Base Case না থাকলে Stack Overflow হতে পারে। JavaScript Engine-এ Tail-Call Optimization সর্বত্র নির্ভরযোগ্য নয়। বড় Input-এর ক্ষেত্রে Loop কখনো অধিক নিরাপদ।</p>
+<h2>৫.৯ Pure Function বনাম Side Effect</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> addTax(amount, taxRate) {
+  <span class="k">return</span> amount + amount * taxRate;
+}</code></pre></figure>
+<p>একই Input-এ একই Output এবং বাইরে কোনো Observable State পরিবর্তন না হলে Function-কে Pure বলা হয়। DOM Update, Network Request, <code>console.log</code>, File Write, বাইরের Variable পরিবর্তন ইত্যাদি Side Effect। Side Effect নিষিদ্ধ নয়; বরং Calculation ও UI/IO Logic আলাদা রাখলে Testing সহজ হয়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> cart = [{ name: <span class="s">&quot;Pen&quot;</span>, price: <span class="n">20</span> }];
+<span class="k">function</span> copyWithItem(items, newItem) {
+  <span class="k">return</span> [...items, newItem];
+}
+<span class="k">const</span> updated = copyWithItem(cart, { name: <span class="s">&quot;Book&quot;</span>, price: <span class="n">100</span> });
+console.log(cart.length);    <span class="c">// 1</span>
+console.log(updated.length); <span class="c">// 2</span></code></pre></figure>
+<h2>৫.১০ Practical Project — Invoice Calculator</h2>
+<h3>Project Goal</h3>
+<p>একটি ছোট দোকানের Invoice App বানাব, যেখানে Product Name, Unit Price এবং Quantity দিয়ে Item যোগ করা যাবে। Discount এবং উদাহরণমূলক Tax Rate বদলালে Grand Total আপডেট হবে। এখানে <strong>Discount আগে, Tax পরে</strong> প্রয়োগ করছি—এটি এই Project-এর নির্দিষ্ট Calculation Rule, কোনো বাস্তব Tax Law-এর দাবি নয়।</p>
+<h3>Project File Structure</h3>
+<figure class="code keep"><pre><code>source-code/chapter-05/
+├── index.html
+├── style.css
+├── invoice.js
+├── app.js
+└── invoice.test.js</code></pre></figure>
+<p><strong>Design Decision:</strong> টাকা Floating-Point BDT হিসেবে না রেখে <strong>Integer Paisa</strong>-তে হিসাব করা হচ্ছে। উদাহরণ: <code>BDT 12.50</code> → <code>1250</code> Paisa। Rate রাখা হচ্ছে Basis Points-এ: <code>5% = 500 bps</code>, <code>10% = 1000 bps</code>। <code>Math.round</code> ব্যবহার করে Positive Amount-এর Half-Up Rounding দেখানো হয়েছে; Production Financial Software-এ প্রতিষ্ঠানের Rounding Policy অনুযায়ী সিদ্ধান্ত নিতে হবে।</p>
+<h3>Core Engine (<code>invoice.js</code>)</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> percentOf(amount, rateBasisPoints) {
+  <span class="k">if</span> (!Number.isSafeInteger(amount) || amount &lt; <span class="n">0</span>) <span class="k">throw</span> <span class="k">new</span> TypeError(<span class="s">&quot;Invalid amount&quot;</span>);
+  <span class="k">if</span> (!Number.isSafeInteger(rateBasisPoints) || rateBasisPoints &lt; <span class="n">0</span> || rateBasisPoints &gt; <span class="n">10000</span>) {
+    <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">&quot;Invalid rate&quot;</span>);
+  }
+  <span class="k">const</span> product = amount * rateBasisPoints;
+  <span class="k">if</span> (!Number.isSafeInteger(product)) <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">&quot;Amount too large&quot;</span>);
+  <span class="k">return</span> Math.round(product / <span class="n">10000</span>);
+}
+
+<span class="k">function</span> calculateInvoice(lines, { discountBps = <span class="n">0</span>, taxBps = <span class="n">0</span> } = {}) {
+  <span class="k">let</span> subtotal = <span class="n">0</span>;
+  <span class="k">for</span> (<span class="k">const</span> line <span class="k">of</span> lines) {
+    subtotal += line.unitPricePaisa * line.quantity;
+  }
+  <span class="k">const</span> discount = percentOf(subtotal, discountBps);
+  <span class="k">const</span> taxable = subtotal - discount;
+  <span class="k">const</span> tax = percentOf(taxable, taxBps);
+  <span class="k">return</span> { subtotal, discount, tax, total: taxable + tax };
+}</code></pre></figure>
+<p>উপরের Snippet মূল Algorithm বোঝানোর জন্য সরল করা। <strong>Runnable <code>invoice.js</code>-এ পূর্ণ Input Validation, Safe Integer Check এবং Line Details আছে।</strong> <code>app.js</code> DOM Update করে; <code>invoice.js</code> Pure Calculation Logic ধরে রাখে। এতে একই Logic Browser ও Node.js Test—দুই জায়গায় ব্যবহার করা যায়।</p>
+<h3>হিসাবের উদাহরণ</h3>
+<p>ধরা যাক একটি Item-এর দাম BDT 100.00, Quantity 1, Discount 10%, Example Tax 10%।</p>
+<table><thead><tr><th>Step</th><th style="text-align:right">Amount</th></tr></thead><tbody><tr><td>Subtotal</td><td style="text-align:right">BDT 100.00</td></tr><tr><td>Discount</td><td style="text-align:right">BDT 10.00</td></tr><tr><td>Taxable amount</td><td style="text-align:right">BDT 90.00</td></tr><tr><td>Example Tax</td><td style="text-align:right">BDT 9.00</td></tr><tr><td>Grand Total</td><td style="text-align:right"><strong>BDT 99.00</strong></td></tr></tbody></table>
+<h3>App চালানোর নিয়ম</h3>
+<ol><li><code>source-code/chapter-05/index.html</code> Browser-এ খোলো।</li><li>Product Name, Unit Price ও Quantity লিখে <strong>Add Item</strong> চাপো।</li><li>Discount ও Example Tax Rate পরিবর্তন করো।</li><li>Subtotal, Discount, Taxable Amount, Tax ও Grand Total দেখো।</li><li><strong>Clear</strong> চাপলে Items মুছে যাবে।</li><li>Node.js থাকলে <code>node --test invoice.test.js</code> দিয়ে Automated Tests চালাও।</li></ol>
+<h3>Code Architecture</h3>
+<figure class="code keep"><pre><code>User Input
+   ↓
+app.js → parseBdtToPaisa() → calculateInvoice()
+   ↓                                ↓
+DOM Rendering ← Invoice Result Object</code></pre></figure>
+<p><strong>Security Note:</strong> User-provided Product Name <code>textContent</code> দিয়ে DOM-এ বসানো হয়েছে, <code>innerHTML</code> দিয়ে নয়। এটি সাধারণ HTML Injection এড়াতে সাহায্য করে।</p>
+<h2>৫.১১ Common Mistakes এবং Debugging</h2>
+<p><strong>Mistake 1 — <code>return</code> ভুলে যাওয়া</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> wrong = (a, b) =&gt; { a + b; }; <span class="c">// undefined</span>
+<span class="k">const</span> correct = (a, b) =&gt; { <span class="k">return</span> a + b; };</code></pre></figure>
+<p><strong>Mistake 2 — Parameter-কে Type Validation ছাড়া ব্যবহার</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> add(a, b) { <span class="k">return</span> a + b; }
+console.log(add(<span class="s">&quot;5&quot;</span>, <span class="n">2</span>)); <span class="c">// &quot;52&quot;, 7 নয়</span></code></pre></figure>
+<p><strong>Mistake 3 — Default Parameter-এ <code>null</code> ধরে নেওয়া</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> display(name = <span class="s">&quot;Guest&quot;</span>) { <span class="k">return</span> name; }
+console.log(display(<span class="k">undefined</span>)); <span class="c">// Guest</span>
+console.log(display(<span class="k">null</span>));      <span class="c">// null</span></code></pre></figure>
+<p><strong>Mistake 4 — Closure-এর Shared State বুঝতে না পারা</strong>: একই Counter Function-এ একাধিক Call করলে State বাড়ে; নতুন Factory Call করলে আলাদা State তৈরি হয়।</p>
+<p><strong>Mistake 5 — Recursive Base Case ভুল</strong>: Recursion-এর আগে Exit Condition লিখে পরীক্ষা করো।</p>
+<h2>৫.১২ Practice Exercises</h2>
+<ol><li><code>square(number)</code> Function লিখো, যেটি Number-এর Square Return করে।</li><li><code>isEven(n)</code> Function লিখো; Input Safe Integer না হলে Error দেবে।</li><li><code>getFullName(first, last)</code> লিখো; <code>last</code> না থাকলে শুধু <code>first</code> Return করবে।</li><li>Rest Parameter দিয়ে <code>average(...numbers)</code> লিখো; Empty Input Reject করবে।</li><li><code>createMultiplier(factor)</code> Closure লিখো, যা নতুন Function Return করবে।</li><li><code>sumTo(n)</code> Recursion দিয়ে লিখো; <code>n</code> হবে 0–1000-এর Integer।</li><li>Invoice App-এ একটি নতুন <code>serviceFeePaisa</code> Option যুক্ত করো, যা Tax-এর পরে যোগ হবে।</li><li>Invoice App-এ Remove Item Button যোগ করো এবং Item Index Validation করো।</li></ol>
+<h2>৫.১৩ Exercise Solutions</h2>
+<figure class="code"><figcaption>JavaScript</figcaption><pre><code><span class="c">// 1</span>
+<span class="k">const</span> square = <span class="k">number</span> =&gt; <span class="k">number</span> * <span class="k">number</span>;
+
+<span class="c">// 2</span>
+<span class="k">function</span> isEven(n) {
+  <span class="k">if</span> (!Number.isSafeInteger(n)) <span class="k">throw</span> <span class="k">new</span> TypeError(<span class="s">&quot;Integer required&quot;</span>);
+  <span class="k">return</span> n % <span class="n">2</span> === <span class="n">0</span>;
+}
+
+<span class="c">// 3</span>
+<span class="k">function</span> getFullName(first, last = <span class="s">&quot;&quot;</span>) {
+  <span class="k">return</span> <span class="s">`${first} ${last}`</span>.trim();
+}
+
+<span class="c">// 4</span>
+<span class="k">function</span> average(...numbers) {
+  <span class="k">if</span> (numbers.length === <span class="n">0</span> || !numbers.every(Number.isFinite)) {
+    <span class="k">throw</span> <span class="k">new</span> TypeError(<span class="s">&quot;At least one finite number required&quot;</span>);
+  }
+  <span class="k">return</span> numbers.reduce((sum, n) =&gt; sum + n, <span class="n">0</span>) / numbers.length;
+}
+
+<span class="c">// 5</span>
+<span class="k">function</span> createMultiplier(factor) {
+  <span class="k">return</span> value =&gt; value * factor;
+}
+<span class="k">const</span> double = createMultiplier(<span class="n">2</span>);
+console.log(double(<span class="n">7</span>)); <span class="c">// 14</span>
+
+<span class="c">// 6</span>
+<span class="k">function</span> sumTo(n) {
+  <span class="k">if</span> (!Number.isSafeInteger(n) || n &lt; <span class="n">0</span> || n &gt; <span class="n">1000</span>) <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">&quot;Invalid n&quot;</span>);
+  <span class="k">if</span> (n === <span class="n">0</span>) <span class="k">return</span> <span class="n">0</span>;
+  <span class="k">return</span> n + sumTo(n - <span class="n">1</span>);
+}</code></pre></figure>
+<p><strong>Solution 7 (Implementation Guide):</strong> <code>calculateInvoice()</code>-এর Option-এ <code>serviceFeePaisa = 0</code> যোগ করে Safe Integer Validation করবে। এরপর <code>total = taxable + tax + serviceFeePaisa</code> হিসাব করবে এবং Overflow Check করবে। Test-এ <code>serviceFeePaisa: 250</code> দিলে Grand Total 250 Paisa বাড়ছে কি না দেখবে।</p>
+<p><strong>Solution 8 (Implementation Guide):</strong> প্রতিটি List Item-এর সঙ্গে <code>Remove</code> Button তৈরি করে তার <code>data-index</code> বা Closure-bound Index ব্যবহার করো। Click Handler-এ Index <code>0 &lt;= index &lt; lines.length</code> যাচাই করে <code>splice()</code> দিয়ে Remove করো, তারপর <code>render()</code>। Button-এর Label ও Focus Accessibility বজায় রাখবে।</p>
+<h2>৫.১৪ MCQ — নিজেকে যাচাই করো</h2>
+<ol><li>Function-এর Output Caller-কে কোন Keyword দেয়? (A) print (B) return (C) break (D) let</li><li>Function Declaration সাধারণত কোন বৈশিষ্ট্য রাখে? (A) Hoisting (B) Private this (C) No scope (D) Always async</li><li>Rest Parameter কোন Syntax ব্যবহার করে? (A) <code>??</code> (B) <code>...</code> (C) <code>=&gt;</code> (D) <code>?.</code></li><li>Arrow Function-এর <code>this</code> সাধারণত কোথা থেকে আসে? (A) New binding (B) Global always (C) Lexical scope (D) Argument</li><li>Closure কী সংরক্ষণ করতে পারে? (A) শুধু HTML (B) Lexical binding access (C) Browser History (D) CSS</li><li><code>const f = x =&gt; { x * 2 }; f(3)</code> কী Return করে? (A) 6 (B) 3 (C) undefined (D) null</li><li>Base Case ছাড়া Recursion কী সমস্যা করতে পারে? (A) Stack overflow (B) CSS error (C) Syntax always (D) HTTP 404</li><li>Pure Function-এর মূল বৈশিষ্ট্য কী? (A) DOM বদলায় (B) Same input → same output, no side effects (C) Network call (D) Random output</li><li><code>greet(undefined)</code>-এ Default Parameter কাজ করে? (A) হ্যাঁ (B) না (C) কেবল null-এ (D) কেবল Arrow Function-এ</li><li>Invoice Engine-এ Integer Paisa ব্যবহারের সুবিধা কী? (A) UI বড় হয় (B) Binary floating-point precision সমস্যা কমে (C) CSS লাগে না (D) Tax লাগে না</li></ol>
+<h3>MCQ Answer Key ও Explanation</h3>
+<table><thead><tr><th>No.</th><th>Answer</th><th>Explanation</th></tr></thead><tbody><tr><td>1</td><td>B</td><td><code>return</code> Caller-কে Value দেয়।</td></tr><tr><td>2</td><td>A</td><td>Function Declaration Hoisted হয়।</td></tr><tr><td>3</td><td>B</td><td><code>...args</code> Rest Parameters সংগ্রহ করে।</td></tr><tr><td>4</td><td>C</td><td>Arrow Function Lexical <code>this</code> ব্যবহার করে।</td></tr><tr><td>5</td><td>B</td><td>Closure Lexical Environment-এর Binding-এ Access ধরে রাখে।</td></tr><tr><td>6</td><td>C</td><td>Block Body-তে <code>return</code> নেই।</td></tr><tr><td>7</td><td>A</td><td>Exit Condition না থাকলে Call Stack শেষ হতে পারে।</td></tr><tr><td>8</td><td>B</td><td>Pure Function-এর Deterministic Output ও Side-Effect-Free Behaviour।</td></tr><tr><td>9</td><td>A</td><td><code>undefined</code> Default Parameter Trigger করে।</td></tr><tr><td>10</td><td>B</td><td>Integer Minor Units ব্যবহার করলে Decimal Arithmetic-এর অনেক সমস্যা এড়ানো যায়।</td></tr></tbody></table>
+<h2>৫.১৫ Interview Questions</h2>
+<p><strong>Q: Parameter ও Argument-এর পার্থক্য কী?</strong> Parameter হলো Function Definition-এর Placeholder; Argument হলো Call-এর সময় পাঠানো Actual Value।</p>
+<p><strong>Q: Closure কি Outer Variable-এর Snapshot নেয়?</strong> সাধারণত না; Closure Lexical Binding-এ Access ধরে রাখে, ফলে Variable পরিবর্তিত হলে পরবর্তী Call-এ নতুন Value দেখা যেতে পারে।</p>
+<p><strong>Q: Arrow Function কি সবসময় Regular Function-এর বিকল্প?</strong> না। <code>this</code>, <code>arguments</code>, Constructor Usage এবং Generator Behaviour-এ গুরুত্বপূর্ণ পার্থক্য আছে।</p>
+<p><strong>Q: <code>return</code> ও <code>console.log</code> কেন আলাদা?</strong> <code>return</code> Computation Compose করতে সাহায্য করে; <code>console.log</code> মূলত Debug/Output Side Effect।</p>
+<h2>৫.১৬ Chapter Summary</h2>
+<ul><li>Function একটি Reusable Behaviour তৈরি করে।</li><li>Parameter/Argument এবং Return Value Function Composition-এর ভিত্তি।</li><li>Declaration, Expression ও Arrow Function-এর Scope/Hoisting/<code>this</code> পার্থক্য বুঝতে হবে।</li><li>Closure, Callback ও Higher-Order Function আধুনিক JavaScript-এর গুরুত্বপূর্ণ Building Block।</li><li>Pure Calculation Logic UI Code থেকে আলাদা রাখলে Testing সহজ হয়।</li><li>Invoice Calculator Project-এ Validation, Rounding, Testability ও DOM Safety-এর ব্যবহার দেখা হয়েছে।</li></ul>
+<p><strong>পরবর্তী অধ্যায়:</strong> Chapter 6 — Arrays: Data Collection, Array Methods এবং Practical Data Processing; Practical Project: Inventory Dashboard।</p>
+</section></body></html>

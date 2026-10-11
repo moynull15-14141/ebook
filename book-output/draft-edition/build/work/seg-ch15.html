@@ -1,0 +1,292 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-15"><header class="opener"><div class="chap-label">অধ্যায় ১৫</div><h1>JavaScript Browser APIs, Web Storage, Fetch, URL এবং Real-World Browser Applications</h1></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে তুমি Browser API কীভাবে কাজ করে, <code>window</code> ও <code>document</code>-এর দায়িত্ব, URL API, Web Storage, Fetch, AbortController, File/Blob API এবং browser security boundary বুঝতে পারবে। শেষে <strong>Bookmark Vault</strong> নামে একটি বাস্তব Browser Application তৈরি করবে, যেখানে Search, Tag Filter, Favorites, Import/Export এবং Persistent Storage থাকবে।</p>
+<h2>১৫.১ Browser API কী এবং JavaScript Language থেকে পার্থক্য</h2>
+<p>JavaScript ভাষা <code>Array</code>, <code>Object</code>, <code>Promise</code>, <code>Map</code> ইত্যাদি দেয়। Browser সেই ভাষার বাইরে <code>document</code>, <code>localStorage</code>, <code>fetch</code>, <code>URL</code>, <code>navigator</code>, <code>history</code>, <code>location</code>, <code>Blob</code> ইত্যাদি Host APIs দেয়। Node.js-এ একই Browser DOM API সাধারণত পাওয়া যায় না।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>console.log(<span class="k">typeof</span> Promise);      <span class="c">// function</span>
+console.log(window.location.href); <span class="c">// বর্তমান পেজের URL</span>
+console.log(document.title);       <span class="c">// বর্তমান document title</span></code></pre></figure>
+<p>Browser APIs-এর কিছু অংশ secure context (HTTPS বা localhost) দাবি করে। API availability যাচাই করা ভালো:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">if</span> (<span class="s">'clipboard'</span> <span class="k">in</span> navigator) {
+  <span class="c">// Clipboard API সম্ভবত উপলব্ধ; permission লাগতে পারে</span>
+}</code></pre></figure>
+<p><code>window</code> হলো browser window-এর global object; <code>document</code> হলো DOM tree-এর entry point। <code>location</code> current URL নির্দেশ করে। Browser এবং Server-এর JavaScript পরিবেশ আলাদা হওয়ায় runtime capability ধরে না নিয়ে পরীক্ষা করা উচিত।</p>
+<h2>১৫.২ URL এবং URLSearchParams</h2>
+<p>String জোড়া লাগিয়ে URL বানালে encoding, query separator, whitespace ইত্যাদি ভুল হতে পারে। <code>URL</code> ও <code>URLSearchParams</code> এই সমস্যা কমায়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> url = <span class="k">new</span> URL(<span class="s">'https://example.com/search'</span>);
+url.searchParams.<span class="k">set</span>(<span class="s">'q'</span>, <span class="s">'বাংলা JavaScript'</span>);
+url.searchParams.<span class="k">set</span>(<span class="s">'page'</span>, <span class="s">'2'</span>);
+console.log(url.href);
+console.log(url.searchParams.<span class="k">get</span>(<span class="s">'q'</span>));</code></pre></figure>
+<p><code>URL</code>-এর <code>protocol</code>, <code>hostname</code>, <code>pathname</code>, <code>searchParams</code>, <code>hash</code> ইত্যাদি property রয়েছে। <code>new URL('/help', 'https://example.com/docs/')</code> দিয়ে relative path resolve করা যায়। তবে <strong>সঠিকভাবে parse হওয়া মানেই URL নিরাপদ নয়</strong>: <code>javascript:</code> বা <code>data:</code> scheme অনিচ্ছাকৃতভাবে গ্রহণ করা বিপজ্জনক। Bookmark-এর জন্য আমরা কেবল <code>http:</code> এবং <code>https:</code> গ্রহণ করব।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> safeWebUrl(value) {
+  <span class="k">const</span> url = <span class="k">new</span> URL(value);
+  <span class="k">if</span> (![<span class="s">'http:'</span>, <span class="s">'https:'</span>].includes(url.protocol)) {
+    <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'Unsupported URL scheme'</span>);
+  }
+  <span class="k">return</span> url.href;
+}</code></pre></figure>
+<h2>১৫.৩ Web Storage: localStorage ও sessionStorage</h2>
+<p><code>localStorage</code>-এর data একই origin-এর browser storage-এ সাধারণত session পেরিয়েও থাকে; <code>sessionStorage</code> tab-এর session-এ সীমাবদ্ধ। উভয় API key-value string store করে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>localStorage.setItem(<span class="s">'theme'</span>, <span class="s">'dark'</span>);
+console.log(localStorage.getItem(<span class="s">'theme'</span>)); <span class="c">// dark</span>
+localStorage.removeItem(<span class="s">'theme'</span>);
+
+<span class="k">const</span> preferences = {language: <span class="s">'bn'</span>, compact: <span class="k">true</span>};
+localStorage.setItem(<span class="s">'prefs'</span>, JSON.stringify(preferences));
+<span class="k">const</span> saved = JSON.parse(localStorage.getItem(<span class="s">'prefs'</span>) ?? <span class="s">'{}'</span>);</code></pre></figure>
+<p><strong>সীমাবদ্ধতা:</strong> Web Storage synchronous; বড় data লিখলে UI block হতে পারে। Browser quota, privacy settings, private mode অথবা sandbox policy-র কারণে operation ব্যর্থ হতে পারে। তাই <code>try/catch</code> ব্যবহার করো। <code>file://</code> থেকে Storage-এর আচরণ browserভেদে ভিন্ন হতে পারে; local server দিয়ে চালানো ভালো।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> persist(key, value) {
+  <span class="k">try</span> {
+    localStorage.setItem(key, JSON.stringify(value));
+    <span class="k">return</span> <span class="k">true</span>;
+  } <span class="k">catch</span> (error) {
+    console.warn(<span class="s">'Save failed:'</span>, error);
+    <span class="k">return</span> <span class="k">false</span>;
+  }
+}</code></pre></figure>
+<p><strong>Security:</strong> Password, API Secret, Access Token-এর মতো Sensitive Data localStorage-এ রাখাকে নিরাপদ default ধরা যাবে না। XSS হলে page-এর JavaScript Storage পড়তে পারে। এই Chapter-এর Bookmark Data ব্যক্তিগত হলেও high-sensitivity secret নয়; ব্যবহারকারীকে Export File নিরাপদে রাখতে হবে।</p>
+<h2>১৫.৪ JSON Serialization এবং Data Validation</h2>
+<p><code>JSON.stringify()</code> Object-কে String করে; <code>JSON.parse()</code> String থেকে Value তৈরি করে। কিন্তু Parsed Data কখনোই স্বয়ংক্রিয়ভাবে trustworthy নয়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> raw = localStorage.getItem(<span class="s">'bookmarks'</span>);
+<span class="k">let</span> bookmarks = [];
+<span class="k">try</span> {
+  <span class="k">const</span> parsed = raw ? JSON.parse(raw) : [];
+  <span class="k">if</span> (Array.isArray(parsed)) bookmarks = parsed;
+} <span class="k">catch</span> {
+  bookmarks = [];
+}</code></pre></figure>
+<p><code>JSON.stringify()</code> Function ও <code>undefined</code>-এর মতো কিছু value বাদ দিতে পারে, <code>BigInt</code> সরাসরি serialize করা যায় না, এবং circular reference-এ Error হয়। Stored Schema বদলালে Migration Plan দরকার—যেমন <code>version: 1</code>।</p>
+<h2>১৫.৫ Fetch API: HTTP Request ও Response</h2>
+<p><code>fetch()</code> Promise return করে। Network Error হলে Promise reject হতে পারে, কিন্তু HTTP 404 বা 500 হলে সাধারণত <code>fetch</code> reject করে না; <code>response.ok</code> পরীক্ষা করতে হয়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">async</span> <span class="k">function</span> loadPosts() {
+  <span class="k">const</span> response = <span class="k">await</span> fetch(<span class="s">'https://jsonplaceholder.typicode.com/posts?_limit=3'</span>);
+  <span class="k">if</span> (!response.ok) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">`HTTP ${response.status}`</span>);
+  <span class="k">return</span> <span class="k">await</span> response.json();
+}
+
+loadPosts().then(console.log).<span class="k">catch</span>(console.error);</code></pre></figure>
+<p><code>response.json()</code>-ও ব্যর্থ হতে পারে যদি response JSON না হয়। API-র response data ব্যবহার করার আগে structure validate করো। <code>POST</code> request-এ <code>method</code>, <code>headers</code> ও <code>body</code> প্রয়োজন হতে পারে:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> payload = {title: <span class="s">'New note'</span>};
+<span class="k">const</span> response = <span class="k">await</span> fetch(<span class="s">'/api/notes'</span>, {
+  method: <span class="s">'POST'</span>,
+  headers: {<span class="s">'Content-Type'</span>: <span class="s">'application/json'</span>},
+  body: JSON.stringify(payload)
+});
+<span class="k">if</span> (!response.ok) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'Request failed'</span>);</code></pre></figure>
+<p><strong>CORS:</strong> অন্য origin-এ Browser Request করলে Server-এর CORS Policy প্রযোজ্য হয়। Frontend থেকে ইচ্ছেমতো Header যোগ করে Server-এর CORS restriction bypass করা যায় না। Authentication ও authorization Server-এ enforce করতে হয়।</p>
+<h2>১৫.৬ AbortController ও Request Cancellation</h2>
+<p>Search Box-এ দ্রুত টাইপ করলে পুরোনো request পরে শেষ হয়ে নতুন result overwrite করতে পারে। <code>AbortController</code> দিয়ে আগের request cancel করা যায়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">let</span> controller;
+<span class="k">async</span> <span class="k">function</span> searchRemote(query) {
+  controller?.abort();
+  controller = <span class="k">new</span> AbortController();
+  <span class="k">try</span> {
+    <span class="k">const</span> url = <span class="k">new</span> URL(<span class="s">'/api/search'</span>, location.origin);
+    url.searchParams.<span class="k">set</span>(<span class="s">'q'</span>, query);
+    <span class="k">const</span> response = <span class="k">await</span> fetch(url, {signal: controller.signal});
+    <span class="k">if</span> (!response.ok) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'Search failed'</span>);
+    <span class="k">return</span> <span class="k">await</span> response.json();
+  } <span class="k">catch</span> (error) {
+    <span class="k">if</span> (error.name === <span class="s">'AbortError'</span>) <span class="k">return</span> <span class="k">null</span>;
+    <span class="k">throw</span> error;
+  }
+}</code></pre></figure>
+<p>Request cancel হলেও Server-এ ইতিমধ্যে শুরু হওয়া কাজ সম্পূর্ণ বন্ধ হয়েছে—এমন নিশ্চয়তা নেই। Race Condition-এর জন্য Request ID/Latest-Response Check-ও ব্যবহার করা যায়।</p>
+<h2>১৫.৭ Browser Events এবং Cross-Tab Storage</h2>
+<p><code>addEventListener()</code> দিয়ে Event Handler register করা হয়। <code>storage</code> event সাধারণত একই origin-এর <strong>অন্য</strong> document-এ Storage বদলালে পাওয়া যায়; যে document নিজে পরিবর্তন করেছে সেখানে এই event trigger হয় না।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>window.addEventListener(<span class="s">'storage'</span>, event =&gt; {
+  <span class="k">if</span> (event.key === <span class="s">'jsmastery.bookmarks.v1'</span>) {
+    console.log(<span class="s">'অন্য tab-এ Bookmark data বদলেছে'</span>);
+  }
+});</code></pre></figure>
+<p>Production App-এ অন্য Tab-এর পরিবর্তন এলে UI reload বা state merge করার ব্যবস্থা করা যায়। আমাদের ছোট Project-এ cross-tab live synchronization রাখা হয়নি—এটি Extension Exercise।</p>
+<h2>১৫.৮ File, Blob এবং Download API</h2>
+<p>Client-side JSON Export করতে Server প্রয়োজন নেই। <code>Blob</code> দিয়ে File Content তৈরি করে Object URL-এর মাধ্যমে Download করা যায়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> blob = <span class="k">new</span> Blob([JSON.stringify({hello: <span class="s">'world'</span>}, <span class="k">null</span>, <span class="n">2</span>)],
+  {<span class="k">type</span>: <span class="s">'application/json'</span>});
+<span class="k">const</span> objectUrl = URL.createObjectURL(blob);
+<span class="k">const</span> a = document.createElement(<span class="s">'a'</span>);
+a.href = objectUrl;
+a.download = <span class="s">'example.json'</span>;
+a.click();
+URL.revokeObjectURL(objectUrl);</code></pre></figure>
+<p>File Input থেকে <code>file.text()</code> দিয়ে User-selected File পড়া যায়। Import-এর আগে File Size, Format ও Data Schema validate করতে হবে। JSON-এর মধ্যে HTML বা URL থাকলে তা <code>innerHTML</code>-এ বসানো যাবে না।</p>
+<h2>১৫.৯ Practical Project — Bookmark Vault</h2>
+<h3>সমস্যা ও Requirements</h3>
+<p>অনেক Developer Documentation, Tutorials ও Tools-এর URL আলাদা জায়গায় রেখে পরে খুঁজে পান না। <strong>Bookmark Vault</strong>-এ আমরা URL সংরক্ষণ, Tagging, Search, Favorites, Delete, JSON Export/Import এবং Local Persistence যুক্ত করব। Backend বা Account ছাড়া একটি Local-first Learning App হবে।</p>
+<p><strong>Project Folder:</strong></p>
+<figure class="code keep"><pre><code>source-code/chapter-15/
+├── index.html
+├── style.css
+├── bookmarks.mjs
+├── app.mjs
+└── bookmarks.test.mjs</code></pre></figure>
+<p><code>bookmarks.mjs</code>-এ pure validation, filtering ও import/export function; <code>app.mjs</code>-এ DOM এবং Storage orchestration। এভাবে UI Logic ও Business Logic আলাদা থাকায় Unit Test সহজ হয়।</p>
+<h3>Step 1 — Data Model</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>{
+  id: <span class="s">'generated-unique-id'</span>,
+  title: <span class="s">'MDN JavaScript'</span>,
+  url: <span class="s">'https://developer.mozilla.org/'</span>,
+  tags: [<span class="s">'javascript'</span>, <span class="s">'reference'</span>],
+  createdAt: <span class="s">'2026-10-11T00:00:00.000Z'</span>,
+  favorite: <span class="k">false</span>
+}</code></pre></figure>
+<p><code>id</code> হলো Identity, <code>url</code> হলো Validated Address, <code>tags</code> হলো Search/Filter Metadata। <code>createdAt</code> ISO Timestamp; এটি Client Clock-এর উপর নির্ভরশীল।</p>
+<h3>Step 2 — Validation এবং Normalization</h3>
+<p><code>validateBookmark()</code> Title Trim করে, URL Protocol Check করে, Tags Normalize করে। <code>createBookmark()</code> Unique ID ও Timestamp যুক্ত করে। Full implementation <code>bookmarks.mjs</code>-এ রয়েছে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> clean = validateBookmark({
+  title: <span class="s">'  MDN  '</span>,
+  url: <span class="s">'https://developer.mozilla.org/#docs'</span>,
+  tags: <span class="s">'JavaScript, Reference, javascript'</span>
+});
+<span class="c">// title: 'MDN'; hash বাদ; tags duplicate বাদ</span></code></pre></figure>
+<h3>Step 3 — UI Event এবং Rendering</h3>
+<p><code>app.mjs</code> Form Submit intercept করে, Bookmark Add করে, তারপর <code>render()</code> চালায়। <code>render()</code> DOM Element তৈরি করে <code>textContent</code> ব্যবহার করে—User Input HTML হিসেবে execute হয় না। Link-এর <code>target=&quot;_blank&quot;</code>-এর সঙ্গে <code>rel=&quot;noopener noreferrer&quot;</code> রাখা হয়েছে।</p>
+<h3>Step 4 — Storage</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> items = safeParseBookmarks(localStorage.getItem(STORAGE_KEY));
+localStorage.setItem(STORAGE_KEY, JSON.stringify(items));</code></pre></figure>
+<p>Import-এ Duplicate URL বাদ দেওয়া হয়। Export JSON-এ <code>version</code> Field থাকে, যাতে ভবিষ্যতে Schema Upgrade সহজ হয়। এই Demo-তে Storage Write Fail করলে Message দেখানো হয়; Production-এ Retry/Backup Strategy লাগতে পারে।</p>
+<h3>Step 5 — App চালানো</h3>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code>cd source-code/chapter-15
+python -m http.server 8000</code></pre></figure>
+<p>তারপর Browser-এ <code>http://localhost:8000</code> খুলো। Project <code>type=&quot;module&quot;</code> ব্যবহার করে, তাই <code>file://</code>-এর পরিবর্তে Local Server সুপারিশ করা হচ্ছে। Node.js থাকলে Test চালাও:</p>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code>node --test bookmarks.test.mjs</code></pre></figure>
+<h3>Manual Acceptance Checklist</h3>
+<ul><li class="task"><span class="box">☐</span> Valid HTTPS URL Add করলে List-এ দেখা যায়</li><li class="task"><span class="box">☐</span> <code>javascript:</code> URL Reject হয়</li><li class="task"><span class="box">☐</span> Duplicate URL Add করা যায় না</li><li class="task"><span class="box">☐</span> Search ও Tag Filter কাজ করে</li><li class="task"><span class="box">☐</span> Favorite Toggle এবং Delete কাজ করে</li><li class="task"><span class="box">☐</span> Refresh-এর পর Saved Data থাকে</li><li class="task"><span class="box">☐</span> Export → Import করলে Bookmark ফিরে আসে</li><li class="task"><span class="box">☐</span> Corrupt JSON Import করলে Error Message দেখায়</li><li class="task"><span class="box">☐</span> Mobile Width-এ Layout ব্যবহারযোগ্য থাকে</li></ul>
+<h2>১৫.১০ নিরাপত্তা, Privacy ও Architecture Review</h2>
+<ol><li><strong>XSS:</strong> User Input Render করার সময় <code>textContent</code> ব্যবহার করো, <code>innerHTML</code> নয়।</li><li><strong>URL Validation:</strong> <code>http:</code>/<code>https:</code> ছাড়া Protocol Reject করো। এটি সমস্ত Phishing/Unsafe Destination আটকায় না।</li><li><strong>LocalStorage:</strong> Same-Origin Scripts Data পড়তে পারে। Confidential Credential রাখবে না।</li><li><strong>Import Trust:</strong> File Extension <code>.json</code> হলেও Content যাচাই প্রয়োজন।</li><li><strong>Network:</strong> <code>fetch</code>-এর Error ও HTTP Status আলাদা Handle করো।</li><li><strong>Accessibility:</strong> Form Label, Focus State, Status Announcement (<code>aria-live</code>) গুরুত্বপূর্ণ।</li><li><strong>Data Integrity:</strong> Import-এর আগে Backup Export রাখা ভালো; Real-world App-এ Schema Migration প্রয়োজন।</li><li><strong>Scalability:</strong> হাজার হাজার Bookmark হলে IndexedDB, Pagination, Debounced Search বিবেচনা করো।</li></ol>
+<h2>১৫.১১ Common Mistakes এবং Debugging</h2>
+<table><thead><tr><th>ভুল</th><th>সমস্যা</th><th>সমাধান</th></tr></thead><tbody><tr><td><code>JSON.parse(null)</code> ধরে নেওয়া</td><td>Unexpected State</td><td>Missing Value ও Schema Check</td></tr><tr><td><code>fetch()</code> 404-এ Reject করবে ভাবা</td><td>Error UI কাজ করে না</td><td><code>response.ok</code> Check</td></tr><tr><td><code>innerHTML = title</code></td><td>XSS Risk</td><td><code>textContent</code></td></tr><tr><td><code>new URL()</code> সব Scheme Allow করা</td><td>Unsafe Links</td><td>Protocol Allowlist</td></tr><tr><td><code>localStorage</code> Write কখনো Fail করবে না ভাবা</td><td>Data Loss</td><td><code>try/catch</code> ও Feedback</td></tr><tr><td>Module <code>file://</code> থেকে চালানো</td><td>CORS/Module Error</td><td>Local HTTP Server</td></tr><tr><td>Storage Event একই Tab-এ আশা করা</td><td>UI Sync Bug</td><td>Same-tab State Update</td></tr></tbody></table>
+<h2>১৫.১২ Exercises</h2>
+<ol><li><code>URLSearchParams</code> দিয়ে <code>category=js</code> এবং <code>page=3</code> Query String তৈরি করো।</li><li><code>localStorage</code>-এ <code>theme</code> সংরক্ষণ এবং পড়ার Function লেখো।</li><li>HTTP Status 404 হলে Custom Error Throw করে এমন Fetch Wrapper লেখো।</li><li>URL Validator-এ <code>ftp:</code> Scheme Reject করো।</li><li>Bookmark Tags থেকে Unique Tags-এর Sorted List তৈরি করো।</li><li><code>filterBookmarks()</code>-এ Case-insensitive Search পরীক্ষা করো।</li><li>Import-এর আগে 1MB File Size Limit যুক্ত করো।</li><li>Export JSON-এ <code>version</code> Field যোগ করো।</li><li>অন্য Tab-এ Storage বদলালে Current Tab-এর List Refresh করো।</li><li>Favorite Bookmarks আগে দেখানোর Sorting যুক্ত করো।</li></ol>
+<h2>১৫.১৩ Sample Solutions</h2>
+<p><strong>১. Query:</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> params = <span class="k">new</span> URLSearchParams({category: <span class="s">'js'</span>, page: <span class="s">'3'</span>});
+console.log(params.toString()); <span class="c">// category=js&amp;page=3</span></code></pre></figure>
+<p><strong>২. Theme Storage:</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> saveTheme(theme) { localStorage.setItem(<span class="s">'theme'</span>, theme); }
+<span class="k">function</span> getTheme() { <span class="k">return</span> localStorage.getItem(<span class="s">'theme'</span>) ?? <span class="s">'light'</span>; }</code></pre></figure>
+<p><strong>৩. Fetch Wrapper:</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">async</span> <span class="k">function</span> getJSON(url) {
+  <span class="k">const</span> res = <span class="k">await</span> fetch(url);
+  <span class="k">if</span> (!res.ok) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">`HTTP ${res.status}`</span>);
+  <span class="k">return</span> res.json();
+}</code></pre></figure>
+<p><strong>৪. Protocol:</strong> <code>['http:', 'https:'].includes(new URL(input).protocol)</code> পরীক্ষা করো; False হলে Error Throw।</p>
+<p><strong>৫. Unique Tags:</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> tags = [...<span class="k">new</span> Set(items.flatMap(x =&gt; x.tags))].sort();</code></pre></figure>
+<p><strong>৬. Search:</strong> <code>filterBookmarks(items, 'mdn')</code> ও <code>filterBookmarks(items, 'MDN')</code> একই ফল দেয় কি না Test করো।</p>
+<p><strong>৭. File Size:</strong> <code>if (file.size &gt; 1024 * 1024) throw new Error('Too large')</code>।</p>
+<p><strong>৮. Versioned Export:</strong> <code>JSON.stringify({version: 1, bookmarks: items})</code>।</p>
+<p><strong>৯. Cross-tab:</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>window.addEventListener(<span class="s">'storage'</span>, event =&gt; {
+  <span class="k">if</span> (event.key === STORAGE_KEY) {
+    items = safeParseBookmarks(event.newValue);
+    render();
+  }
+});</code></pre></figure>
+<p><strong>১০. Favorite Sorting:</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> sorted = [...items].sort((a, b) =&gt; Number(b.favorite) - Number(a.favorite));</code></pre></figure>
+<h2>১৫.১৪ MCQ Quiz — ১০টি প্রশ্ন</h2>
+<p><strong>১.</strong> <code>localStorage</code> কোন ধরনের Value Store করে? A) Object B) String C) Function D) DOM Node<br><strong>২.</strong> <code>fetch()</code>-এ HTTP 404 এলে কী পরীক্ষা করা উচিত? A) <code>response.ok</code> B) <code>window.ok</code> C) <code>fetch.status</code> D) <code>JSON.ok</code><br><strong>৩.</strong> URL Query Parameter Encode করতে উপযোগী কোনটি? A) <code>URLSearchParams</code> B) <code>eval</code> C) <code>innerHTML</code> D) <code>setTimeout</code><br><strong>৪.</strong> Request Cancel করতে কোন API? A) <code>AbortController</code> B) <code>MutationObserver</code> C) <code>FileReader</code> D) <code>History</code><br><strong>৫.</strong> User-provided Title Render করতে কোনটি নিরাপদ Default? A) <code>innerHTML</code> B) <code>document.write</code> C) <code>textContent</code> D) <code>eval</code><br><strong>৬.</strong> JSON Text থেকে Value পেতে? A) <code>JSON.stringify</code> B) <code>JSON.parse</code> C) <code>JSON.load</code> D) <code>URL.parse</code><br><strong>৭.</strong> File Download-এর জন্য In-memory Content তৈরি করতে? A) <code>Blob</code> B) <code>Map</code> C) <code>WeakSet</code> D) <code>Proxy</code><br><strong>৮.</strong> <code>sessionStorage</code> সাধারণত কোন Scope-এ? A) সকল Browser B) Tab Session C) সব Device D) Server Database<br><strong>৯.</strong> <code>storage</code> Event সাধারণত কোন Document-এ Fire হয়? A) যে Document পরিবর্তন করেছে B) অন্য Same-origin Document C) Server D) Service Worker মাত্র<br><strong>১০.</strong> <code>javascript:</code> URL Allow করা উচিত? A) সবসময় B) Bookmark-এর জন্য না C) HTTPS হলে D) Only Chrome-এ</p>
+<h3>Answer Key ও ব্যাখ্যা</h3>
+<ol><li><strong>B</strong> — Storage Value String; Object হলে JSON Serialize করতে হয়।</li><li><strong>A</strong> — 404/500-এ Promise সাধারণত Resolve হতে পারে; <code>ok</code> পরীক্ষা প্রয়োজন।</li><li><strong>A</strong> — <code>URLSearchParams</code> Query Encode করে।</li><li><strong>A</strong> — <code>AbortController</code>-এর <code>signal</code> Request-এ দেওয়া যায়।</li><li><strong>C</strong> — <code>textContent</code> Input-কে Text হিসেবে Render করে।</li><li><strong>B</strong> — <code>JSON.parse()</code> JSON Text Parse করে।</li><li><strong>A</strong> — <code>Blob</code> File-like Data Represent করে।</li><li><strong>B</strong> — <code>sessionStorage</code> Tab Session-ভিত্তিক।</li><li><strong>B</strong> — সাধারণত অন্য Same-origin Browsing Context-এ।</li><li><strong>B</strong> — Untrusted Bookmark URL-এ Unsafe Scheme Reject করতে হয়।</li></ol>
+<h2>১৫.১৫ Chapter Summary ও Next Step</h2>
+<p>এই অধ্যায়ে Browser Environment, URL Processing, Storage, Fetch, Cancellation, File Import/Export, Safe Rendering এবং Validation শিখেছ। Bookmark Vault-এর Source Code ও Tests Chapter Folder-এ রয়েছে। পরের অধ্যায়ে আমরা <strong>Error Handling, Debugging, Testing এবং Software Reliability</strong>-তে এগোব, যেখানে Error Scenario-কে Testable Behavior-এ রূপান্তর করব।</p>
+</section></body></html>

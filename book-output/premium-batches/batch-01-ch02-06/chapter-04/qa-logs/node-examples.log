@@ -1,0 +1,144 @@
+===== examples/01-first-loop.js  (exit code 0) =====
+পণ্য 1
+পণ্য 2
+পণ্য 3
+পণ্য 4
+পণ্য 5
+
+===== examples/02-sum-to-ten.js  (exit code 0) =====
+55
+
+===== examples/03-steps.js  (exit code 0) =====
+2
+4
+6
+8
+10
+বাকি 3
+বাকি 2
+বাকি 1
+
+===== examples/04-array-intro.js  (exit code 0) =====
+120
+950
+3
+undefined
+
+===== examples/05-loop-array.js  (exit code 0) =====
+Index 0: 120
+Index 1: 15
+Index 2: 950
+মোট: 1085
+
+===== examples/06-off-by-one.js  (exit code 0) =====
+120
+15
+950
+undefined
+NaN
+
+===== examples/07-savings.js  (exit code 0) =====
+5 মাসে জমা হবে 6000 টাকা
+
+===== examples/08-do-while.js  (exit code 0) =====
+do...while: একবার চলল
+
+===== examples/09-attempts.js  (exit code 0) =====
+চেষ্টা 1
+চেষ্টা 2
+চেষ্টা 3
+
+===== examples/10-break.js  (exit code 0) =====
+প্রথম দামি পণ্য: 950 (Index 2)
+যাচাই করা হয়েছে 3টি
+
+===== examples/11-continue.js  (exit code 0) =====
+মোট: 100, বাদ পড়েছে: 2
+
+===== examples/12-nested.js  (exit code 0) =====
+1 2 3 4 
+2 4 6 8 
+3 6 9 12
+
+===== examples/14-safety-limit.js  (exit code 0) =====
+থামানো হলো: শর্তটি মিথ্যা হচ্ছে না
+মোট ধাপ: 1000
+
+===== examples/15-patterns.js  (exit code 0) =====
+যোগফল: 356
+গড়: 71.2
+৬০ বা বেশি: 4 জন
+সর্বোচ্চ: 91, সর্বনিম্ন: 45
+
+===== examples/16-students.js  (exit code 0) =====
+1. Sara: উত্তীর্ণ
+2. Rafi: অনুত্তীর্ণ
+3. Mina: উত্তীর্ণ
+
+===== examples/17-debug-loop.js  (exit code 0) =====
+i=0 মান=120 total=120
+i=1 মান=15 total=135
+i=2 মান=950 total=1085
+
+===== project/cart-analyzer/cart.js  (exit code 0) =====
+1. Notebook: 120 x 3 = 360
+2. Pen: 15 x 10 = 150
+3. School Bag: 950 x 1 = 950
+4. Calculator: 650 x 0 = 0
+5. Water Bottle: 280 x 2 = 560
+মোট: 2020 টাকা, পরিমাণ: 16
+সবচেয়ে বড় অঙ্ক: School Bag (950)
+500 টাকা বা বেশি: School Bag, Water Bottle
+বাদ পড়েছে: 1টি
+
+===== examples/18-names-bug.js  (exit code 0) =====
+Rafi
+Mina
+undefined
+
+===== examples/solutions/s01-sum-hundred.js  (exit code 0) =====
+5050
+
+===== examples/solutions/s02-countdown.js  (exit code 0) =====
+5
+4
+3
+2
+1
+শুরু!
+
+===== examples/solutions/s03-even-only.js  (exit code 0) =====
+8
+16
+
+===== examples/solutions/s05-names-fixed.js  (exit code 0) =====
+Sara
+Rafi
+Mina
+
+===== examples/solutions/s06-highest-index.js  (exit code 0) =====
+সর্বোচ্চ 98, Index 3
+
+===== examples/solutions/s07-until-zero.js  (exit code 0) =====
+15
+
+===== examples/solutions/s08-triangle.js  (exit code 0) =====
+*
+**
+***
+****
+
+===== examples/solutions/s09-count-passed.js  (exit code 0) =====
+3
+0
+
+===== examples/solutions/s10-cheapest.js  (exit code 0) =====
+Pen
+null
+
+===== examples/solutions/s11-mark-skipped.js  (exit code 0) =====
+1. Pen: 150
+2. Calculator: (বাদ)
+
+===== examples/solutions/s12-double.js  (exit code 0) =====
+15 মাসে 20791

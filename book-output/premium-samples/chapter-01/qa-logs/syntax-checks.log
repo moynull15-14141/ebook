@@ -1,0 +1,4 @@
+node --check app.js: OK
+node --check tests/greeting.test.js: OK
+node --check tests/browser/run-browser-tests.mjs: OK
+node --check examples/solutions/challenge-greeting-app/app.js: OK

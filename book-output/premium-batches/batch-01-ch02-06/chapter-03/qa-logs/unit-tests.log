@@ -1,0 +1,108 @@
+$ node --test   (in project\shopping-discount-calculator)
+
+TAP version 13
+# Subtest: toWholeNumber: সঠিক পূর্ণসংখ্যা গ্রহণ করে
+ok 1 - toWholeNumber: সঠিক পূর্ণসংখ্যা গ্রহণ করে
+  ---
+  duration_ms: 1.2519
+  type: 'test'
+  ...
+# Subtest: toWholeNumber: আগে-পরের ফাঁকা জায়গা উপেক্ষা করে
+ok 2 - toWholeNumber: আগে-পরের ফাঁকা জায়গা উপেক্ষা করে
+  ---
+  duration_ms: 1.0435
+  type: 'test'
+  ...
+# Subtest: toWholeNumber: ফাঁকা Text শূন্য নয়, null
+ok 3 - toWholeNumber: ফাঁকা Text শূন্য নয়, null
+  ---
+  duration_ms: 0.2157
+  type: 'test'
+  ...
+# Subtest: toWholeNumber: দশমিক ও সংখ্যা নয় এমন Text বাতিল
+ok 4 - toWholeNumber: দশমিক ও সংখ্যা নয় এমন Text বাতিল
+  ---
+  duration_ms: 0.1879
+  type: 'test'
+  ...
+# Subtest: toWholeNumber: ঋণাত্মক সংখ্যা বাতিল
+ok 5 - toWholeNumber: ঋণাত্মক সংখ্যা বাতিল
+  ---
+  duration_ms: 0.1468
+  type: 'test'
+  ...
+# Subtest: getCouponPercent: পরিচিত Code
+ok 6 - getCouponPercent: পরিচিত Code
+  ---
+  duration_ms: 0.1339
+  type: 'test'
+  ...
+# Subtest: getCouponPercent: অচেনা Code-এ null
+ok 7 - getCouponPercent: অচেনা Code-এ null
+  ---
+  duration_ms: 0.1218
+  type: 'test'
+  ...
+# Subtest: calculateOrder: SAVE10, সদস্য নয়
+ok 8 - calculateOrder: SAVE10, সদস্য নয়
+  ---
+  duration_ms: 0.1818
+  type: 'test'
+  ...
+# Subtest: calculateOrder: Coupon-এর পর সদস্য-ছাড়
+ok 9 - calculateOrder: Coupon-এর পর সদস্য-ছাড়
+  ---
+  duration_ms: 0.4112
+  type: 'test'
+  ...
+# Subtest: calculateOrder: ছাড় নিকটতম পূর্ণ টাকায় আসে (42.5 থেকে 43)
+ok 10 - calculateOrder: ছাড় নিকটতম পূর্ণ টাকায় আসে (42.5 থেকে 43)
+  ---
+  duration_ms: 0.5882
+  type: 'test'
+  ...
+# Subtest: calculateOrder: Coupon-এ ছোট হাতের অক্ষর ও ফাঁকা জায়গা গৃহীত
+ok 11 - calculateOrder: Coupon-এ ছোট হাতের অক্ষর ও ফাঁকা জায়গা গৃহীত
+  ---
+  duration_ms: 0.2156
+  type: 'test'
+  ...
+# Subtest: calculateOrder: SAVE20-এর ন্যূনতম সীমা (4999 ও 5000)
+ok 12 - calculateOrder: SAVE20-এর ন্যূনতম সীমা (4999 ও 5000)
+  ---
+  duration_ms: 0.1254
+  type: 'test'
+  ...
+# Subtest: calculateOrder: ফ্রি Delivery-র সীমা (2999 ও 3000)
+ok 13 - calculateOrder: ফ্রি Delivery-র সীমা (2999 ও 3000)
+  ---
+  duration_ms: 0.1283
+  type: 'test'
+  ...
+# Subtest: calculateOrder: পরিমাণ ১–১০০-এর বাইরে বা ভুল হলে বার্তা
+ok 14 - calculateOrder: পরিমাণ ১–১০০-এর বাইরে বা ভুল হলে বার্তা
+  ---
+  duration_ms: 0.2885
+  type: 'test'
+  ...
+# Subtest: calculateOrder: ভুল দাম ও অচেনা Coupon-এ বার্তা
+ok 15 - calculateOrder: ভুল দাম ও অচেনা Coupon-এ বার্তা
+  ---
+  duration_ms: 0.1045
+  type: 'test'
+  ...
+# Subtest: File চালালে ছয়টি উদাহরণের ফল দেখায়
+ok 16 - File চালালে ছয়টি উদাহরণের ফল দেখায়
+  ---
+  duration_ms: 0.092
+  type: 'test'
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 263.673

@@ -1,0 +1,38 @@
+$ node D:\MoynullHasan\ebook\allcopy\book-output\master-design-system\scripts\check-typography.mjs D:\MoynullHasan\ebook\allcopy\book-output\premium-final\chapter-01\JavaScript_Mastery_Chapter_01_Final.pdf D:\MoynullHasan\ebook\allcopy\book-output\premium-final\chapter-01\chapter-01-final.md --json D:\MoynullHasan\ebook\allcopy\book-output\premium-final\chapter-01\.build\typography.json   (in .)
+
+PDF: D:\MoynullHasan\ebook\allcopy\book-output\premium-final\chapter-01\JavaScript_Mastery_Chapter_01_Final.pdf
+Pages: 38 | glyphs: 51698 (22454 Bengali) | source Bengali words: 5067 (982 distinct)
+Fonts: HindSiliguri-Medium, HindSiliguri-Bold, HindSiliguri-Regular, HindSiliguri-SemiBold, SourceCodePro-Regular, SourceCodePro-Bold
+
+[naive] source words recovered intact: 2133 of 5067 (42.1%) | distinct words affected: 682
+   most affected: করে×68, লেখা×55, করুন×52, দিয়ে×50, তৈরি×42, হয়েছে×37, থেকে×36, ব্যবহার×35, জন্য×34, দেখায়×31, আছে×30, হলো×29
+
+[robust] source words recovered intact: 2171 of 5067 (42.85%) | distinct words affected: 669
+   most affected: করে×68, লেখা×55, করুন×52, দিয়ে×50, তৈরি×42, হয়েছে×37, থেকে×36, ব্যবহার×35, জন্য×34, দেখায়×31, আছে×30, হলো×29
+
+[actual] source words recovered intact: 5067 of 5067 (100%) | distinct words affected: 0
+   most affected: none
+
+Probe words (occurrences in source -> intact / split forms):
+   ভুল ×48:  naive 32 ["ভু ল"] | robust 41 [] | actual 49 []
+   নতুন ×19:  naive 0 ["নতু ন"] | robust 19 [] | actual 19 []
+   পরিবর্তন ×6:  naive 0 [] | robust 0 [] | actual 6 []
+   নির্দেশনা ×12:  naive 0 [] | robust 0 [] | actual 12 []
+   প্রথম ×23:  naive 60 [] | robust 60 [] | actual 60 []
+   কি ×45:  naive 0 ["ক ি"] | robust 0 ["ক ি"] | actual 45 []
+   ব্যবহারকারী ×17:  naive 0 [] | robust 0 [] | actual 17 []
+   দৃষ্টিপ্রতিবন্ধী ×1:  naive 0 [] | robust 0 [] | actual 1 []
+   শুভেচ্ছা ×13:  naive 0 [] | robust 0 [] | actual 13 []
+   গুরুত্বপূর্ণ ×4:  naive 0 [] | robust 0 [] | actual 4 []
+
+Naive extractor: spurious in-word breaks occur after these glyphs:
+   ু (advance 0.00 em): 44
+   ল (advance 0.73 em): 37
+   ঁ (advance 0.00 em): 28
+   ৃ (advance 0.00 em): 4
+   য় (advance 0.58 em): 4
+   ণ (advance 0.59 em): 4
+   ন (advance 0.58 em): 3
+   া (advance 0.26 em): 2
+   প (advance 0.61 em): 2
+   ৮ (advance 0.69 em): 2

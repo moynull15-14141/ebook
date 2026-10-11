@@ -1,0 +1,17 @@
+{
+  "number": 1,
+  "source": "chapter-01-final.md",
+  "outputBase": "JavaScript_Mastery_Chapter_01_Final",
+  "companion": ["project", "examples"],
+  "logs": "qa-logs",
+  "tests": [
+    { "name": "syntax: app.js", "cwd": "project/interactive-greeting-app", "cmd": ["node", "--check", "app.js"] },
+    { "name": "syntax: unit test file", "cwd": "project/interactive-greeting-app", "cmd": ["node", "--check", "tests/greeting.test.js"] },
+    { "name": "syntax: browser test file", "cwd": "project/interactive-greeting-app", "cmd": ["node", "--check", "tests/browser/run-browser-tests.mjs"] },
+    { "name": "syntax: challenge solution", "cwd": "examples/solutions/challenge-greeting-app", "cmd": ["node", "--check", "app.js"] },
+    { "name": "unit tests", "cwd": "project/interactive-greeting-app", "cmd": ["node", "--test"], "log": "unit-tests.log" },
+    { "name": "browser tests", "cwd": "project/interactive-greeting-app", "cmd": ["node", "tests/browser/run-browser-tests.mjs"], "log": "browser-tests.log" },
+    { "name": "node examples", "cwd": ".", "cmd": ["node", "examples/run-node-examples.mjs"], "log": "node-examples.log" },
+    { "name": "page examples", "cwd": ".", "cmd": ["node", "examples/check-page-examples.mjs"], "log": "page-examples.log" }
+  ]
+}

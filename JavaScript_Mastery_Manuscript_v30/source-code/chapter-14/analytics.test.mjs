@@ -1,0 +1,17 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { pipe, validateSale, normalizeSales, withTotals, filterCategory, summarize, analyzeSales } from './analytics.mjs';
+const rows = [{id:'a',category:'Books',quantity:2,unitPrice:50},{id:'b',category:'Tools',quantity:1,unitPrice:150}];
+test('pipe applies left-to-right', () => assert.equal(pipe(x=>x+2,x=>x*3)(4),18));
+test('validate trims identifiers', () => assert.equal(validateSale({...rows[0],id:' a '}).id,'a'));
+test('invalid quantity rejected', () => assert.throws(()=>validateSale({...rows[0],quantity:0}),RangeError));
+test('negative price rejected', () => assert.throws(()=>validateSale({...rows[0],unitPrice:-1}),RangeError));
+test('NaN price rejected', () => assert.throws(()=>validateSale({...rows[0],unitPrice:NaN}),RangeError));
+test('non-array rejected', () => assert.throws(()=>normalizeSales({}),TypeError));
+test('duplicate ids rejected', () => assert.throws(()=>normalizeSales([rows[0],rows[0]]),/Duplicate/));
+test('totals correct and immutable', () => { const result=withTotals(rows);assert.deepEqual(result.map(x=>x.total),[100,150]);assert.equal('total' in rows[0],false); });
+test('category filter works', () => assert.equal(filterCategory('Books')(rows).length,1));
+test('All filter returns all', () => assert.equal(filterCategory('All')(rows).length,2));
+test('summary handles empty', () => assert.deepEqual(summarize([]),{revenue:0,units:0,byCategory:{}}));
+test('analysis revenue and units', () => {const a=analyzeSales(rows);assert.equal(a.revenue,250);assert.equal(a.units,3)});
+test('analysis filters category', () => assert.equal(analyzeSales(rows,'Books').revenue,100));

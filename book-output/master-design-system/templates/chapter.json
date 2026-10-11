@@ -1,0 +1,12 @@
+{
+  "number": 0,
+  "source": "chapter-00-final.md",
+  "outputBase": "JavaScript_Mastery_Chapter_00_Final",
+  "companion": ["project", "examples"],
+  "logs": "qa-logs",
+  "tests": [
+    { "name": "syntax: app.js", "cwd": "project/project-name", "cmd": ["node", "--check", "app.js"] },
+    { "name": "unit tests", "cwd": "project/project-name", "cmd": ["node", "--test"], "log": "unit-tests.log" },
+    { "name": "node examples", "cwd": ".", "cmd": ["node", "examples/run-node-examples.mjs"], "log": "node-examples.log" }
+  ]
+}

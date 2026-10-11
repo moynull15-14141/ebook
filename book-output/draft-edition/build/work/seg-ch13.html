@@ -1,0 +1,289 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-13"><header class="opener"><div class="chap-label">অধ্যায় ১৩</div><h1>Object-Oriented Programming (OOP): Classes, Prototypes, Inheritance এবং Encapsulation</h1></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে তুমি (১) Object ও Class-এর সম্পর্ক, (২) JavaScript-এর Prototype Chain, (৩) Constructor ও <code>this</code>, (৪) Inheritance ও Method Overriding, (৫) <code>#private</code> Fields দিয়ে Encapsulation, (৬) Composition বনাম Inheritance এবং (৭) বাস্তব Booking Management Application-এর OOP Architecture বুঝতে ও প্রয়োগ করতে পারবে।</p>
+<h2>১৩.১ OOP কেন শিখব?</h2>
+<p>একটি Travel Booking System-এ Booking ID, Customer, Price, Status এবং Cancel করার নিয়ম আছে। Flight Booking-এ Baggage Fee, Hotel Booking-এ Number of Nights যোগ হয়। একই বৈশিষ্ট্য ও আচরণ বিভিন্ন ধরনের Booking-এ বারবার লিখলে Duplicate Logic তৈরি হয়। Object-Oriented Programming ডেটা ও সেই ডেটার ওপর কাজ করা Methods-কে একটি নির্দিষ্ট Interface-এর মধ্যে রাখার কৌশল দেয়। তবে OOP সব সমস্যার একমাত্র সমাধান নয়—ছোট Data Transformation-এ সাধারণ Function বেশি সহজ হতে পারে।</p>
+<p><strong>চারটি মূল ধারণা:</strong> Encapsulation (অভ্যন্তরীণ State নিয়ন্ত্রণ), Abstraction (ব্যবহারকারীর কাছে প্রয়োজনীয় Interface প্রকাশ), Inheritance (একটি Class-এর আচরণ আরেকটি Class-এ গ্রহণ) এবং Polymorphism (একই Interface দিয়ে ভিন্ন আচরণ)। JavaScript-এ এগুলো Prototype-based Object Model-এর ওপর কাজ করে।</p>
+<h2>১৩.২ Object Literal থেকে Class</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> booking = {
+  id: <span class="s">'BK-101'</span>,
+  customer: <span class="s">'Nadia'</span>,
+  price: <span class="n">4500</span>,
+  status: <span class="s">'confirmed'</span>,
+  cancel() { <span class="k">this</span>.status = <span class="s">'cancelled'</span>; }
+};
+booking.cancel();
+console.log(booking.status); <span class="c">// cancelled</span></code></pre></figure>
+<p>এখানে <code>this</code> সাধারণ method call-এর receiver object-কে নির্দেশ করে। কিন্তু Method আলাদা করে Function Variable-এ রাখলে Receiver হারিয়ে যেতে পারে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> person = {
+  name: <span class="s">'Rafi'</span>,
+  sayName() { <span class="k">return</span> <span class="k">this</span>.name; }
+};
+console.log(person.sayName()); <span class="c">// Rafi</span>
+<span class="k">const</span> detached = person.sayName;
+<span class="c">// detached() strict mode-এ this undefined হওয়ায় TypeError হতে পারে</span>
+<span class="k">const</span> bound = person.sayName.bind(person);
+console.log(bound()); <span class="c">// Rafi</span></code></pre></figure>
+<p><code>class</code> ব্যবহার করলে একই Shape-এর একাধিক Object তৈরি সহজ হয়:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">class</span> Booking {
+  constructor(id, price) {
+    <span class="k">this</span>.id = id;
+    <span class="k">this</span>.price = price;
+  }
+  summary() { <span class="k">return</span> <span class="s">`${this.id}: BDT ${this.price}`</span>; }
+}
+<span class="k">const</span> first = <span class="k">new</span> Booking(<span class="s">'BK-101'</span>, <span class="n">4500</span>);
+<span class="k">const</span> second = <span class="k">new</span> Booking(<span class="s">'BK-102'</span>, <span class="n">7200</span>);
+console.log(first.summary());</code></pre></figure>
+<p><code>new</code> নতুন Object তৈরি করে, তার Prototype Link স্থাপন করে এবং Constructor চালায়। Class Constructor-কে <code>new</code> ছাড়া সাধারণ Function-এর মতো Call করা যায় না। Class Declaration-ও Declaration-এর আগে ব্যবহার করা নিরাপদ নয়; Temporal Dead Zone-এর নিয়ম প্রযোজ্য।</p>
+<h2>১৩.৩ Prototype Chain — Class-এর পেছনের মেকানিজম</h2>
+<p>JavaScript-এর Class Syntax আসলে Prototype-based Inheritance-এর সুবিধাজনক Syntax। Instance-এর Own Property ও Prototype Property আলাদা:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">class</span> Traveler {
+  constructor(name) { <span class="k">this</span>.name = name; }
+  greet() { <span class="k">return</span> <span class="s">`Hello, ${this.name}`</span>; }
+}
+<span class="k">const</span> traveler = <span class="k">new</span> Traveler(<span class="s">'Mira'</span>);
+console.log(Object.hasOwn(traveler, <span class="s">'name'</span>));  <span class="c">// true</span>
+console.log(Object.hasOwn(traveler, <span class="s">'greet'</span>)); <span class="c">// false</span>
+console.log(Object.getPrototypeOf(traveler) === Traveler.prototype); <span class="c">// true</span></code></pre></figure>
+<p><code>greet()</code> Method প্রতিটি Instance-এর Own Property হিসেবে তৈরি না হয়ে Prototype-এ থাকে। Property Lookup-এর সময় Engine আগে Object, তারপর Prototype Chain পরীক্ষা করে। Chain শেষ হলে <code>undefined</code> পাওয়া যায়।</p>
+<figure class="code keep"><pre><code>traveler instance
+  ├── own: name
+  └── [[Prototype]] → Traveler.prototype
+                         ├── greet()
+                         └── [[Prototype]] → Object.prototype → null</code></pre></figure>
+<p><strong>সতর্কতা:</strong> <code>__proto__</code> পরিবর্তনের বদলে প্রয়োজন হলে <code>Object.create()</code> বা <code>Object.getPrototypeOf()</code> ব্যবহার করো। Runtime-এ Prototype পরিবর্তন Performance ও Maintainability ক্ষতিগ্রস্ত করতে পারে।</p>
+<h2>১৩.৪ Constructor, Instance Methods, Static Methods</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">class</span> Currency {
+  <span class="k">static</span> formatBDT(amount) {
+    <span class="k">if</span> (!Number.isFinite(amount)) <span class="k">throw</span> <span class="k">new</span> TypeError(<span class="s">'Invalid amount'</span>);
+    <span class="k">return</span> <span class="s">`BDT ${amount.toFixed(2)}`</span>;
+  }
+}
+console.log(Currency.formatBDT(<span class="n">1500</span>)); <span class="c">// BDT 1500.00</span></code></pre></figure>
+<p><code>static</code> Method Class-এর ওপর Call করা হয়, Instance-এর ওপর নয়। Instance State-নির্ভর Method সাধারণ Method হওয়া উচিত। Static Factory Method দিয়ে Named Constructor Pattern তৈরি করা যায়, তবে সব Class-এ Factory প্রয়োজন হয় না।</p>
+<h2>১৩.৫ Encapsulation ও Private Fields</h2>
+<p>সাধারণ Public Property বাইরে থেকে পরিবর্তন করা যায়। Booking Price বা Status-এর মতো গুরুত্বপূর্ণ State নিয়ন্ত্রণ করতে Private Fields উপকারী:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">class</span> Wallet {
+  #balance = <span class="n">0</span>;
+  deposit(amount) {
+    <span class="k">if</span> (!Number.isFinite(amount) || amount &lt;= <span class="n">0</span>) <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">'Invalid deposit'</span>);
+    <span class="k">this</span>.#balance += amount;
+  }
+  <span class="k">get</span> balance() { <span class="k">return</span> <span class="k">this</span>.#balance; }
+}
+<span class="k">const</span> wallet = <span class="k">new</span> Wallet();
+wallet.deposit(<span class="n">500</span>);
+console.log(wallet.balance); <span class="c">// 500</span>
+<span class="c">// wallet.#balance — SyntaxError: class-এর বাইরে private field access করা যায় না</span></code></pre></figure>
+<p>Getter একটি Readable Interface; Setter থাকলে Validation প্রয়োজন। <code>#private</code> Fields JavaScript Language-level Privacy দেয়, তবে এটি Authentication, Authorization বা Encryption-এর বিকল্প নয়। Browser-এ থাকা Code ও Data ব্যবহারকারী নিয়ন্ত্রণ করতে পারে।</p>
+<h2>১৩.৬ Inheritance, <code>extends</code>, <code>super()</code> ও Overriding</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">class</span> Booking {
+  constructor(price) { <span class="k">this</span>.price = price; }
+  <span class="k">get</span> total() { <span class="k">return</span> <span class="k">this</span>.price; }
+}
+<span class="k">class</span> FlightBooking <span class="k">extends</span> Booking {
+  constructor(price, baggageFee) {
+    <span class="k">super</span>(price); <span class="c">// derived constructor-এ this ব্যবহারের আগে</span>
+    <span class="k">this</span>.baggageFee = baggageFee;
+  }
+  <span class="k">get</span> total() { <span class="k">return</span> <span class="k">super</span>.total + <span class="k">this</span>.baggageFee; }
+}
+console.log(<span class="k">new</span> FlightBooking(<span class="n">5000</span>, <span class="n">800</span>).total); <span class="c">// 5800</span></code></pre></figure>
+<p><code>extends</code> দিয়ে Parent Class-এর আচরণ পাওয়া যায়। <code>super()</code> Parent Constructor চালায়। <code>super.total</code> Parent Getter পড়ছে। Overriding-এর মাধ্যমে একই Property/Method Name ভিন্ন Implementation দিতে পারে। Parent-এর Private Field Child সরাসরি Access করতে পারে না; প্রয়োজনীয় Getter/Method দিয়ে Access দিতে হয়।</p>
+<h2>১৩.৭ Polymorphism ও Open/Closed Design</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> printTotals(bookings) {
+  <span class="k">for</span> (<span class="k">const</span> booking <span class="k">of</span> bookings) {
+    console.log(booking.total);
+  }
+}</code></pre></figure>
+<p><code>printTotals</code>-কে Flight বা Hotel-এর Internal Calculation জানতে হয় না; <code>total</code> Interface-ই যথেষ্ট। এটিই Polymorphism-এর ব্যবহারিক সুবিধা। নতুন Booking Type যোগ করতে Existing Reporting Function পরিবর্তন না-ও লাগতে পারে।</p>
+<h2>১৩.৮ Composition বনাম Inheritance</h2>
+<p>সব সম্পর্ক <code>extends</code> নয়। “FlightBooking <strong>is a</strong> Booking” যুক্তিযুক্ত; “Booking <strong>has a</strong> NotificationService” হলে Composition উপযুক্ত।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">class</span> BookingNotifier {
+  constructor(sendMessage) { <span class="k">this</span>.sendMessage = sendMessage; }
+  notify(booking) { <span class="k">this</span>.sendMessage(<span class="s">`Booking ${booking.id} updated`</span>); }
+}
+<span class="k">const</span> notifier = <span class="k">new</span> BookingNotifier(console.log);
+notifier.notify({ id: <span class="s">'BK-105'</span> });</code></pre></figure>
+<p>এভাবে Notification Strategy সহজে Mock করা যায় এবং Booking Domain-কে UI/Email Service থেকে আলাদা রাখা যায়। Inheritance-এর গভীর Chain সাধারণত Avoid করা ভালো।</p>
+<h2>১৩.৯ Practical Project — Booking Management Lab</h2>
+<p>আমরা একটি Browser-based Application বানাব, যেখানে Flight ও Hotel Booking একই Manager-এ থাকবে। Source Files:</p>
+<figure class="code keep"><pre><code>source-code/chapter-13/
+├── index.html
+├── style.css
+├── booking.mjs
+├── app.mjs
+└── booking.test.mjs</code></pre></figure>
+<p><strong>Domain Model:</strong> <code>Booking</code> Base Class, <code>FlightBooking</code> ও <code>HotelBooking</code> Derived Classes, <code>BookingManager</code> Collection ও Operations পরিচালনা করে। UI (<code>app.mjs</code>) শুধু Form, DOM ও User Feedback সামলায়। এই Separation-এ Business Logic Browser ছাড়া Test করা যায়।</p>
+<p><strong>Feature Rules:</strong></p>
+<ol><li>Booking ID ও Customer খালি হতে পারবে না; Price অবশ্যই Positive Finite Number।</li><li>Flight Total = Base Price + Baggage Fee; Fee Negative নয়।</li><li>Hotel Total = Nightly Price × Number of Nights; Nights Positive Integer।</li><li>Duplicate Booking ID Reject হবে।</li><li>Cancelled Booking পুনরায় Cancel করা যাবে না; Confirmed Revenue-তে Cancelled Booking ধরা হবে না।</li><li>UI-তে User Input <code>textContent</code> দিয়ে Render হবে, <code>innerHTML</code> দিয়ে নয়।</li></ol>
+<h3>গুরুত্বপূর্ণ Domain Code</h3>
+<p><code>booking.mjs</code>-এর প্রধান অংশ:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">export</span> <span class="k">class</span> Booking {
+  #status = <span class="s">'confirmed'</span>;
+  constructor({ id, customer, price }) {
+    <span class="k">if</span> (!id?.trim() || !customer?.trim() || !Number.isFinite(price) || price &lt;= <span class="n">0</span>) {
+      <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'Invalid booking'</span>);
+    }
+    <span class="k">this</span>.id = id.trim();
+    <span class="k">this</span>.customer = customer.trim();
+    <span class="k">this</span>.price = price;
+  }
+  <span class="k">get</span> status() { <span class="k">return</span> <span class="k">this</span>.#status; }
+  <span class="k">get</span> total() { <span class="k">return</span> <span class="k">this</span>.price; }
+  cancel() { <span class="k">this</span>.#status = <span class="s">'cancelled'</span>; }
+}</code></pre></figure>
+<p>এটি <strong>শিক্ষামূলক সংক্ষিপ্ত Illustration</strong>; Companion Source Code-এর <code>source-code/chapter-13/booking.mjs</code>-এ আরও কঠোর Validation, Private Fields, Duplicate Handling, Cancellation Guard এবং Serialization আছে।</p>
+<h3>Run Instructions</h3>
+<p>Node.js (ES Modules ও Private Fields সমর্থিত সংস্করণ) থাকলে:</p>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code>cd source-code/chapter-13
+node --test booking.test.mjs</code></pre></figure>
+<p>Browser-এ ES Modules চালাতে Local HTTP Server ব্যবহার করো:</p>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code>python -m http.server 8000</code></pre></figure>
+<p>এরপর <code>http://localhost:8000/</code> খোলো। Browser UI Manual QA এখনো বাকি। এটি Frontend Learning Demo; Server, Authentication বা Durable Database নেই। Refresh করলে Booking Data Reset হয়।</p>
+<h2>১৩.১০ Common Mistakes ও Debugging</h2>
+<table><thead><tr><th>ভুল</th><th>সমস্যা</th><th>সমাধান</th></tr></thead><tbody><tr><td><code>new</code> ছাড়া Class Call</td><td>TypeError</td><td><code>new ClassName()</code></td></tr><tr><td>Child Constructor-এ <code>super()</code>-এর আগে <code>this</code></td><td>ReferenceError</td><td>আগে <code>super()</code></td></tr><tr><td><code>this</code>-সহ Method Detached</td><td>Receiver হারায়</td><td><code>.bind()</code> বা Arrow Wrapper</td></tr><tr><td><code>#private</code> Field বাইরে Access</td><td>SyntaxError</td><td>Getter/Method ব্যবহার</td></tr><tr><td>সব কাজ Inheritance-এ রাখা</td><td>Tight Coupling</td><td>Composition ও Small Services</td></tr><tr><td>Input থেকে Price String রেখেই যোগ</td><td>String Concatenation</td><td>Explicit Number Conversion + Validation</td></tr><tr><td>UI-তে <code>innerHTML</code> দিয়ে Customer Name</td><td>XSS Risk</td><td><code>textContent</code></td></tr></tbody></table>
+<h2>১৩.১১ Exercises</h2>
+<ol><li><code>Book</code> Class লিখো, যার <code>title</code>, <code>author</code> ও <code>summary()</code> থাকবে।</li><li><code>Rectangle</code> Class-এ Validated Width/Height এবং <code>area</code> Getter তৈরি করো।</li><li><code>BankAccount</code>-এ <code>#balance</code>, <code>deposit()</code> ও <code>withdraw()</code> যোগ করো।</li><li><code>Employee</code> ও <code>Manager</code> Inheritance দিয়ে Bonus Calculation করো।</li><li><code>Vehicle</code> Base Class এবং <code>Car</code>, <code>Bike</code> Derived Class-এ <code>describe()</code> Override করো।</li><li><code>BookingManager</code>-এ <code>findByCustomer(name)</code> যোগ করো (Case-insensitive)।</li><li><code>BookingManager</code>-এ <code>confirmedCount</code> Getter তৈরি করো।</li><li>Hotel Booking-এ <code>nights=0</code> কেন Reject হওয়া উচিত ব্যাখ্যা করো।</li><li>Composition দিয়ে Booking Confirmation Logger তৈরি করো।</li><li><code>Object.getPrototypeOf()</code> দিয়ে একটি Class Instance-এর Prototype Chain পরীক্ষা করো।</li></ol>
+<h2>১৩.১২ Exercise Solutions</h2>
+<figure class="code"><figcaption>JavaScript</figcaption><pre><code><span class="c">// 1</span>
+<span class="k">class</span> Book {
+  constructor(title, author) { <span class="k">this</span>.title = title; <span class="k">this</span>.author = author; }
+  summary() { <span class="k">return</span> <span class="s">`${this.title} — ${this.author}`</span>; }
+}
+<span class="c">// 2</span>
+<span class="k">class</span> Rectangle {
+  constructor(width, height) {
+    <span class="k">if</span> (![width, height].every(n =&gt; Number.isFinite(n) &amp;&amp; n &gt; <span class="n">0</span>)) <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">'Invalid size'</span>);
+    <span class="k">this</span>.width = width; <span class="k">this</span>.height = height;
+  }
+  <span class="k">get</span> area() { <span class="k">return</span> <span class="k">this</span>.width * <span class="k">this</span>.height; }
+}
+<span class="c">// 3</span>
+<span class="k">class</span> BankAccount {
+  #balance = <span class="n">0</span>;
+  <span class="k">get</span> balance() { <span class="k">return</span> <span class="k">this</span>.#balance; }
+  deposit(n) { <span class="k">if</span> (!Number.isFinite(n) || n &lt;= <span class="n">0</span>) <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">'Invalid'</span>); <span class="k">this</span>.#balance += n; }
+  withdraw(n) { <span class="k">if</span> (!Number.isFinite(n) || n &lt;= <span class="n">0</span> || n &gt; <span class="k">this</span>.#balance) <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">'Invalid'</span>); <span class="k">this</span>.#balance -= n; }
+}
+<span class="c">// 4</span>
+<span class="k">class</span> Employee { constructor(salary) { <span class="k">this</span>.salary = salary; } <span class="k">get</span> bonus() { <span class="k">return</span> <span class="k">this</span>.salary * <span class="n">0.05</span>; } }
+<span class="k">class</span> Manager <span class="k">extends</span> Employee { <span class="k">get</span> bonus() { <span class="k">return</span> <span class="k">this</span>.salary * <span class="n">0.10</span>; } }
+<span class="c">// 5</span>
+<span class="k">class</span> Vehicle { describe() { <span class="k">return</span> <span class="s">'Generic vehicle'</span>; } }
+<span class="k">class</span> Car <span class="k">extends</span> Vehicle { describe() { <span class="k">return</span> <span class="s">'Car'</span>; } }
+<span class="k">class</span> Bike <span class="k">extends</span> Vehicle { describe() { <span class="k">return</span> <span class="s">'Bike'</span>; } }
+<span class="c">// 6: BookingManager class-এর ভেতরে যোগ করো:</span>
+<span class="c">// findByCustomer(name) { return this.list().filter(b =&gt; b.customer.toLocaleLowerCase() === name.toLocaleLowerCase()); }</span>
+<span class="c">// 7: BookingManager class-এর ভেতরে যোগ করো:</span>
+<span class="c">// get confirmedCount() { return this.list({ status: 'confirmed' }).length; }</span>
+<span class="c">// 9</span>
+<span class="k">class</span> ConfirmationLogger { constructor(log) { <span class="k">this</span>.log = log; } confirmed(b) { <span class="k">this</span>.log(<span class="s">`Confirmed: ${b.id}`</span>); } }
+<span class="c">// 10</span>
+<span class="k">const</span> b = <span class="k">new</span> Book(<span class="s">'JS'</span>, <span class="s">'Author'</span>);
+console.log(Object.getPrototypeOf(b) === Book.prototype); <span class="c">// true</span></code></pre></figure>
+<p><strong>৮ নম্বরের ব্যাখ্যা:</strong> <code>nights=0</code> হলে বাস্তব Hotel Stay নেই এবং <code>total=0</code> হয়ে যেতে পারে; Domain Validation-এ Positive Integer বাধ্যতামূলক। <strong>৬–৭ নম্বর:</strong> এগুলো Class Body-তে যুক্ত করার Method Snippets, Standalone Script নয়।</p>
+<h2>১৩.১৩ Self-Assessment Quiz (১০টি MCQ)</h2>
+<ol><li>Class-এর Instance তৈরি করতে সাধারণত কোন Keyword? (A) <code>create</code> (B) <code>new</code> (C) <code>instance</code> (D) <code>make</code></li><li>Class Method সাধারণত কোথায় থাকে? (A) Global Object (B) Prototype (C) JSON (D) DOM</li><li>Private Field Declaration কোনটি? (A) <code>private x</code> (B) <code>_x</code> (C) <code>#x</code> (D) <code>@x</code></li><li>Derived Constructor-এ Parent Constructor চালাতে কী লাগে? (A) <code>parent()</code> (B) <code>base()</code> (C) <code>super()</code> (D) <code>this()</code></li><li><code>static</code> Method কীভাবে Call করা হয়? (A) Class-এর ওপর (B) সবসময় Instance-এর ওপর (C) <code>window</code> দিয়ে (D) <code>new</code> দিয়ে</li><li>একই <code>total</code> Interface-এ ভিন্ন Booking Calculation কোন ধারণা? (A) Hoisting (B) Polymorphism (C) Closure (D) Event Loop</li><li><code>Object.hasOwn(obj, 'x')</code> কী পরীক্ষা করে? (A) Prototype-এ x আছে কি না (B) Own Property আছে কি না (C) x Function কি না (D) x Private কি না</li><li>একটি Booking-এর মধ্যে Logger Inject করা কোন Design? (A) Composition (B) Inheritance (C) Recursion (D) Mutation</li><li>Cancelled Booking Revenue থেকে বাদ দেওয়ার Logic কোথায় থাকা ভালো? (A) CSS (B) Domain/Manager (C) HTML (D) Browser URL</li><li>User Input DOM-এ Text হিসেবে Render করতে কোনটি নিরাপদ Default? (A) <code>innerHTML</code> (B) <code>document.write()</code> (C) <code>textContent</code> (D) <code>eval()</code></li></ol>
+<h3>Quiz Answers ও Explanations</h3>
+<table><thead><tr><th>Q</th><th>Answer</th><th>Explanation</th></tr></thead><tbody><tr><td>1</td><td>B</td><td><code>new</code> Class Constructor দিয়ে Instance তৈরি করে।</td></tr><tr><td>2</td><td>B</td><td>সাধারণ Instance Methods Prototype-এ থাকে।</td></tr><tr><td>3</td><td>C</td><td><code>#</code> Language-level Private Field Syntax।</td></tr><tr><td>4</td><td>C</td><td><code>super()</code> Parent Constructor চালায়।</td></tr><tr><td>5</td><td>A</td><td>Static Method Class Constructor-এর Property।</td></tr><tr><td>6</td><td>B</td><td>একই Interface ভিন্ন Object Type-এ ভিন্নভাবে কাজ করে।</td></tr><tr><td>7</td><td>B</td><td>Own Property পরীক্ষা করে, Inherited নয়।</td></tr><tr><td>8</td><td>A</td><td>Logger Dependency Inject করা Composition।</td></tr><tr><td>9</td><td>B</td><td>Domain Rules UI থেকে স্বাধীন রাখা ভালো।</td></tr><tr><td>10</td><td>C</td><td><code>textContent</code> Text হিসেবে Render করে; HTML Parse করে না।</td></tr></tbody></table>
+<h2>১৩.১৪ আরও অনুশীলন ও Production Checklist</h2>
+<ul><li>Booking-এ <code>createdAt</code> এবং <code>updatedAt</code> যোগ করো।</li><li>Booking ID Random Generation-এর Collision Risk ব্যাখ্যা করো।</li><li><code>BookingManager</code>-এর Data Storage Adapter আলাদা করে Unit Test করো।</li><li>Money Calculation-এ Floating-Point সমস্যা এড়াতে Minor Unit (Paisa) বা Decimal Library-এর প্রয়োজন বিবেচনা করো।</li><li>Real Application-এ Server-side Validation, Authentication, Authorization, Database Transaction এবং Audit Log প্রয়োজন।</li></ul>
+<p><strong>Chapter Summary:</strong> JavaScript-এর OOP হলো Prototype-based System-এর ওপর গড়ে ওঠা Class, Encapsulation, Inheritance ও Polymorphism-এর ব্যবহারিক প্রয়োগ। Domain Rules এবং UI আলাদা করলে Testing ও Maintenance সহজ হয়। পরের অধ্যায়ে Advanced Functions, Closures এবং Functional Patterns শিখব।</p>
+</section></body></html>

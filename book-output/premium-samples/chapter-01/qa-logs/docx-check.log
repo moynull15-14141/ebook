@@ -1,0 +1,20 @@
+﻿PASS  ZIP CRC check
+PASS  all XML parts are well-formed  [14 parts]
+PASS  every relationship target exists in the package
+PASS  figure image is embedded  [word/media/image1.png]
+PASS  no undefined styles are used
+PASS  chapter title is a Heading 1  [JavaScript-এর জগতে প্রথম পদক্ষেপ]
+PASS  every H2 section of the Markdown is present  [23 of 23]
+PASS  every H3 subsection of the Markdown is present  [42 of 42]
+PASS  every code block has a caption  [49 of 49]
+PASS  code line count matches the Markdown  [388 of 388]
+PASS  table count matches the Markdown  [12 of 12]
+PASS  10 MCQs present  [10]
+PASS  40 MCQ options present
+PASS  app.js listing is identical to the real project file  [35 lines]
+PASS  no "DRAFT" placeholder text
+PASS  no "TODO" placeholder text
+PASS  no "RECONSTRUCTED" placeholder text
+PASS  no "Lorem" placeholder text
+characters of text: 51221
+paragraphs by style: {'Code': 323, 'TableText': 238, 'Normal': 126, 'ListBullet': 114, 'CodeCaption': 49, 'Heading3': 42, 'ListNumber': 39, 'TableGap': 34, 'CodeError': 30, 'CodeOutput': 29, 'Heading2': 21, 'PanelText': 14, 'CodeTerminal': 6, 'CalloutNote': 5, 'PanelHeading': 2, 'CalloutWarn': 2, 'CalloutTip': 2, 'ChapterLabel': 1, 'Heading1': 1, 'CalloutRemember': 1, 'Figure': 1, 'FigureCaption': 1}

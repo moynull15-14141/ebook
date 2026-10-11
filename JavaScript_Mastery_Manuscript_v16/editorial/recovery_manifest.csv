@@ -1,0 +1,31 @@
+Chapter,Topic,Working file,Status,Next action
+1,JavaScript-এর জগতে প্রথম পদক্ষেপ,chapters/chapter-01.md,Reconstructed draft; original not recovered,Editorial review; browser UI verification; compare original if recovered
+2,"Variables, Data Types এবং Memory",chapters/chapter-02.md,Reconstructed draft; original not recovered,Editorial review; browser UI verification; compare original if recovered
+3,"Operators, Expressions এবং Decision Making",chapters/chapter-03.md,Reconstructed draft; original not recovered,Editorial review; browser UI verification; compare original if recovered
+4,Loops এবং Iteration,chapters/chapter-04.md,Reconstructed draft; original not recovered,Editorial review; browser UI verification; compare original if recovered
+5,"Functions, Parameters, Return Values এবং Scope",chapters/chapter-05.md,Reconstructed draft; original not recovered,Editorial review; browser UI verification; compare original if recovered
+6,Arrays এবং Practical Data Processing,chapters/chapter-06.md,Reconstructed draft; original not recovered,Editorial review; browser UI verification; compare original if recovered
+7,Objects এবং Real-World Data Modeling,chapters/chapter-07.md,Reconstructed draft; original not recovered,Editorial review; browser UI verification; compare original if recovered
+8,Strings এবং Modern Text Processing,chapters/chapter-08.md,Reconstructed draft; original not recovered,Editorial review; browser UI verification; Unicode edge-case review; compare original if recovered
+9,"DOM Manipulation, Events এবং Interactive Web Applications",chapters/chapter-09.md,Reconstructed draft; original not recovered,Editorial review; browser UI verification; compare original if recovered
+10,"Asynchronous JavaScript, Promises এবং Event Loop",chapters/chapter-10.md,Reconstructed draft; original not recovered,Editorial review; browser UI verification; compare original if recovered
+11,"Error Handling, Debugging এবং Defensive Programming",chapters/chapter-11.md,Reconstructed draft; original not recovered,Editorial review; browser UI verification; compare original if recovered
+12,"Modern JavaScript, Modules এবং Clean Code",chapters/chapter-12.md,Reconstructed draft; original not recovered,Editorial review; browser UI verification; compare original if recovered
+13,"OOP, Classes, Prototypes, Inheritance এবং Encapsulation",chapters/chapter-13.md,Reconstructed draft; original not recovered,Editorial review; browser UI verification; compare original if recovered
+14,"Advanced Functions, Closures এবং Functional Programming",chapters/chapter-14.md,Reconstructed draft; original not recovered,Editorial review; browser UI verification; compare original if recovered
+15,"Browser APIs, Storage, Fetch এবং URL",chapters/chapter-15.md,Reconstructed working draft; original text unavailable,"Browser manual QA, editorial review, and original comparison pending"
+16,"Error Handling, Debugging, Testing এবং Reliability",chapters/chapter-16.md,Reconstructed working draft; original text unavailable,"Browser manual QA, editorial review, and original comparison pending"
+17,"Regular Expressions, Validation এবং Secure Input",chapters/chapter-17.md,Placeholder; full text unavailable,Recover original or reconstruct complete chapter
+18,"Functional Programming, Immutability এবং Data Transformation",chapters/chapter-18.md,Placeholder; full text unavailable,Recover original or reconstruct complete chapter
+19,"Performance, Memory Management এবং Web Efficiency",chapters/chapter-19.md,Placeholder; full text unavailable,Recover original or reconstruct complete chapter
+20,Web Application Security এবং Secure Coding,chapters/chapter-20.md,Placeholder; full text unavailable,Recover original or reconstruct complete chapter
+21,"Design Patterns, Architecture এবং Scalable Structure",chapters/chapter-21.md,Placeholder; full text unavailable,Recover original or reconstruct complete chapter
+22,"Testing Mastery, Integration, Mocking, TDD এবং E2E",chapters/chapter-22.md,Placeholder; full text unavailable,Recover original or reconstruct complete chapter
+23,"Performance Optimization, Profiling এবং Web Performance",chapters/chapter-23.md,Placeholder; full text unavailable,Recover original or reconstruct complete chapter
+24,TypeScript Integration এবং Professional Workflow,chapters/chapter-24.md,Placeholder; full text unavailable,Recover original or reconstruct complete chapter
+25,"Node.js Backend, REST APIs, Databases এবং Authentication",chapters/chapter-25.md,Placeholder; full text unavailable,Recover original or reconstruct complete chapter
+26,"Advanced Databases, ORM, Query Optimization এবং Scaling",chapters/chapter-26.md,Placeholder; full text unavailable,Recover original or reconstruct complete chapter
+27,"Real-Time Apps, WebSockets, Socket.IO এবং Messaging",chapters/chapter-27.md,Placeholder; full text unavailable,Recover original or reconstruct complete chapter
+28,"Deployment, Docker, CI/CD এবং Production Monitoring",chapters/chapter-28.md,Placeholder; full text unavailable,Recover original or reconstruct complete chapter
+29,"Advanced System Design, Microservices এবং Distributed Systems",chapters/chapter-29.md,Placeholder; full text unavailable,Recover original or reconstruct complete chapter
+30,"Professional Mastery, Full-Stack Capstone এবং Career Roadmap",chapters/chapter-30.md,Placeholder; full text unavailable,Recover original or reconstruct complete chapter

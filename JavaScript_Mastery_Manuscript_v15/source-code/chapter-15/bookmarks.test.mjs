@@ -1,0 +1,16 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {normalizeUrl,validateBookmark,createBookmark,filterBookmarks,safeParseBookmarks,toExportJSON,parseImportJSON} from './bookmarks.mjs';
+test('normalize url',()=>assert.equal(normalizeUrl('https://example.com/#part'),'https://example.com/'));
+test('reject javascript scheme',()=>assert.throws(()=>normalizeUrl('javascript:alert(1)')));
+test('reject malformed URL',()=>assert.throws(()=>normalizeUrl('not a url')));
+test('validate title',()=>assert.throws(()=>validateBookmark({title:'a',url:'https://a.com'})));
+test('tags normalized',()=>assert.deepEqual(validateBookmark({title:'MDN',url:'https://mdn.dev',tags:'JS, js, Web'}).tags,['js','web']));
+test('create bookmark',()=>assert.equal(createBookmark({title:'MDN',url:'https://mdn.dev'},'fixed').id,'fixed'));
+test('filter by title',()=>assert.equal(filterBookmarks([{title:'MDN',url:'https://mdn.dev',tags:['js']}],'mdn').length,1));
+test('filter by tag',()=>assert.equal(filterBookmarks([{title:'MDN',url:'https://mdn.dev',tags:['js']}],'','css').length,0));
+test('safe parse bad JSON',()=>assert.deepEqual(safeParseBookmarks('{'),[]));
+test('safe parse bad structure',()=>assert.deepEqual(safeParseBookmarks('{}'),[]));
+test('export and import',()=>{const b=createBookmark({title:'MDN',url:'https://mdn.dev'},'id1');assert.equal(parseImportJSON(toExportJSON([b]))[0].url,'https://mdn.dev/');});
+test('reject bad import version',()=>assert.throws(()=>parseImportJSON('{"version":2,"bookmarks":[]}')));
+test('reject duplicate ids',()=>{const b=createBookmark({title:'MDN',url:'https://mdn.dev'},'id1');assert.throws(()=>parseImportJSON(toExportJSON([b,b])));});

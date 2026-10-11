@@ -1,0 +1,1 @@
+{"name":"travellive-ch27","private":true,"type":"module","scripts":{"test":"node --test","demo":"node demo.mjs"}}

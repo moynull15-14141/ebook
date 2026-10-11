@@ -1,0 +1,110 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="preface" id="preface"><h1>ভূমিকা</h1><p>JavaScript আজ শুধু Web Page-কে Interactive করার ভাষা নয়; Browser, Server, Mobile, Desktop এবং Cloud—সব জায়গায় এর ব্যবহার। এই বইয়ের লক্ষ্য তোমাকে একেবারে প্রথম <code>console.log()</code> থেকে শুরু করে পরীক্ষিত, নিরাপদ ও রক্ষণাবেক্ষণযোগ্য JavaScript Application তৈরির পেশাদার মানসিকতা পর্যন্ত নিয়ে যাওয়া।</p>
+<h2>এই বই কার জন্য</h2>
+<ul><li>যারা Programming একেবারে নতুন শুরু করছে এবং বাংলায় ধাপে ধাপে শিখতে চায়।</li><li>যারা JavaScript-এর মৌলিক বিষয় জানে, কিন্তু Async, Testing, Security, Architecture বা Backend-এ আত্মবিশ্বাসী হতে চায়।</li><li>যারা Job Interview বা Portfolio Project-এর জন্য বাস্তবসম্মত প্রস্তুতি নিতে চায়।</li></ul>
+<h2>বইটির গঠন</h2>
+<p>বইটি ৩০টি অধ্যায়ে সাজানো, এবং প্রতিটি অধ্যায় আগের অধ্যায়ের ওপর ভিত্তি করে এগোয়:</p>
+<ul><li><strong>অধ্যায় ১–৯ — মৌলিক ভিত্তি:</strong> Variables, Data Types, Operators, Loops, Functions, Arrays, Objects, Strings এবং DOM ও Events।</li><li><strong>অধ্যায় ১০–১৮ — আধুনিক JavaScript:</strong> Asynchronous Programming, Error Handling, Modules, OOP, Closures, Browser APIs, Testing, Regular Expressions এবং Functional Programming।</li><li><strong>অধ্যায় ১৯–২৪ — পেশাদার Engineering:</strong> Performance, Security, Design Patterns, Testing Mastery, Profiling এবং TypeScript।</li><li><strong>অধ্যায় ২৫–৩০ — Backend থেকে System Design:</strong> Node.js Backend, Database, Real-Time Application, Deployment, Distributed System এবং Full-Stack Capstone ও Career Roadmap।</li></ul>
+<h2>প্রতিটি অধ্যায় কীভাবে সাজানো</h2>
+<p>প্রায় প্রতিটি অধ্যায়ে পাবে: শেখার লক্ষ্য, উদাহরণসহ ধারণার ব্যাখ্যা, একটি Practical Project, সাধারণ ভুল ও Debugging নির্দেশনা, অনুশীলনী ও তার সমাধান, এবং উত্তর ও ব্যাখ্যাসহ MCQ। প্রথমে নিজে চেষ্টা করো, তারপর সমাধান মিলিয়ে দেখো।</p>
+<h2>Code ও Project চালানোর নির্দেশিকা</h2>
+<ul><li>প্রতিটি অধ্যায়ের Project-এর সম্পূর্ণ Source Code বইয়ের Companion Source Code-এর <code>source-code/chapter-NN/</code> Folder-এ রয়েছে (যেমন অধ্যায় ৫-এর জন্য <code>source-code/chapter-05/</code>)। বইয়ে মূল অংশগুলো ব্যাখ্যা করা হয়েছে।</li><li>Browser Project-এর জন্য Project Folder-এ <code>python -m http.server 8000</code>-এর মতো একটি Local HTTP Server চালিয়ে <code>http://localhost:8000</code> খোলো; ES Modules সাধারণত <code>file://</code> থেকে ঠিকমতো চলে না।</li><li>Automated Test চালাতে Node.js 20 বা পরবর্তী সংস্করণ Install করে Project Folder-এ <code>node --test</code> বা অধ্যায়ে দেওয়া Command চালাও।</li><li>Code Block-এর ওপরের ছোট Label (JavaScript, Terminal, HTML ইত্যাদি) Code-এর ধরন নির্দেশ করে। দীর্ঘ Line পাতার প্রস্থে ভেঙে দেখানো হয়েছে; আসল File-এ সেগুলো এক Line।</li></ul>
+<h2>কিছু গুরুত্বপূর্ণ নীতি</h2>
+<ul><li>টাকার হিসাব সাধারণত পূর্ণসংখ্যা BDT বা Paisa-এর মতো Minor Unit-এ করা হয়েছে, যাতে Floating-Point ত্রুটি এড়ানো যায়।</li><li>User Input দেখাতে <code>innerHTML</code>-এর বদলে <code>textContent</code> ব্যবহার করা হয়েছে—নিরাপত্তা এই বইয়ের একটি ধারাবাহিক বিষয়।</li><li>বইয়ের Project-গুলো শেখার জন্য ইচ্ছাকৃতভাবে ছোট রাখা হয়েছে। প্রতিটি অধ্যায়ে স্পষ্টভাবে বলা আছে কোন অংশ Production-এর জন্য যথেষ্ট নয় এবং বাস্তবে আর কী প্রয়োজন।</li></ul>
+<h2>খসড়া সংস্করণ সম্পর্কে</h2>
+<p>এটি বইটির প্রথম পূর্ণাঙ্গ খসড়া সংস্করণ। পরবর্তী সংস্করণে অধ্যায়গুলো আরও বিস্তৃত করা, Diagram যোগ করা এবং ভাষা ও পরিভাষা আরও সামঞ্জস্যপূর্ণ করার পরিকল্পনা রয়েছে। ভুল বা অস্পষ্টতা চোখে পড়লে তা চিহ্নিত করে রাখো—তোমার প্রতিক্রিয়া পরবর্তী সংস্করণকে আরও ভালো করবে।</p>
+<p>শুভ কোডিং!</p></section></body></html>

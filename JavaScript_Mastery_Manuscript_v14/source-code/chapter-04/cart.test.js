@@ -1,0 +1,12 @@
+"use strict";
+const assert = require("node:assert/strict");
+const { test } = require("node:test");
+const { analyzeCart } = require("./cart.js");
+test("empty cart", () => assert.deepEqual(analyzeCart([]), {rows:[],total:0,units:0,distinctItems:0,highest:null,qualifying:[]}));
+test("totals and highest line", () => { const r=analyzeCart([{name:"Pen",price:50,quantity:2},{name:"Book",price:300,quantity:3}]); assert.equal(r.total,1000);assert.equal(r.units,5);assert.equal(r.highest.name,"Book"); });
+test("threshold", () => assert.deepEqual(analyzeCart([{name:"A",price:200,quantity:3}],500).qualifying,["A"]));
+test("reject fractional price", () => assert.throws(()=>analyzeCart([{name:"A",price:2.5,quantity:1}]),TypeError));
+test("reject invalid quantity", () => assert.throws(()=>analyzeCart([{name:"A",price:20,quantity:0}]),TypeError));
+test("reject invalid cart", () => assert.throws(()=>analyzeCart(null),TypeError));
+test("reject overflow", () => assert.throws(()=>analyzeCart([{name:"A",price:Number.MAX_SAFE_INTEGER,quantity:2}]),RangeError));
+test("do not mutate input", () => { const x=[{name:"A",price:2,quantity:3}];analyzeCart(x);assert.deepEqual(x,[{name:"A",price:2,quantity:3}]); });

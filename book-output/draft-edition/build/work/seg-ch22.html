@@ -1,0 +1,277 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-22"><header class="opener"><div class="chap-label">অধ্যায় ২২</div><h1>JavaScript Testing Mastery — Unit Testing, Integration Testing, Mocking, TDD এবং E2E</h1><p class="meta"><strong>Hands-on Project:</strong> Booking Quality Lab — Testable Booking Workflow</p></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে তুমি (১) Automated Testing-এর উদ্দেশ্য ব্যাখ্যা করতে পারবে, (২) Node.js Test Runner দিয়ে Unit Test লিখবে, (৩) Mock ও Dependency Injection ব্যবহার করবে, (৪) Integration Test এবং E2E Test-এর পার্থক্য বুঝবে, (৫) TDD-এর Red–Green–Refactor Cycle অনুসরণ করবে, (৬) Test Coverage-এর সীমাবদ্ধতা ব্যাখ্যা করবে এবং (৭) Booking Quality Lab-এর Core Logic যাচাই করবে।</p>
+<h2>২২.১ কেন Testing জরুরি?</h2>
+<p>একটি Booking Application-এ Customer Name, Package, Traveler Count, Total Price এবং Status পরিবর্তনের নিয়ম আছে। একটি ছোট পরিবর্তন—যেমন <code>guests</code>-এর Limit বদলানো—অন্য Function-এ ভুল ফল দিতে পারে। <strong>Automated Test</strong> হলো এমন Executable Specification যা নির্দিষ্ট Input-এর বিপরীতে প্রত্যাশিত Output বা Behavior যাচাই করে।</p>
+<p>Manual Testing প্রয়োজন, কিন্তু একই Scenario বারবার পরীক্ষা করা সময়সাপেক্ষ। Automated Test দ্রুত Regression শনাক্ত করে; তবে Test Pass মানেই Production System সম্পূর্ণ Bug-free নয়। Test কেবল যেসব Behavior পরীক্ষা করেছে, সেগুলোর বিষয়ে Evidence দেয়।</p>
+<h2>২২.২ Testing-এর স্তর</h2>
+<table><thead><tr><th>Test Type</th><th>কী যাচাই করে</th><th>উদাহরণ</th><th>সাধারণ বৈশিষ্ট্য</th></tr></thead><tbody><tr><td>Unit</td><td>ছোট Function বা Module</td><td><code>calculateTotal()</code></td><td>দ্রুত, Isolated</td></tr><tr><td>Integration</td><td>একাধিক Module-এর সহযোগিতা</td><td>Service + Repository</td><td>Boundary ও Data Flow যাচাই</td></tr><tr><td>Component</td><td>UI Component</td><td>Form Error Message</td><td>UI Interaction</td></tr><tr><td>E2E</td><td>Browser থেকে সম্পূর্ণ Flow</td><td>Place → Confirm</td><td>বাস্তবের কাছাকাছি, তুলনামূলক ধীর</td></tr><tr><td>Regression</td><td>আগের Bug ফিরে এসেছে কি না</td><td>Cancelled Booking Confirm আটকানো</td><td>Bug Fix-এর পরে যোগ হয়</td></tr><tr><td>Smoke</td><td>Critical Feature কাজ করছে কি না</td><td>App Load ও Primary Form</td><td>Deploy-এর পরে উপকারী</td></tr></tbody></table>
+<p>Test Pyramid একটি সাধারণ নির্দেশনা: দ্রুত Unit Test বেশি, Integration Test প্রয়োজনমতো এবং Critical User Journey-এর E2E Test সীমিত কিন্তু অর্থবহ। এটি কঠোর অনুপাত নয়।</p>
+<h2>২২.৩ Arrange–Act–Assert Pattern</h2>
+<p>একটি Test তিনটি ধাপে পরিষ্কারভাবে লেখা যায়: <strong>Arrange</strong> (Input ও Dependencies প্রস্তুত), <strong>Act</strong> (Function চালানো), <strong>Assert</strong> (ফল যাচাই)।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">import</span> test <span class="k">from</span> <span class="s">'node:test'</span>;
+<span class="k">import</span> assert <span class="k">from</span> <span class="s">'node:assert/strict'</span>;
+<span class="k">import</span> { calculateTotal } <span class="k">from</span> <span class="s">'./booking.mjs'</span>;
+
+test(<span class="s">'three hill travelers cost BDT 21,600'</span>, () =&gt; {
+  <span class="c">// Arrange</span>
+  <span class="k">const</span> packageId = <span class="s">'hills'</span>;
+  <span class="k">const</span> guests = <span class="n">3</span>;
+  <span class="c">// Act</span>
+  <span class="k">const</span> total = calculateTotal(packageId, guests);
+  <span class="c">// Assert</span>
+  assert.equal(total, <span class="n">21600</span>);
+});</code></pre></figure>
+<p>Test Name-এ Behavior উল্লেখ করো। <code>works fine</code>-এর চেয়ে <code>rejects fractional guest count</code> অনেক বেশি অর্থবহ।</p>
+<h2>২২.৪ Node.js Built-in Test Runner</h2>
+<p>Node.js 20+ ইনস্টল থাকলে অতিরিক্ত Framework ছাড়াই <code>node:test</code> ও <code>node:assert/strict</code> ব্যবহার করা যায়।</p>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code>node --test booking.test.mjs
+node --experimental-test-coverage --test booking.test.mjs</code></pre></figure>
+<p><code>test()</code> একটি Test Case সংজ্ঞায়িত করে। <code>assert.equal()</code> Strict Equality পরীক্ষা করে। <code>assert.deepEqual()</code> Nested Object/Array-এর Structure তুলনা করে। <code>assert.throws()</code> Synchronous Error, আর <code>assert.rejects()</code> Rejected Promise যাচাই করে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">import</span> assert <span class="k">from</span> <span class="s">'node:assert/strict'</span>;
+assert.equal(<span class="n">2</span> + <span class="n">3</span>, <span class="n">5</span>);
+assert.deepEqual({ status: <span class="s">'ok'</span> }, { status: <span class="s">'ok'</span> });
+assert.throws(() =&gt; { <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'bad'</span>); }, /bad/);
+<span class="k">await</span> assert.rejects(Promise.reject(<span class="k">new</span> Error(<span class="s">'offline'</span>)), /offline/);</code></pre></figure>
+<h2>২২.৫ Boundary Value এবং Equivalence Partitioning</h2>
+<p>Input Validation Test-এ কেবল Valid Case যথেষ্ট নয়। ধরো Guests-এর সীমা ১ থেকে ১০। তাহলে ০, ১, ১০, ১১, Fraction, <code>NaN</code> এবং Missing Value পরীক্ষা করা দরকার।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">import</span> { validateBooking } <span class="k">from</span> <span class="s">'./booking.mjs'</span>;
+<span class="k">const</span> base = { customer: <span class="s">'Amina'</span>, packageId: <span class="s">'beach'</span>, guests: <span class="n">2</span> };
+
+<span class="k">for</span> (<span class="k">const</span> guests <span class="k">of</span> [<span class="n">0</span>, <span class="n">11</span>, <span class="n">1.5</span>, NaN]) {
+  assert.throws(() =&gt; validateBooking({ ...base, guests }));
+}</code></pre></figure>
+<p>এই Code-এর <code>assert</code> Import আগের উদাহরণের মতো থাকতে হবে। Equivalence Partitioning-এ একই আচরণের Input Group থেকে Representative Case বেছে নেওয়া হয়। Boundary Testing-এ Range-এর প্রান্তগুলো গুরুত্ব পায়।</p>
+<h2>২২.৬ Test Doubles: Stub, Fake, Spy ও Mock</h2>
+<p><strong>Stub</strong> নির্ধারিত Return Value দেয়। <strong>Fake</strong> সরল কিন্তু কার্যকর Alternative Implementation, যেমন In-memory Repository। <strong>Spy</strong> কোনো Function কতবার ও কী Arguments-এ Call হয়েছে তা রেকর্ড করে। <strong>Mock</strong> নির্দিষ্ট Interaction Expectation যাচাই করে। Framework অনুযায়ী Terminology কিছুটা ভিন্ন হতে পারে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> calls = [];
+<span class="k">const</span> notifier = {
+  <span class="k">async</span> send(<span class="k">type</span>, booking) {
+    calls.push({ <span class="k">type</span>, id: booking.id });
+  }
+};</code></pre></figure>
+<p>এখানে <code>calls</code> Array ব্যবহার করে Notification Interaction পরীক্ষা করা যায়। External Email Service না চালিয়েও Service-এর Behavior যাচাই করা সম্ভব।</p>
+<h2>২২.৭ Dependency Injection এবং Testability</h2>
+<p>Hard-coded Dependency থাকলে Test চালানোর সময় Real Database, Email বা Network প্রয়োজন হতে পারে। Dependency Injection ব্যবহার করলে Test-এর সময় Fake Implementation দেওয়া যায়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> service = createBookingService({
+  repository: createMemoryRepository(),
+  notifier: { <span class="k">async</span> send() {} },
+  idFactory: () =&gt; <span class="s">'BK-TEST-1'</span>
+});</code></pre></figure>
+<p>এখানে <code>createBookingService</code> এবং <code>createMemoryRepository</code> Project-এর <code>booking.mjs</code> থেকে Import করতে হবে। Deterministic ID Factory Test Result স্থিতিশীল রাখে।</p>
+<h2>২২.৮ Integration Testing: একাধিক Module একসঙ্গে</h2>
+<p>Unit Test Function-এর Contract যাচাই করে; Integration Test পরীক্ষা করে Module-গুলো একসঙ্গে সঠিকভাবে কাজ করছে কি না।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> repository = createMemoryRepository();
+<span class="k">const</span> events = [];
+<span class="k">const</span> service = createBookingService({
+  repository,
+  notifier: { <span class="k">async</span> send(<span class="k">type</span>) { events.push(<span class="k">type</span>); } },
+  idFactory: () =&gt; <span class="s">'BK-001'</span>
+});
+
+<span class="k">const</span> booking = <span class="k">await</span> service.place({
+  customer: <span class="s">'Amina'</span>, packageId: <span class="s">'beach'</span>, guests: <span class="n">2</span>
+});
+<span class="k">await</span> service.confirm(booking.id);
+assert.deepEqual(events, [<span class="s">'created'</span>, <span class="s">'confirmed'</span>]);
+assert.equal((<span class="k">await</span> repository.find(booking.id)).status, <span class="s">'confirmed'</span>);</code></pre></figure>
+<p>এখানে Service → Repository → Notifier Flow যাচাই হচ্ছে। তবে Real Database-এর Transaction, Network Retry ও Authentication এই Test-এর আওতায় নেই।</p>
+<h2>২২.৯ Async Tests, Failure Paths ও Cleanup</h2>
+<p>Async Function Test করার সময় <code>await</code> না দিলে Test আগেই শেষ হয়ে যেতে পারে। Error Expect করলে <code>assert.rejects()</code> ব্যবহার করো। Test Isolation নিশ্চিত করতে প্রতিটি Test-এ নতুন Repository বানানো ভালো। Shared Mutable State Flaky Test-এর বড় কারণ।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">await</span> assert.rejects(
+  service.confirm(<span class="s">'unknown-id'</span>),
+  { code: <span class="s">'NOT_FOUND'</span> }
+);</code></pre></figure>
+<p>Timeout, Fake Timers, Network Stubbing ও Cleanup প্রয়োজন হতে পারে। Fake Timer ব্যবহার করলে <code>setTimeout</code>-নির্ভর Test বাস্তব সময় অপেক্ষা না করেও চালানো যায়।</p>
+<h2>২২.১০ TDD: Red → Green → Refactor</h2>
+<p><strong>Red:</strong> আগে এমন Test লেখো যা নতুন Requirement না থাকায় Fail করে। <strong>Green:</strong> সবচেয়ে সরল Implementation দিয়ে Test Pass করাও। <strong>Refactor:</strong> Behavior না বদলে Code পরিষ্কার করো এবং Test আবার চালাও।</p>
+<p>ধরা যাক, Business Rule: Cancelled Booking পুনরায় Confirm করা যাবে না।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// Red: আগে Test</span>
+assert.throws(
+  () =&gt; transition({ status: <span class="s">'cancelled'</span> }, <span class="s">'confirmed'</span>),
+  { code: <span class="s">'STATUS'</span> }
+);</code></pre></figure>
+<p>এরপর <code>transition()</code> Function-এ Allowed Transition Map যোগ করা হয়। Test Pass হলে Refactor করা যায়। TDD-এর উদ্দেশ্য শুধু Test Coverage নয়; পরিষ্কার Interface ও Design Feedback পাওয়া।</p>
+<h2>২২.১১ Test Coverage: কী বোঝায়, কী বোঝায় না</h2>
+<p>Line, Branch এবং Function Coverage একটি Codebase-এর কোন অংশ Test Execution-এ এসেছে তা দেখায়। কিন্তু ১০০% Coverage থাকলেও Assertion দুর্বল হলে ভুল Behavior ধরা নাও পড়তে পারে।</p>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code>node --experimental-test-coverage --test booking.test.mjs</code></pre></figure>
+<p>Coverage Report দেখে Untested Branch শনাক্ত করো। <strong>Meaningful Assertion</strong>, Boundary Case এবং Failure Path Coverage-এর সংখ্যার চেয়ে বেশি গুরুত্বপূর্ণ।</p>
+<h2>২২.১২ Browser E2E Testing-এর ধারণা</h2>
+<p>Playwright-এর মতো Tool দিয়ে বাস্তব Browser খুলে Form Fill, Click ও Result Verify করা যায়। নিচেরটি <strong>illustrative example</strong>; Companion Source Code-এ Playwright Dependency Install করা হয়নি, তাই এই E2E Test চালানো হয়েছে এমন দাবি করছি না।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// Example only: requires @playwright/test and browser installation.</span>
+<span class="k">import</span> { test, expect } <span class="k">from</span> <span class="s">'@playwright/test'</span>;
+
+test(<span class="s">'visitor places a demo booking'</span>, <span class="k">async</span> ({ page }) =&gt; {
+  <span class="k">await</span> page.goto(<span class="s">'http://localhost:8000'</span>);
+  <span class="k">await</span> page.locator(<span class="s">'#customer'</span>).fill(<span class="s">'Amina Rahman'</span>);
+  <span class="k">await</span> page.locator(<span class="s">'#guests'</span>).fill(<span class="s">'2'</span>);
+  <span class="k">await</span> page.getByRole(<span class="s">'button'</span>, { name: <span class="s">'Place demo booking'</span> }).click();
+  <span class="k">await</span> expect(page.locator(<span class="s">'#bookings li'</span>)).toHaveCount(<span class="n">1</span>);
+});</code></pre></figure>
+<p>E2E Test-এর জন্য Test Server চালু থাকা, Browser Installation এবং Test Data Isolation নিশ্চিত করতে হবে। Screenshot, Trace ও Video Failure Debugging-এ সাহায্য করে।</p>
+<h2>২২.১৩ CI Pipeline-এ Tests</h2>
+<p>Pull Request-এ Automatic Test চালালে Regression Merge হওয়ার আগেই ধরা পড়তে পারে। একটি Minimal GitHub Actions Example:</p>
+<figure class="code keep"><figcaption>YAML</figcaption><pre><code>name: Node Tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test source-code/chapter-22/booking.test.mjs</code></pre></figure>
+<p>এটি Repository Root থেকে File Path সঠিক থাকলে চলবে। Production CI-তে Lockfile, Dependency Audit, Lint, Build ও E2E Steps যোগ করা উচিত।</p>
+<h2>২২.১৪ Practical Project — Booking Quality Lab</h2>
+<p>এই Project-এ তিনটি স্তর আছে: <strong>Domain Validation</strong>, <strong>Application Service</strong>, এবং <strong>Browser Demo</strong>। সব Source File Companion Source Code-এর <code>source-code/chapter-22/</code> Folder-এ রয়েছে।</p>
+<figure class="code keep"><pre><code>source-code/chapter-22/
+├── booking.mjs           # Domain + Service + Memory Repository
+├── booking.test.mjs      # Automated Unit/Integration Tests
+├── app.mjs               # Browser Interaction
+├── index.html            # Form and Booking List
+├── style.css             # UI Styling
+├── package.json          # npm test Scripts
+└── RUN.md                # Execution Guide</code></pre></figure>
+<h3>Project Flow</h3>
+<ol><li>User Customer, Package ও Guests দেয়।</li><li><code>validateBooking()</code> Input Validate করে এবং Catalog থেকে Total হিসাব করে।</li><li><code>createBookingService()</code> নতুন Booking তৈরি করে Repository-তে Save করে।</li><li>Notifier একটি Educational Event Log করে।</li><li>User Confirm করলে <code>transition()</code> State Rule প্রয়োগ করে।</li><li>Automated Tests Validation, State Transition, Repository Isolation ও Service Integration যাচাই করে।</li></ol>
+<h3>Run Instructions</h3>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code>cd source-code/chapter-22
+node --test booking.test.mjs
+node --experimental-test-coverage --test booking.test.mjs
+python -m http.server 8000</code></pre></figure>
+<p>শেষ Command-এর পর Browser-এ <code>http://localhost:8000</code> খুলবে। Browser Demo-তে In-memory Data আছে, Refresh করলে হারিয়ে যাবে। এটি ইচ্ছাকৃতভাবে ছোট Educational Application।</p>
+<h3>গুরুত্বপূর্ণ Reliability Caveat</h3>
+<p>Demo-তে Repository Save হওয়ার পরে Notifier Fail করলে <code>place()</code> Reject করে, কিন্তু Booking ইতোমধ্যে Save হয়ে থাকতে পারে। এটি <strong>Partial Failure</strong>-এর বাস্তব উদাহরণ। Production System-এ Transactional Outbox, Retry Policy এবং Idempotency বিবেচনা করতে হবে। এই অধ্যায়ের Test ইচ্ছাকৃতভাবে Failure Visibility যাচাই করে; Atomicity দাবি করে না।</p>
+<h2>২২.১৫ সাধারণ Testing Mistakes</h2>
+<ul><li>শুধু Happy Path পরীক্ষা করা; Invalid Input ও Boundary বাদ দেওয়া।</li><li>Implementation Detail-এ অতিরিক্ত Assert করে Refactoring কঠিন করা।</li><li>Real API/Clock/Randomness-এর ওপর নির্ভর করে Flaky Test তৈরি করা।</li><li>Async Test-এ <code>await</code> বাদ দেওয়া।</li><li>Test Case-গুলোর মধ্যে Shared State রেখে Order-dependent Result পাওয়া।</li><li>Coverage Percentage-কে Quality-এর একমাত্র সূচক ভাবা।</li><li>Mock দিয়ে সবকিছু Pass করিয়ে Real Integration Failure উপেক্ষা করা।</li><li>Browser E2E Test না চালিয়েও UI Verified বলা।</li></ul>
+<h2>২২.১৬ Exercises</h2>
+<p>১. <code>calculateTotal('city', 4)</code> কত হবে? Test লেখো।<br>২. Blank Customer Reject হওয়ার Test লেখো।<br>৩. Guests ০ এবং ১১ হলে Error হয় কি না যাচাই করো।<br>৪. <code>pending → cancelled</code> Transition-এর Test লেখো।<br>৫. <code>cancelled → confirmed</code> Reject হওয়ার Test লেখো।<br>৬. Notifier Spy দিয়ে <code>created</code> Event Count যাচাই করো।<br>৭. Repository থেকে পাওয়া Object পরিবর্তন করলে Stored Object বদলায় কি না পরীক্ষা করো।<br>৮. <code>confirm()</code>-এ Missing ID-এর Error যাচাই করো।<br>৯. Notifier Fail করলে <code>place()</code>-এর Result কী হয়, Test করো।<br>১০. E2E Test Plan লেখো: Invalid Form → Error → Valid Form → Booking Confirm।</p>
+<h2>২২.১৭ Sample Solutions</h2>
+<figure class="code"><figcaption>JavaScript</figcaption><pre><code><span class="c">// 1</span>
+assert.equal(calculateTotal(<span class="s">'city'</span>, <span class="n">4</span>), <span class="n">15600</span>);
+<span class="c">// 2</span>
+assert.throws(() =&gt; validateBooking({customer:<span class="s">' '</span>,packageId:<span class="s">'city'</span>,guests:<span class="n">2</span>}), {code:<span class="s">'CUSTOMER'</span>});
+<span class="c">// 3</span>
+<span class="k">for</span> (<span class="k">const</span> guests <span class="k">of</span> [<span class="n">0</span>, <span class="n">11</span>]) {
+  assert.throws(() =&gt; validateBooking({customer:<span class="s">'Amina'</span>,packageId:<span class="s">'city'</span>,guests}), {code:<span class="s">'GUESTS'</span>});
+}
+<span class="c">// 4</span>
+assert.equal(transition({status:<span class="s">'pending'</span>},<span class="s">'cancelled'</span>).status,<span class="s">'cancelled'</span>);
+<span class="c">// 5</span>
+assert.throws(() =&gt; transition({status:<span class="s">'cancelled'</span>},<span class="s">'confirmed'</span>), {code:<span class="s">'STATUS'</span>});
+<span class="c">// 6</span>
+<span class="k">const</span> events=[]; <span class="k">const</span> notifier={<span class="k">async</span> send(<span class="k">type</span>){events.push(<span class="k">type</span>)}};
+<span class="c">// place() করার পরে assert.deepEqual(events,['created']);</span>
+<span class="c">// 7</span>
+<span class="c">// Repository-এর find() ফল পরিবর্তন করে আবার find() করলে আগের Value থাকবে।</span>
+<span class="c">// 8</span>
+<span class="c">// await assert.rejects(service.confirm('missing'), {code:'NOT_FOUND'});</span>
+<span class="c">// 9</span>
+<span class="c">// await assert.rejects(service.place(validInput), /mail offline/);</span>
+<span class="c">// 10</span>
+<span class="c">// Browser Test Plan: blank customer rejected; valid submit adds one item;</span>
+<span class="c">// clicking Confirm changes status from pending to confirmed.</span></code></pre></figure>
+<p>এই Sample Snippet-এ <code>assert</code>, <code>calculateTotal</code>, <code>validateBooking</code>, <code>transition</code> ইত্যাদি পূর্বের উদাহরণ অনুসারে Import করতে হবে। সম্পূর্ণ Runnable Tests <code>booking.test.mjs</code>-এ দেওয়া আছে।</p>
+<h2>২২.১৮ Knowledge Check — ১০টি MCQ</h2>
+<p>১. Unit Test-এর প্রধান লক্ষ্য কী? A) Small unit behavior B) Hosting C) SEO D) DNS<br>২. <code>assert.rejects()</code> কোন ক্ষেত্রে? A) CSS B) Rejected Promise C) HTML Tag D) SQL Index<br>৩. Fake Repository-এর সুবিধা কী? A) Fast isolated tests B) Real payment C) HTTPS D) CDN<br>৪. TDD-এর সঠিক ক্রম কোনটি? A) Refactor–Green–Red B) Red–Green–Refactor C) Green–Red–Refactor D) Deploy–Build–Test<br>৫. Boundary Testing-এ কোন Input গুরুত্বপূর্ণ? A) Limit-এর প্রান্ত B) শুধু মাঝের Value C) শুধু Valid Email D) Random CSS<br>৬. 100% Line Coverage মানেই কি Bug-free? A) Yes B) No C) Always D) Only Node.js<br>৭. Integration Test কী যাচাই করে? A) Module collaboration B) Font Weight C) Icon Size D) Page Color<br>৮. Flaky Test-এর একটি কারণ কী? A) Shared State B) Pure Function C) Fixed Input D) Isolated Test<br>৯. E2E Test সাধারণত কী ব্যবহার করে? A) Real browser journey B) Database schema only C) Color palette D) Code comments<br>১০. Notifier Failure-এর পরে Booking Save হয়ে থাকলে কী বোঝায়? A) Partial failure B) Atomic success C) Browser bug only D) Syntax error</p>
+<h3>Answers ও ব্যাখ্যা</h3>
+<ol><li><strong>A</strong> — ছোট Function/Module-এর Behavior যাচাই।</li><li><strong>B</strong> — Promise Rejection যাচাই।</li><li><strong>A</strong> — External Database ছাড়া দ্রুত Test চালানো যায়।</li><li><strong>B</strong> — প্রথমে Failing Test, তারপর Implementation, শেষে Refactor।</li><li><strong>A</strong> — Boundary Value-তে Error বেশি ধরা পড়ে।</li><li><strong>B</strong> — Coverage Execution দেখায়, Correctness নিশ্চিত করে না।</li><li><strong>A</strong> — Module/Service-এর Interaction যাচাই।</li><li><strong>A</strong> — Test Order ও Timing-এর ওপর নির্ভরতা তৈরি হয়।</li><li><strong>A</strong> — Browser-এ User Journey যাচাই।</li><li><strong>A</strong> — Save সফল হলেও পরের Step Fail করেছে; Transaction Design দরকার।</li></ol>
+<h2>২২.১৯ Chapter Recap ও পরবর্তী অধ্যায়</h2>
+<p>Automated Testing হলো Software Quality-এর গুরুত্বপূর্ণ Feedback System। Unit Test Business Rule যাচাই করে, Integration Test Module Collaboration পরীক্ষা করে, E2E Test Critical User Journey কভার করে। Mock/Fake/Spy Dependency আলাদা করে Test চালাতে সাহায্য করে। TDD Interface Design উন্নত করতে পারে। পরবর্তী অধ্যায় <strong>JavaScript Performance Optimization, Profiling এবং Web Application Performance</strong>-এ বাস্তব Measurement, Memory ও Rendering Performance নিয়ে কাজ করব।</p>
+</section></body></html>

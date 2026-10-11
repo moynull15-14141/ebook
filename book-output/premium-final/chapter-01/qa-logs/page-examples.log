@@ -1,0 +1,28 @@
+$ node examples/check-page-examples.mjs   (in .)
+
+PASS  first-page: Load হওয়ার পর Console-এর বার্তা
+      "console.log: script.js সফলভাবে Load হয়েছে।"
+PASS  first-page: Click-এর আগে লেখা
+      "এখনো Button চাপা হয়নি।"
+PASS  first-page: Click-এর পরে লেখা
+      "Button চাপা হয়েছে। JavaScript কাজ করছে!"
+PASS  without-defer: Console-এর Error
+      "ERROR: Uncaught TypeError: Cannot read properties of null (reading 'addEventListener')"
+PASS  without-defer: লেখা বদলায় না
+      "এখনো Button চাপা হয়নি।"
+PASS  wrong-filename: Console-এর বার্তা
+      "LOG: Failed to load resource: net::ERR_FILE_NOT_FOUND"
+PASS  সমাধান ৮: Click-এর পরে শিরোনাম
+      "JavaScript শেখা চলছে"
+PASS  সমাধান ৮: Click-এর পরে অনুচ্ছেদ
+      "Button চাপা হয়েছে। JavaScript কাজ করছে!"
+PASS  সমাধান ১২ ও ১০: নাম ও শহর
+      "স্বাগতম, Rahim! Bogura থেকে JavaScript শেখার যাত্রা শুরু হোক। / মোট শুভেচ্ছা: 1 বার"
+PASS  সমাধান ১২ ও ১০: ফাঁকা নামে সংখ্যা বাড়ে না
+      "অনুগ্রহ করে আপনার নাম লিখুন। / মোট শুভেচ্ছা: 1 বার"
+PASS  সমাধান ১২ ও ১০: শুধু নাম
+      "স্বাগতম, Nusrat! / মোট শুভেচ্ছা: 2 বার"
+PASS  সমাধান ১১: মুছে ফেলুন Button
+      "[\"\",\"\",\"message\",\"name\",\"মোট শুভেচ্ছা: 2 বার\"]"
+PASS  Challenge App: কোনো Error নেই
+      0

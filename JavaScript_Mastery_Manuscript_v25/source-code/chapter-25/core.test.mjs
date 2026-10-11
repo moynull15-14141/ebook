@@ -1,0 +1,17 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {createService,DomainError,validateBooking,validateRegistration,hashPassword,verifyPassword} from './core.mjs';
+import {MemoryRepository} from './repository.mjs';
+const setup=()=>createService({repository:new MemoryRepository(),clock:()=> '2026-10-11T00:00:00Z'});
+test('valid registration normalizes email',()=>assert.equal(validateRegistration({email:'A@B.com',password:'correct horse battery staple'}).email,'a@b.com'));
+test('short password rejected',()=>assert.throws(()=>validateRegistration({email:'a@b.com',password:'short'}),DomainError));
+test('password hash verifies',()=>{const hash=hashPassword('long password 123');assert.ok(verifyPassword('long password 123',hash));assert.equal(verifyPassword('wrong',hash),false)});
+test('booking validates total from catalog',()=>assert.equal(validateBooking({packageId:'cox',travelers:3}).totalBDT,36000));
+test('negative travelers rejected',()=>assert.throws(()=>validateBooking({packageId:'cox',travelers:-1}),DomainError));
+test('unknown package rejected',()=>assert.throws(()=>validateBooking({packageId:'unknown',travelers:1}),DomainError));
+test('registration and login',()=>{const s=setup();const u=s.register({email:'a@b.com',password:'very long password'});assert.equal(s.authenticate({email:'a@b.com',password:'very long password'}).id,u.id)});
+test('duplicate email rejected',()=>{const s=setup();const input={email:'a@b.com',password:'very long password'};s.register(input);assert.throws(()=>s.register(input),DomainError)});
+test('wrong password rejected',()=>{const s=setup();s.register({email:'a@b.com',password:'very long password'});assert.throws(()=>s.authenticate({email:'a@b.com',password:'bad password'}),DomainError)});
+test('bookings are scoped to user',()=>{const s=setup();s.book('u1',{packageId:'sylhet',travelers:2});assert.equal(s.list('u1').length,1);assert.equal(s.list('u2').length,0)});
+test('owner can cancel',()=>{const s=setup();const b=s.book('u1',{packageId:'sylhet',travelers:2});assert.equal(s.cancel('u1',b.id).status,'cancelled')});
+test('other user cannot cancel',()=>{const s=setup();const b=s.book('u1',{packageId:'sylhet',travelers:2});assert.throws(()=>s.cancel('u2',b.id),DomainError)});
+test('cannot cancel twice',()=>{const s=setup();const b=s.book('u1',{packageId:'sylhet',travelers:2});s.cancel('u1',b.id);assert.throws(()=>s.cancel('u1',b.id),DomainError)});

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive Greeting App — Challenge Solutions</title>
+  <link rel="stylesheet" href="../../../project/interactive-greeting-app/style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="card">
+    <h1>Interactive Greeting App</h1>
+    <p class="intro">অনুশীলনী ১০, ১১ ও ১২-এর সমাধান একসঙ্গে।</p>
+
+    <form id="greeting-form">
+      <label for="name">আপনার নাম</label>
+      <input id="name" name="name" type="text" maxlength="60" autocomplete="name">
+      <label for="city" style="margin-top: 12px">আপনার শহর</label>
+      <input id="city" name="city" type="text" maxlength="60">
+      <button type="submit">শুভেচ্ছা দেখান</button>
+      <button id="reset-button" type="button">মুছে ফেলুন</button>
+    </form>
+
+    <p id="message" class="message" role="status" aria-live="polite"></p>
+    <p id="counter" class="intro">মোট শুভেচ্ছা: 0 বার</p>
+  </main>
+</body>
+</html>

@@ -1,0 +1,18 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {validateBooking,calculateTotal,transition,BookingError,createBookingService,createMemoryRepository} from './booking.mjs';
+const valid=()=>({customer:'  Amina Rahman ',packageId:'beach',guests:2});
+test('validates and normalizes booking',()=>assert.deepEqual(validateBooking(valid()),{customer:'Amina Rahman',packageId:'beach',guests:2,total:9000}));
+test('calculates total from trusted catalog',()=>assert.equal(calculateTotal('hills',3),21600));
+test('rejects null input',()=>assert.throws(()=>validateBooking(null),{code:'INPUT'}));
+test('rejects blank customer',()=>assert.throws(()=>validateBooking({...valid(),customer:' '}),{code:'CUSTOMER'}));
+test('rejects unknown package',()=>assert.throws(()=>validateBooking({...valid(),packageId:'free'}),{code:'PACKAGE'}));
+test('rejects zero guests',()=>assert.throws(()=>validateBooking({...valid(),guests:0}),{code:'GUESTS'}));
+test('rejects fractional guests',()=>assert.throws(()=>validateBooking({...valid(),guests:1.5}),{code:'GUESTS'}));
+test('rejects guests above limit',()=>assert.throws(()=>validateBooking({...valid(),guests:11}),{code:'GUESTS'}));
+test('allows pending -> confirmed',()=>assert.equal(transition({status:'pending'},'confirmed').status,'confirmed'));
+test('rejects cancelled -> confirmed',()=>assert.throws(()=>transition({status:'cancelled'},'confirmed'),{code:'STATUS'}));
+test('repository isolates stored data',async()=>{const r=createMemoryRepository();const b={id:'a',status:'pending'};await r.save(b);b.status='cancelled';assert.equal((await r.find('a')).status,'pending')});
+test('service integration: place and confirm',async()=>{const repository=createMemoryRepository();const sent=[];const notifier={async send(type,booking){sent.push([type,booking.id])}};const service=createBookingService({repository,notifier,idFactory:()=> 'BK-1'});const b=await service.place(valid());assert.equal(b.status,'pending');const confirmed=await service.confirm(b.id);assert.equal(confirmed.status,'confirmed');assert.deepEqual(sent,[['created','BK-1'],['confirmed','BK-1']]);assert.equal((await service.list()).length,1)});
+test('mock notifier failure is visible to caller',async()=>{const repository=createMemoryRepository();const service=createBookingService({repository,notifier:{async send(){throw Error('mail offline')}},idFactory:()=> 'BK-2'});await assert.rejects(service.place(valid()),/mail offline/)});
+test('missing booking fails with typed error',async()=>{const service=createBookingService({repository:createMemoryRepository(),notifier:{async send(){}},idFactory:()=> 'BK-3'});await assert.rejects(service.confirm('missing'),{code:'NOT_FOUND'})});

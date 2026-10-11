@@ -1,0 +1,443 @@
+{
+  "chapter": "অধ্যায় ১ — JavaScript-এর জগতে প্রথম পদক্ষেপ",
+  "built": "2026-10-11T09:27:21.080Z",
+  "pdfPages": 38,
+  "pdfBytes": 1094533,
+  "fontsInPdf": [
+    "HindSiliguri-Medium",
+    "HindSiliguri-Bold",
+    "HindSiliguri-Regular",
+    "HindSiliguri-SemiBold",
+    "Consolas",
+    "Consolas-Bold"
+  ],
+  "embeddedFontFiles": 6,
+  "words": {
+    "explanatory": 5969,
+    "bengali": 5019
+  },
+  "sections": [
+    "শেখার লক্ষ্য",
+    "পূর্বশর্ত",
+    "এই অধ্যায় কেন গুরুত্বপূর্ণ",
+    "১.১ Programming কী",
+    "১.২ JavaScript কী এবং কেন শিখবেন",
+    "১.৩ এই বই থেকে কী শিখবেন",
+    "১.৪ Development Environment প্রস্তুত করা",
+    "১.৫ প্রথম JavaScript Program",
+    "১.৬ JavaScript লেখার মৌলিক নিয়ম",
+    "১.৭ Variable, Function এবং শর্ত: সংক্ষিপ্ত পরিচয়",
+    "১.৮ Error Message পড়তে শেখা",
+    "১.৯ Web Page-এ JavaScript ব্যবহার",
+    "১.১০ সাধারণ ভুল",
+    "১.১১ Debugging নির্দেশিকা",
+    "১.১২ পেশাদার অভ্যাস",
+    "১.১৩ Project: Interactive Greeting App",
+    "১.১৪ অনুশীলনী",
+    "১.১৫ অনুশীলনীর সমাধান",
+    "১.১৬ MCQ: নিজেকে যাচাই করুন",
+    "১.১৭ MCQ-এর উত্তর ও ব্যাখ্যা",
+    "১.১৮ অধ্যায়ের সারসংক্ষেপ",
+    "১.১৯ গুরুত্বপূর্ণ পরিভাষা",
+    "১.২০ আরও পড়ুন"
+  ],
+  "subsections": 42,
+  "codeBlocks": [
+    {
+      "lang": "bash",
+      "kind": "terminal",
+      "run": null,
+      "file": null,
+      "lines": 2,
+      "longest": 14
+    },
+    {
+      "lang": "text",
+      "kind": "output",
+      "run": null,
+      "file": null,
+      "lines": 2,
+      "longest": 8
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "both",
+      "file": null,
+      "lines": 1,
+      "longest": 34
+    },
+    {
+      "lang": "text",
+      "kind": "output",
+      "run": null,
+      "file": null,
+      "lines": 1,
+      "longest": 18
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "node",
+      "file": "hello.js",
+      "lines": 1,
+      "longest": 34
+    },
+    {
+      "lang": "bash",
+      "kind": "terminal",
+      "run": null,
+      "file": null,
+      "lines": 1,
+      "longest": 13
+    },
+    {
+      "lang": "text",
+      "kind": "output",
+      "run": null,
+      "file": null,
+      "lines": 1,
+      "longest": 18
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "both",
+      "file": "values.js",
+      "lines": 4,
+      "longest": 45
+    },
+    {
+      "lang": "text",
+      "kind": "output",
+      "run": null,
+      "file": null,
+      "lines": 4,
+      "longest": 29
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "both",
+      "file": "strings.js",
+      "lines": 5,
+      "longest": 51
+    },
+    {
+      "lang": "text",
+      "kind": "output",
+      "run": null,
+      "file": null,
+      "lines": 5,
+      "longest": 35
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "both",
+      "file": "comments.js",
+      "lines": 8,
+      "longest": 65
+    },
+    {
+      "lang": "text",
+      "kind": "output",
+      "run": null,
+      "file": null,
+      "lines": 2,
+      "longest": 15
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "both",
+      "file": "variables-functions.js",
+      "lines": 15,
+      "longest": 40
+    },
+    {
+      "lang": "text",
+      "kind": "output",
+      "run": null,
+      "file": null,
+      "lines": 5,
+      "longest": 16
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "both",
+      "file": "condition.js",
+      "lines": 12,
+      "longest": 41
+    },
+    {
+      "lang": "text",
+      "kind": "output",
+      "run": null,
+      "file": null,
+      "lines": 2,
+      "longest": 22
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "node",
+      "file": "e1-missing-quote.js",
+      "lines": 1,
+      "longest": 33
+    },
+    {
+      "lang": "text",
+      "kind": "error",
+      "run": null,
+      "file": null,
+      "lines": 5,
+      "longest": 40
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "node",
+      "file": "e2-misspelled-name.js",
+      "lines": 1,
+      "longest": 33
+    },
+    {
+      "lang": "text",
+      "kind": "error",
+      "run": null,
+      "file": null,
+      "lines": 5,
+      "longest": 37
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "node",
+      "file": "e3-wrong-case.js",
+      "lines": 1,
+      "longest": 34
+    },
+    {
+      "lang": "text",
+      "kind": "error",
+      "run": null,
+      "file": null,
+      "lines": 5,
+      "longest": 40
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "node",
+      "file": "e4-missing-parenthesis.js",
+      "lines": 1,
+      "longest": 33
+    },
+    {
+      "lang": "text",
+      "kind": "error",
+      "run": null,
+      "file": null,
+      "lines": 5,
+      "longest": 42
+    },
+    {
+      "lang": "html",
+      "kind": "source",
+      "run": "browser",
+      "file": "index.html",
+      "lines": 14,
+      "longest": 70
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "browser",
+      "file": "script.js",
+      "lines": 9,
+      "longest": 70
+    },
+    {
+      "lang": "text",
+      "kind": "error",
+      "run": null,
+      "file": null,
+      "lines": 1,
+      "longest": 79
+    },
+    {
+      "lang": "text",
+      "kind": "error",
+      "run": null,
+      "file": null,
+      "lines": 1,
+      "longest": 48
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "node",
+      "file": "e5-stack-trace.js",
+      "lines": 9,
+      "longest": 27
+    },
+    {
+      "lang": "text",
+      "kind": "error",
+      "run": null,
+      "file": null,
+      "lines": 8,
+      "longest": 49
+    },
+    {
+      "lang": "text",
+      "kind": "structure",
+      "run": null,
+      "file": null,
+      "lines": 4,
+      "longest": 25
+    },
+    {
+      "lang": "html",
+      "kind": "source",
+      "run": "browser",
+      "file": "index.html",
+      "lines": 24,
+      "longest": 82
+    },
+    {
+      "lang": "css",
+      "kind": "source",
+      "run": "browser",
+      "file": "style.css",
+      "lines": 100,
+      "longest": 70
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "browser",
+      "file": "app.js",
+      "lines": 35,
+      "longest": 75
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "node",
+      "file": "fix-me.js",
+      "lines": 3,
+      "longest": 21
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "node",
+      "file": "about-me.js",
+      "lines": 3,
+      "longest": 66
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "node",
+      "file": "fix-me.js",
+      "lines": 3,
+      "longest": 22
+    },
+    {
+      "lang": "text",
+      "kind": "output",
+      "run": null,
+      "file": null,
+      "lines": 3,
+      "longest": 6
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "node",
+      "file": "hello.js",
+      "lines": 6,
+      "longest": 42
+    },
+    {
+      "lang": "bash",
+      "kind": "terminal",
+      "run": null,
+      "file": null,
+      "lines": 3,
+      "longest": 14
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "both",
+      "file": "farewell.js",
+      "lines": 6,
+      "longest": 43
+    },
+    {
+      "lang": "text",
+      "kind": "output",
+      "run": null,
+      "file": null,
+      "lines": 2,
+      "longest": 30
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "both",
+      "file": "describe-lesson.js",
+      "lines": 12,
+      "longest": 49
+    },
+    {
+      "lang": "text",
+      "kind": "output",
+      "run": null,
+      "file": null,
+      "lines": 2,
+      "longest": 24
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "browser",
+      "file": "script.js",
+      "lines": 10,
+      "longest": 70
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "browser",
+      "file": "app.js",
+      "lines": 6,
+      "longest": 59
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "browser",
+      "file": "app.js",
+      "lines": 10,
+      "longest": 60
+    },
+    {
+      "lang": "javascript",
+      "kind": "source",
+      "run": "browser",
+      "file": "app.js",
+      "lines": 19,
+      "longest": 86
+    }
+  ],
+  "tables": 12,
+  "callouts": 10,
+  "mcqs": 10,
+  "mcqOptions": 40
+}

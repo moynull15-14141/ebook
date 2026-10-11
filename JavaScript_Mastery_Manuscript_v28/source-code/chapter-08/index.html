@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Search-Friendly Content Tool</title><link rel="stylesheet" href="style.css"></head>
+<body><main class="shell"><header><p class="eyebrow">JavaScript Mastery • Chapter 08</p><h1>Search-Friendly Content Tool</h1><p>বাংলা ও English কনটেন্ট বিশ্লেষণ, Slug, Excerpt এবং Search</p></header>
+<section class="panel"><label for="content">Content</label><textarea id="content" rows="9" placeholder="এখানে বাংলা বা English text লিখুন...">JavaScript শেখা আনন্দের। JavaScript দিয়ে ওয়েব অ্যাপ তৈরি করা যায়। Learn JavaScript step by step.</textarea>
+<div class="controls"><div><label for="query">Search phrase</label><input id="query" placeholder="JavaScript" value="JavaScript"></div><div><label for="max">Excerpt length</label><input id="max" type="number" min="1" max="500" value="120"></div></div>
+<div class="buttons"><button id="analyze">Analyze text</button><button id="copySlug" type="button">Copy slug</button></div><p id="notice" role="status" aria-live="polite"></p></section>
+<section class="metrics"><article><span>Words</span><strong id="words">0</strong></article><article><span>Code points</span><strong id="chars">0</strong></article><article><span>Graphemes</span><strong id="graphemes">0</strong></article><article><span>Matches</span><strong id="matches">0</strong></article></section>
+<section class="panel"><h2>Slug</h2><output id="slug"></output><h2>Excerpt</h2><p id="excerpt"></p><h2>Top Words</h2><ol id="frequency"></ol><h2>Highlighted search preview</h2><p id="preview"></p></section><footer>All processing happens in your browser. No content is uploaded.</footer></main>
+<script src="text-tools.js"></script><script src="app.js"></script></body></html>

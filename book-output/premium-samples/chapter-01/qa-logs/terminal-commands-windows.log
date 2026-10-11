@@ -1,0 +1,9 @@
+﻿PS> pwd  -> True
+PS> mkdir practice  -> True
+PS> cd practice; pwd ends with 'practice'  -> True
+PS> cd ..  -> True
+PS> ls lists hello.js and practice  -> True
+PS> node hello.js  -> Hello, JavaScript!
+PS> cls is a command  -> True
+PS> clear is a command  -> True
+PowerShell version: 5.1.19041.7725

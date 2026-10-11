@@ -1,0 +1,252 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-9"><header class="opener"><div class="chap-label">অধ্যায় ৯</div><h1>DOM Manipulation, Events এবং Interactive Web Applications</h1></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে তুমি DOM Tree পড়তে, Elements নির্বাচন ও পরিবর্তন করতে, Event Handling করতে, Event Delegation ব্যবহার করতে, Form Validation এবং <code>localStorage</code> দিয়ে Persistent Browser Application তৈরি করতে পারবে। <strong>Practical Project: Task Manager</strong>—Add, Edit, Delete, Complete, Search, Filter এবং Save।</p>
+<h2>৯.১ Browser-এ JavaScript কীভাবে কাজ করে?</h2>
+<p>HTML হলো Document-এর কাঠামো, CSS উপস্থাপনা, আর JavaScript সেই Document-এর আচরণ নিয়ন্ত্রণ করে। Browser HTML Parse করে একটি <strong>Document Object Model (DOM)</strong> Tree তৈরি করে। প্রতিটি Element, Attribute এবং Text DOM-এর Node হিসেবে উপস্থাপিত হয়। DOM হলো Browser-provided API; Node.js-এ সাধারণভাবে <code>document</code> পাওয়া যায় না।</p>
+<figure class="code keep"><figcaption>HTML</figcaption><pre><code>&lt;<span class="k">main</span> id=<span class="s">&quot;app&quot;</span>&gt;
+  &lt;<span class="k">h1</span>&gt;আমার প্রথম DOM&lt;/<span class="k">h1</span>&gt;
+  &lt;<span class="k">p</span> class=<span class="s">&quot;message&quot;</span>&gt;শুরু করছি...&lt;/<span class="k">p</span>&gt;
+&lt;/<span class="k">main</span>&gt;</code></pre></figure>
+<p>এই HTML-এ <code>document</code>-এর নিচে <code>html</code>, <code>body</code>, <code>main</code>, <code>h1</code>, <code>p</code>—Parent/Child সম্পর্ক রয়েছে। <code>main</code> হলো <code>h1</code> ও <code>p</code>-এর Parent। <code>querySelector()</code> দিয়ে CSS Selector ব্যবহার করে Element খুঁজে পাওয়া যায়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> heading = document.querySelector(<span class="s">'#app h1'</span>);
+<span class="k">const</span> message = document.querySelector(<span class="s">'.message'</span>);
+heading.textContent = <span class="s">'JavaScript Mastery'</span>;
+message.textContent = <span class="s">'DOM সফলভাবে পরিবর্তিত হয়েছে'</span>;</code></pre></figure>
+<p><code>querySelector()</code> প্রথম Matching Element অথবা <code>null</code> দেয়; <code>querySelectorAll()</code> একটি <strong>static NodeList</strong> দেয়। <code>getElementById()</code> ID দিয়ে Element খুঁজে পায়। <code>getElementsByClassName()</code> একটি <strong>live HTMLCollection</strong> দেয়। Element না পাওয়া গেলে <code>null</code> চেক করো।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> button = document.querySelector(<span class="s">'#saveButton'</span>);
+<span class="k">if</span> (button) button.disabled = <span class="k">false</span>;</code></pre></figure>
+<h2>৯.২ <code>textContent</code>, <code>innerHTML</code> ও নিরাপদ Rendering</h2>
+<p><code>textContent</code> Text হিসেবে Value বসায়; <code>innerHTML</code> String-কে HTML হিসেবে Parse করে। User Input সরাসরি <code>innerHTML</code>-এ বসানো বিপজ্জনক: HTML Injection ও Cross-Site Scripting (XSS) হতে পারে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> userInput = <span class="s">'&lt;img src=x onerror=alert(1)&gt;'</span>;
+<span class="k">const</span> output = document.querySelector(<span class="s">'#output'</span>);
+output.textContent = userInput; <span class="c">// text হিসেবেই দেখাবে</span></code></pre></figure>
+<p><code>innerHTML</code>-এ User Data ব্যবহার না করে <code>createElement()</code>, <code>textContent</code>, <code>append()</code> বা <code>replaceChildren()</code> ব্যবহার করো। Sanitization প্রয়োজন হলে Trusted, Maintained Library ও Context-specific Security Controls ব্যবহার করতে হবে।</p>
+<h2>৯.৩ Element তৈরি, যোগ ও সরানো</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> list = document.querySelector(<span class="s">'#items'</span>);
+<span class="k">const</span> li = document.createElement(<span class="s">'li'</span>);
+li.textContent = <span class="s">'DOM Practice'</span>;
+li.classList.add(<span class="s">'task'</span>);
+list.append(li);
+<span class="c">// পরে প্রয়োজন হলে: li.remove();</span></code></pre></figure>
+<p><code>append()</code> Text বা Node যোগ করে; <code>appendChild()</code> শুধু Node নেয়। <code>prepend()</code> শুরুতে যোগ করে। <code>replaceChildren()</code> পুরোনো Child Nodes সরিয়ে নতুনগুলো বসায়। <code>classList.add/remove/toggle</code> CSS Class নিয়ন্ত্রণ করে; <code>element.dataset.id</code> <code>data-id</code> Attribute-এর সঙ্গে যুক্ত।</p>
+<h2>৯.৪ Events: User Interaction-এর প্রতিক্রিয়া</h2>
+<p>Browser Click, Input, Change, Submit, Keydown-এর মতো Events তৈরি করে। <code>addEventListener()</code> একটি Function-কে Event Listener হিসেবে নিবন্ধন করে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> button = document.querySelector(<span class="s">'#hello'</span>);
+button.addEventListener(<span class="s">'click'</span>, (event) =&gt; {
+  console.log(<span class="s">'Clicked:'</span>, event.currentTarget);
+});</code></pre></figure>
+<p><code>event.target</code> হলো Event-এর উৎপত্তিস্থল; <code>event.currentTarget</code> হলো যে Element-এর Listener এখন চলছে। <code>event.preventDefault()</code> Cancelable Event-এর Default Action বন্ধ করে (যেমন Form Submit-এর Navigation)। <code>event.stopPropagation()</code> Event-এর পরবর্তী Propagation বন্ধ করে; সাধারণ ক্ষেত্রে অযথা ব্যবহার করা উচিত নয়।</p>
+<h3>Event Propagation</h3>
+<p>Event সাধারণত <strong>Capture → Target → Bubble</strong> পর্যায়ে চলে। Parent Container-এ Listener রেখে Child Button-এর Event Handle করাকে <strong>Event Delegation</strong> বলা হয়। Dynamic List-এ প্রতিটি Button-এ Listener বসানোর বদলে Parent List-এ একটি Listener রাখা সুবিধাজনক।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> list = document.querySelector(<span class="s">'#taskList'</span>);
+list.addEventListener(<span class="s">'click'</span>, (event) =&gt; {
+  <span class="k">const</span> button = event.target.closest(<span class="s">'button[data-action]'</span>);
+  <span class="k">if</span> (!button || !list.contains(button)) <span class="k">return</span>;
+  <span class="k">const</span> row = button.closest(<span class="s">'li[data-id]'</span>);
+  <span class="k">if</span> (!row) <span class="k">return</span>;
+  console.log(button.dataset.action, row.dataset.id);
+});</code></pre></figure>
+<h2>৯.৫ Form Handling ও Validation</h2>
+<p>Form-এর <code>submit</code> Event Enter Key দিয়েও Trigger হয়। শুধু Button-এর <code>click</code> Listener দিলে Keyboard Flow বাদ পড়তে পারে। HTML Validation (<code>required</code>, <code>maxlength</code>) ও JavaScript Validation একসঙ্গে ব্যবহার করো। Frontend Validation User Experience বাড়ায়, কিন্তু Backend থাকলে Server-side Validation অবশ্যই প্রয়োজন।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>form.addEventListener(<span class="s">'submit'</span>, (event) =&gt; {
+  event.preventDefault();
+  <span class="k">const</span> title = titleInput.value.trim();
+  <span class="k">if</span> (!title) <span class="k">return</span>;
+  console.log(<span class="s">'New task:'</span>, title);
+  form.reset();
+});</code></pre></figure>
+<h2>৯.৬ State ও UI আলাদা রাখা</h2>
+<p>State হলো App-এর Data; UI হলো সেই Data-এর Visual Representation। ভালো Design হলো <code>state → render() → DOM</code>। Event হলে Data Update হবে, তারপর <code>render()</code> DOM Update করবে। এতে Logic Testing সহজ হয়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">let</span> tasks = [];
+<span class="k">function</span> render() {
+  list.replaceChildren();
+  <span class="k">for</span> (<span class="k">const</span> task <span class="k">of</span> tasks) {
+    <span class="k">const</span> li = document.createElement(<span class="s">'li'</span>);
+    li.textContent = task.title;
+    list.append(li);
+  }
+}</code></pre></figure>
+<p>বড় Application-এ Full Re-render-এর পরিবর্তে Selective Update বা Framework Rendering দরকার হতে পারে; ছোট Task Manager-এর জন্য Full Re-render যথেষ্ট।</p>
+<h2>৯.৭ Browser Storage: <code>localStorage</code></h2>
+<p><code>localStorage</code> Key/Value Pair সংরক্ষণ করে এবং Value String হয়। <code>JSON.stringify()</code> দিয়ে Array/Object String-এ রূপান্তর এবং <code>JSON.parse()</code> দিয়ে পুনরুদ্ধার করা যায়। Storage Browser/Origin অনুযায়ী আলাদা। Private Browsing, Quota, Browser Policy বা Disabled Storage-এর কারণে Access ব্যর্থ হতে পারে—তাই <code>try/catch</code> ব্যবহার করো। Password, Token বা Sensitive Personal Data <code>localStorage</code>-এ রাখা উচিত নয়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> KEY = <span class="s">'demo-tasks'</span>;
+<span class="k">try</span> {
+  localStorage.setItem(KEY, JSON.stringify([{ id: <span class="s">'1'</span>, title: <span class="s">'Read DOM'</span> }]));
+  <span class="k">const</span> tasks = JSON.parse(localStorage.getItem(KEY) ?? <span class="s">'[]'</span>);
+  console.log(tasks);
+} <span class="k">catch</span> (error) {
+  console.warn(<span class="s">'Storage unavailable or invalid:'</span>, error);
+}</code></pre></figure>
+<p>Production Application-এ Parsed Data-এর Shape Validate করা জরুরি। <code>JSON.parse()</code> সফল হলেও Data প্রত্যাশিত Array বা Task Object নাও হতে পারে।</p>
+<h2>৯.৮ Practical Project — Task Manager</h2>
+<h3>Requirements</h3>
+<ol><li>Task Add: ফাঁকা Title Reject, Maximum 120 Characters।</li><li>Task Complete/Undo: Checkbox দিয়ে Status পরিবর্তন।</li><li>Task Edit/Delete: প্রতিটি Row থেকে Action।</li><li>Search ও Filter: All / Active / Completed।</li><li>Summary: Total, Active, Completed Count।</li><li>Persistence: Reload-এর পর Saved Tasks Restore।</li><li>Security: Task Title DOM-এ <code>textContent</code> দিয়ে Render।</li><li>Accessibility: Form Label, Keyboard Submit, <code>aria-live</code> Status।</li></ol>
+<h3>Project Structure</h3>
+<figure class="code keep"><pre><code>source-code/chapter-09/
+├── index.html
+├── style.css
+├── task-core.js
+├── app.js
+└── task-core.test.js</code></pre></figure>
+<p><strong>Source Code:</strong> বইয়ের Companion Source Code-এর <code>source-code/chapter-09/</code> Folder-এ সব File সম্পূর্ণ রয়েছে।</p>
+<h3>Architecture</h3>
+<figure class="code keep"><pre><code>User Event → DOM Listener → TaskCore (Pure Function)
+                                ↓
+                        Updated Task Array
+                                ↓
+                   localStorage + render()
+                                ↓
+                         Updated UI</code></pre></figure>
+<p><code>task-core.js</code>-এ Pure Functions রাখা হয়েছে; DOM ও Storage Code <code>app.js</code>-এ। এতে Node.js-এর Built-in Test Runner দিয়ে Core Logic আলাদাভাবে পরীক্ষা করা যায়।</p>
+<h3>Run</h3>
+<ol><li><code>source-code/chapter-09/index.html</code> Browser-এ খুলো।</li><li>Task Add, Complete, Edit, Delete, Search ও Filter পরীক্ষা করো।</li><li>Page Reload করে Persistence পরীক্ষা করো।</li><li>Node.js 18+ থাকলে Terminal-এ <code>node --test task-core.test.js</code> চালাও।</li></ol>
+<p><strong>Limitation:</strong> Browser Storage Policy ও Local File Context অনুযায়ী Behaviour ভিন্ন হতে পারে। নির্ভরযোগ্য Local Development-এর জন্য Static HTTP Server ব্যবহার করো, যেমন <code>python -m http.server 8000</code>, তারপর <code>http://localhost:8000</code>।</p>
+<h2>৯.৯ Debugging Checklist</h2>
+<table><thead><tr><th>সমস্যা</th><th>সম্ভাব্য কারণ</th><th>সমাধান</th></tr></thead><tbody><tr><td><code>Cannot read properties of null</code></td><td>Element Selector ভুল বা Script আগে চলছে</td><td>Script Body-এর শেষে রাখো, Selector যাচাই করো</td></tr><tr><td>Button Click কাজ করছে না</td><td>Listener/Selector ভুল</td><td>DevTools Console, Event Listener Inspect</td></tr><tr><td>Form Reload হয়ে যাচ্ছে</td><td><code>preventDefault()</code> নেই</td><td>Submit Handler-এ যোগ করো</td></tr><tr><td>Tasks Reload-এ হারায়</td><td>Storage ব্যর্থ বা Key বদলেছে</td><td>DevTools Application Tab দেখো</td></tr><tr><td>HTML Injection</td><td><code>innerHTML</code>-এ User Data</td><td><code>textContent</code> ব্যবহার করো</td></tr><tr><td>Dynamic Buttons কাজ করছে না</td><td>নতুন Elements-এ Listener নেই</td><td>Event Delegation ব্যবহার করো</td></tr></tbody></table>
+<h2>৯.১০ Exercises</h2>
+<p><strong>Exercise 1:</strong> <code>#title</code> Element-এর Text বদলে <code>DOM Mastery</code> করো।</p>
+<p><strong>Exercise 2:</strong> <code>ul#list</code>-এ নতুন <code>li</code> তৈরি করে যোগ করো।</p>
+<p><strong>Exercise 3:</strong> একটি Button Click করলে <code>.dark</code> Class Toggle করো।</p>
+<p><strong>Exercise 4:</strong> Form Submit করলে Input-এর Trimmed Value Log করো; Empty Input Reject করো।</p>
+<p><strong>Exercise 5:</strong> একটি List-এ Event Delegation দিয়ে Clicked Item-এর <code>data-id</code> পড়ো।</p>
+<p><strong>Exercise 6:</strong> Array of Tasks থেকে Completed Task Filter করো।</p>
+<p><strong>Exercise 7:</strong> <code>localStorage</code>-এ Array Save ও Restore করো; Invalid JSON Handle করো।</p>
+<p><strong>Exercise 8:</strong> <code>innerHTML</code>-এর বদলে <code>textContent</code> ব্যবহার করে User Text নিরাপদে Render করো।</p>
+<p><strong>Exercise 9:</strong> Task Manager-এ <code>clearCompleted()</code> যুক্ত করো।</p>
+<p><strong>Exercise 10:</strong> Search Query Case-insensitive করো।</p>
+<h3>Exercise Solutions</h3>
+<figure class="code"><figcaption>JavaScript</figcaption><pre><code><span class="c">// 1</span>
+<span class="k">const</span> titleNode = document.querySelector(<span class="s">'#title'</span>);
+<span class="k">if</span> (titleNode) titleNode.textContent = <span class="s">'DOM Mastery'</span>;
+
+<span class="c">// 2</span>
+<span class="k">const</span> ul = document.querySelector(<span class="s">'#list'</span>);
+<span class="k">if</span> (ul) { <span class="k">const</span> li = document.createElement(<span class="s">'li'</span>); li.textContent = <span class="s">'New item'</span>; ul.append(li); }
+
+<span class="c">// 3</span>
+<span class="k">const</span> toggle = document.querySelector(<span class="s">'#toggle'</span>);
+toggle?.addEventListener(<span class="s">'click'</span>, () =&gt; document.body.classList.toggle(<span class="s">'dark'</span>));
+
+<span class="c">// 4</span>
+form.addEventListener(<span class="s">'submit'</span>, e =&gt; { e.preventDefault(); <span class="k">const</span> v = input.value.trim(); <span class="k">if</span> (v) console.log(v); });
+
+<span class="c">// 5</span>
+list.addEventListener(<span class="s">'click'</span>, e =&gt; { <span class="k">const</span> item = e.target.closest(<span class="s">'li[data-id]'</span>); <span class="k">if</span> (item &amp;&amp; list.contains(item)) console.log(item.dataset.id); });
+
+<span class="c">// 6</span>
+<span class="k">const</span> completed = tasks.filter(task =&gt; task.completed);
+
+<span class="c">// 7</span>
+<span class="k">try</span> { localStorage.setItem(<span class="s">'tasks'</span>, JSON.stringify(tasks)); <span class="k">const</span> restored = JSON.parse(localStorage.getItem(<span class="s">'tasks'</span>) ?? <span class="s">'[]'</span>); console.log(Array.isArray(restored) ? restored : []); } <span class="k">catch</span> { console.log([]); }
+
+<span class="c">// 8</span>
+output.textContent = userProvidedText;
+
+<span class="c">// 9</span>
+<span class="k">const</span> activeTasks = tasks.filter(task =&gt; !task.completed);
+
+<span class="c">// 10</span>
+<span class="k">const</span> results = tasks.filter(task =&gt; task.title.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase()));</code></pre></figure>
+<p><em>নোট:</em> Solution Snippets-এ <code>form</code>, <code>input</code>, <code>list</code>, <code>tasks</code>, <code>output</code> ইত্যাদি সংশ্লিষ্ট Exercise-এর পূর্বনির্ধারিত Variables। এগুলো একত্রে Copy করে চালানোর জন্য নয়।</p>
+<h2>৯.১১ MCQ Quiz</h2>
+<ol><li>DOM-এর পূর্ণরূপ কী? (A) Data Object Memory (B) Document Object Model (C) Dynamic Order Method (D) Document Output Map</li><li><code>querySelector()</code> Match না পেলে কী দেয়? (A) <code>[]</code> (B) <code>undefined</code> (C) <code>null</code> (D) Error</li><li>User Text Render-এর জন্য নিরাপদ সাধারণ পদ্ধতি? (A) <code>innerHTML</code> (B) <code>eval()</code> (C) <code>textContent</code> (D) <code>document.write()</code></li><li>Form Submit-এর Default Navigation থামায় কোনটি? (A) <code>stop()</code> (B) <code>preventDefault()</code> (C) <code>pause()</code> (D) <code>cancel()</code></li><li>Event Delegation-এর Listener সাধারণত কোথায় থাকে? (A) Parent (B) প্রতিটি Child-এ বাধ্যতামূলক (C) CSS (D) Server</li><li><code>localStorage</code> Value-এর Type কী? (A) Array (B) Object (C) String (D) Function</li><li><code>JSON.stringify()</code> কী করে? (A) JSON Text তৈরি (B) DOM তৈরি (C) CSS তৈরি (D) Network Request</li><li><code>classList.toggle()</code> কী করে? (A) Remove All (B) Class Add/Remove Toggle (C) Change ID (D) Reload</li><li><code>event.target</code> কী নির্দেশ করে? (A) Listener Registered Element সবসময় (B) Event-এর Originating Target (C) Browser Window সবসময় (D) CSS Class</li><li>Browser DOM API ছাড়া Core Logic Test সহজ করতে কী করব? (A) সব Logic Event Handler-এ (B) Pure Functions আলাদা (C) HTML-এ Inline JS (D) Tests বাদ</li></ol>
+<h3>Answer Key ও Explanation</h3>
+<ol><li><strong>B</strong> — DOM হলো Document Object Model।</li><li><strong>C</strong> — প্রথম Matching Element না থাকলে <code>null</code>।</li><li><strong>C</strong> — <code>textContent</code> String-কে HTML Parse করে না।</li><li><strong>B</strong> — <code>preventDefault()</code> Cancelable Default Action থামায়।</li><li><strong>A</strong> — Parent Container Listener Child Event Handle করতে পারে।</li><li><strong>C</strong> — Web Storage API String Values সংরক্ষণ করে।</li><li><strong>A</strong> — JavaScript Value থেকে JSON String তৈরি হয়।</li><li><strong>B</strong> — নির্দিষ্ট CSS Class থাকলে সরায়, না থাকলে যোগ করে।</li><li><strong>B</strong> — Event-এর Target এবং Listener-এর Current Target আলাদা হতে পারে।</li><li><strong>B</strong> — Pure Logic DOM ছাড়াই Unit Test করা যায়।</li></ol>
+<h2>৯.১২ অধ্যায়ের সারাংশ ও পরবর্তী অধ্যায়</h2>
+<p>DOM Selection, Secure Rendering, Events, Delegation, Form Handling, State, Storage ও Testing একত্রে একটি কার্যকর Browser App তৈরির ভিত্তি। পরের অধ্যায়ে শিখব <strong>Asynchronous JavaScript, Promises, async/await ও Event Loop</strong>—যা API-driven Web Application তৈরির জন্য অপরিহার্য।</p>
+</section></body></html>

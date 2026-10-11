@@ -1,0 +1,201 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-1"><header class="opener"><div class="chap-label">অধ্যায় ১</div><h1>JavaScript-এর জগতে প্রথম পদক্ষেপ</h1></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে পাঠক JavaScript-এর কাজ, HTML/CSS/JavaScript-এর ভূমিকা, Browser Console, Variable, Basic Function, DOM এবং একটি ছোট Interactive Application বুঝতে পারবে।</p>
+<h2>১.১ JavaScript কী এবং কেন প্রয়োজন?</h2>
+<p>JavaScript হলো একটি উচ্চস্তরের Programming Language, যা Browser-এ Interactive User Interface তৈরি করতে এবং Node.js-এর মাধ্যমে Server-Side Application চালাতে ব্যবহৃত হয়। HTML একটি Web Page-এর Structure নির্ধারণ করে; CSS এর Presentation নির্ধারণ করে; JavaScript Page-এর Behavior পরিচালনা করে। উদাহরণস্বরূপ, একটি Travel Package-এর Booking Button Click করলে Form Validation, Price Calculation এবং API Request পরিচালনায় JavaScript কাজ করতে পারে।</p>
+<p>JavaScript এবং Java আলাদা ভাষা। JavaScript-এর Syntax-এর কিছু অংশ Java-র মতো দেখালেও Language Model, Runtime এবং Ecosystem ভিন্ন।</p>
+<h2>১.২ প্রথম JavaScript Program</h2>
+<p>Browser-এর Developer Tools খুলে Console Tab-এ লিখো:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>console.log(<span class="s">'Hello, JavaScript!'</span>);
+<span class="k">const</span> destination = <span class="s">'Bhutan'</span>;
+console.log(<span class="s">`Next destination: ${destination}`</span>);</code></pre></figure>
+<p><code>console.log()</code> Debugging ও Learning-এর জন্য সুবিধাজনক। Production Application-এ Sensitive User Data Console-এ Log করা উচিত নয়।</p>
+<h2>১.৩ HTML, CSS এবং JavaScript-এর সম্পর্ক</h2>
+<figure class="code keep"><pre><code>HTML  → Page Structure
+CSS   → Page Appearance
+JS    → Page Behavior</code></pre></figure>
+<p>Browser HTML Parse করে DOM Tree তৈরি করে। JavaScript DOM-এর Elements Select, Read এবং Update করতে পারে।</p>
+<h2>১.৪ Variables এবং Basic Values</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> packageName = <span class="s">'Mountain Escape'</span>;
+<span class="k">let</span> availableSeats = <span class="n">12</span>;
+<span class="k">const</span> priceBdt = <span class="n">65800</span>;
+<span class="k">const</span> isAvailable = availableSeats &gt; <span class="n">0</span>;
+
+console.log({ packageName, availableSeats, priceBdt, isAvailable });</code></pre></figure>
+<p><code>const</code> Binding Reassignment বন্ধ করে; <code>let</code> পুনরায় Value Assign করতে দেয়। Object বা Array-এর Internal Values <code>const</code> থাকলেও পরিবর্তনযোগ্য হতে পারে—পরবর্তী অধ্যায়ে বিস্তারিত থাকবে।</p>
+<h2>১.৫ Functions: Reusable Behavior</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> makeGreeting(name) {
+  <span class="k">const</span> cleanName = name.trim();
+  <span class="k">return</span> cleanName ? <span class="s">`স্বাগতম, ${cleanName}!`</span> : <span class="s">'স্বাগতম!'</span>;
+}
+
+console.log(makeGreeting(<span class="s">'Moynul'</span>));</code></pre></figure>
+<p>Function একই Logic বারবার না লিখে ব্যবহার করতে সাহায্য করে। Input Validation প্রয়োজন হলে Function-এর শুরুতেই যাচাই করা যায়।</p>
+<h2>১.৬ DOM এবং Events</h2>
+<p><code>document.querySelector()</code> দিয়ে Element Select করা যায়। <code>addEventListener()</code> দিয়ে Click বা Input Event-এর Response লেখা যায়। User Input সরাসরি <code>innerHTML</code>-এ বসানো ঝুঁকিপূর্ণ; সাধারণ Text-এর জন্য <code>textContent</code> নিরাপদ Default।</p>
+<h2>১.৭ Practical Project — Greeting App</h2>
+<p><strong>Project Structure</strong></p>
+<figure class="code keep"><pre><code>greeting-app/
+├── index.html
+├── style.css
+└── app.js</code></pre></figure>
+<h3>index.html</h3>
+<figure class="code keep"><figcaption>HTML</figcaption><pre><code>&lt;!doctype html&gt;
+&lt;<span class="k">html</span> lang=<span class="s">&quot;bn&quot;</span>&gt;
+&lt;<span class="k">head</span>&gt;
+  &lt;<span class="k">meta</span> charset=<span class="s">&quot;utf-8&quot;</span>&gt;
+  &lt;<span class="k">meta</span> name=<span class="s">&quot;viewport&quot;</span> content=<span class="s">&quot;width=device-width, initial-scale=1&quot;</span>&gt;
+  &lt;<span class="k">title</span>&gt;Greeting App&lt;/<span class="k">title</span>&gt;
+  &lt;<span class="k">link</span> rel=<span class="s">&quot;stylesheet&quot;</span> href=<span class="s">&quot;style.css&quot;</span>&gt;
+  &lt;<span class="k">script</span> src=<span class="s">&quot;app.js&quot;</span> defer&gt;&lt;/<span class="k">script</span>&gt;
+&lt;/<span class="k">head</span>&gt;
+&lt;<span class="k">body</span>&gt;
+  &lt;<span class="k">main</span> class=<span class="s">&quot;card&quot;</span>&gt;
+    &lt;<span class="k">h1</span>&gt;JavaScript Greeting App&lt;/<span class="k">h1</span>&gt;
+    &lt;<span class="k">label</span> for=<span class="s">&quot;name&quot;</span>&gt;তোমার নাম&lt;/<span class="k">label</span>&gt;
+    &lt;<span class="k">input</span> id=<span class="s">&quot;name&quot;</span> type=<span class="s">&quot;text&quot;</span> maxlength=<span class="s">&quot;80&quot;</span> autocomplete=<span class="s">&quot;name&quot;</span>&gt;
+    &lt;<span class="k">button</span> id=<span class="s">&quot;greet&quot;</span> type=<span class="s">&quot;button&quot;</span>&gt;Say Hello&lt;/<span class="k">button</span>&gt;
+    &lt;<span class="k">p</span> id=<span class="s">&quot;result&quot;</span> role=<span class="s">&quot;status&quot;</span> aria-live=<span class="s">&quot;polite&quot;</span>&gt;&lt;/<span class="k">p</span>&gt;
+  &lt;/<span class="k">main</span>&gt;
+&lt;/<span class="k">body</span>&gt;
+&lt;/<span class="k">html</span>&gt;</code></pre></figure>
+<h3>style.css</h3>
+<figure class="code keep"><figcaption>CSS</figcaption><pre><code>* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; display: grid; place-items: center; font-family: system-ui, sans-serif; background: #f0f5ff; color: #183153; }
+.card { width: min(92vw, 460px); padding: 28px; background: white; border: 1px solid #d9e4f4; border-radius: 18px; }
+label, input, button { display: block; width: 100%; }
+input, button { padding: 12px; margin-top: 10px; border-radius: 8px; }
+input { border: 1px solid #b8c8dc; }
+button { border: 0; background: #175cd3; color: white; cursor: pointer; }
+#result { min-height: 28px; font-weight: 600; }</code></pre></figure>
+<h3>app.js</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="s">'use strict'</span>;
+<span class="k">const</span> nameInput = document.querySelector(<span class="s">'#name'</span>);
+<span class="k">const</span> greetButton = document.querySelector(<span class="s">'#greet'</span>);
+<span class="k">const</span> result = document.querySelector(<span class="s">'#result'</span>);
+
+<span class="k">function</span> greeting(name) {
+  <span class="k">const</span> cleanName = name.trim();
+  <span class="k">return</span> cleanName ? <span class="s">`স্বাগতম, ${cleanName}! JavaScript শেখা শুরু হোক।`</span> : <span class="s">'অনুগ্রহ করে তোমার নাম লিখো।'</span>;
+}
+
+greetButton.addEventListener(<span class="s">'click'</span>, () =&gt; {
+  result.textContent = greeting(nameInput.value);
+});
+nameInput.addEventListener(<span class="s">'keydown'</span>, event =&gt; {
+  <span class="k">if</span> (event.key === <span class="s">'Enter'</span>) greetButton.click();
+});</code></pre></figure>
+<h3>Run ও Test</h3>
+<p><code>index.html</code> Browser-এ Open করো। নাম লিখে Button Click করো; ফাঁকা Input দিয়ে Validation পরীক্ষা করো; Enter চাপলেও Greeting দেখাবে। কোনো External Dependency প্রয়োজন নেই।</p>
+<h2>১.৮ Exercises</h2>
+<p>১. Greeting-এর সঙ্গে বর্তমান সময় অনুযায়ী Morning/Afternoon/Evening Message যোগ করো।</p>
+<p>২. Input ফাঁকা থাকলে Error Message দেখাও।</p>
+<p>৩. Button Click Count দেখাও।</p>
+<p>৪. Greeting Text-এর Color পরিবর্তন করার Button যোগ করো।</p>
+<p>৫. <code>console.log()</code> এবং <code>textContent</code>-এর ব্যবহারিক পার্থক্য ব্যাখ্যা করো।</p>
+<h3>Suggested Solutions</h3>
+<p><strong>১:</strong> <code>new Date().getHours()</code> থেকে Hour নিয়ে Conditional Greeting তৈরি করো। <strong>২:</strong> <code>name.trim().length === 0</code> যাচাই করো। <strong>৩:</strong> <code>let clickCount = 0</code> দিয়ে Event Handler-এ Increment করো। <strong>৪:</strong> <code>classList.toggle('highlight')</code> ব্যবহার করো। <strong>৫:</strong> Console Developer Output; <code>textContent</code> Page-এর Visible DOM Text Update করে।</p>
+<h2>১.৯ Knowledge Check</h2>
+<p><strong>Q1. HTML-এর প্রধান কাজ কী?</strong> A) Data Query B) Structure C) Deployment D) Encryption। <strong>উত্তর: B</strong>।</p>
+<p><strong>Q2. <code>const</code> কী বন্ধ করে?</strong> A) Reassignment B) All Mutation C) All Functions D) DOM Events। <strong>উত্তর: A</strong>।</p>
+<p><strong>Q3. Safe Plain Text DOM Update কোনটি?</strong> A) <code>eval</code> B) <code>innerHTML</code> C) <code>textContent</code> D) <code>document.write</code>। <strong>উত্তর: C</strong>।</p>
+<p><strong>Q4. Button Click শোনার জন্য কোন API?</strong> A) <code>addEventListener</code> B) <code>fetch</code> C) <code>JSON.parse</code> D) <code>setInterval</code>। <strong>উত্তর: A</strong>।</p>
+<p><strong>Q5. JavaScript Server-Side-এ চালাতে কোন Runtime ব্যবহৃত হতে পারে?</strong> A) CSS B) Node.js C) HTML D) PNG। <strong>উত্তর: B</strong>।</p>
+<h2>১.১০ অধ্যায়ের সারসংক্ষেপ</h2>
+<p>আমরা JavaScript-এর উদ্দেশ্য, Browser Console, Variables, Functions, DOM এবং Event-Driven UI-এর প্রথম Practical Project শিখেছি। পরবর্তী অধ্যায়ে Data Types, Variable Scope এবং Memory Model গভীরভাবে আলোচনা করব।</p>
+</section></body></html>

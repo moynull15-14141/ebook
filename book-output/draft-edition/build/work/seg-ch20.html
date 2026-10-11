@@ -1,0 +1,254 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-20"><header class="opener"><div class="chap-label">অধ্যায় ২০</div><h1>JavaScript Security Fundamentals, Web Application Security এবং Secure Coding Practices</h1></header>
+<h2>২০.১ Learning Objectives</h2>
+<p>এই অধ্যায় শেষে তুমি Threat Modeling, Trust Boundary, XSS, CSRF, Injection, Authentication বনাম Authorization, Browser Storage, CORS, CSP এবং Secure Coding-এর মৌলিক সিদ্ধান্ত নিতে পারবে। একই সঙ্গে SecureTrip Booking Portal-এ Input Validation, Safe DOM Rendering ও Controlled Data Flow প্রয়োগ করবে।</p>
+<h2>২০.২ Security মানে কী?</h2>
+<p>একটি Application সঠিকভাবে কাজ করলেই তা নিরাপদ হয় না। Security হলো <strong>Confidentiality</strong> (অননুমোদিত ব্যক্তি তথ্য না পাওয়া), <strong>Integrity</strong> (তথ্য অনুমতি ছাড়া বদলানো না যাওয়া), এবং <strong>Availability</strong> (বৈধ ব্যবহারকারীর জন্য সেবা চালু থাকা)—এই তিনটির ভারসাম্য।</p>
+<p>উদাহরণ: একটি Booking Form-এ Client থেকে <code>total: 1</code> পাঠিয়ে যদি ৫০,০০০ টাকার Booking তৈরি করা যায়, তাহলে Server Client-এর মূল্যকে বিশ্বাস করেছে। এটি Integrity Failure। Server-কে নিজস্ব Package Catalog থেকে মূল্য গণনা করতে হবে।</p>
+<p><strong>Security principle:</strong> Browser-এ থাকা Data, Hidden Input, Local Storage, URL Parameter ও JavaScript State—সবই আক্রমণকারী পরিবর্তন করতে পারে। তাই Browser কখনো Security Authority নয়।</p>
+<h2>২০.৩ Threat Modeling ও Trust Boundary</h2>
+<p>একটি Feature লিখতে যাওয়ার আগে চারটি প্রশ্ন করো:</p>
+<ol><li>কোন Asset রক্ষা করতে হবে? (User Data, Session, Booking, Payment)</li><li>কে এই Asset ব্যবহার করতে পারে? (Guest, Customer, Staff, Admin)</li><li>Data কোথা থেকে আসছে? (Form, URL, API, Database, Third-party)</li><li>কোন Boundary পেরিয়ে Data Trust পাবে? (Browser → API → Database)</li></ol>
+<figure class="code keep"><pre><code>Untrusted Browser
+   |  JSON Request (untrusted)
+   v
+HTTPS + Server API
+   |  Validate + Authenticate + Authorize
+   v
+Business Rules (price, capacity, status)
+   |  Parameterized Queries / Transactions
+   v
+Database</code></pre></figure>
+<p>এই Diagram-এ Validation, Authentication এবং Authorization আলাদা দায়িত্ব। শুধু একটি Login Button থাকলেই User অন্যের Booking দেখতে পারবে না—এমন নিশ্চয়তা পাওয়া যায় না।</p>
+<h2>২০.৪ XSS — Cross-Site Scripting</h2>
+<p>XSS হয় যখন Untrusted Content Browser-এ Executable Markup/Script হিসেবে ব্যবহৃত হয়। নিচের Code বিপজ্জনক:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// বিপজ্জনক: input-এর HTML browser parse করবে</span>
+result.innerHTML = userProvidedName;</code></pre></figure>
+<p>সাধারণ Text দেখানোর জন্য নিরাপদ পদ্ধতি:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> item = document.createElement(<span class="s">'li'</span>);
+item.textContent = userProvidedName;
+list.append(item);</code></pre></figure>
+<p><code>textContent</code> HTML Interpret করে না। কিন্তু <code>textContent</code>-এর ব্যবহার সব Context-এ নিরাপত্তার বিকল্প নয়: URL, CSS, HTML Attribute এবং Script Context-এর আলাদা Rules আছে। HTML Rich Text সত্যিই প্রয়োজন হলে বিশ্বস্ত Sanitization Library এবং Context-aware Output Encoding ব্যবহার করতে হবে।</p>
+<p><strong>URL সতর্কতা:</strong> <code>a.href = untrustedUrl</code> করার আগে <code>new URL()</code> দিয়ে Scheme (<code>https:</code>/<code>http:</code>), Domain Allowlist এবং Business Requirement যাচাই করো। <code>javascript:</code> URL অনুমোদন করা যাবে না।</p>
+<h2>২০.৫ Input Validation বনাম Output Encoding</h2>
+<p>Validation পরীক্ষা করে Data ব্যবসার নিয়ম মানে কি না। Output Encoding নিশ্চিত করে Data যেখানে দেখানো হচ্ছে সেখানে Executable Code হয়ে না যায়। দুটি আলাদা কাজ।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> validateTravelers(value) {
+  <span class="k">const</span> n = Number(value);
+  <span class="k">if</span> (!Number.isSafeInteger(n) || n &lt; <span class="n">1</span> || n &gt; <span class="n">8</span>) {
+    <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'Travelers must be 1–8'</span>);
+  }
+  <span class="k">return</span> n;
+}</code></pre></figure>
+<p>Validation <strong>Client ও Server উভয় জায়গায়</strong> থাকতে পারে, কিন্তু Server-side Validation বাধ্যতামূলক। Browser Validation ব্যবহারকারীর অভিজ্ঞতা উন্নত করে; Security Boundary তৈরি করে না।</p>
+<h2>২০.৬ SQL Injection ও Parameterized Queries</h2>
+<p>Untrusted String দিয়ে SQL Query তৈরি করা বিপজ্জনক:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// করবেন না</span>
+<span class="k">const</span> query = <span class="s">`SELECT * FROM bookings WHERE email = '${email}'`</span>;</code></pre></figure>
+<p>Parameterized Query-তে Query Structure এবং Data আলাদা থাকে:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// PostgreSQL node-postgres example (requires configured server and pg package)</span>
+<span class="k">const</span> result = <span class="k">await</span> pool.query(
+  <span class="s">'SELECT id, status FROM bookings WHERE email = $1'</span>,
+  [email]
+);</code></pre></figure>
+<p>Database Permission-ও Least Privilege নীতিতে সীমিত রাখতে হবে। Parameterization Data Query Injection ঠেকায়; এটি Authorization বা Rate Limiting-এর বিকল্প নয়।</p>
+<h2>২০.৭ Authentication বনাম Authorization</h2>
+<p><strong>Authentication:</strong> কে Request করছে? <strong>Authorization:</strong> তার এই Resource-এ Access আছে কি?</p>
+<p>ধরা যাক <code>GET /api/bookings/123</code>। শুধু Session Valid কি না দেখলে যথেষ্ট নয়। Server-কে যাচাই করতে হবে Booking <code>123</code> এই User-এর কি না অথবা তার উপযুক্ত Staff Permission আছে কি না। একে Object-level Authorization বলা হয়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// Conceptual server-side example</span>
+<span class="k">if</span> (!session?.userId) <span class="k">return</span> reply.status(<span class="n">401</span>).send();
+<span class="k">const</span> booking = <span class="k">await</span> bookings.findById(request.params.id);
+<span class="k">if</span> (!booking) <span class="k">return</span> reply.status(<span class="n">404</span>).send();
+<span class="k">if</span> (booking.ownerId !== session.userId &amp;&amp; !session.roles.includes(<span class="s">'admin'</span>)) {
+  <span class="k">return</span> reply.status(<span class="n">403</span>).send();
+}
+<span class="k">return</span> reply.send(booking);</code></pre></figure>
+<p>এই Snippet Framework-নির্ভর Pseudocode; প্রকৃত Framework অনুযায়ী Syntax ও Error Handling সমন্বয় করতে হবে।</p>
+<h2>২০.৮ Password, Sessions ও Cookies</h2>
+<p>Password কখনো Plaintext-এ Store করবে না। Server-side Password Hashing-এর জন্য Argon2id (উপযুক্ত Parameters সহ) বা সুপ্রতিষ্ঠিত Password Hashing Scheme ব্যবহার করতে হবে। General-purpose <code>SHA-256(password)</code> Password Storage-এর যথেষ্ট সমাধান নয়।</p>
+<p>Session Cookie-এর সাধারণ Production Flags:</p>
+<figure class="code keep"><figcaption>HTTP</figcaption><pre><code>Set-Cookie: session=&lt;opaque-session-id&gt;; HttpOnly; Secure; SameSite=Lax; Path=/</code></pre></figure>
+<p><code>HttpOnly</code> JavaScript থেকে Cookie পড়া কঠিন করে, <code>Secure</code> HTTPS-only Delivery নির্দেশ করে, <code>SameSite</code> Cross-site Request-এর কিছু ঝুঁকি কমায়। এগুলো <strong>CSRF প্রতিরোধের সম্পূর্ণ বিকল্প নয়</strong>। State-changing Request-এ CSRF Token বা নির্ভরযোগ্য Origin Checking প্রয়োজন হতে পারে।</p>
+<p>Sensitive Authentication Token Local Storage-এ রাখার ঝুঁকি বুঝতে হবে: XSS থাকলে JavaScript তা পড়তে পারে। Threat Model অনুযায়ী Session Architecture নির্বাচন করতে হবে।</p>
+<h2>২০.৯ CSRF, CORS এবং Same-Origin Policy</h2>
+<p><strong>CSRF:</strong> Victim-এর Browser দিয়ে Victim-এর Authentication Context-এ অনাকাঙ্ক্ষিত Request করানো। <strong>CORS:</strong> Browser কোন Origin-এর Script অন্য Origin-এর Response পড়তে পারবে তার Policy। <strong>CORS কোনো Authentication বা CSRF Defense নয়।</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// Browser request: cookie-backed session হলে CSRF strategy লাগবে</span>
+<span class="k">await</span> fetch(<span class="s">'/api/bookings'</span>, {
+  method: <span class="s">'POST'</span>,
+  credentials: <span class="s">'same-origin'</span>,
+  headers: {<span class="s">'Content-Type'</span>: <span class="s">'application/json'</span>, <span class="s">'X-CSRF-Token'</span>: csrfToken},
+  body: JSON.stringify(payload)
+});</code></pre></figure>
+<p><code>csrfToken</code> Server-issued এবং Session-bound হওয়া উচিত। Header নাম দিলেই নিরাপত্তা তৈরি হয় না—Server-কে Token যাচাই করতে হবে।</p>
+<h2>২০.১০ CSP, HTTPS এবং Security Headers</h2>
+<p>Content Security Policy (CSP) XSS-এর Impact কমাতে সাহায্য করতে পারে। উদাহরণ:</p>
+<figure class="code keep"><figcaption>HTTP</figcaption><pre><code>Content-Security-Policy: default-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin</code></pre></figure>
+<p>এটি একটি প্রাথমিক Example, সবার জন্য Copy-Paste Production Policy নয়। Script Loading, Third-party Service, Inline Script, Nonce/Hash এবং Browser Support যাচাই করতে হবে। HTTPS/TLS, Secure Cookie, HSTS Deployment ও Dependency Updates-ও গুরুত্বপূর্ণ।</p>
+<h2>২০.১১ Secrets, Dependencies এবং Logging</h2>
+<p>API Key, Database Password ও Signing Secret Frontend Bundle-এ রাখা যাবে না। <code>.env</code> ফাইল Commit না করে Secret Manager বা Server Environment-এ রাখো। Logs-এ Password, Full Card Number, Session Token, Authorization Header বা Sensitive Personal Data রাখা যাবে না।</p>
+<p>Dependencies Update ও Vulnerability Audit করো, কিন্তু Automated Scanner-এর Output মানবিক যাচাই ছাড়া Blindly Fix করবে না। Third-party Script যত কম, Supply-chain Attack Surface তত কম।</p>
+<h2>২০.১২ Practical Project — SecureTrip Booking Portal</h2>
+<p><strong>Goal:</strong> একটি Browser-based Booking Request Demo তৈরি করা, যাতে Form Validation, Safe Text Rendering, Fixed Price Catalog, Unique Request ID এবং Summary থাকবে। এটি Payment, Authentication, Real Reservation বা Secure Server System নয়।</p>
+<h3>File Structure</h3>
+<figure class="code keep"><pre><code>source-code/chapter-20/
+├── index.html
+├── style.css
+├── booking-core.mjs
+├── app.mjs
+└── booking-core.test.mjs</code></pre></figure>
+<p><strong>Run:</strong> Folder-এ <code>python -m http.server 8000</code> চালিয়ে <code>http://localhost:8000</code> খুলতে পারো। Project Folder Root থেকে Serve করলে URL হবে <code>/source-code/chapter-20/</code>। JavaScript Module File Browser-এ <code>file://</code> দিয়ে খুললে কিছু Browser-এ CORS Restriction হতে পারে।</p>
+<p><strong>Tests:</strong> <code>node --test source-code/chapter-20/booking-core.test.mjs</code> (Node.js 20+ recommended)।</p>
+<h3>Core Logic</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">export</span> <span class="k">function</span> validateBooking(input) {
+  <span class="c">// বাস্তব Implementation: booking-core.mjs</span>
+  <span class="c">// 1. Name/Email validate</span>
+  <span class="c">// 2. Catalog থেকে Package খুঁজে বের করো</span>
+  <span class="c">// 3. Travelers 1–8 integer কিনা দেখো</span>
+  <span class="c">// 4. Price = trustedCatalogPrice * travelers</span>
+  <span class="c">// 5. Consent যাচাই করো</span>
+}</code></pre></figure>
+<p>এটি Architecture Outline; পূর্ণ Runnable Implementation Companion Source Code-এর <code>source-code/chapter-20/booking-core.mjs</code>-এ রয়েছে। UI-তে প্রতিটি Booking-এর Text <code>textContent</code> দিয়ে দেখানো হয়েছে, <code>innerHTML</code> দিয়ে নয়।</p>
+<h3>Security Boundary Checklist</h3>
+<table><thead><tr><th>Control</th><th>Demo Status</th><th>Production Requirement</th></tr></thead><tbody><tr><td>Client validation</td><td>আছে</td><td>Server revalidation বাধ্যতামূলক</td></tr><tr><td>Catalog-derived price</td><td>Client demo-তে আছে</td><td>Server authoritative pricing</td></tr><tr><td>Safe DOM text rendering</td><td>আছে</td><td>Contextual encoding everywhere</td></tr><tr><td>Booking ID</td><td>Browser crypto random</td><td>Server-generated ID and uniqueness</td></tr><tr><td>Authentication</td><td>নেই</td><td>Secure identity/session design</td></tr><tr><td>Authorization</td><td>নেই</td><td>Per-resource access checks</td></tr><tr><td>Persistence</td><td>In-memory only</td><td>Database and transactions</td></tr><tr><td>CSRF / Rate limit</td><td>নেই</td><td>Threat-based server controls</td></tr><tr><td>Payments</td><td>নেই</td><td>Certified payment provider integration</td></tr></tbody></table>
+<h2>২০.১৩ Guided Security Review</h2>
+<ol><li><code>booking-core.mjs</code>-এ <code>total</code> Field Client থেকে নেওয়া হয়েছে কি? কেন?</li><li>UI-তে <code>innerHTML</code> ব্যবহার করলে কোন ধরনের ঝুঁকি তৈরি হতে পারে?</li><li><code>crypto.getRandomValues()</code> দিয়ে Browser ID তৈরি হলেও Server কেন Unique Constraint চাইবে?</li><li>Session Cookie <code>HttpOnly</code> হলেও CSRF কেন ঘটতে পারে?</li><li><code>CORS: *</code> Authentication-এর বিকল্প নয় কেন?</li><li>Booking List যদি Server-এ থাকে, কীভাবে Object-level Authorization নিশ্চিত করবে?</li></ol>
+<h2>২০.১৪ Exercises — ১০টি</h2>
+<p>১. Name Input-এর Length Validation ২–৮০ অক্ষর কেন, ব্যাখ্যা করো।</p>
+<p>২. User-controlled HTML <code>textContent</code> দিয়ে Render করো।</p>
+<p>৩. Travelers <code>2.5</code> দিলে Reject করার Function লেখো।</p>
+<p>৪. Client-supplied <code>price: 1</code> উপেক্ষা করে Catalog Price Calculate করো।</p>
+<p>৫. Safe Redirect-এর জন্য Relative Path Validation করো।</p>
+<p>৬. Authorization এবং Authentication-এর মধ্যে দুটি পার্থক্য লেখো।</p>
+<p>৭. SQL Query Parameterization-এর Example লেখো।</p>
+<p>৮. CSRF Token ছাড়া Cookie-based POST Request-এর ঝুঁকি ব্যাখ্যা করো।</p>
+<p>৯. Login Error Log থেকে Sensitive Fields বাদ দেওয়ার Strategy লেখো।</p>
+<p>১০. SecureTrip-এর জন্য Server-side Deployment Checklist তৈরি করো।</p>
+<h3>Sample Solutions</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// 1 — Length rule (trim + Unicode normalization আগে করো)</span>
+<span class="k">const</span> validNameLength = name =&gt; name.length &gt;= <span class="n">2</span> &amp;&amp; name.length &lt;= <span class="n">80</span>;
+
+<span class="c">// 2 — Safe DOM text</span>
+<span class="k">const</span> span = document.createElement(<span class="s">'span'</span>);
+span.textContent = userText;
+
+<span class="c">// 3 — Integer range</span>
+<span class="k">const</span> validTravelers = n =&gt; Number.isSafeInteger(Number(n)) &amp;&amp; Number(n) &gt;= <span class="n">1</span> &amp;&amp; Number(n) &lt;= <span class="n">8</span>;
+
+<span class="c">// 4 — Authoritative price lookup (server-side-ও একই নিয়ম)</span>
+<span class="k">const</span> total = catalog.find(p =&gt; p.id === packageId).price * travelers;
+
+<span class="c">// 5 — Simplified safe return path (full version: booking-core.mjs)</span>
+<span class="k">const</span> safePath = path =&gt; <span class="k">typeof</span> path === <span class="s">'string'</span> &amp;&amp; path.startsWith(<span class="s">'/'</span>) &amp;&amp; !path.startsWith(<span class="s">'//'</span>) ? path : <span class="s">'/'</span>;</code></pre></figure>
+<p>৬. Authentication Identity যাচাই করে, Authorization Permission যাচাই করে। ৭. <code>pool.query('SELECT * FROM bookings WHERE id = $1', [id])</code>। ৮. Cookie Automatic Attach হতে পারে; Server-side CSRF Defense দরকার। ৯. Structured Log Allowlist ব্যবহার করো; Secret Fields Redact করো। ১০. HTTPS, Server Validation, AuthN/AuthZ, CSRF, Rate Limits, Parameterized SQL, DB Constraints, Secret Management, Monitoring, Dependency Audit এবং Backup/Recovery Plan অন্তর্ভুক্ত করো।</p>
+<p><strong>সতর্কতা:</strong> ৫ নম্বর Simplified Snippet Production-ready URL Validation নয়; Test করা পূর্ণ Function Source File-এ দেখো।</p>
+<h2>২০.১৫ MCQ — ১০টি</h2>
+<p>১. Browser Input-কে কেন Untrusted ধরা হয়? A) Slow B) User can modify C) Unicode D) CSS</p>
+<p>২. সাধারণ Text Output-এর জন্য কোনটি ভালো? A) <code>innerHTML</code> B) <code>eval()</code> C) <code>textContent</code> D) <code>document.write()</code></p>
+<p>৩. SQL Injection কমাতে কী ব্যবহার করা উচিত? A) String Concatenation B) Parameterized Queries C) Hidden Fields D) CSS</p>
+<p>৪. Authorization কী যাচাই করে? A) Identity B) Permission C) Password Hash D) Browser Version</p>
+<p>৫. <code>HttpOnly</code> Cookie-এর মূল কাজ? A) Encrypt Database B) Restrict JS access C) Prevent all CSRF D) Disable HTTPS</p>
+<p>৬. CORS কি Authentication-এর বিকল্প? A) হ্যাঁ B) না C) Only Safari D) Only Node</p>
+<p>৭. Price কে Authoritatively Calculate করবে? A) Browser B) Server C) CSS D) URL</p>
+<p>৮. Password Storage-এর জন্য কী উপযুক্ত? A) Plaintext B) Fast SHA-256 only C) Argon2id D) Base64</p>
+<p>৯. CSP-এর ভূমিকা কী? A) Reduce certain injection impacts B) Replace Validation C) Replace HTTPS D) Replace Login</p>
+<p>১০. SecureTrip Demo-তে কী নেই? A) Safe DOM rendering B) Catalog pricing C) Real authentication D) Input validation</p>
+<h3>Answers &amp; Explanations</h3>
+<ol><li><strong>B</strong> — Browser State User বদলাতে পারে।</li><li><strong>C</strong> — <code>textContent</code> HTML Parse করে না।</li><li><strong>B</strong> — Query Structure ও Data আলাদা রাখে।</li><li><strong>B</strong> — Resource Permission যাচাই করে।</li><li><strong>B</strong> — JavaScript থেকে Cookie পড়ার সুযোগ সীমিত করে।</li><li><strong>B</strong> — CORS Browser Read Policy, Identity Check নয়।</li><li><strong>B</strong> — Server authoritative pricing নিশ্চিত করে।</li><li><strong>C</strong> — Argon2id Password Hashing-এর উপযোগী।</li><li><strong>A</strong> — CSP Defense-in-depth Layer।</li><li><strong>C</strong> — Demo-তে Real Authentication নেই।</li></ol>
+<h2>২০.১৬ Chapter Recap</h2>
+<p>Security একটি Feature নয়; এটি Architecture, Coding, Deployment ও Monitoring-এর সমন্বিত প্রক্রিয়া। Client Validation, Safe DOM Rendering এবং Trusted Price Calculation-এর ধারণা SecureTrip Demo-তে প্রয়োগ করেছি। Production Security-এর জন্য Server-side Validation, Authentication, Authorization, Session Defense এবং Database Controls অপরিহার্য। পরবর্তী অধ্যায়ে Design Patterns ও Scalable Architecture আলোচনা করব।</p>
+</section></body></html>

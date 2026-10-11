@@ -1,0 +1,2 @@
+OK    node --check discount.js   (in project/shopping-discount-calculator)
+OK    node --check tests/discount.test.js   (in project/shopping-discount-calculator)

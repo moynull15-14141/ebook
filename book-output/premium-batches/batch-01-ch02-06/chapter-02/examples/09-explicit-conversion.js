@@ -1,0 +1,11 @@
+console.log(Number('42'));
+console.log(Number('  7  '));
+console.log(Number('12px'));
+console.log(Number(''));
+console.log(Number(true));
+console.log(Number(null));
+console.log(Number(undefined));
+console.log(typeof String(42));
+console.log(Boolean(0));
+console.log(Boolean(''));
+console.log(Boolean('0'));

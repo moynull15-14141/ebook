@@ -1,0 +1,1 @@
+Next: Chapter 14 — Advanced Functions, Closures, Higher-Order Patterns and Functional Programming. Preserve all chapters 1–13; keep 14–30 placeholders until reconstructed. Original transcript recovery remains pending.

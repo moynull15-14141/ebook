@@ -1,0 +1,18 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {TravelLive,EventConsumer,reconnectDelay} from './live-core.mjs';
+const setup=()=>{const live=new TravelLive();live.createBooking({id:'b1',userId:'u1'});return live;};
+test('create and snapshot',()=>{const live=setup();assert.deepEqual(live.snapshot('u1','b1'),{id:'b1',userId:'u1',status:'PENDING',sequence:0});});
+test('unauthorized snapshot rejected',()=>{assert.throws(()=>setup().snapshot('u2','b1'),{code:'FORBIDDEN'});});
+test('unauthorized subscription rejected',()=>{assert.throws(()=>setup().subscribe('u2','b1',()=>{}),{code:'FORBIDDEN'});});
+test('status event delivered to owner',()=>{const live=setup(),events=[];live.subscribe('u1','b1',e=>events.push(e));live.changeStatus({actorId:'u1',bookingId:'b1',status:'CONFIRMED'});assert.equal(events.length,1);assert.equal(events[0].payload.status,'CONFIRMED');});
+test('invalid transition rejected',()=>{const live=setup();live.changeStatus({actorId:'u1',bookingId:'b1',status:'CANCELLED'});assert.throws(()=>live.changeStatus({actorId:'u1',bookingId:'b1',status:'CONFIRMED'}),{code:'INVALID_TRANSITION'});});
+test('event sequence increases',()=>{const live=setup();const a=live.changeStatus({actorId:'u1',bookingId:'b1',status:'CONFIRMED'}),b=live.changeStatus({actorId:'u1',bookingId:'b1',status:'CANCELLED'});assert.deepEqual([a.sequence,b.sequence],[1,2]);});
+test('replay after sequence',()=>{const live=setup();live.changeStatus({actorId:'u1',bookingId:'b1',status:'CONFIRMED'});live.changeStatus({actorId:'u1',bookingId:'b1',status:'CANCELLED'});const seen=[];live.subscribe('u1','b1',e=>seen.push(e.sequence),{after:1});assert.deepEqual(seen,[2]);});
+test('unsubscribe stops delivery',()=>{const live=setup();let count=0;const off=live.subscribe('u1','b1',()=>count++);off();live.changeStatus({actorId:'u1',bookingId:'b1',status:'CONFIRMED'});assert.equal(count,0);});
+test('listener failure isolated',()=>{const live=setup();let count=0;live.subscribe('u1','b1',()=>{throw Error('broken UI')});live.subscribe('u1','b1',()=>count++);live.changeStatus({actorId:'u1',bookingId:'b1',status:'CONFIRMED'});assert.equal(count,1);});
+test('replay gap detected',()=>{const live=new TravelLive({maxHistory:1});live.createBooking({id:'b',userId:'u'});live.changeStatus({actorId:'u',bookingId:'b',status:'CONFIRMED'});live.changeStatus({actorId:'u',bookingId:'b',status:'CANCELLED'});assert.throws(()=>live.subscribe('u','b',()=>{},{after:0}),{code:'REPLAY_GAP'});});
+test('consumer deduplicates',()=>{const live=setup(),consumer=new EventConsumer();const event=live.changeStatus({actorId:'u1',bookingId:'b1',status:'CONFIRMED'});assert.equal(consumer.apply(event),true);assert.equal(consumer.apply(event),false);});
+test('consumer detects gap',()=>{const c=new EventConsumer();assert.throws(()=>c.apply({eventId:'e2',bookingId:'b',sequence:2}),{code:'SEQUENCE_GAP'});});
+test('reconnect jitter deterministic',()=>{assert.equal(reconnectDelay(0,()=>0),375);assert.equal(reconnectDelay(1,()=>0.5),1000);});
+test('invalid booking rejected',()=>{const live=setup();assert.throws(()=>live.createBooking({id:'b1',userId:'u1'}),{code:'INVALID_BOOKING'});});
+test('unauthorized mutation rejected',()=>{assert.throws(()=>setup().changeStatus({actorId:'u2',bookingId:'b1',status:'CONFIRMED'}),{code:'FORBIDDEN'});});

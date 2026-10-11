@@ -1,0 +1,13 @@
+{
+  "number": 4,
+  "source": "chapter-04-premium.md",
+  "outputBase": "chapter-04-premium",
+  "companion": ["project", "examples"],
+  "logs": "qa-logs",
+  "tests": [
+    { "name": "listings: extract, run, compare", "cwd": ".", "cmd": ["node", "../tools/extract-and-run.mjs", "."], "log": "listings-run.log" },
+    { "name": "syntax: project", "cwd": "project/cart-analyzer", "cmd": ["node", "--check", "cart.js"] },
+    { "name": "syntax: tests", "cwd": "project/cart-analyzer", "cmd": ["node", "--check", "tests/cart.test.js"] },
+    { "name": "unit tests", "cwd": "project/cart-analyzer", "cmd": ["node", "--test"], "log": "unit-tests.log" }
+  ]
+}

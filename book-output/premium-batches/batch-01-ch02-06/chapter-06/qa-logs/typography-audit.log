@@ -1,0 +1,34 @@
+$ node D:\MoynullHasan\ebook\allcopy\book-output\master-design-system\scripts\check-typography.mjs D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-01-ch02-06\chapter-06\chapter-06-premium.pdf D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-01-ch02-06\chapter-06\chapter-06-premium.md --json D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-01-ch02-06\chapter-06\.build\typography.json   (in .)
+
+PDF: D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-01-ch02-06\chapter-06\chapter-06-premium.pdf
+Pages: 33 | glyphs: 36660 (12183 Bengali) | source Bengali words: 2800 (666 distinct)
+Fonts: HindSiliguri-Medium, HindSiliguri-Bold, HindSiliguri-Regular, SourceCodePro-Regular, HindSiliguri-SemiBold, SourceCodePro-Bold
+
+[naive] source words recovered intact: 1198 of 2800 (42.79%) | distinct words affected: 457
+   most affected: দেয়×60, নতুন×53, ফেরত×39, দিয়ে×38, করে×36, প্রতিটি×29, থেকে×28, তালিকা×22, তৈরি×21, যোগ×21, করুন×21, শেষ×20
+
+[robust] source words recovered intact: 1262 of 2800 (45.07%) | distinct words affected: 450
+   most affected: দেয়×60, ফেরত×39, দিয়ে×38, করে×36, প্রতিটি×29, থেকে×28, তালিকা×22, তৈরি×21, যোগ×21, করুন×21, শেষ×20, তে×18
+
+[actual] source words recovered intact: 2800 of 2800 (100%) | distinct words affected: 0
+   most affected: none
+
+Probe words (occurrences in source -> intact / split forms):
+   ভুল ×8:  naive 5 ["ভু ল"] | robust 7 [] | actual 8 []
+   নতুন ×54:  naive 0 ["নতু ন"] | robust 54 [] | actual 54 []
+   পরিবর্তন ×4:  naive 0 [] | robust 0 [] | actual 4 []
+   প্রথম ×13:  naive 13 [] | robust 13 [] | actual 13 []
+   কি ×30:  naive 0 ["ক ি"] | robust 0 ["ক ি"] | actual 30 []
+   গুরুত্বপূর্ণ ×3:  naive 0 [] | robust 0 [] | actual 3 []
+
+Naive extractor: spurious in-word breaks occur after these glyphs:
+   ু (advance 0.00 em): 64
+   ল (advance 0.73 em): 32
+   ঁ (advance 0.00 em): 18
+   র (advance 0.53 em): 4
+   য় (advance 0.57 em): 4
+   া (advance 0.26 em): 4
+   ণ (advance 0.59 em): 4
+   ক (advance 0.75 em): 2
+   শ্ন (advance 0.67 em): 2
+   া (advance 0.27 em): 2

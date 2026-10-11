@@ -1,0 +1,96 @@
+$ node --test   (in project\invoice-calculator)
+
+TAP version 13
+# Subtest: formatTaka: পয়সা থেকে দুই দশমিক ঘরের টাকা
+ok 1 - formatTaka: পয়সা থেকে দুই দশমিক ঘরের টাকা
+  ---
+  duration_ms: 1.6135
+  type: 'test'
+  ...
+# Subtest: lineTotal: দাম x পরিমাণ
+ok 2 - lineTotal: দাম x পরিমাণ
+  ---
+  duration_ms: 1.3
+  type: 'test'
+  ...
+# Subtest: percentOf: সাধারণ শতাংশ
+ok 3 - percentOf: সাধারণ শতাংশ
+  ---
+  duration_ms: 0.2087
+  type: 'test'
+  ...
+# Subtest: percentOf: নিকটতম পয়সায় আনে
+ok 4 - percentOf: নিকটতম পয়সায় আনে
+  ---
+  duration_ms: 0.1663
+  type: 'test'
+  ...
+# Subtest: calculateInvoice: ছাড় ও করসহ
+ok 5 - calculateInvoice: ছাড় ও করসহ
+  ---
+  duration_ms: 0.4162
+  type: 'test'
+  ...
+# Subtest: calculateInvoice: Default Parameter-এ ছাড় ও কর শূন্য
+ok 6 - calculateInvoice: Default Parameter-এ ছাড় ও কর শূন্য
+  ---
+  duration_ms: 0.2532
+  type: 'test'
+  ...
+# Subtest: calculateInvoice: শুধু ছাড় দিলে কর শূন্য
+ok 7 - calculateInvoice: শুধু ছাড় দিলে কর শূন্য
+  ---
+  duration_ms: 0.5394
+  type: 'test'
+  ...
+# Subtest: calculateInvoice: কর হিসাব হয় ছাড়ের পরের অঙ্কে
+ok 8 - calculateInvoice: কর হিসাব হয় ছাড়ের পরের অঙ্কে
+  ---
+  duration_ms: 0.3064
+  type: 'test'
+  ...
+# Subtest: calculateInvoice: ফাঁকা তালিকায় সব শূন্য
+ok 9 - calculateInvoice: ফাঁকা তালিকায় সব শূন্য
+  ---
+  duration_ms: 0.5694
+  type: 'test'
+  ...
+# Subtest: calculateInvoice: undefined দিলে Default বসে
+ok 10 - calculateInvoice: undefined দিলে Default বসে
+  ---
+  duration_ms: 0.5627
+  type: 'test'
+  ...
+# Subtest: calculateInvoice: তালিকা বদলায় না (Pure)
+ok 11 - calculateInvoice: তালিকা বদলায় না (Pure)
+  ---
+  duration_ms: 0.2339
+  type: 'test'
+  ...
+# Subtest: calculateInvoice: একই Argument-এ একই ফল
+ok 12 - calculateInvoice: একই Argument-এ একই ফল
+  ---
+  duration_ms: 0.1198
+  type: 'test'
+  ...
+# Subtest: হিসাবের Function কিছু দেখায় না
+ok 13 - হিসাবের Function কিছু দেখায় না
+  ---
+  duration_ms: 0.1137
+  type: 'test'
+  ...
+# Subtest: File চালালে সাতটি লাইন ও একটি Default-এর ফল দেখায়
+ok 14 - File চালালে সাতটি লাইন ও একটি Default-এর ফল দেখায়
+  ---
+  duration_ms: 0.1363
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 148.7775

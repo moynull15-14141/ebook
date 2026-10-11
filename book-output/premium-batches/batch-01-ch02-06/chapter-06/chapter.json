@@ -1,0 +1,13 @@
+{
+  "number": 6,
+  "source": "chapter-06-premium.md",
+  "outputBase": "chapter-06-premium",
+  "companion": ["project", "examples"],
+  "logs": "qa-logs",
+  "tests": [
+    { "name": "listings: extract, run, compare", "cwd": ".", "cmd": ["node", "../tools/extract-and-run.mjs", "."], "log": "listings-run.log" },
+    { "name": "syntax: project", "cwd": "project/inventory-dashboard", "cmd": ["node", "--check", "inventory.js"] },
+    { "name": "syntax: tests", "cwd": "project/inventory-dashboard", "cmd": ["node", "--check", "tests/inventory.test.js"] },
+    { "name": "unit tests", "cwd": "project/inventory-dashboard", "cmd": ["node", "--test"], "log": "unit-tests.log" }
+  ]
+}

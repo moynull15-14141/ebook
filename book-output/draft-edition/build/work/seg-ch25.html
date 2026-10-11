@@ -1,0 +1,227 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-25"><header class="opener"><div class="chap-label">অধ্যায় ২৫</div><h1>JavaScript Backend Development with Node.js</h1><p class="subtitle">REST APIs, Express, Databases, Authentication এবং Production Architecture</p></header>
+<h2>এই অধ্যায়ের লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে পাঠক Node.js runtime, HTTP request–response, RESTful API, Express middleware, input validation, password hashing, session authentication, authorization, database persistence, deployment security ও backend testing-এর মৌলিক ধারণা ব্যাখ্যা করতে এবং একটি ছোট API তৈরি করতে পারবেন। আগের অধ্যায়ের TypeScript domain model-এর সঙ্গে এই অধ্যায়ের transport ও persistence ধারণা যুক্ত করা যাবে।</p>
+<h2>২৫.১ Browser JavaScript বনাম Node.js</h2>
+<p>Browser-এ JavaScript DOM, <code>window</code> ও browser storage পায়। Node.js-এ filesystem, network server, process এবং server-side APIs পাওয়া যায়। Backend-এর দায়িত্ব শুধু JSON পাঠানো নয়; identity, business rules, authorization, data integrity, error handling ও operational safety বজায় রাখা।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// hello.mjs</span>
+console.log(<span class="s">'Node version:'</span>, process.version);
+console.log(<span class="s">'Environment:'</span>, process.env.NODE_ENV ?? <span class="s">'development'</span>);</code></pre></figure>
+<p>Node.js-এ CommonJS (<code>require</code>, <code>module.exports</code>) এবং ES Modules (<code>import</code>, <code>export</code>) উভয় ব্যবস্থা আছে। এই বইয়ের project-এ ES Modules ব্যবহার করা হয়েছে। <code>package.json</code>-এ <code>&quot;type&quot;: &quot;module&quot;</code> দিলে <code>.js</code> ফাইলও ESM হতে পারে; <code>.mjs</code> নিজে থেকেই ESM।</p>
+<h2>২৫.২ HTTP এবং REST</h2>
+<p>HTTP request-এর Method, URL, Headers ও Body থাকে। Response-এর Status Code, Headers ও Body থাকে। API resource-oriented হলে endpoint বোঝা সহজ হয়।</p>
+<table><thead><tr><th>Method</th><th>Endpoint</th><th>কাজ</th><th>সাধারণ Status</th></tr></thead><tbody><tr><td>GET</td><td><code>/api/packages</code></td><td>Package list</td><td>200</td></tr><tr><td>POST</td><td><code>/api/register</code></td><td>Account তৈরি</td><td>201</td></tr><tr><td>POST</td><td><code>/api/login</code></td><td>Session তৈরি</td><td>200 বা 401</td></tr><tr><td>GET</td><td><code>/api/bookings</code></td><td>নিজের Booking list</td><td>200 বা 401</td></tr><tr><td>POST</td><td><code>/api/bookings</code></td><td>Booking তৈরি</td><td>201 বা 400</td></tr><tr><td>PATCH</td><td><code>/api/bookings/:id/cancel</code></td><td>Booking বাতিল</td><td>200, 404 বা 409</td></tr></tbody></table>
+<p><code>400</code> ভুল input, <code>401</code> unauthenticated, <code>403</code> authenticated কিন্তু permission নেই, <code>404</code> resource নেই, <code>409</code> conflict, <code>500</code> unexpected server failure বোঝায়। <code>401</code> ও <code>403</code> এক নয়। API design-এ একই ধরনের error-এর জন্য একই response shape ব্যবহার করা সুবিধাজনক।</p>
+<h2>২৫.৩ HTTP Server-এর মূল ধারণা</h2>
+<p>Node.js built-in <code>node:http</code> দিয়েও API বানানো যায়। Request body streaming হওয়ায় আকার সীমিত করতে হবে; <code>JSON.parse()</code> ব্যর্থ হলে <code>400</code> দিতে হবে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">import</span> http <span class="k">from</span> <span class="s">'node:http'</span>;
+<span class="k">const</span> server = http.createServer((req, res) =&gt; {
+  <span class="k">if</span> (req.method === <span class="s">'GET'</span> &amp;&amp; req.url === <span class="s">'/health'</span>) {
+    res.writeHead(<span class="n">200</span>, { <span class="s">'content-type'</span>: <span class="s">'application/json'</span> });
+    res.end(JSON.stringify({ status: <span class="s">'ok'</span> }));
+    <span class="k">return</span>;
+  }
+  res.writeHead(<span class="n">404</span>, { <span class="s">'content-type'</span>: <span class="s">'application/json'</span> });
+  res.end(JSON.stringify({ error: <span class="s">'NOT_FOUND'</span> }));
+});
+server.listen(<span class="n">3000</span>);</code></pre></figure>
+<p>এটি HTTP lifecycle শেখার উদাহরণ। Full Project-এ আলাদা Router-style Handler, Service এবং Repository রাখা হয়েছে।</p>
+<h2>২৫.৪ Express কী সুবিধা দেয়?</h2>
+<p>Express routing ও middleware chain সহজ করে। নিচের snippet চালাতে <code>npm install express</code> প্রয়োজন। এটি সম্পূর্ণ TravelCore project-এর runtime dependency নয়; project-টি পরীক্ষাযোগ্য রাখতে built-in HTTP ব্যবহার করা হয়েছে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">import</span> express <span class="k">from</span> <span class="s">'express'</span>;
+<span class="k">const</span> app = express();
+app.use(express.json({ limit: <span class="s">'16kb'</span> }));
+app.<span class="k">get</span>(<span class="s">'/health'</span>, (_req, res) =&gt; res.json({ status: <span class="s">'ok'</span> }));
+app.use((err, _req, res, _next) =&gt; {
+  console.error(err);
+  res.status(<span class="n">500</span>).json({ error: <span class="s">'INTERNAL_ERROR'</span> });
+});
+app.listen(<span class="n">3000</span>);</code></pre></figure>
+<p>Middleware সাধারণত logging, authentication, JSON parsing, request validation ও error handling-এর জন্য ব্যবহৃত হয়। Route-এর আগে middleware বসানোর ক্রম গুরুত্বপূর্ণ। Express error middleware-এ চারটি parameter থাকে।</p>
+<h2>২৫.৫ Layered Architecture</h2>
+<figure class="code keep"><pre><code>HTTP Client
+    ↓
+Router / Controller  → HTTP parsing, status, headers
+    ↓
+Service              → business rules, authorization
+    ↓
+Repository           → data access contract
+    ↓
+Database             → durable state and constraints</code></pre></figure>
+<p>Controller-এর মধ্যে SQL, password hashing, discount policy সব একসঙ্গে রাখলে test ও maintenance কঠিন হয়। Service-এ domain rule, Repository-তে storage operation রাখা ভালো। Dependency injection করলে in-memory repository দিয়ে unit test চালানো যায়।</p>
+<h2>২৫.৬ Input Validation এবং Price Integrity</h2>
+<p>Frontend-এর input বিশ্বাস করা যাবে না। Client থেকে price নেওয়ার বদলে server catalog থেকে price নির্ধারণ করবে। Quantity integer কি না, ID সঠিক কি না, payload size সীমার মধ্যে কি না যাচাই করতে হবে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">export</span> <span class="k">function</span> validateTravelers(value) {
+  <span class="k">if</span> (!Number.isSafeInteger(value) || value &lt; <span class="n">1</span> || value &gt; <span class="n">20</span>) {
+    <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'Travelers must be 1–20'</span>);
+  }
+  <span class="k">return</span> value;
+}</code></pre></figure>
+<p>Validation-এর দুই স্তর: syntax/shape validation এবং business-rule validation। যেমন <code>travelers=2</code> shape-এ বৈধ, কিন্তু কোনো নির্দিষ্ট package-এ ২ জনের booking বন্ধ থাকলে business rule-এ বাতিল হতে পারে।</p>
+<h2>২৫.৭ Authentication বনাম Authorization</h2>
+<p>Authentication নির্ধারণ করে <strong>কে</strong> request করছেন। Authorization নির্ধারণ করে <strong>তিনি কী করতে পারবেন</strong>। Login থাকা মানেই অন্য ব্যবহারকারীর booking দেখা বা বাতিল করার অনুমতি নয়। Project-এ <code>userId</code> দিয়ে নিজের booking filter করা হয়।</p>
+<p>Password plaintext রাখা যাবে না। এই educational project-এ Node.js <code>scryptSync</code> + random salt দিয়ে password hash করা হয়েছে। Production-এ Argon2id-এর মতো সুপারিশকৃত password hashing ব্যবস্থা এবং উপযুক্ত cost parameters বিবেচনা করা উচিত। Password যাচাইয়ে timing-safe comparison ব্যবহার করা হয়েছে।</p>
+<p>Session cookie-তে <code>HttpOnly</code>, <code>SameSite</code>, <code>Secure</code> (HTTPS-এ), expiry এবং server-side session invalidation প্রয়োজন। এই demo-তে token server memory-তে থাকে; restart হলে session হারিয়ে যায়। Cookie-based state-changing endpoints-এর জন্য production-এ CSRF protection দরকার। Login rate limiting, account lockout policy এবং audit logging-ও প্রয়োজন।</p>
+<h2>২৫.৮ Database: In-memory থেকে PostgreSQL</h2>
+<p>এই অধ্যায়ের runnable example-এ <code>Map</code>-ভিত্তিক Repository ব্যবহার করা হয়েছে যাতে external database ছাড়া project পরীক্ষা করা যায়। এটি durable database নয়। Real production-এ relational schema ও constraints দরকার।</p>
+<figure class="code keep"><figcaption>SQL</figcaption><pre><code><span class="k">CREATE</span> <span class="k">TABLE</span> users (
+  id UUID <span class="k">PRIMARY</span> <span class="k">KEY</span>,
+  email TEXT <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">UNIQUE</span>,
+  password_hash TEXT <span class="k">NOT</span> <span class="k">NULL</span>
+);
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> bookings (
+  id UUID <span class="k">PRIMARY</span> <span class="k">KEY</span>,
+  user_id UUID <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">REFERENCES</span> users(id),
+  package_id TEXT <span class="k">NOT</span> <span class="k">NULL</span>,
+  travelers INTEGER <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">CHECK</span> (travelers <span class="k">BETWEEN</span> 1 <span class="k">AND</span> 20),
+  total_bdt INTEGER <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">CHECK</span> (total_bdt &gt;= 0),
+  status TEXT <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">CHECK</span> (status <span class="k">IN</span> ('pending','confirmed','cancelled')),
+  created_at TIMESTAMPTZ <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> NOW()
+);
+<span class="k">CREATE</span> <span class="k">INDEX</span> bookings_user_created_idx <span class="k">ON</span> bookings(user_id, created_at <span class="k">DESC</span>);</code></pre></figure>
+<p>Schema migration version-controlled হতে হবে। SQL query parameterized হতে হবে, string concatenation দিয়ে untrusted data SQL-এ ঢোকানো যাবে না। Booking + inventory update একই transaction-এ করতে হতে পারে; rollback, isolation ও idempotency design জরুরি। পরের অধ্যায়ে Prisma, transactions ও query optimization বিস্তারিত থাকবে।</p>
+<h2>২৫.৯ API Security ও Production Checklist</h2>
+<ul><li>HTTPS, reverse proxy, secure cookie, CSRF protection, rate limiting ও request-size limit।</li><li>CORS কেবল প্রয়োজনীয় trusted origins-এ সীমিত; CORS নিজে authentication নয়।</li><li>Secrets source code বা Git repository-তে নয়; environment/secret manager-এ।</li><li>Logs-এ password, session token, sensitive user data নয়।</li><li><code>npm audit</code>, dependency updates, least-privilege database role ও backups।</li><li>Graceful shutdown, health checks, metrics, tracing এবং incident response plan।</li><li>Horizontal scaling-এর ক্ষেত্রে in-memory session বা process-local data যথেষ্ট নয়।</li></ul>
+<h2>২৫.১০ Practical Project — TravelCore Booking Backend</h2>
+<h3>লক্ষ্য ও Folder Structure</h3>
+<figure class="code keep"><pre><code>source-code/chapter-25/
+├── package.json
+├── catalog.mjs
+├── core.mjs
+├── repository.mjs
+├── server.mjs
+├── core.test.mjs
+├── http.test.mjs
+└── README.md</code></pre></figure>
+<p>বইয়ের Companion Source Code-এ উপরোক্ত ফাইলগুলোর <strong>সম্পূর্ণ runnable source code</strong> আছে। এখানে গুরুত্বপূর্ণ অংশ ব্যাখ্যা করছি; source code বাদ দেওয়া হয়নি—আলাদা project directory-তে সংরক্ষিত।</p>
+<p><strong>Step 1:</strong> <code>cd source-code/chapter-25</code> তারপর <code>npm test</code>। <strong>Step 2:</strong> <code>npm start</code>। <strong>Step 3:</strong> <code>http://localhost:3000/health</code> এবং <code>/api/packages</code> খুলে দেখো। <strong>Step 4:</strong> <code>POST /api/register</code> দিয়ে account তৈরি, <code>POST /api/login</code> দিয়ে cookie নাও। <strong>Step 5:</strong> সেই cookie দিয়ে <code>POST /api/bookings</code> এবং <code>GET /api/bookings</code> চালাও।</p>
+<h3>Request Example</h3>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code>curl -i -c cookies.txt -H 'Content-Type: application/json' \
+  -d '{&quot;email&quot;:&quot;reader@example.com&quot;,&quot;password&quot;:&quot;a strong password 123&quot;}' \
+  http://localhost:3000/api/register
+
+curl -i -c cookies.txt -H 'Content-Type: application/json' \
+  -d '{&quot;email&quot;:&quot;reader@example.com&quot;,&quot;password&quot;:&quot;a strong password 123&quot;}' \
+  http://localhost:3000/api/login
+
+curl -i -b cookies.txt -H 'Content-Type: application/json' \
+  -d '{&quot;packageId&quot;:&quot;cox&quot;,&quot;travelers&quot;:2}' \
+  http://localhost:3000/api/bookings</code></pre></figure>
+<p>Windows PowerShell-এ <code>curl</code> alias থাকলে <code>curl.exe</code> ব্যবহার করো। Demo-এর cookie file সংবেদনশীল; অন্যের সঙ্গে share করবে না।</p>
+<h3>Project Design Decisions</h3>
+<ul><li><strong>Catalog-based price:</strong> client arbitrary total দিতে পারে না।</li><li><strong>Password hashing:</strong> salted scrypt; plaintext password repository-তে নেই।</li><li><strong>Authorization:</strong> booking owner ছাড়া অন্য user cancel করতে পারে না।</li><li><strong>Error format:</strong> <code>{ error, message }</code>।</li><li><strong>Session:</strong> cryptographically random token; server-side hashed token lookup।</li><li><strong>Testability:</strong> Service pure-ish dependency-injected repository-তে কাজ করে।</li></ul>
+<h3>সীমাবদ্ধতা</h3>
+<p>এই Demo-তে real database, atomic concurrent uniqueness, persistent session, CSRF defense, rate limiting ও production-grade observability নেই। তাই এটিকে Production Booking Backend হিসেবে deploy করবে না।</p>
+<h2>২৫.১১ Common Mistakes এবং Debugging</h2>
+<p><strong>Mistake 1:</strong> Frontend price বিশ্বাস করা। <strong>Fix:</strong> server catalog থেকে হিসাব।</p>
+<p><strong>Mistake 2:</strong> <code>401</code> ও <code>403</code> এক করা। <strong>Fix:</strong> login এবং permission আলাদা পরীক্ষা।</p>
+<p><strong>Mistake 3:</strong> password log করা। <strong>Fix:</strong> secrets redact করা।</p>
+<p><strong>Mistake 4:</strong> <code>await</code> বাদ দেওয়া। <strong>Fix:</strong> asynchronous repository ও errors পরীক্ষা।</p>
+<p><strong>Mistake 5:</strong> শুধু unit test করে database concurrency safe দাবি করা। <strong>Fix:</strong> real database integration ও transaction test।</p>
+<p><strong>Mistake 6:</strong> cookie session ব্যবহার করে CSRF threat ভুলে যাওয়া। <strong>Fix:</strong> origin checks, CSRF token, SameSite এবং threat model।</p>
+<h2>২৫.১২ অনুশীলনী (১০টি)</h2>
+<ol><li><code>GET /health</code>-এ uptime যোগ করো।</li><li><code>POST /api/bookings</code>-এ <code>travelers: 0</code> দিলে কী status হওয়া উচিত?</li><li>একই email দিয়ে দুইবার registration করলে conflict কেন?</li><li><code>PATCH /api/bookings/:id/cancel</code>-এ owner check কেন দরকার?</li><li><code>GET /api/bookings</code>-এ pagination design করো।</li><li>Request body size limit না থাকলে কী ঝুঁকি?</li><li>Password hash-এর সঙ্গে salt কেন লাগে?</li><li><code>401</code> এবং <code>403</code>-এর ব্যবহার উদাহরণ দাও।</li><li>In-memory Repository-কে PostgreSQL-এ বদলানোর interface লিখো।</li><li>CSRF protection ও rate limiting-এর integration test plan তৈরি করো।</li></ol>
+<h2>২৫.১৩ Sample Solutions</h2>
+<ol><li><code>process.uptime()</code> seconds response-এ দাও; এটি process uptime, service availability নয়।</li><li><code>400 INVALID_TRAVELERS</code>; quantity validation service-এ থাকবে।</li><li>Duplicate identity prevent করতে <code>409 EMAIL_EXISTS</code>; real DB-তে <code>UNIQUE(email)</code> constraint অপরিহার্য।</li><li>Booking ID জানা থাকলেও অন্য user-এর booking পরিবর্তনের অধিকার নেই; IDOR vulnerability ঠেকায়।</li><li><code>?limit=20&amp;cursor=...</code>; stable <code>(created_at,id)</code> order ও indexed cursor ব্যবহার করো।</li><li>Unbounded memory/CPU usage ও denial-of-service ঝুঁকি।</li><li>একই password-এর hash ভিন্ন রাখতে ও precomputed rainbow table আক্রমণ কঠিন করতে।</li><li>Session না থাকলে <code>401</code>; login থাকা সত্ত্বেও admin-only action করলে <code>403</code>।</li><li><code>findUserByEmail</code>, <code>saveUser</code>, <code>saveBooking</code>, <code>findBooking</code>, <code>listBookings</code>—এই contract-এর async PostgreSQL implementation; transaction ও constraints যোগ করো।</li><li>Cross-site POST reject, valid CSRF token accept, repeated login attempts throttle, legitimate user unaffected—এই case-গুলো test করো।</li></ol>
+<h2>২৫.১৪ MCQ — Final Check</h2>
+<ol><li>Node.js-এ HTTP server তৈরির built-in module কোনটি? (A) <code>node:http</code> (B) <code>window</code> (C) <code>document</code> (D) <code>localStorage</code></li><li>সফল resource creation-এর সাধারণ status? (A) 404 (B) 201 (C) 500 (D) 302</li><li><code>401</code> সাধারণত কী বোঝায়? (A) No authentication (B) No storage (C) Success (D) Redirect</li><li>User A-এর booking User B cancel করতে না পারা কোন নীতি? (A) CSS (B) Authorization (C) Minification (D) Hoisting</li><li>Password plaintext না রেখে কী রাখা উচিত? (A) Base64 (B) Hash + Salt (C) URL (D) Cookie Name</li><li>SQL Injection কমাতে কী দরকার? (A) String concatenation (B) Parameterized query (C) <code>eval</code> (D) <code>innerHTML</code></li><li>HTTP request body size limit কেন? (A) Font (B) Resource abuse prevent (C) Syntax color (D) SEO</li><li>CSRF মূলত কোন context-এ গুরুত্বপূর্ণ? (A) Cookie-authenticated state changes (B) Static comments (C) Array sort (D) CSS animation</li><li>Database transaction কেন? (A) Atomic consistency (B) Font loading (C) DOM rendering (D) Code highlighting</li><li><code>Map</code>-based repository restart হলে কী হয়? (A) Data persists (B) Data disappears (C) Migrates to SQL (D) Auto backup</li></ol>
+<h3>Answer Key ও Explanation</h3>
+<ol><li><strong>A</strong> — <code>node:http</code> Node.js-এর HTTP module।</li><li><strong>B</strong> — নতুন resource তৈরিতে <code>201 Created</code>।</li><li><strong>A</strong> — request-এ বৈধ authentication নেই।</li><li><strong>B</strong> — resource ownership authorization rule।</li><li><strong>B</strong> — salted, computationally expensive password hashing।</li><li><strong>B</strong> — parameter binding data ও SQL command আলাদা রাখে।</li><li><strong>B</strong> — অস্বাভাবিক বড় payload-এর resource exhaustion ঠেকায়।</li><li><strong>A</strong> — browser স্বয়ংক্রিয়ভাবে cookie পাঠাতে পারে।</li><li><strong>A</strong> — একাধিক dependent database operation একসঙ্গে commit/rollback।</li><li><strong>B</strong> — process memory durable storage নয়।</li></ol>
+<h2>২৫.১৫ Chapter Summary ও পরবর্তী অধ্যায়</h2>
+<p>Node.js দিয়ে backend HTTP request handle করে; Express middleware ও routing সহজ করে; Service business logic রাখে; Repository persistence abstract করে; Authentication ও Authorization আলাদা; Database constraints এবং security review ছাড়া demo production-ready নয়। পরের অধ্যায় <strong>Advanced Database Integration, ORM, Query Optimization এবং Scalable Data Architecture</strong>—এ PostgreSQL ও Prisma নিয়ে কাজ করা হবে।</p>
+</section></body></html>

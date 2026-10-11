@@ -1,0 +1,196 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-26"><header class="opener"><div class="chap-label">অধ্যায় ২৬</div><h1>Advanced Database Integration, ORM, Query Optimization এবং Scalable Data Architecture</h1><p class="subtitle">PostgreSQL, Prisma এবং TravelData Pro</p></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে relational schema, keys, constraints, normalization, transactions, isolation, ORM, migrations, indexes, query plans, pagination, connection pools, caching এবং scalable database design ব্যাখ্যা ও প্রয়োগ করতে পারবেন। Chapter 25-এর in-memory backend-কে স্থায়ী relational persistence-এ উন্নীত করার নকশা তৈরি করব।</p>
+<h2>২৬.১ Database কেন গুরুত্বপূর্ণ?</h2>
+<p>Chapter 25-এ server restart হলে in-memory bookings হারিয়ে যায়। Production booking system-এ account, booking, inventory ও payment-এর মধ্যে নির্ভরযোগ্য সম্পর্ক দরকার। PostgreSQL-এর মতো relational database ACID transaction, foreign keys, uniqueness এবং concurrent update-এর জন্য উপযোগী। তবে database ব্যবহার করলেই correctness নিশ্চিত হয় না: application business rules, authorization, idempotency এবং failure recovery-ও জরুরি।</p>
+<p><strong>উদাহরণ:</strong> ১টি আসন বাকি, একই সময়ে দুইজন বুকিং করলেন। আগে availability পড়ে পরে update করলে দুজনই সফল হতে পারেন। Database transaction এবং conditional update দিয়ে overselling আটকাতে হবে।</p>
+<h2>২৬.২ Relational Modeling ও Normalization</h2>
+<p>মূল entity: <code>User</code>, <code>TravelPackage</code>, <code>Booking</code>। একটি User-এর বহু Booking থাকতে পারে, একটি Package-এর বহু Booking থাকতে পারে। প্রতিটি Booking একটি User এবং একটি Package-এর সঙ্গে সম্পর্কিত।</p>
+<table><thead><tr><th>Entity</th><th>গুরুত্বপূর্ণ ক্ষেত্র</th><th>Constraint</th></tr></thead><tbody><tr><td>User</td><td>id, email, passwordHash</td><td>email UNIQUE, NOT NULL</td></tr><tr><td>TravelPackage</td><td>id, title, priceMinor, availableSeats</td><td>price ও seats &gt;= 0</td></tr><tr><td>Booking</td><td>id, userId, packageId, seats, status, totalMinor</td><td>Foreign keys, seats &gt; 0</td></tr></tbody></table>
+<p><strong>Normalization:</strong> একই package title বা customer email প্রতিটি Booking row-তে কপি করলে update anomaly তৈরি হয়। আলাদা entity এবং foreign key ব্যবহার করলে data duplication কমে। তবে reporting-এর জন্য deliberate denormalization প্রয়োজন হতে পারে—সেটি পরিমাপ ও documentation করে করতে হবে। Booking-এর <code>totalMinor</code>-এ purchase-time price snapshot রাখা যুক্তিযুক্ত, কারণ পরে package price বদলালেও পুরোনো booking total বদলানো উচিত নয়।</p>
+<h2>২৬.৩ PostgreSQL Schema এবং Constraints</h2>
+<figure class="code keep"><figcaption>SQL</figcaption><pre><code><span class="k">CREATE</span> <span class="k">TABLE</span> app_users (
+  id UUID <span class="k">PRIMARY</span> <span class="k">KEY</span>,
+  email TEXT <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">UNIQUE</span>,
+  password_hash TEXT <span class="k">NOT</span> <span class="k">NULL</span>,
+  created_at TIMESTAMPTZ <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> now()
+);
+<span class="k">CREATE</span> <span class="k">TABLE</span> travel_packages (
+  id UUID <span class="k">PRIMARY</span> <span class="k">KEY</span>,
+  title TEXT <span class="k">NOT</span> <span class="k">NULL</span>,
+  price_minor BIGINT <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">CHECK</span> (price_minor &gt;= 0),
+  available_seats INTEGER <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">CHECK</span> (available_seats &gt;= 0)
+);
+<span class="k">CREATE</span> <span class="k">TABLE</span> bookings (
+  id UUID <span class="k">PRIMARY</span> <span class="k">KEY</span>,
+  user_id UUID <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">REFERENCES</span> app_users(id),
+  package_id UUID <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">REFERENCES</span> travel_packages(id),
+  seats INTEGER <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">CHECK</span> (seats &gt; 0),
+  total_minor BIGINT <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">CHECK</span> (total_minor &gt;= 0),
+  status TEXT <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">CHECK</span> (status <span class="k">IN</span> ('CONFIRMED', 'CANCELLED')),
+  created_at TIMESTAMPTZ <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> now()
+);
+<span class="k">CREATE</span> <span class="k">INDEX</span> bookings_user_created_idx <span class="k">ON</span> bookings (user_id, created_at <span class="k">DESC</span>);</code></pre></figure>
+<p>Money <code>float</code> দিয়ে গণনা না করে minor units (যেমন পয়সা) বা নির্দিষ্ট decimal type ব্যবহার করা ভালো। <code>BIGINT</code> JavaScript-এ <code>BigInt</code> হিসেবে আসতে পারে; JSON serialization-এর সময় explicit conversion strategy লাগবে। UUID collision resistance যথেষ্ট হলেও authorization-এর বিকল্প নয়।</p>
+<h2>২৬.৪ SQL Query ও Injection Prevention</h2>
+<figure class="code keep"><figcaption>SQL</figcaption><pre><code><span class="k">SELECT</span> b.id, b.status, b.total_minor, p.title
+<span class="k">FROM</span> bookings b
+<span class="k">JOIN</span> travel_packages p <span class="k">ON</span> p.id = b.package_id
+<span class="k">WHERE</span> b.user_id = $1
+<span class="k">ORDER</span> <span class="k">BY</span> b.created_at <span class="k">DESC</span>, b.id <span class="k">DESC</span>
+<span class="k">LIMIT</span> $2;</code></pre></figure>
+<p><code>$1</code>, <code>$2</code> parameter binding-এর উদাহরণ; কখনো user input string concatenate করে SQL তৈরি করবেন না। Dynamic sort column-এর ক্ষেত্রে parameter placeholder দিয়ে identifier bind করা যায় না; আগে নির্দিষ্ট allowlist ব্যবহার করুন।</p>
+<h2>২৬.৫ ORM: Prisma কীভাবে কাজ করে?</h2>
+<p>Prisma schema-তে model, relation এবং index বর্ণনা করা হয়; generated client থেকে type-aware query করা যায়। ORM সুবিধাজনক হলেও generated SQL ও database constraints বোঝা জরুরি। এই অধ্যায়ের <code>source-code/chapter-26/prisma/schema.prisma</code>-তে বাস্তব model আছে।</p>
+<figure class="code keep"><figcaption>TypeScript</figcaption><pre><code><span class="k">const</span> bookings = <span class="k">await</span> prisma.booking.findMany({
+  where: { userId: currentUserId },
+  orderBy: [{ createdAt: <span class="s">'desc'</span> }, { id: <span class="s">'desc'</span> }],
+  take: <span class="n">20</span>,
+  select: { id: <span class="k">true</span>, status: <span class="k">true</span>, totalMinor: <span class="k">true</span>,
+    travelPackage: { select: { title: <span class="k">true</span> } } }
+});</code></pre></figure>
+<p>এই query server-side authorized user ID দিয়ে filter করতে হবে; browser পাঠানো arbitrary user ID বিশ্বাস করা যাবে না। Schema-এর enum/relations এবং generated client-এর নাম সংস্করণভেদে যাচাই করুন।</p>
+<h2>২৬.৬ Migrations এবং Data Lifecycle</h2>
+<p>Schema পরিবর্তনের জন্য version-controlled migration দরকার। Development-এ <code>prisma migrate dev</code>, deployment pipeline-এ <code>prisma migrate deploy</code> ব্যবহৃত হয়। Production-এ destructive migration দেওয়ার আগে backup, rollback/roll-forward plan এবং data compatibility পরীক্ষা করতে হবে।</p>
+<p><strong>Expand–Migrate–Contract:</strong> নতুন nullable column যোগ করুন → app উভয় version support করুক → data backfill করুন → constraint দিন → পুরোনো column সরান। Zero-downtime deployment-এ এই কৌশল কার্যকর।</p>
+<h2>২৬.৭ Transaction, Atomicity ও Concurrency</h2>
+<p>নিচের pattern-এ conditional inventory decrement ও booking insert একই transaction-এ করা হয়:</p>
+<figure class="code keep"><figcaption>TypeScript</figcaption><pre><code><span class="k">await</span> prisma.$transaction(<span class="k">async</span> (tx) =&gt; {
+  <span class="k">const</span> updated = <span class="k">await</span> tx.travelPackage.updateMany({
+    where: { id: packageId, availableSeats: { gte: seats } },
+    data: { availableSeats: { decrement: seats } }
+  });
+  <span class="k">if</span> (updated.count !== <span class="n">1</span>) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'SOLD_OUT'</span>);
+  <span class="k">const</span> pkg = <span class="k">await</span> tx.travelPackage.findUniqueOrThrow({ where: { id: packageId } });
+  <span class="k">await</span> tx.booking.create({ data: {
+    userId, packageId, seats,
+    totalMinor: pkg.priceMinor * BigInt(seats),
+    status: <span class="s">'CONFIRMED'</span>
+  }});
+});</code></pre></figure>
+<p><strong>গুরুত্বপূর্ণ:</strong> এটি illustrative code; transaction-এর বাইরে price snapshot নেওয়া, retry policy, concurrent price changes, idempotency key, cancellation refund এবং authorization production system-এ আলাদাভাবে design করতে হবে। Conditional update database-এ atomically execute হয়। Unique idempotency key দিয়ে duplicate network retry-ও আটকানো যায়।</p>
+<h2>২৬.৮ Isolation Levels এবং Deadlocks</h2>
+<p>Read Committed, Repeatable Read ও Serializable-এর পার্থক্য transaction anomaly-তে প্রকাশ পায়। Serializable শক্তিশালী guarantee দেয়, কিন্তু serialization failure হলে transaction retry দরকার। Deadlock-এর ঝুঁকি কমাতে একই resource lock order অনুসরণ করুন, transaction ছোট রাখুন এবং external HTTP call transaction-এর মধ্যে করবেন না।</p>
+<h2>২৬.৯ Index, EXPLAIN এবং Query Optimization</h2>
+<p>Index lookup দ্রুত করতে পারে, কিন্তু write/storage cost বাড়ায়। Query pattern অনুযায়ী composite index নির্বাচন করুন। PostgreSQL <code>EXPLAIN (ANALYZE, BUFFERS)</code> বাস্তব query চালিয়ে plan ও cost দেখায়—production-এ সাবধানতা প্রয়োজন। <code>SELECT *</code> এড়িয়ে প্রয়োজনীয় field নিন, N+1 query কমান এবং filter/sort-এর জন্য index design করুন।</p>
+<h2>২৬.১০ Pagination, Pooling ও Caching</h2>
+<p><code>OFFSET</code> pagination বড় table-এ ধীর হতে পারে এবং concurrent insert-এ page drift হয়। Stable ordering ও cursor/keyset pagination বিবেচনা করুন। Connection pool সীমিত রাখুন; প্রতিটি request-এ নতুন database connection তৈরি করবেন না। Cache ব্যবহার করলে TTL, invalidation, stale-data tolerance এবং privacy নির্ধারণ করুন। Booking confirmation-এর মতো critical decision cache থেকে করবেন না।</p>
+<h2>২৬.১১ Backup, Security ও Observability</h2>
+<p>Database credential environment secret manager-এ রাখুন। Least-privilege DB user, TLS, encryption at rest, access audit, backups ও restore drills রাখুন। Query duration, error rate, lock wait, connection saturation এবং slow query পর্যবেক্ষণ করুন। শুধু backup নেওয়া যথেষ্ট নয়—restore করে পরীক্ষা করা জরুরি।</p>
+<h2>২৬.১২ Practical Project — TravelData Pro</h2>
+<p><strong>Architecture:</strong> HTTP API → Booking Service → Repository → PostgreSQL/Prisma। <code>source-code/chapter-26/</code>-তে Prisma schema, SQL DDL, transaction-oriented example এবং <strong>dependency-free in-memory simulation</strong> দেওয়া আছে। Simulation-এ stock reservation, cancellation, duplicate request protection, reporting এবং cursor pagination পরীক্ষা করা যায়। এটি real PostgreSQL-এর সমতুল্য concurrency guarantee দেয় না।</p>
+<h3>Run</h3>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code>cd source-code/chapter-26
+node --test
+node demo.mjs</code></pre></figure>
+<h3>Real Database Setup (ঐচ্ছিক)</h3>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code>npm install
+<span class="c"># PostgreSQL instance চালু করুন এবং DATABASE_URL সেট করুন</span>
+npx prisma migrate dev --name init
+npx prisma generate</code></pre></figure>
+<p>Migration তৈরি ও চালাতে PostgreSQL service প্রয়োজন। এই বইয়ের bundle-এ live database বা credentials নেই। <code>prisma/schema.prisma</code> ব্যবহার করার আগে নিজের environment-এর Prisma version-এর configuration নিয়ম যাচাই করুন।</p>
+<h2>২৬.১৩ Exercises</h2>
+<p>১. User–Booking relation-এর cardinality ব্যাখ্যা করুন।<br>২. <code>email</code>-এ UNIQUE constraint কেন দরকার?<br>৩. <code>price</code> float ব্যবহার করলে কী সমস্যা হতে পারে?<br>৪. N+1 query কীভাবে শনাক্ত করবেন?<br>৫. <code>availableSeats</code> 0-এর নিচে নামা কীভাবে রোধ করবেন?<br>৬. Offset এবং cursor pagination-এর tradeoff লিখুন।<br>৭. Booking cancellation-এ transaction কেন দরকার?<br>৮. SQL injection রোধের দুটি নিয়ম লিখুন।<br>৯. Index থাকলেও query slow হওয়ার তিনটি কারণ লিখুন।<br>১০. Expand–Migrate–Contract দিয়ে একটি field rename-এর plan লিখুন।</p>
+<h2>২৬.১৪ Sample Solutions</h2>
+<p>১. One User → Many Bookings; Each Booking → One User।<br>২. Duplicate account identity database স্তরে রোধ করে; app validation-এর race condition-ও আটকায়।<br>৩. Binary floating-point rounding error; minor units বা fixed decimal ব্যবহার করুন।<br>৪. Query log/trace-এ একটি parent query-এর পরে প্রতি row-এর জন্য child query দেখলে N+1 সন্দেহ। Eager loading/batched query ব্যবহার করুন।<br>৫. <code>CHECK (available_seats &gt;= 0)</code> এবং conditional atomic update; দুটোই দরকার।<br>৬. Offset সহজ কিন্তু বড় offset ধীর; cursor দ্রুত ও stable ordering-এ ভালো, তবে implementation জটিল।<br>৭. Status update ও stock release একসঙ্গে commit/rollback হওয়া দরকার।<br>৮. Parameterized queries; dynamic identifiers-এর allowlist।<br>৯. Low selectivity, wrong index/order, stale statistics, expensive joins বা large result set।<br>১০. New column যোগ → dual read/write → backfill → switch read → constraint → old column drop।</p>
+<h2>২৬.১৫ MCQ — Self Assessment</h2>
+<p>১. ACID-এর A? (A) Atomicity (B) Availability (C) Authorization (D) Aggregation<br>২. Foreign key কী করে? (A) UI render (B) Referential integrity (C) Encryption (D) Caching<br>৩. SQL injection কমায়? (A) String concatenation (B) Parameter binding (C) eval (D) localStorage<br>৪. Duplicate email আটকায়? (A) INDEX only (B) UNIQUE (C) ORDER BY (D) LIMIT<br>৫. N+1-এর উপযুক্ত সমাধান? (A) More loops (B) Batch/eager load (C) Remove constraints (D) No index<br>৬. Migration deploy কোথায়? (A) Production pipeline (B) CSS (C) Browser only (D) README only<br>৭. Cursor pagination-এ প্রয়োজন? (A) Unstable order (B) Stable ordering (C) Random order (D) No index<br>৮. Critical inventory check কোথায়? (A) Browser cache (B) Database transaction (C) CSS (D) Client clock<br>৯. EXPLAIN ANALYZE কী করে? (A) Query execute ও profile (B) Password hash (C) UI test (D) Git merge<br>১০. Backup-এর নির্ভরযোগ্যতা কীভাবে জানবেন? (A) File size (B) Restore test (C) Filename (D) Commit count</p>
+<p><strong>Answer key:</strong> ১-A (Atomicity), ২-B (referential integrity), ৩-B (parameterization), ৪-B (unique constraint), ৫-B (batch loading), ৬-A (deployment), ৭-B (stable order), ৮-B (transaction), ৯-A (execution plan), ১০-B (restore drill)।</p>
+<h2>২৬.১৬ Chapter Summary ও পরবর্তী অধ্যায়</h2>
+<p>Database design-এ correctness প্রথম, performance দ্বিতীয়, scaling তৃতীয়—তবে তিনটি একসঙ্গে পরিকল্পনা করতে হয়। Chapter 27-এ booking updates real-time clients-এ পৌঁছাতে WebSockets, Socket.IO এবং event-driven messaging শিখব।</p>
+</section></body></html>

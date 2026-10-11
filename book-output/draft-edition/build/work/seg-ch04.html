@@ -1,0 +1,267 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-4"><header class="opener"><div class="chap-label">অধ্যায় ৪</div><h1>Loops এবং Iteration: Repeated Work থেকে Cart Analyzer</h1></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায়ের শেষে পাঠক <code>for</code>, <code>while</code>, <code>do...while</code>, <code>for...of</code>, <code>for...in</code> এবং Array Iteration বুঝতে পারবে; <code>break</code>, <code>continue</code>, Nested Loop, Complexity ও Infinite Loop-এর ঝুঁকি চিনবে; এবং একটি বাস্তব <strong>Cart Analyzer</strong> বানাবে।</p>
+<h2>৪.১ Loop কেন দরকার?</h2>
+<p>ধরা যাক, একটি অনলাইন দোকানে ১০০টি পণ্য আছে। প্রতিটির দাম আলাদাভাবে যোগ করা অযৌক্তিক। Loop একই নিয়ম একাধিক Data Item-এর ওপর প্রয়োগ করতে সাহায্য করে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> prices = [<span class="n">120</span>, <span class="n">250</span>, <span class="n">90</span>];
+<span class="k">let</span> total = <span class="n">0</span>;
+<span class="k">for</span> (<span class="k">let</span> i = <span class="n">0</span>; i &lt; prices.length; i++) {
+  total += prices[i];
+}
+console.log(total); <span class="c">// 460</span></code></pre></figure>
+<p>এখানে <code>i = 0</code> হলো Initialization, <code>i &lt; prices.length</code> হলো Condition এবং <code>i++</code> হলো Update। Condition মিথ্যা হলে Loop থামে। <strong>Off-by-one Error</strong> এড়াতে Index-এর ক্ষেত্রে <code>&lt; array.length</code> ব্যবহার করো; <code>&lt;=</code> নয়।</p>
+<h2>৪.২ <code>for</code> Loop: নির্দিষ্ট Range</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">for</span> (<span class="k">let</span> n = <span class="n">1</span>; n &lt;= <span class="n">5</span>; n++) console.log(n);
+
+<span class="c">// শুধু জোড় সংখ্যা</span>
+<span class="k">for</span> (<span class="k">let</span> n = <span class="n">2</span>; n &lt;= <span class="n">10</span>; n += <span class="n">2</span>) console.log(n);
+
+<span class="c">// Reverse countdown</span>
+<span class="k">for</span> (<span class="k">let</span> n = <span class="n">5</span>; n &gt;= <span class="n">1</span>; n--) console.log(n);</code></pre></figure>
+<p>কোনো Collection-এর Index দরকার হলে <code>for</code> উপযুক্ত। কিন্তু শুধু Value প্রয়োজন হলে <code>for...of</code> সাধারণত বেশি পাঠযোগ্য।</p>
+<h2>৪.৩ <code>while</code> এবং <code>do...while</code></h2>
+<p><code>while</code> আগে Condition পরীক্ষা করে। <code>do...while</code> অন্তত একবার Body চালায়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">let</span> attempts = <span class="n">0</span>;
+<span class="k">while</span> (attempts &lt; <span class="n">3</span>) {
+  attempts++;
+  console.log(<span class="s">`Attempt ${attempts}`</span>);
+}
+
+<span class="k">let</span> answer;
+<span class="k">do</span> {
+  answer = <span class="s">&quot;yes&quot;</span>; <span class="c">// বাস্তবে Input থেকে আসতে পারে</span>
+  console.log(<span class="s">&quot;Prompt shown once&quot;</span>);
+} <span class="k">while</span> (answer !== <span class="s">&quot;yes&quot;</span>);</code></pre></figure>
+<p><strong>সতর্কতা:</strong> Condition পরিবর্তিত না হলে Infinite Loop হতে পারে। Browser Main Thread-এ এমন Loop UI আটকে দিতে পারে।</p>
+<h2>৪.৪ <code>break</code> ও <code>continue</code></h2>
+<p><code>break</code> পুরো Loop বন্ধ করে; <code>continue</code> বর্তমান Iteration বাদ দিয়ে পরের Iteration-এ যায়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> values = [<span class="n">10</span>, -<span class="n">1</span>, <span class="n">0</span>, <span class="n">25</span>, <span class="n">40</span>];
+<span class="k">for</span> (<span class="k">const</span> value <span class="k">of</span> values) {
+  <span class="k">if</span> (value &lt; <span class="n">0</span>) <span class="k">continue</span>; <span class="c">// Negative উপেক্ষা</span>
+  <span class="k">if</span> (value === <span class="n">0</span>) <span class="k">break</span>;  <span class="c">// Sentinel পেলে থামো</span>
+  console.log(value);     <span class="c">// শুধু 10</span>
+}</code></pre></figure>
+<p>এগুলো বেশি ব্যবহার করলে Control Flow জটিল হতে পারে। প্রয়োজনে আলাদা Function বানাও।</p>
+<h2>৪.৫ <code>for...of</code> বনাম <code>for...in</code></h2>
+<p><code>for...of</code> Iterable-এর <strong>Value</strong> দেয়। <code>for...in</code> Object-এর Enumerable <strong>Property Keys</strong> দেয়; Array Iteration-এর জন্য সাধারণত ব্যবহার করা উচিত নয়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> destinations = [<span class="s">&quot;Dhaka&quot;</span>, <span class="s">&quot;Sylhet&quot;</span>, <span class="s">&quot;Cox's Bazar&quot;</span>];
+<span class="k">for</span> (<span class="k">const</span> destination <span class="k">of</span> destinations) console.log(destination);
+
+<span class="k">const</span> product = { name: <span class="s">&quot;Notebook&quot;</span>, price: <span class="n">180</span> };
+<span class="k">for</span> (<span class="k">const</span> key <span class="k">in</span> product) {
+  <span class="k">if</span> (Object.hasOwn(product, key)) console.log(key, product[key]);
+}</code></pre></figure>
+<p><code>Object.keys()</code>, <code>Object.values()</code>, <code>Object.entries()</code> ব্যবহার করলে Object-এর Own Properties নিয়ে কাজ আরও পরিষ্কার হয়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">for</span> (<span class="k">const</span> [key, value] <span class="k">of</span> Object.entries(product)) {
+  console.log(<span class="s">`${key}: ${value}`</span>);
+}</code></pre></figure>
+<h2>৪.৬ Nested Loops ও Complexity</h2>
+<p>একটি Loop-এর ভিতরে আরেকটি Loop হলে মোট কাজ বাড়ে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">for</span> (<span class="k">let</span> row = <span class="n">1</span>; row &lt;= <span class="n">3</span>; row++) {
+  <span class="k">let</span> line = <span class="s">&quot;&quot;</span>;
+  <span class="k">for</span> (<span class="k">let</span> col = <span class="n">1</span>; col &lt;= <span class="n">4</span>; col++) line += <span class="s">&quot;* &quot;</span>;
+  console.log(line);
+}</code></pre></figure>
+<p>উপরের Code মোট ১২ বার Inner Body চালায়। Input Size <code>n</code> হলে একটি সাধারণ Linear Loop <strong>O(n)</strong>; দুটি Independent Full Nested Loop প্রায় <strong>O(n²)</strong>। Complexity একটি Growth Model, নির্দিষ্ট Runtime নয়।</p>
+<table><thead><tr><th>Pattern</th><th>আনুমানিক Time Complexity</th><th>উদাহরণ</th></tr></thead><tbody><tr><td>একটি স্থির কাজ</td><td>O(1)</td><td>Array Length পড়া</td></tr><tr><td>একবার সব Item দেখা</td><td>O(n)</td><td>Cart Total</td></tr><tr><td>দুটি পূর্ণ Nested Loop</td><td>O(n²)</td><td>সব Pair তুলনা</td></tr><tr><td>Input প্রতি ধাপে অর্ধেক</td><td>O(log n)</td><td>Binary Search (Sorted Data)</td></tr></tbody></table>
+<h2>৪.৭ Array Methods-ও Iteration করে</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> numbers = [<span class="n">2</span>, <span class="n">4</span>, <span class="n">6</span>];
+console.log(numbers.map(n =&gt; n * <span class="n">2</span>));       <span class="c">// [4, 8, 12]</span>
+console.log(numbers.filter(n =&gt; n &gt; <span class="n">3</span>));    <span class="c">// [4, 6]</span>
+console.log(numbers.reduce((s, n) =&gt; s + n, <span class="n">0</span>)); <span class="c">// 12</span></code></pre></figure>
+<p><code>map</code> নতুন Array তৈরি করে; <code>filter</code> বাছাই করে; <code>reduce</code> Accumulator তৈরি করে। কোনটি ব্যবহার করবে তা কাজের উদ্দেশ্য ও Readability-এর ওপর নির্ভর করে। <code>forEach</code> থেকে <code>break</code> করা যায় না; Early Exit দরকার হলে <code>for...of</code> বা <code>some</code>/<code>find</code> বিবেচনা করো।</p>
+<h2>৪.৮ Practical Project — Cart Analyzer</h2>
+<p><strong>সমস্যা:</strong> একটি Cart-এ Product Name, Unit Price এবং Quantity আছে। আমাদের দরকার Line Subtotal, Total BDT, মোট Unit, সবচেয়ে বড় Line Amount এবং একটি Threshold-এর বেশি Subtotal-যুক্ত পণ্যের তালিকা।</p>
+<p><strong>Project Files:</strong></p>
+<figure class="code keep"><pre><code>source-code/chapter-04/
+├── index.html
+├── style.css
+├── cart.js
+├── app.js
+└── cart.test.js</code></pre></figure>
+<p><strong>Data Contract:</strong> <code>[{ name: &quot;Notebook&quot;, price: 120, quantity: 3 }]</code>। এখানে Price পূর্ণসংখ্যা BDT। Production Finance Application-এ Minor Units বা Decimal Strategy আলাদাভাবে নির্ধারণ করতে হবে।</p>
+<h3>Core Algorithm (<code>cart.js</code>)</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> analyzeCart(items, threshold = <span class="n">5000</span>) {
+  validateCart(items);
+  <span class="k">let</span> total = <span class="n">0</span>;
+  <span class="k">let</span> units = <span class="n">0</span>;
+  <span class="k">let</span> highest = <span class="k">null</span>;
+  <span class="k">const</span> rows = [];
+  <span class="k">for</span> (<span class="k">let</span> i = <span class="n">0</span>; i &lt; items.length; i++) {
+    <span class="k">const</span> item = items[i];
+    <span class="k">const</span> subtotal = item.price * item.quantity;
+    <span class="k">if</span> (!Number.isSafeInteger(subtotal) || !Number.isSafeInteger(total + subtotal)) {
+      <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">&quot;Amount exceeds safe integer range&quot;</span>);
+    }
+    total += subtotal;
+    units += item.quantity;
+    <span class="k">const</span> row = { name: item.name.trim(), price: item.price, quantity: item.quantity, subtotal };
+    rows.push(row);
+    <span class="k">if</span> (highest === <span class="k">null</span> || subtotal &gt; highest.subtotal) highest = row;
+  }
+  <span class="k">const</span> qualifying = [];
+  <span class="k">for</span> (<span class="k">const</span> row <span class="k">of</span> rows) <span class="k">if</span> (row.subtotal &gt;= threshold) qualifying.push(row.name);
+  <span class="k">return</span> { rows, total, units, distinctItems: rows.length, highest, qualifying };
+}</code></pre></figure>
+<p>উপরের Snippet-এ <code>validateCart</code> একটি আলাদা Function। <strong>সম্পূর্ণ Runnable Implementation</strong> <code>source-code/chapter-04/cart.js</code>-এ আছে। এটি Type Validation, Quantity Range এবং Integer Overflow পরীক্ষা করে। <code>app.js</code> DOM Events নিয়ন্ত্রণ করে, <code>index.html</code> UI তৈরি করে, আর <code>style.css</code> Layout দেয়।</p>
+<p><strong>Browser-এ চালানোর নিয়ম:</strong> একই Folder-এর <code>index.html</code> খুলে Product যোগ করো। নতুন Item যোগ হলে Summary ও List Update হবে। Input-এর Error Message UI-তে দেখাবে। <code>textContent</code> ব্যবহার করা হয়েছে, যাতে User-Provided Name-কে HTML হিসেবে Execute করা না হয়।</p>
+<p><strong>Node.js Test:</strong></p>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code>cd source-code/chapter-04
+node --test cart.test.js</code></pre></figure>
+<h3>Dry Run</h3>
+<table><thead><tr><th>Product</th><th style="text-align:right">Price</th><th style="text-align:right">Quantity</th><th style="text-align:right">Subtotal</th></tr></thead><tbody><tr><td>Pen</td><td style="text-align:right">50</td><td style="text-align:right">2</td><td style="text-align:right">100</td></tr><tr><td>Book</td><td style="text-align:right">300</td><td style="text-align:right">3</td><td style="text-align:right">900</td></tr><tr><td><strong>Total</strong></td><td style="text-align:right"></td><td style="text-align:right"><strong>5 units</strong></td><td style="text-align:right"><strong>1000 BDT</strong></td></tr></tbody></table>
+<p><code>highest.name</code> হবে <code>&quot;Book&quot;</code>। Threshold <code>500</code> হলে <code>qualifying</code> হবে <code>[&quot;Book&quot;]</code>। একটি Pass-এ Main Summary তৈরির Time Complexity O(n); Extra Rows রাখার Space Complexity O(n)।</p>
+<h2>৪.৯ Common Mistakes এবং Debugging</h2>
+<ol><li><code>i &lt;= array.length</code> ব্যবহার করলে শেষ Iteration-এ <code>undefined</code> আসতে পারে।</li><li><code>while</code>-এ Counter Update না করলে Infinite Loop হয়।</li><li><code>for...in</code> দিয়ে Array ঘুরলে Key String হয় এবং Inherited Enumerable Property-ও আসতে পারে।</li><li><code>forEach(async () =&gt; ...)</code> ব্যবহার করে বাইরের Code Automatically Await করে না। Sequential Async কাজের জন্য <code>for...of</code> + <code>await</code> ব্যবহার করা যায়।</li><li>User Input-এর Number Conversion ছাড়া <code>+</code> ব্যবহার করলে String Concatenation হতে পারে।</li><li>Nested Loop-এ একই Counter Variable Reuse করলে Logic নষ্ট হতে পারে।</li></ol>
+<h2>৪.১০ Exercises</h2>
+<p><strong>Exercise 1:</strong> <code>for</code> ব্যবহার করে ১–১০-এর যোগফল বের করো।</p>
+<p><strong>Exercise 2:</strong> <code>while</code> দিয়ে ৫ থেকে ১ পর্যন্ত Countdown লেখো।</p>
+<p><strong>Exercise 3:</strong> <code>[3, 8, 11, 16, 19]</code> থেকে শুধু জোড় সংখ্যা Print করো।</p>
+<p><strong>Exercise 4:</strong> একটি Array-তে প্রথম <code>0</code> পাওয়ার আগে পর্যন্ত Positive Values যোগ করো।</p>
+<p><strong>Exercise 5:</strong> <code>[{name:&quot;A&quot;,price:10,quantity:2}, {name:&quot;B&quot;,price:15,quantity:3}]</code>-এর Total বের করো।</p>
+<p><strong>Exercise 6:</strong> Nested Loop দিয়ে ৩×৩ Multiplication Table তৈরি করো।</p>
+<p><strong>Exercise 7 (Challenge):</strong> Cart Analyzer-এ ১০% Discount যোগ করো, কিন্তু ১০০০ BDT-এর কম Total হলে Discount নয়। Integer Amount নিয়ে Rounding Rule লিখে দাও।</p>
+<h3>Exercise Solutions</h3>
+<figure class="code"><figcaption>JavaScript</figcaption><pre><code><span class="c">// 1</span>
+<span class="k">let</span> sum = <span class="n">0</span>;
+<span class="k">for</span> (<span class="k">let</span> i = <span class="n">1</span>; i &lt;= <span class="n">10</span>; i++) sum += i;
+console.log(sum); <span class="c">// 55</span>
+
+<span class="c">// 2</span>
+<span class="k">let</span> n = <span class="n">5</span>;
+<span class="k">while</span> (n &gt;= <span class="n">1</span>) console.log(n--);
+
+<span class="c">// 3</span>
+<span class="k">for</span> (<span class="k">const</span> value <span class="k">of</span> [<span class="n">3</span>, <span class="n">8</span>, <span class="n">11</span>, <span class="n">16</span>, <span class="n">19</span>]) {
+  <span class="k">if</span> (value % <span class="n">2</span> === <span class="n">0</span>) console.log(value); <span class="c">// 8, 16</span>
+}
+
+<span class="c">// 4</span>
+<span class="k">let</span> result = <span class="n">0</span>;
+<span class="k">for</span> (<span class="k">const</span> value <span class="k">of</span> [<span class="n">5</span>, <span class="n">8</span>, <span class="n">0</span>, <span class="n">20</span>]) {
+  <span class="k">if</span> (value === <span class="n">0</span>) <span class="k">break</span>;
+  <span class="k">if</span> (value &gt; <span class="n">0</span>) result += value;
+}
+console.log(result); <span class="c">// 13</span>
+
+<span class="c">// 5</span>
+<span class="k">const</span> cart = [{ name: <span class="s">&quot;A&quot;</span>, price: <span class="n">10</span>, quantity: <span class="n">2</span> }, { name: <span class="s">&quot;B&quot;</span>, price: <span class="n">15</span>, quantity: <span class="n">3</span> }];
+<span class="k">let</span> cartTotal = <span class="n">0</span>;
+<span class="k">for</span> (<span class="k">const</span> item <span class="k">of</span> cart) cartTotal += item.price * item.quantity;
+console.log(cartTotal); <span class="c">// 65</span>
+
+<span class="c">// 6</span>
+<span class="k">for</span> (<span class="k">let</span> r = <span class="n">1</span>; r &lt;= <span class="n">3</span>; r++) {
+  <span class="k">let</span> line = <span class="s">&quot;&quot;</span>;
+  <span class="k">for</span> (<span class="k">let</span> c = <span class="n">1</span>; c &lt;= <span class="n">3</span>; c++) line += <span class="s">`${r * c} `</span>;
+  console.log(line.trim());
+}
+
+<span class="c">// 7 — Whole BDT, discount rounded to nearest BDT</span>
+<span class="k">function</span> discountedTotal(total) {
+  <span class="k">if</span> (!Number.isSafeInteger(total) || total &lt; <span class="n">0</span>) <span class="k">throw</span> <span class="k">new</span> TypeError(<span class="s">&quot;Invalid total&quot;</span>);
+  <span class="k">if</span> (total &lt; <span class="n">1000</span>) <span class="k">return</span> total;
+  <span class="k">return</span> total - Math.round(total * <span class="n">0.1</span>);
+}
+console.log(discountedTotal(<span class="n">1250</span>)); <span class="c">// 1125</span></code></pre></figure>
+<h2>৪.১১ Knowledge Check — ১০টি MCQ</h2>
+<ol><li><code>for</code> Loop-এর Update অংশ সাধারণত কখন চলে? (A) Body-এর আগে (B) Body-এর পরে (C) একবারই (D) কখনো না</li><li><code>do...while</code> সর্বনিম্ন কতবার Body চালায়? (A) 0 (B) 1 (C) 2 (D) অসীম</li><li><code>break</code> কী করে? (A) Loop বন্ধ করে (B) শুধু একটি Iteration Skip (C) Function বানায় (D) Error দেয়</li><li><code>continue</code> কী করে? (A) Loop বন্ধ (B) বর্তমান Iteration Skip (C) Array Sort (D) Return</li><li>Array Value পেতে সাধারণত কোনটি? (A) <code>for...in</code> (B) <code>for...of</code> (C) <code>switch</code> (D) <code>typeof</code></li><li><code>i &lt; arr.length</code> কেন গুরুত্বপূর্ণ? (A) Memory Delete (B) Valid Index Range (C) Sort (D) Encrypt</li><li>একটি Linear Scan-এর Time Complexity সাধারণত কী? (A) O(1) (B) O(log n) (C) O(n) (D) O(n³)</li><li>দুটি পূর্ণ Nested Loop সাধারণত কী Complexity? (A) O(n²) (B) O(1) (C) O(log n) (D) O(n!)</li><li><code>map()</code> সাধারণত কী Return করে? (A) নতুন Array (B) Boolean (C) HTML (D) Promise সবসময়</li><li><code>forEach</code>-এর Callback থেকে <code>break</code> ব্যবহার করা যায়? (A) হ্যাঁ (B) না (C) শুধু Browser-এ (D) শুধু Node-এ</li></ol>
+<p><strong>Answer Key ও Explanation:</strong> 1-B (Body শেষে Update), 2-B (Condition পরে পরীক্ষা), 3-A (Loop Exit), 4-B (পরের Iteration), 5-B (Iterable Values), 6-B (শেষ Index হলো length−1), 7-C (প্রতি Item একবার), 8-A (n×n), 9-A (Mapped Array), 10-B (<code>forEach</code> Loop Statement নয়)।</p>
+<h2>৪.১২ অধ্যায়ের সারসংক্ষেপ</h2>
+<p>Loop হলো Repeated Data Processing-এর ভিত্তি। সঠিক Loop বেছে নেওয়া, Termination Condition ঠিক রাখা, Input Validation এবং Complexity বোঝা—সবই Production-Ready JavaScript-এর গুরুত্বপূর্ণ দক্ষতা। পরের অধ্যায় <strong>Functions</strong>-এ আমরা এই Repeated Logic-কে Reusable Units-এ ভাগ করব।</p>
+</section></body></html>

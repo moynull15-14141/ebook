@@ -1,0 +1,382 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-3"><header class="opener"><div class="chap-label">অধ্যায় ৩</div><h1>Operators, Expressions এবং Decision Making</h1></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায়ের শেষে পাঠক JavaScript-এর Arithmetic, Assignment, Comparison ও Logical Operators ব্যবহার করতে পারবে; <code>if</code>/<code>else</code>, <code>switch</code>, Ternary এবং Guard Clause দিয়ে সিদ্ধান্ত নিতে পারবে; Type Coercion-এর ঝুঁকি বুঝবে; এবং একটি <strong>Shopping Discount Calculator</strong> তৈরি করবে।</p>
+<h2>৩.১ Expression, Statement ও Operator</h2>
+<p><strong>Expression</strong> এমন কোড যা একটি Value তৈরি করে: <code>5 + 3</code>, <code>price &gt; 1000</code>, <code>user?.name</code>। <strong>Statement</strong> কোনো কাজ নির্দেশ করে: <code>if (...) { ... }</code>, <code>const total = ...;</code>। Operator এক বা একাধিক Operand নিয়ে কাজ করে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> unitPrice = <span class="n">850</span>;
+<span class="k">const</span> quantity = <span class="n">3</span>;
+<span class="k">const</span> subtotal = unitPrice * quantity; <span class="c">// 2550</span>
+console.log(subtotal &gt;= <span class="n">2000</span>); <span class="c">// true</span></code></pre></figure>
+<p><code>unitPrice * quantity</code> একটি Expression; <code>const subtotal = ...</code> একটি Declaration Statement। Expressions-এর Precedence বোঝা জরুরি; সন্দেহ হলে Parentheses ব্যবহার করো।</p>
+<h2>৩.২ Arithmetic Operators</h2>
+<table><thead><tr><th>Operator</th><th>কাজ</th><th>উদাহরণ</th><th>ফলাফল</th></tr></thead><tbody><tr><td><code>+</code></td><td>যোগ</td><td><code>7 + 3</code></td><td><code>10</code></td></tr><tr><td><code>-</code></td><td>বিয়োগ</td><td><code>7 - 3</code></td><td><code>4</code></td></tr><tr><td><code>*</code></td><td>গুণ</td><td><code>7 * 3</code></td><td><code>21</code></td></tr><tr><td><code>/</code></td><td>ভাগ</td><td><code>7 / 2</code></td><td><code>3.5</code></td></tr><tr><td><code>%</code></td><td>Remainder</td><td><code>7 % 3</code></td><td><code>1</code></td></tr><tr><td><code>**</code></td><td>Power</td><td><code>2 ** 3</code></td><td><code>8</code></td></tr></tbody></table>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>console.log(<span class="n">10</span> / <span class="n">0</span>);        <span class="c">// Infinity</span>
+console.log(<span class="n">0</span> / <span class="n">0</span>);         <span class="c">// NaN</span>
+console.log(-<span class="n">7</span> % <span class="n">3</span>);        <span class="c">// -1 (remainder; mathematical modulo নয়)</span>
+console.log(<span class="n">0.1</span> + <span class="n">0.2</span>);     <span class="c">// 0.30000000000000004</span></code></pre></figure>
+<p>JavaScript-এর <code>number</code> হলো IEEE 754 Double-Precision Floating Point। টাকা-পয়সার হিসাবের ক্ষেত্রে সরাসরি Fractional Decimal যোগ না করে Integer Minor Units (যেমন পয়সা) বা উপযুক্ত Decimal Library ব্যবহার করা ভালো। এই Project-এ BDT-এর পূর্ণসংখ্যা Value ব্যবহার করব।</p>
+<h2>৩.৩ Assignment, Increment ও Decrement</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">let</span> stock = <span class="n">10</span>;
+stock += <span class="n">5</span>; <span class="c">// 15</span>
+stock -= <span class="n">2</span>; <span class="c">// 13</span>
+stock *= <span class="n">2</span>; <span class="c">// 26</span>
+stock /= <span class="n">2</span>; <span class="c">// 13</span>
+stock++;    <span class="c">// 14</span>
+--stock;    <span class="c">// 13</span></code></pre></figure>
+<p><code>x++</code> আগে পুরোনো Value দেয়, তারপর বাড়ায়; <code>++x</code> আগে বাড়ায়, তারপর নতুন Value দেয়। Complex Expression-এর মধ্যে এদের ব্যবহার করলে Readability কমতে পারে।</p>
+<h2>৩.৪ Comparison: <code>===</code> বনাম <code>==</code></h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>console.log(<span class="n">5</span> === <span class="s">'5'</span>);  <span class="c">// false: Type ও Value উভয়ই মিলতে হবে</span>
+console.log(<span class="n">5</span> == <span class="s">'5'</span>);   <span class="c">// true: Coercion ঘটে</span>
+console.log(<span class="n">5</span> !== <span class="s">'5'</span>);  <span class="c">// true</span>
+console.log(<span class="n">10</span> &gt; <span class="n">5</span>);     <span class="c">// true</span>
+console.log(<span class="n">10</span> &lt;= <span class="n">10</span>);   <span class="c">// true</span></code></pre></figure>
+<p>সাধারণত <code>===</code> ও <code>!==</code> ব্যবহার করো। <code>NaN === NaN</code> false; <code>Number.isNaN(value)</code> দিয়ে যাচাই করো। Object Comparison Reference-Based:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>console.log({ id: <span class="n">1</span> } === { id: <span class="n">1</span> }); <span class="c">// false</span>
+<span class="k">const</span> a = { id: <span class="n">1</span> };
+<span class="k">const</span> b = a;
+console.log(a === b); <span class="c">// true</span></code></pre></figure>
+<h2>৩.৫ Logical Operators ও Short-Circuiting</h2>
+<p><code>&amp;&amp;</code> (AND), <code>||</code> (OR), <code>!</code> (NOT) Boolean Logic-এ ব্যবহৃত হয়, তবে <code>&amp;&amp;</code> ও <code>||</code> সবসময় Boolean Return করে না—Operand-এর Value Return করে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> isMember = <span class="k">true</span>;
+<span class="k">const</span> total = <span class="n">3000</span>;
+console.log(isMember &amp;&amp; total &gt;= <span class="n">2000</span>); <span class="c">// true</span>
+
+<span class="k">const</span> displayName = <span class="s">''</span> || <span class="s">'Guest'</span>; <span class="c">// 'Guest'</span>
+<span class="k">const</span> seats = <span class="n">0</span> ?? <span class="n">10</span>;            <span class="c">// 0</span>
+<span class="k">const</span> unknownSeats = <span class="k">null</span> ?? <span class="n">10</span>;   <span class="c">// 10</span></code></pre></figure>
+<p><strong><code>||</code> বনাম <code>??</code>:</strong> <code>||</code> যেকোনো Falsy Value (<code>0</code>, <code>''</code>, <code>false</code>) বাদ দেয়; <code>??</code> শুধু <code>null</code> ও <code>undefined</code>-এর ক্ষেত্রে Fallback দেয়। <code>??</code>-কে <code>||</code> বা <code>&amp;&amp;</code>-এর সঙ্গে একই Expression-এ ব্যবহার করলে Parentheses প্রয়োজন।</p>
+<h2>৩.৬ Operator Precedence এবং Parentheses</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>console.log(<span class="n">2</span> + <span class="n">3</span> * <span class="n">4</span>);   <span class="c">// 14</span>
+console.log((<span class="n">2</span> + <span class="n">3</span>) * <span class="n">4</span>); <span class="c">// 20</span>
+<span class="k">const</span> eligible = (age &gt;= <span class="n">18</span>) &amp;&amp; (hasId === <span class="k">true</span>);</code></pre></figure>
+<p>Precedence মুখস্থ করার চেয়ে Intent পরিষ্কার করে Parentheses ব্যবহার করা ভালো। Assignment-এর সঙ্গে Comparison মিশিয়ে জটিল One-Liner এড়িয়ে চলো।</p>
+<h2>৩.৭ <code>if</code>, <code>else if</code>, <code>else</code></h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> shippingMessage(amount) {
+  <span class="k">if</span> (!Number.isFinite(amount) || amount &lt; <span class="n">0</span>) {
+    <span class="k">return</span> <span class="s">'Invalid amount'</span>;
+  }
+  <span class="k">if</span> (amount &gt;= <span class="n">5000</span>) {
+    <span class="k">return</span> <span class="s">'Free shipping'</span>;
+  } <span class="k">else</span> <span class="k">if</span> (amount &gt;= <span class="n">2000</span>) {
+    <span class="k">return</span> <span class="s">'Discounted shipping'</span>;
+  }
+  <span class="k">return</span> <span class="s">'Standard shipping'</span>;
+}</code></pre></figure>
+<p>এখানে শেষের <code>return</code> হলো <strong>Guard/Default Flow</strong>। Nested <code>if</code> অনেক হলে Function ভেঙে ছোট করা যায়।</p>
+<h2>৩.৮ <code>switch</code> Statement</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> paymentLabel(method) {
+  <span class="k">switch</span> (method) {
+    <span class="k">case</span> <span class="s">'card'</span>: <span class="k">return</span> <span class="s">'Card payment'</span>;
+    <span class="k">case</span> <span class="s">'cash'</span>: <span class="k">return</span> <span class="s">'Cash on delivery'</span>;
+    <span class="k">case</span> <span class="s">'mobile'</span>: <span class="k">return</span> <span class="s">'Mobile banking'</span>;
+    <span class="k">default</span>: <span class="k">return</span> <span class="s">'Unknown payment method'</span>;
+  }
+}</code></pre></figure>
+<p><code>switch</code> Strict Comparison (<code>===</code>-এর মতো) ব্যবহার করে। <code>break</code> বা <code>return</code> না দিলে পরবর্তী Case-এ Fallthrough হতে পারে। Intentional Fallthrough ছাড়া এটি এড়িয়ে চলো।</p>
+<h2>৩.৯ Ternary ও Guard Clauses</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> badge = stock &gt; <span class="n">0</span> ? <span class="s">'In stock'</span> : <span class="s">'Sold out'</span>;
+
+<span class="k">function</span> validateQuantity(quantity) {
+  <span class="k">if</span> (!Number.isInteger(quantity) || quantity &lt;= <span class="n">0</span>) {
+    <span class="k">return</span> { ok: <span class="k">false</span>, error: <span class="s">'Quantity must be a positive integer'</span> };
+  }
+  <span class="k">return</span> { ok: <span class="k">true</span> };
+}</code></pre></figure>
+<p>Simple Two-Way Decision-এর জন্য Ternary ভালো; জটিল Nested Ternary পড়া কঠিন।</p>
+<h2>৩.১০ Common Pitfalls</h2>
+<ol><li><code>=</code> হলো Assignment; <code>===</code> হলো Comparison।</li><li><code>Number('')</code> ফল <code>0</code>; Blank Input-কে সরাসরি Number করলে ভুল Validation হতে পারে।</li><li><code>parseInt('12abc', 10)</code> ফল <code>12</code>; কঠোর Numeric Validation-এর জন্য এটি যথেষ্ট নয়।</li><li><code>0</code> Falsy হলেও একটি বৈধ Quantity বা Price হতে পারে।</li><li>Percentage Discount যোগ করার ক্রম Business Rule অনুযায়ী নির্ধারণ করতে হবে।</li><li>Client-Side Discount Calculator শুধু UI Preview; বাস্তব Checkout-এ Server-Side Price Recalculation জরুরি।</li></ol>
+<hr>
+<h2>৩.১১ Practical Project — Shopping Discount Calculator</h2>
+<p><strong>Business Rules (এই শিক্ষামূলক Project-এর জন্য):</strong></p>
+<ul><li>Item Price: পূর্ণসংখ্যা BDT, <code>0</code> বা বেশি।</li><li>Quantity: ১–১০০-এর মধ্যে পূর্ণসংখ্যা।</li><li>Coupon: <code>SAVE10</code> দিলে ১০% Discount; <code>SAVE20</code> দিলে ২০% Discount, তবে Subtotal কমপক্ষে BDT 5,000 হতে হবে।</li><li>Member Discount: Coupon-এর পরে অবশিষ্ট Amount-এর ওপর ৫%।</li><li>Delivery: Discounted Total BDT 3,000 বা বেশি হলে Free; অন্যথায় BDT 120।</li><li>Percentage Discount প্রতিটি ধাপে নিকটতম পূর্ণ BDT-তে Round করা হবে।</li><li>Unknown Coupon-এ Error দেখানো হবে; Silent Ignore নয়।</li></ul>
+<p><strong>Project Structure</strong></p>
+<figure class="code keep"><pre><code>shopping-discount-calculator/
+├── index.html
+├── style.css
+├── calculator.js
+├── app.js
+└── calculator.test.js</code></pre></figure>
+<h3>index.html</h3>
+<figure class="code"><figcaption>HTML</figcaption><pre><code>&lt;!doctype html&gt;
+&lt;<span class="k">html</span> lang=<span class="s">&quot;bn&quot;</span>&gt;
+&lt;<span class="k">head</span>&gt;
+  &lt;<span class="k">meta</span> charset=<span class="s">&quot;utf-8&quot;</span>&gt;
+  &lt;<span class="k">meta</span> name=<span class="s">&quot;viewport&quot;</span> content=<span class="s">&quot;width=device-width, initial-scale=1&quot;</span>&gt;
+  &lt;<span class="k">title</span>&gt;Shopping Discount Calculator&lt;/<span class="k">title</span>&gt;
+  &lt;<span class="k">link</span> rel=<span class="s">&quot;stylesheet&quot;</span> href=<span class="s">&quot;style.css&quot;</span>&gt;
+  &lt;<span class="k">script</span> src=<span class="s">&quot;calculator.js&quot;</span> defer&gt;&lt;/<span class="k">script</span>&gt;
+  &lt;<span class="k">script</span> src=<span class="s">&quot;app.js&quot;</span> defer&gt;&lt;/<span class="k">script</span>&gt;
+&lt;/<span class="k">head</span>&gt;
+&lt;<span class="k">body</span>&gt;
+  &lt;<span class="k">main</span> class=<span class="s">&quot;card&quot;</span>&gt;
+    &lt;<span class="k">h1</span>&gt;Shopping Discount Calculator&lt;/<span class="k">h1</span>&gt;
+    &lt;<span class="k">form</span> id=<span class="s">&quot;checkout-form&quot;</span>&gt;
+      &lt;<span class="k">label</span> for=<span class="s">&quot;price&quot;</span>&gt;Unit Price (BDT)&lt;/<span class="k">label</span>&gt;
+      &lt;<span class="k">input</span> id=<span class="s">&quot;price&quot;</span> type=<span class="s">&quot;number&quot;</span> min=<span class="s">&quot;0&quot;</span> step=<span class="s">&quot;1&quot;</span> required value=<span class="s">&quot;1500&quot;</span>&gt;
+      &lt;<span class="k">label</span> for=<span class="s">&quot;quantity&quot;</span>&gt;Quantity&lt;/<span class="k">label</span>&gt;
+      &lt;<span class="k">input</span> id=<span class="s">&quot;quantity&quot;</span> type=<span class="s">&quot;number&quot;</span> min=<span class="s">&quot;1&quot;</span> max=<span class="s">&quot;100&quot;</span> step=<span class="s">&quot;1&quot;</span> required value=<span class="s">&quot;2&quot;</span>&gt;
+      &lt;<span class="k">label</span> for=<span class="s">&quot;coupon&quot;</span>&gt;Coupon Code (optional)&lt;/<span class="k">label</span>&gt;
+      &lt;<span class="k">input</span> id=<span class="s">&quot;coupon&quot;</span> type=<span class="s">&quot;text&quot;</span> maxlength=<span class="s">&quot;20&quot;</span> autocomplete=<span class="s">&quot;off&quot;</span> placeholder=<span class="s">&quot;SAVE10&quot;</span>&gt;
+      &lt;<span class="k">label</span> class=<span class="s">&quot;check&quot;</span>&gt;&lt;<span class="k">input</span> id=<span class="s">&quot;member&quot;</span> type=<span class="s">&quot;checkbox&quot;</span>&gt; Member (extra 5% off)&lt;/<span class="k">label</span>&gt;
+      &lt;<span class="k">button</span> type=<span class="s">&quot;submit&quot;</span>&gt;Calculate Total&lt;/<span class="k">button</span>&gt;
+    &lt;/<span class="k">form</span>&gt;
+    &lt;<span class="k">section</span> aria-live=<span class="s">&quot;polite&quot;</span> id=<span class="s">&quot;result&quot;</span> role=<span class="s">&quot;status&quot;</span>&gt;&lt;/<span class="k">section</span>&gt;
+  &lt;/<span class="k">main</span>&gt;
+&lt;/<span class="k">body</span>&gt;
+&lt;/<span class="k">html</span>&gt;</code></pre></figure>
+<h3>style.css</h3>
+<figure class="code keep"><figcaption>CSS</figcaption><pre><code>* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; padding: 24px; background: #eef4ff; color: #172a46; font: 16px/1.6 system-ui, sans-serif; display: grid; place-items: center; }
+.card { width: min(100%, 520px); padding: 28px; background: white; border: 1px solid #d9e4f5; border-radius: 16px; box-shadow: 0 10px 35px #17335c12; }
+h1 { margin-top: 0; font-size: 1.5rem; }
+form { display: grid; gap: 9px; }
+input:not([type=&quot;checkbox&quot;]) { width: 100%; padding: 11px; border: 1px solid #b9c8db; border-radius: 8px; font: inherit; }
+.check { display: flex; align-items: center; gap: 8px; margin: 9px 0; }
+button { background: #155bd5; color: white; border: 0; padding: 12px; border-radius: 8px; font: inherit; cursor: pointer; }
+button:hover { background: #0d48af; }
+#result { margin-top: 20px; }
+#result.error { color: #a31730; }
+.summary { margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 7px 14px; }
+.summary dt { font-weight: 500; }
+.summary dd { margin: 0; text-align: right; }
+.summary .grand { font-weight: 800; border-top: 1px solid #cbd8eb; padding-top: 8px; }</code></pre></figure>
+<h3>calculator.js — Pure Business Logic</h3>
+<figure class="code"><figcaption>JavaScript</figcaption><pre><code><span class="s">'use strict'</span>;
+
+<span class="k">function</span> calculateOrder({ price, quantity, coupon = <span class="s">''</span>, isMember = <span class="k">false</span> }) {
+  <span class="k">if</span> (!Number.isSafeInteger(price) || price &lt; <span class="n">0</span>) {
+    <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">'Price must be a non-negative integer (BDT).'</span>);
+  }
+  <span class="k">if</span> (!Number.isInteger(quantity) || quantity &lt; <span class="n">1</span> || quantity &gt; <span class="n">100</span>) {
+    <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">'Quantity must be an integer from 1 to 100.'</span>);
+  }
+  <span class="k">if</span> (<span class="k">typeof</span> coupon !== <span class="s">'string'</span> || <span class="k">typeof</span> isMember !== <span class="s">'boolean'</span>) {
+    <span class="k">throw</span> <span class="k">new</span> TypeError(<span class="s">'Invalid coupon or membership value.'</span>);
+  }
+
+  <span class="k">const</span> subtotal = price * quantity;
+  <span class="k">if</span> (!Number.isSafeInteger(subtotal)) {
+    <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">'Subtotal exceeds safe integer range.'</span>);
+  }
+
+  <span class="k">const</span> code = coupon.trim().toUpperCase();
+  <span class="k">let</span> couponRate = <span class="n">0</span>;
+  <span class="k">switch</span> (code) {
+    <span class="k">case</span> <span class="s">''</span>: <span class="k">break</span>;
+    <span class="k">case</span> <span class="s">'SAVE10'</span>: couponRate = <span class="n">0.10</span>; <span class="k">break</span>;
+    <span class="k">case</span> <span class="s">'SAVE20'</span>:
+      <span class="k">if</span> (subtotal &lt; <span class="n">5000</span>) <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">'SAVE20 requires BDT 5,000 subtotal.'</span>);
+      couponRate = <span class="n">0.20</span>;
+      <span class="k">break</span>;
+    <span class="k">default</span>: <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">'Unknown coupon code.'</span>);
+  }
+
+  <span class="k">const</span> couponDiscount = Math.round(subtotal * couponRate);
+  <span class="k">const</span> afterCoupon = subtotal - couponDiscount;
+  <span class="k">const</span> memberDiscount = isMember ? Math.round(afterCoupon * <span class="n">0.05</span>) : <span class="n">0</span>;
+  <span class="k">const</span> discountedTotal = afterCoupon - memberDiscount;
+  <span class="k">const</span> deliveryFee = discountedTotal &gt;= <span class="n">3000</span> ? <span class="n">0</span> : <span class="n">120</span>;
+  <span class="k">const</span> grandTotal = discountedTotal + deliveryFee;
+
+  <span class="k">return</span> { subtotal, couponDiscount, memberDiscount, discountedTotal, deliveryFee, grandTotal };
+}
+
+<span class="k">if</span> (<span class="k">typeof</span> module !== <span class="s">'undefined'</span> &amp;&amp; module.exports) {
+  module.exports = { calculateOrder };
+}</code></pre></figure>
+<h3>app.js — Form Events ও DOM Update</h3>
+<figure class="code"><figcaption>JavaScript</figcaption><pre><code><span class="s">'use strict'</span>;
+
+<span class="k">const</span> form = document.querySelector(<span class="s">'#checkout-form'</span>);
+<span class="k">const</span> result = document.querySelector(<span class="s">'#result'</span>);
+<span class="k">const</span> money = value =&gt; <span class="s">`BDT ${value.toLocaleString('en-BD')}`</span>;
+
+form.addEventListener(<span class="s">'submit'</span>, event =&gt; {
+  event.preventDefault();
+  result.replaceChildren();
+  result.classList.remove(<span class="s">'error'</span>);
+
+  <span class="k">const</span> priceText = document.querySelector(<span class="s">'#price'</span>).value.trim();
+  <span class="k">const</span> quantityText = document.querySelector(<span class="s">'#quantity'</span>).value.trim();
+  <span class="k">const</span> price = priceText === <span class="s">''</span> ? NaN : Number(priceText);
+  <span class="k">const</span> quantity = quantityText === <span class="s">''</span> ? NaN : Number(quantityText);
+
+  <span class="k">try</span> {
+    <span class="k">const</span> order = calculateOrder({
+      price,
+      quantity,
+      coupon: document.querySelector(<span class="s">'#coupon'</span>).value,
+      isMember: document.querySelector(<span class="s">'#member'</span>).checked
+    });
+    <span class="k">const</span> rows = [
+      [<span class="s">'Subtotal'</span>, order.subtotal],
+      [<span class="s">'Coupon Discount'</span>, -order.couponDiscount],
+      [<span class="s">'Member Discount'</span>, -order.memberDiscount],
+      [<span class="s">'Delivery Fee'</span>, order.deliveryFee],
+      [<span class="s">'Grand Total'</span>, order.grandTotal]
+    ];
+    <span class="k">const</span> summary = document.createElement(<span class="s">'dl'</span>);
+    summary.className = <span class="s">'summary'</span>;
+    <span class="k">for</span> (<span class="k">const</span> [label, value] <span class="k">of</span> rows) {
+      <span class="k">const</span> dt = document.createElement(<span class="s">'dt'</span>);
+      <span class="k">const</span> dd = document.createElement(<span class="s">'dd'</span>);
+      dt.textContent = label;
+      dd.textContent = money(value);
+      <span class="k">if</span> (label === <span class="s">'Grand Total'</span>) {
+        dt.className = <span class="s">'grand'</span>;
+        dd.className = <span class="s">'grand'</span>;
+      }
+      summary.append(dt, dd);
+    }
+    result.append(summary);
+  } <span class="k">catch</span> (error) {
+    result.classList.add(<span class="s">'error'</span>);
+    result.textContent = error.message;
+  }
+});</code></pre></figure>
+<p><strong>চালানোর নিয়ম:</strong> একই Folder-এ পাঁচটি File রেখে <code>index.html</code> Browser-এ Open করো। Calculator Library Pure Function হওয়ায় Browser ও Node.js—দুই জায়গায় Test করা যায়।</p>
+<h3>Manual Test Scenarios</h3>
+<table><thead><tr><th style="text-align:right">Price</th><th style="text-align:right">Qty</th><th>Coupon</th><th>Member</th><th style="text-align:right">Expected Grand Total</th></tr></thead><tbody><tr><td style="text-align:right">1500</td><td style="text-align:right">2</td><td><em>(none)</em></td><td>No</td><td style="text-align:right">3000</td></tr><tr><td style="text-align:right">1500</td><td style="text-align:right">2</td><td>SAVE10</td><td>No</td><td style="text-align:right">2820</td></tr><tr><td style="text-align:right">2500</td><td style="text-align:right">2</td><td>SAVE20</td><td>Yes</td><td style="text-align:right">3800</td></tr><tr><td style="text-align:right">1000</td><td style="text-align:right">1</td><td><em>(none)</em></td><td>No</td><td style="text-align:right">1120</td></tr><tr><td style="text-align:right">1000</td><td style="text-align:right">1</td><td>SAVE20</td><td>No</td><td style="text-align:right">Error</td></tr></tbody></table>
+<h3>Automated Tests</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="s">'use strict'</span>;
+<span class="k">const</span> assert = require(<span class="s">'node:assert/strict'</span>);
+<span class="k">const</span> { calculateOrder } = require(<span class="s">'./calculator'</span>);
+
+assert.equal(calculateOrder({ price: <span class="n">1500</span>, quantity: <span class="n">2</span> }).grandTotal, <span class="n">3000</span>);
+assert.equal(calculateOrder({ price: <span class="n">1500</span>, quantity: <span class="n">2</span>, coupon: <span class="s">'SAVE10'</span> }).grandTotal, <span class="n">2820</span>);
+assert.equal(calculateOrder({ price: <span class="n">2500</span>, quantity: <span class="n">2</span>, coupon: <span class="s">'SAVE20'</span>, isMember: <span class="k">true</span> }).grandTotal, <span class="n">3800</span>);
+assert.equal(calculateOrder({ price: <span class="n">1000</span>, quantity: <span class="n">1</span> }).grandTotal, <span class="n">1120</span>);
+assert.throws(() =&gt; calculateOrder({ price: <span class="n">1000</span>, quantity: <span class="n">1</span>, coupon: <span class="s">'SAVE20'</span> }), /requires/);
+assert.throws(() =&gt; calculateOrder({ price: -<span class="n">1</span>, quantity: <span class="n">1</span> }), /Price/);
+assert.throws(() =&gt; calculateOrder({ price: <span class="n">1</span>, quantity: <span class="n">0</span> }), /Quantity/);
+assert.throws(() =&gt; calculateOrder({ price: <span class="n">1</span>, quantity: <span class="n">1</span>, coupon: <span class="s">'UNKNOWN'</span> }), /Unknown/);
+console.log(<span class="s">'8 tests passed'</span>);</code></pre></figure>
+<p>Terminal-এ <code>node calculator.test.js</code> চালাও। Browser UI-এর Automated E2E Test এই অধ্যায়ে অন্তর্ভুক্ত নয়।</p>
+<hr>
+<h2>৩.১২ অনুশীলনী</h2>
+<ol><li><code>7 % 3</code> এবং <code>-7 % 3</code>-এর ফল ব্যাখ্যা করো।</li><li><code>0 || 50</code> ও <code>0 ?? 50</code>-এর ফল কী? কেন?</li><li><code>if/else</code> দিয়ে Exam Grade নির্ধারণ করো: 80+ A, 60+ B, 40+ C, নইলে F। Invalid Score Reject করো।</li><li><code>switch</code> দিয়ে <code>pending</code>, <code>paid</code>, <code>cancelled</code> Order Status-এর Label Return করো।</li><li>Project-এ <code>SAVE15</code> Coupon যোগ করো: Subtotal কমপক্ষে BDT 2,000 হলে ১৫% Discount।</li><li><code>calculateOrder</code>-এ 0 Price এবং Quantity 1-এর জন্য Test লেখো।</li><li>Challenge: Discount Policy আলাদা Configuration Object-এ সরিয়ে Business Logic আরও Maintainable করো।</li></ol>
+<h2>৩.১৩ অনুশীলনীর সমাধান</h2>
+<p><strong>১.</strong> <code>7 % 3</code> → <code>1</code>; <code>-7 % 3</code> → <code>-1</code>। JavaScript <code>%</code> Remainder Operator।</p>
+<p><strong>২.</strong> <code>0 || 50</code> → <code>50</code> কারণ <code>0</code> Falsy; <code>0 ?? 50</code> → <code>0</code> কারণ <code>0</code> Nullish নয়।</p>
+<p><strong>৩.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> grade(score) {
+  <span class="k">if</span> (!Number.isFinite(score) || score &lt; <span class="n">0</span> || score &gt; <span class="n">100</span>) <span class="k">return</span> <span class="s">'Invalid'</span>;
+  <span class="k">if</span> (score &gt;= <span class="n">80</span>) <span class="k">return</span> <span class="s">'A'</span>;
+  <span class="k">if</span> (score &gt;= <span class="n">60</span>) <span class="k">return</span> <span class="s">'B'</span>;
+  <span class="k">if</span> (score &gt;= <span class="n">40</span>) <span class="k">return</span> <span class="s">'C'</span>;
+  <span class="k">return</span> <span class="s">'F'</span>;
+}</code></pre></figure>
+<p><strong>৪.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> statusLabel(status) {
+  <span class="k">switch</span> (status) {
+    <span class="k">case</span> <span class="s">'pending'</span>: <span class="k">return</span> <span class="s">'Awaiting payment'</span>;
+    <span class="k">case</span> <span class="s">'paid'</span>: <span class="k">return</span> <span class="s">'Payment complete'</span>;
+    <span class="k">case</span> <span class="s">'cancelled'</span>: <span class="k">return</span> <span class="s">'Order cancelled'</span>;
+    <span class="k">default</span>: <span class="k">return</span> <span class="s">'Unknown status'</span>;
+  }
+}</code></pre></figure>
+<p><strong>৫.</strong> <code>switch</code>-এ <code>case 'SAVE15': if (subtotal &lt; 2000) throw new RangeError(...); couponRate = 0.15; break;</code> যোগ করতে হবে।</p>
+<p><strong>৬.</strong> <code>assert.equal(calculateOrder({price: 0, quantity: 1}).grandTotal, 120);</code>।</p>
+<p><strong>৭.</strong> <code>const couponPolicies = { SAVE10: {rate: 0.1, min: 0}, SAVE20: {rate: 0.2, min: 5000} };</code> রেখে Lookup ও Validation আলাদা Function-এ নেওয়া যায়। Object-এর Key Lookup করার আগে <code>Object.hasOwn()</code> দিয়ে Membership Check করা উচিত।</p>
+<h2>৩.১৪ MCQ Quiz</h2>
+<ol><li>Strict Equality Operator কোনটি? A. <code>=</code> B. <code>==</code> C. <code>===</code> D. <code>=&gt;</code></li><li><code>2 + 3 * 4</code> কত? A. 20 B. 14 C. 24 D. 9</li><li><code>0 ?? 10</code> কত? A. 10 B. null C. 0 D. undefined</li><li><code>5 === '5'</code> কী? A. true B. false C. 5 D. Error</li><li><code>10 % 4</code> কত? A. 2 B. 2.5 C. 4 D. 0</li><li>কোনটি Logical AND? A. <code>||</code> B. <code>!</code> C. <code>&amp;&amp;</code> D. <code>??</code></li><li><code>switch</code>-এ Default Branch কোনটি? A. <code>else</code> B. <code>default</code> C. <code>otherwise</code> D. <code>fallback</code></li><li><code>Number.isNaN(NaN)</code> কী? A. true B. false C. 0 D. Error</li><li>Ternary Syntax কোনটি? A. <code>a ? b : c</code> B. <code>a : b ? c</code> C. <code>if ? else</code> D. <code>a ?? b : c</code></li><li>Client-Side Price Calculation কেন Final Authority নয়? A. Slow B. User এটি পরিবর্তন করতে পারে C. JS Math পারে না D. HTML নেই</li></ol>
+<p><strong>Answer Key ও ব্যাখ্যা:</strong> 1-C (Type ও Value দুটোই তুলনা), 2-B (Multiplication আগে), 3-C (0 Nullish নয়), 4-B (Type আলাদা), 5-A (Remainder 2), 6-C (AND), 7-B (Unmatched Case), 8-A (<code>NaN</code> সনাক্ত), 9-A (Condition ? True : False), 10-B (Client Input ও Code Manipulable)।</p>
+<h2>৩.১৫ Chapter Review Checklist</h2>
+<ul><li class="task"><span class="box">☐</span> Arithmetic ও Comparison Operators বুঝেছি</li><li class="task"><span class="box">☐</span> <code>===</code> বনাম <code>==</code> ব্যাখ্যা করতে পারি</li><li class="task"><span class="box">☐</span> <code>||</code> বনাম <code>??</code> সঠিকভাবে ব্যবহার করতে পারি</li><li class="task"><span class="box">☐</span> <code>if/else</code>, <code>switch</code>, Ternary দিয়ে Decision নিতে পারি</li><li class="task"><span class="box">☐</span> Shopping Discount Calculator চালিয়েছি</li><li class="task"><span class="box">☐</span> Automated Tests চালিয়েছি</li><li class="task"><span class="box">☐</span> Exercises ও Quiz শেষ করেছি</li></ul>
+<p><strong>পরবর্তী অধ্যায়:</strong> Chapter 4 — Loops এবং Iteration।</p>
+</section></body></html>

@@ -1,0 +1,227 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-29"><header class="opener"><div class="chap-label">অধ্যায় ২৯</div><h1>Advanced JavaScript System Design, Microservices, Distributed Systems এবং Enterprise Architecture</h1></header>
+<h2>২৯.১ Learning Outcomes</h2>
+<p>এই অধ্যায় শেষে আপনি functional ও non-functional requirements আলাদা করতে পারবেন, modular monolith ও microservices-এর trade-off ব্যাখ্যা করতে পারবেন, distributed transaction-এর Saga Pattern implement করতে পারবেন, idempotency, consistency, retries, observability, event delivery এবং failure recovery সম্পর্কে সিদ্ধান্ত নিতে পারবেন।</p>
+<h2>২৯.২ System Design আসলে কী?</h2>
+<p>System design শুধু diagram আঁকা নয়। একটি business requirement-কে নির্ভরযোগ্য, নিরাপদ, maintainable, observable ও cost-aware software system-এ রূপান্তর করার প্রক্রিয়া। ধরুন একটি travel platform-এ flight seat reservation, payment এবং booking confirmation একসঙ্গে করতে হবে। একটি service fail করলে অন্য service-এর state কী হবে—এটাই design-এর গুরুত্বপূর্ণ প্রশ্ন।</p>
+<h3>Functional requirements</h3>
+<ul><li>Customer package search করতে পারবে।</li><li>Booking request submit করতে পারবে।</li><li>Inventory reserve হবে।</li><li>Payment success হলে booking confirmed হবে।</li><li>Failure হলে reservation release হবে।</li></ul>
+<h3>Non-functional requirements</h3>
+<ul><li>Availability, latency, security, durability, scalability, auditability, disaster recovery এবং operational cost।</li><li>উদাহরণ: 95th percentile API latency 300ms-এর নিচে রাখতে চাইলে আগে traffic pattern ও dependency latency মাপতে হবে; 300ms কোনো universal guarantee নয়।</li></ul>
+<h2>২৯.৩ Capacity Planning: অনুমান নয়, হিসাব</h2>
+<p>ধরা যাক প্রতিদিন ৮৬,৪০০ booking-related request আসে। Average throughput ≈ ১ request/second। কিন্তু peak traffic average-এর ২০ গুণ হলে ২০ request/second handle করতে হতে পারে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> dailyRequests = <span class="n">86_400</span>;
+<span class="k">const</span> avgRps = dailyRequests / (<span class="n">24</span> * <span class="n">60</span> * <span class="n">60</span>);
+<span class="k">const</span> peakMultiplier = <span class="n">20</span>;
+console.log({ avgRps, estimatedPeakRps: avgRps * peakMultiplier });</code></pre></figure>
+<p>এটি শুধু starting estimate। Payload size, database queries, cache hit rate, concurrency, network, third-party payment latency ও retry amplification আলাদাভাবে বিবেচনা করতে হবে।</p>
+<h2>২৯.৪ Monolith, Modular Monolith ও Microservices</h2>
+<p><strong>Monolith:</strong> একটি deployable application; সহজ deployment ও debugging, কিন্তু module boundaries দুর্বল হলে coupling বাড়ে। <strong>Modular Monolith:</strong> একই deployable-এর মধ্যে domain modules, interfaces এবং ownership পরিষ্কার। <strong>Microservices:</strong> service-গুলো independently deployable; scalability ও team autonomy বাড়তে পারে, কিন্তু network failure, distributed data, versioning এবং operational complexity বাড়ে।</p>
+<table><thead><tr><th>Criterion</th><th>Modular Monolith</th><th>Microservices</th></tr></thead><tbody><tr><td>Deployment</td><td>একটি unit</td><td>বহু unit</td></tr><tr><td>Local transactions</td><td>সহজতর</td><td>cross-service কঠিন</td></tr><tr><td>Observability</td><td>তুলনামূলক সহজ</td><td>tracing জরুরি</td></tr><tr><td>Team autonomy</td><td>মাঝারি</td><td>উপযুক্ত boundary হলে বেশি</td></tr><tr><td>Operational overhead</td><td>কম</td><td>বেশি</td></tr></tbody></table>
+<p><strong>Recommendation:</strong> প্রমাণিত scale/team boundary না থাকলে modular monolith দিয়ে শুরু করা অনেক ক্ষেত্রে যৌক্তিক। Microservices কোনো automatic upgrade নয়।</p>
+<h2>২৯.৫ Domain-Driven Design এবং Bounded Context</h2>
+<p>Travel domain-এ <code>Catalog</code>, <code>Inventory</code>, <code>Booking</code>, <code>Payment</code>, <code>Notification</code> আলাদা bounded context হতে পারে। প্রত্যেকটির নিজস্ব language ও business rules থাকে। যেমন <code>BookingStatus</code> এবং <code>PaymentStatus</code> এক নয়। Database table অনুসারে নয়, business capability অনুসারে boundary নির্ধারণ করতে হবে।</p>
+<figure class="code keep"><pre><code>Client / Web App
+       |
+   API Gateway
+       |
+ +-----+--------+---------+
+ | Catalog      Booking   Identity |
+ +-----+--------+---------+
+                 |
+           Saga Orchestrator
+              /       \
+        Inventory    Payment
+              \       /
+             Event Bus
+                 |
+            Notification</code></pre></figure>
+<p>এটি <strong>conceptual diagram</strong>, deployed topology নয়। Gateway authentication, authorization, rate limits এবং observability policy-এর বিকল্প নয়।</p>
+<h2>২৯.৬ Synchronous বনাম Asynchronous Communication</h2>
+<p>REST/HTTP synchronous request-response workflow-তে সহজ। Events asynchronous decoupling ও background work-এ সাহায্য করে। তবে event broker ব্যবহারে delivery guarantees, replay, schema evolution, ordering ও dead-letter handling যোগ হয়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> event = {
+  eventId: <span class="s">'evt-101'</span>,
+  <span class="k">type</span>: <span class="s">'booking.confirmed.v1'</span>,
+  aggregateId: <span class="s">'booking-101'</span>,
+  occurredAt: <span class="k">new</span> Date().toISOString(),
+  payload: { bookingId: <span class="s">'booking-101'</span> }
+};</code></pre></figure>
+<p>Event version পরিবর্তনের সময় পুরোনো consumers যেন অকারণে break না হয়, সে জন্য backward-compatible fields ও schema contract দরকার।</p>
+<h2>২৯.৭ Distributed Transactions এবং Saga Pattern</h2>
+<p>একটি local SQL transaction দিয়ে ভিন্ন service/database-এর সব change atomically commit করা যায় না। Saga-তে প্রতিটি local transaction-এর পর failure হলে compensating action চালানো হয়। Compensation একটি logical reversal; সব external side effect নিখুঁতভাবে undo করা যায় না।</p>
+<h3>Happy path</h3>
+<ol><li>Booking request validate।</li><li>Inventory seat reserve।</li><li>Payment charge।</li><li>Booking confirm।</li><li>Notification event publish।</li></ol>
+<h3>Failure path</h3>
+<p>Payment fail করলে Inventory release করতে হবে। Inventory release-ও fail করলে <code>MANUAL_REVIEW</code> বা reconciliation queue প্রয়োজন।</p>
+<figure class="code keep"><pre><code>Booking Requested
+       |
+  Reserve Inventory ----failure----&gt; Reject
+       |
+  Charge Payment ------failure-----&gt; Release Inventory
+       |
+  Confirm Booking
+       |
+  Publish Event</code></pre></figure>
+<p><strong>Orchestration</strong>-এ একটি coordinator workflow পরিচালনা করে। <strong>Choreography</strong>-তে services events শুনে নিজেদের action নেয়। Orchestration traceability সহজ করতে পারে; choreography coupling কমালেও emergent workflow বোঝা কঠিন হতে পারে।</p>
+<h2>২৯.৮ Idempotency এবং Duplicate Request</h2>
+<p>Network timeout মানেই operation fail নয়। Client একই request retry করলে duplicate charge বা duplicate booking হতে পারে। Idempotency key ব্যবহার করে একই logical request-এর ফলাফল reuse করতে হয়। একই key দিয়ে ভিন্ন payload এলে conflict ফিরিয়ে দিতে হবে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> idempotencyKey = <span class="s">'trip-101'</span>;
+<span class="c">// Server must store key + request fingerprint + result atomically.</span></code></pre></figure>
+<p>In-memory <code>Map</code> একটি learning tool; production-এ durable unique constraint ও transaction দরকার। Concurrent requests-এ per-process lock যথেষ্ট নয় যখন একাধিক replica থাকে।</p>
+<h2>২৯.৯ Consistency, CAP এবং Data Ownership</h2>
+<p>Distributed systems-এ latency, partition, availability ও consistency-এর trade-off আছে। CAP-কে &quot;যেকোনো দুটি বেছে নাও&quot; বলে সরলীকরণ করা ভুল; এটি network partition চলাকালে নির্দিষ্ট consistency ও availability trade-off বোঝায়।</p>
+<p>Inventory-এর মতো scarce resource-এ strong coordination প্রয়োজন হতে পারে। Analytics ও notification eventual consistency সহ্য করতে পারে। প্রত্যেক service-এর database ownership আলাদা হলে অন্য service সরাসরি table modify করবে না।</p>
+<h2>২৯.১০ Reliability Patterns</h2>
+<ul><li><strong>Timeout:</strong> অনির্দিষ্ট অপেক্ষা এড়ায়।</li><li><strong>Retry with exponential backoff and jitter:</strong> transient error সামলায়; permanent validation failure retry নয়।</li><li><strong>Circuit breaker:</strong> failing dependency-তে অপ্রয়োজনীয় load কমায়।</li><li><strong>Bulkhead:</strong> একটি failure যেন সব resources consume না করে।</li><li><strong>Dead-letter queue:</strong> repeatedly failing messages investigation-এর জন্য রাখে।</li><li><strong>Transactional outbox:</strong> business state change ও event record একই database transaction-এ commit করে; পরে publisher broker-এ পাঠায়।</li><li><strong>Inbox/deduplication:</strong> at-least-once delivery-তে duplicate processing প্রতিরোধ করে।</li></ul>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> backoffMs(attempt, base = <span class="n">100</span>, cap = <span class="n">5_000</span>) {
+  <span class="k">const</span> exponential = Math.min(cap, base * <span class="n">2</span> ** attempt);
+  <span class="k">return</span> Math.floor(Math.random() * exponential);
+}</code></pre></figure>
+<p>Retry-এর আগে operation idempotent কি না এবং request deadline শেষ হয়েছে কি না যাচাই জরুরি।</p>
+<h2>২৯.১১ Observability ও Security</h2>
+<p>Metrics দিয়ে rate/errors/latency বোঝা যায়; structured logs দিয়ে ঘটনা অনুসন্ধান করা যায়; distributed traces দিয়ে cross-service request path দেখা যায়। Trace ID লগে থাকলেও password, token, payment card বা private customer data লগ করা যাবে না। Service-to-service authorization, least privilege, TLS, secret rotation এবং audit trail প্রয়োজন।</p>
+<h2>২৯.১২ Practical Project — TravelSaga Booking Orchestrator</h2>
+<p><strong>Goal:</strong> একটি in-memory educational Saga তৈরি করা, যেখানে inventory reservation, payment charge, booking confirmation, rollback ও idempotency দেখানো হবে।</p>
+<h3>Project Structure</h3>
+<figure class="code keep"><pre><code>source-code/chapter-29/
+├── package.json
+├── saga.mjs
+├── demo.mjs
+├── README.md
+└── test/
+    └── saga.test.mjs</code></pre></figure>
+<h3>Run</h3>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code>cd source-code/chapter-29
+node --test
+node demo.mjs</code></pre></figure>
+<h3>Core API</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">import</span> {
+  createInventory,
+  createPaymentGateway,
+  createBookingRepository,
+  createTravelSaga
+} <span class="k">from</span> <span class="s">'./saga.mjs'</span>;
+
+<span class="k">const</span> inventory = createInventory({ seats: <span class="n">2</span> });
+<span class="k">const</span> payments = createPaymentGateway();
+<span class="k">const</span> bookings = createBookingRepository();
+<span class="k">const</span> saga = createTravelSaga({ inventory, payments, bookings });
+
+<span class="k">const</span> booking = <span class="k">await</span> saga.book({
+  id: <span class="s">'trip-101'</span>, customer: <span class="s">'Rahim'</span>, amount: <span class="n">12500000</span>
+});
+console.log(booking.status); <span class="c">// CONFIRMED</span></code></pre></figure>
+<p><strong>Code walkthrough:</strong> <code>createInventory()</code> seat reservation ও release পরিচালনা করে; <code>createPaymentGateway()</code> charge/refund simulate করে; <code>createBookingRepository()</code> confirmed booking রাখে; <code>createTravelSaga()</code> compensation stack reverse order-এ চালায়। একই id-র concurrent calls single-flight করে এবং repeat call-এ saved result দেয়।</p>
+<p><strong>Money:</strong> <code>amount</code> integer minor units (যেমন পয়সা) হিসেবে গণ্য; floating-point currency arithmetic এড়ানোর জন্য।</p>
+<p><strong>Limitations:</strong> এটি real microservices নয়; in-memory state restart-এ হারায়। Crash between charge and confirmation, external payment uncertainty, cross-instance race, durable outbox, payment reconciliation ও distributed lock এই demo-তে implement করা হয়নি। Production use-এর আগে এগুলো অপরিহার্য।</p>
+<h2>২৯.১৩ Failure Scenario Lab</h2>
+<p>১. <code>shouldFail: () =&gt; true</code> দিয়ে payment failure simulate করুন; inventory পুনরুদ্ধার হয়েছে কি না দেখুন।<br>২. <code>seats: 0</code> দিয়ে sold-out case পরীক্ষা করুন; কোনো charge হয়নি কি না দেখুন।<br>৩. একই booking ID দুইবার পাঠিয়ে seat count অপরিবর্তিত আছে কি না যাচাই করুন।<br>৪. একই ID কিন্তু ভিন্ন amount পাঠিয়ে <code>IDEMPOTENCY_CONFLICT</code> দেখুন।<br>৫. <code>Promise.all()</code> দিয়ে concurrent duplicate requests পাঠান।<br>৬. Compensation function-এ artificial error inject করে manual reconciliation-এর প্রয়োজন বোঝার চেষ্টা করুন।</p>
+<h2>২৯.১৪ Common Mistakes</h2>
+<p>১. Network timeout-কে নিশ্চিত failure ধরে আবার charge করা।<br>২. Microservices নিলেই scalability নিশ্চিত হবে মনে করা।<br>৩. Database ownership ভেঙে অন্য service-এর table সরাসরি update করা।<br>৪. At-least-once events-এ consumer idempotency না রাখা।<br>৫. Business operation-এর পরে event publish ব্যর্থ হলে outbox ছাড়া state mismatch তৈরি করা।<br>৬. Retry-তে jitter বা upper bound না রাখা।<br>৭. Compensation fail হলে error গোপন করা।<br>৮. Distributed trace context propagate না করা।<br>৯. PII ও credentials logs-এ লেখা।<br>১০. Production SLA নির্ধারণের আগে measurement না করা।</p>
+<h2>২৯.১৫ Exercises</h2>
+<p>১. Modular monolith এবং microservices-এর তিনটি trade-off লিখুন।<br>২. Booking, Payment ও Inventory-এর bounded context আলাদা করুন।<br>৩. Saga-র happy path এবং payment-failure path আঁকুন।<br>৪. Idempotency key ও request fingerprint-এর কাজ ব্যাখ্যা করুন।<br>৫. <code>at-least-once delivery</code>-তে duplicate handling কেন প্রয়োজন?<br>৬. Transactional outbox pattern-এর কাজ লিখুন।<br>৭. ৪৩২,০০০ daily requests হলে average RPS কত?<br>৮. Retry storm কেন বিপজ্জনক?<br>৯. Inventory strong coordination চাইতে পারে, কিন্তু notification eventual consistency সহ্য করে—কেন?<br>১০. TravelSaga-তে durable database ও reconciliation worker যোগ করার architecture proposal লিখুন।</p>
+<h3>Sample Solutions</h3>
+<p>১. Deployment autonomy বনাম operational complexity; independent scaling বনাম network overhead; local transaction বনাম distributed consistency।<br>২. Booking booking lifecycle, Payment charge/refund, Inventory available/reserved seats-এর মালিক।<br>৩. Success: reserve→charge→confirm; failure: reserve→charge fail→release।<br>৪. Key logical request চিহ্নিত করে; fingerprint একই key-তে payload পরিবর্তন শনাক্ত করে।<br>৫. Broker একই event পুনরায় deliver করতে পারে; duplicate side effects এড়াতে deduplication দরকার।<br>৬. Business change ও outbox row একই transaction-এ commit; publisher পরে event পাঠায়।<br>৭. <code>432000 / 86400 = 5 RPS</code>।<br>৮. Failure-এর সময় repeated requests downstream overload বাড়ায়।<br>৯. Overselling ঠেকাতে inventory coordination; delayed notification business invariant ভাঙে না।<br>১০. Unique idempotency constraint, transactional booking/outbox tables, async worker, retry policy, audit logs, manual review এবং reconciliation schedule।</p>
+<h2>২৯.১৬ MCQ — Final Check</h2>
+<p>১. Saga কী? A) distributed workflow with compensation B) CSS library C) encryption D) browser storage<br>২. Idempotency কী প্রতিরোধ করে? A) duplicate side effects B) all latency C) every network failure D) schema migration<br>৩. Outbox কেন? A) state/event consistency B) CSS minification C) token creation D) image compression<br>৪. Circuit breaker কী করে? A) failing dependency calls সীমিত করে B) database encrypt করে C) UI render করে D) package install করে<br>৫. Bounded context কী নির্দেশ করে? A) domain boundary B) TCP port C) Git branch D) memory size<br>৬. Eventual consistency কী? A) replicas সময় নিয়ে converge করে B) always immediate C) no data D) no failures<br>৭. Compensation কী? A) semantic undo action B) process kill C) memory leak D) CDN<br>৮. Trace ID কী কাজে লাগে? A) cross-service correlation B) password hashing C) SQL index D) CSS theme<br>৯. Dead-letter queue কী রাখে? A) repeatedly failed messages B) browser cache C) JWT secrets D) image thumbnails<br>১০. Distributed system-এ retry করার আগে কী জরুরি? A) idempotency ও deadline B) font selection C) color scheme D) no logs</p>
+<p><strong>Answers ও ব্যাখ্যা:</strong> ১-A (local steps + compensation), ২-A (same request repeated হলেও double charge এড়ানো), ৩-A (database change ও event publication gap কমানো), ৪-A (cascade failure সীমিত), ৫-A (business model ownership), ৬-A (replicas eventually converge), ৭-A (previous step-এর logical reversal), ৮-A (distributed request debugging), ৯-A (investigation/reprocessing), ১০-A (unsafe retries নতুন সমস্যা তৈরি করতে পারে)।</p>
+<h2>২৯.১৭ Architecture Review Checklist</h2>
+<ul><li class="task"><span class="box">☐</span> Requirements, traffic estimates ও failure assumptions documented</li><li class="task"><span class="box">☐</span> Domain boundaries এবং data ownership defined</li><li class="task"><span class="box">☐</span> Authentication/authorization ও secrets strategy</li><li class="task"><span class="box">☐</span> Idempotency, retries, timeouts এবং compensations</li><li class="task"><span class="box">☐</span> Event schema/versioning ও outbox/inbox plan</li><li class="task"><span class="box">☐</span> Monitoring, alerting, tracing ও incident runbooks</li><li class="task"><span class="box">☐</span> Backup, disaster recovery, reconciliation</li><li class="task"><span class="box">☐</span> Load, integration, chaos এবং security testing plan</li></ul>
+<h2>২৯.১৮ Recap ও Next Chapter</h2>
+<p>এই অধ্যায়ে scalable system design-এর বাস্তব trade-offs, microservice boundaries, distributed consistency, Saga, idempotency এবং resilience শিখলাম। পরবর্তী <strong>Chapter 30</strong>-এ full-stack capstone ও career roadmap-এর মাধ্যমে বইয়ের সব দক্ষতা একত্র করা হবে।</p>
+<p><strong>Further reading:</strong> Martin Fowler-এর microservices ও patterns writings; Microsoft Azure Architecture Center-এর Saga/Outbox patterns; AWS Builders Library-এর retries/timeouts/idempotency; OpenTelemetry documentation। Version-specific guidance অফিসিয়াল উৎস দিয়ে যাচাই করতে হবে।</p>
+</section></body></html>

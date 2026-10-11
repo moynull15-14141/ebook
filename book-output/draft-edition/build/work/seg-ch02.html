@@ -1,0 +1,285 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-2"><header class="opener"><div class="chap-label">অধ্যায় ২</div><h1>Variables, Data Types এবং Memory</h1></header>
+<h2>অধ্যায়ের লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে তুমি <code>let</code>, <code>const</code>, <code>var</code>, JavaScript-এর Primitive ও Reference Values, <code>typeof</code>, Type Conversion, Truthy/Falsy, Scope, <code>null</code>/<code>undefined</code>, Memory Reference এবং সাধারণ Mutation Bugs বুঝতে পারবে। শেষে সম্পূর্ণ <strong>Student Result Calculator</strong> তৈরি করবে।</p>
+<h2>২.১ Variable আসলে কী?</h2>
+<p>Variable হলো একটি নামযুক্ত Binding, যার মাধ্যমে Program কোনো Value ব্যবহার করে। JavaScript-এর Variable-কে শুধু “Memory Box” ভাবলে কিছু ক্ষেত্রে ভুল ধারণা তৈরি হয়; Object-এর ক্ষেত্রে Variable Object-এর Reference ধরে রাখতে পারে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">let</span> seats = <span class="n">12</span>;
+seats = <span class="n">10</span>; <span class="c">// reassignment allowed</span>
+<span class="k">const</span> destination = <span class="s">&quot;Dhaka&quot;</span>;
+<span class="c">// destination = &quot;Sylhet&quot;; // TypeError</span></code></pre></figure>
+<p><strong>Naming:</strong> <code>camelCase</code> ব্যবহার করো; <code>totalPrice</code>, <code>studentName</code> অর্থবহ। নামের শুরুতে সংখ্যা রাখা যায় না, তবে <code>_</code> ও <code>$</code> অনুমোদিত। Reserved Keyword (<code>const</code>, <code>return</code>) নাম হতে পারে না।</p>
+<h2>২.২ <code>let</code>, <code>const</code>, <code>var</code> — পার্থক্য</h2>
+<table><thead><tr><th>বৈশিষ্ট্য</th><th><code>let</code></th><th><code>const</code></th><th><code>var</code></th></tr></thead><tbody><tr><td>Scope</td><td>Block</td><td>Block</td><td>Function / Global</td></tr><tr><td>Reassignment</td><td>হ্যাঁ</td><td>না</td><td>হ্যাঁ</td></tr><tr><td>Same scope-এ redeclare</td><td>না</td><td>না</td><td>হ্যাঁ</td></tr><tr><td>Initialization বাধ্যতামূলক</td><td>না</td><td>হ্যাঁ</td><td>না</td></tr><tr><td>Hoisting behavior</td><td>TDZ</td><td>TDZ</td><td><code>undefined</code> initialization</td></tr></tbody></table>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">let</span> count = <span class="n">1</span>;
+<span class="k">if</span> (<span class="k">true</span>) {
+  <span class="k">let</span> count = <span class="n">2</span>; <span class="c">// different block-scoped binding</span>
+  console.log(count); <span class="c">// 2</span>
+}
+console.log(count); <span class="c">// 1</span></code></pre></figure>
+<p><strong>Recommended Practice:</strong> Default হিসেবে <code>const</code>; Value পুনরায় Assign করতে হলে <code>let</code>; নতুন Code-এ <code>var</code> এড়িয়ে চলো। <code>const</code> মানে Object Deeply Immutable নয়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> profile = {name: <span class="s">&quot;Rafi&quot;</span>};
+profile.name = <span class="s">&quot;Rafi Ahmed&quot;</span>; <span class="c">// allowed</span>
+<span class="c">// profile = {}; // TypeError</span></code></pre></figure>
+<h2>২.৩ JavaScript Data Types</h2>
+<p>JavaScript-এর সাতটি Primitive Type: <code>string</code>, <code>number</code>, <code>bigint</code>, <code>boolean</code>, <code>undefined</code>, <code>symbol</code>, <code>null</code>; আর Objects-এর মধ্যে Array, Function, Date ইত্যাদি পড়ে। <code>null</code>-এর <code>typeof</code> ফল <code>&quot;object&quot;</code> একটি ঐতিহাসিক Language Quirk।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> city = <span class="s">&quot;Dhaka&quot;</span>;               <span class="c">// string</span>
+<span class="k">const</span> fare = <span class="n">65000</span>;                 <span class="c">// number</span>
+<span class="k">const</span> largeId = <span class="n">9007199254740993n</span>; <span class="c">// bigint</span>
+<span class="k">const</span> available = <span class="k">true</span>;            <span class="c">// boolean</span>
+<span class="k">let</span> coupon;                        <span class="c">// undefined</span>
+<span class="k">const</span> missing = <span class="k">null</span>;              <span class="c">// null</span>
+<span class="k">const</span> key = Symbol(<span class="s">&quot;key&quot;</span>);        <span class="c">// symbol</span>
+<span class="k">const</span> student = {name: <span class="s">&quot;Mina&quot;</span>};    <span class="c">// object</span>
+console.log(<span class="k">typeof</span> missing);       <span class="c">// &quot;object&quot; (historical quirk)</span>
+console.log(Array.isArray([<span class="n">1</span>, <span class="n">2</span>])); <span class="c">// true</span></code></pre></figure>
+<h3><code>number</code> এবং Precision</h3>
+<p>JavaScript-এর সাধারণ <code>number</code> IEEE-754 Double-Precision Floating-Point ব্যবহার করে। তাই:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>console.log(<span class="n">0.1</span> + <span class="n">0.2</span>); <span class="c">// 0.30000000000000004</span>
+console.log(Number.isNaN(Number(<span class="s">&quot;abc&quot;</span>))); <span class="c">// true</span>
+console.log(Number.isFinite(Infinity)); <span class="c">// false</span></code></pre></figure>
+<p>Money Calculation-এ Minor Unit (যেমন পয়সা) বা উপযুক্ত Decimal Library বিবেচনা করা ভালো। <code>BigInt</code> বড় Integer-এর জন্য, কিন্তু <code>number</code>-এর সঙ্গে সরাসরি Arithmetic করা যায় না।</p>
+<h2>২.৪ <code>undefined</code>, <code>null</code>, <code>NaN</code></h2>
+<ul><li><code>undefined</code>: Value Assign করা হয়নি বা Property নেই।</li><li><code>null</code>: ইচ্ছাকৃতভাবে “কোনো Value নেই” বোঝাতে ব্যবহৃত।</li><li><code>NaN</code>: Invalid Numeric Result; <code>typeof NaN</code> হলো <code>&quot;number&quot;</code>।</li></ul>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">let</span> email;
+<span class="k">const</span> middleName = <span class="k">null</span>;
+<span class="k">const</span> badNumber = Number(<span class="s">&quot;hello&quot;</span>);
+console.log(email === <span class="k">undefined</span>); <span class="c">// true</span>
+console.log(middleName === <span class="k">null</span>); <span class="c">// true</span>
+console.log(Number.isNaN(badNumber)); <span class="c">// true</span></code></pre></figure>
+<h2>২.৫ Type Conversion বনাম Coercion</h2>
+<p><strong>Explicit Conversion</strong>-এ Programmer ইচ্ছাকৃতভাবে Type বদলায়; <strong>Implicit Coercion</strong>-এ Operator বা Context পরিবর্তন ঘটায়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>Number(<span class="s">&quot;42&quot;</span>);       <span class="c">// 42</span>
+String(<span class="n">42</span>);         <span class="c">// &quot;42&quot;</span>
+Boolean(<span class="n">0</span>);         <span class="c">// false</span>
+<span class="s">&quot;5&quot;</span> + <span class="n">2</span>;           <span class="c">// &quot;52&quot; (concatenation)</span>
+<span class="s">&quot;5&quot;</span> - <span class="n">2</span>;           <span class="c">// 3 (numeric coercion)</span>
+Number(<span class="s">&quot;&quot;</span>);        <span class="c">// 0 — input validation-এ বিপজ্জনক!</span>
+Number(<span class="s">&quot;abc&quot;</span>);     <span class="c">// NaN</span></code></pre></figure>
+<p>Form Input থেকে সব Value সাধারণত String হিসেবে আসে। <code>Number(&quot;&quot;)</code> হলো <code>0</code>, তাই Empty Input আগে আলাদাভাবে Reject করতে হবে।</p>
+<h2>২.৬ Truthy এবং Falsy</h2>
+<p><code>false</code>, <code>0</code>, <code>-0</code>, <code>0n</code>, <code>&quot;&quot;</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code> হলো Falsy। অন্য সব Object (খালি Array বা Object-সহ) Truthy।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>console.log(Boolean([]));  <span class="c">// true</span>
+console.log(Boolean({}));  <span class="c">// true</span>
+console.log(Boolean(<span class="s">&quot;0&quot;</span>)); <span class="c">// true</span>
+console.log(Boolean(<span class="n">0</span>));   <span class="c">// false</span></code></pre></figure>
+<p><strong>Common Mistake:</strong> <code>if (marks)</code> ব্যবহার করলে <code>0</code> নম্বরকে Missing ধরে নিতে পারো। বরং <code>marks === &quot;&quot;</code> দিয়ে Empty Field পরীক্ষা করো।</p>
+<h2>২.৭ Scope, Hoisting এবং Temporal Dead Zone</h2>
+<p><code>let</code> ও <code>const</code> Block-Scoped। Declaration-এর আগে একই Scope-এ Access করলে <code>ReferenceError</code> হয়—এই অবস্থাকে Temporal Dead Zone (TDZ) বলা হয়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> demo() {
+  <span class="c">// console.log(score); // ReferenceError</span>
+  <span class="k">const</span> score = <span class="n">95</span>;
+  <span class="k">if</span> (score &gt; <span class="n">80</span>) {
+    <span class="k">const</span> message = <span class="s">&quot;Excellent&quot;</span>;
+    console.log(message);
+  }
+  <span class="c">// console.log(message); // ReferenceError</span>
+}</code></pre></figure>
+<p><code>var</code> Function-Scoped এবং Declaration-এর আগে Access করলে অনেক ক্ষেত্রে <code>undefined</code> পাওয়া যায়; তাই পুরোনো Code-এ সূক্ষ্ম Bug তৈরি হতে পারে।</p>
+<h2>২.৮ Primitive Value এবং Object Reference</h2>
+<p>Primitive Assignment সাধারণত Value Copy-এর মতো আচরণ করে। Object Assignment-এ দুই Binding একই Object-কে Refer করতে পারে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">let</span> a = <span class="n">5</span>;
+<span class="k">let</span> b = a;
+b = <span class="n">9</span>;
+console.log(a); <span class="c">// 5</span>
+
+<span class="k">const</span> first = {name: <span class="s">&quot;Nila&quot;</span>};
+<span class="k">const</span> second = first;
+second.name = <span class="s">&quot;Nila Islam&quot;</span>;
+console.log(first.name); <span class="c">// &quot;Nila Islam&quot;</span></code></pre></figure>
+<p>Shallow Copy তৈরি করতে Spread Syntax ব্যবহার করা যায়, কিন্তু Nested Object Shared থাকতে পারে:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> original = {name: <span class="s">&quot;A&quot;</span>, address: {city: <span class="s">&quot;Dhaka&quot;</span>}};
+<span class="k">const</span> copy = {...original};
+copy.address.city = <span class="s">&quot;Khulna&quot;</span>;
+console.log(original.address.city); <span class="c">// &quot;Khulna&quot;</span>
+<span class="k">const</span> deepCopy = structuredClone(original); <span class="c">// supported modern runtimes</span></code></pre></figure>
+<p><strong>Memory Note:</strong> JavaScript Runtime সাধারণত Garbage Collection দিয়ে Unreachable Objects-এর Memory পুনরুদ্ধার করে। <code>const</code> Variable-কে Permanent Memory Allocation ভাবা ভুল।</p>
+<h2>২.৯ <code>===</code>, <code>??</code> এবং Optional Chaining-এর পরিচয়</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>console.log(<span class="n">0</span> === <span class="s">&quot;0&quot;</span>); <span class="c">// false</span>
+console.log(<span class="n">0</span> == <span class="s">&quot;0&quot;</span>);  <span class="c">// true (coercion)</span>
+<span class="k">const</span> preferredSeats = <span class="n">0</span>;
+console.log(preferredSeats ?? <span class="n">2</span>); <span class="c">// 0</span>
+console.log(preferredSeats || <span class="n">2</span>); <span class="c">// 2</span>
+<span class="k">const</span> user = {profile: <span class="k">null</span>};
+console.log(user.profile?.email ?? <span class="s">&quot;Not provided&quot;</span>);</code></pre></figure>
+<p>সাধারণত <code>===</code> ও <code>!==</code> ব্যবহার করো। <code>??</code> শুধু <code>null</code> বা <code>undefined</code> হলে Fallback নেয়; <code>||</code> সব Falsy Value-তে Fallback নেয়।</p>
+<h2>২.১০ Practical Project — Student Result Calculator</h2>
+<p><strong>Requirements:</strong> Student Name, বাংলা, ইংরেজি ও গণিতের নম্বর নিতে হবে। প্রতিটি নম্বর ০–১০০-এর মধ্যে Integer হতে হবে। মোট, গড়, পাস/ফেল ও Grade দেখাতে হবে। কোনো একটি বিষয়ে ৩৩-এর নিচে হলে Overall Fail। Grade Policy এখানে শেখার জন্য উদাহরণ; এটি কোনো নির্দিষ্ট Education Board-এর Official Grading Standard নয়।</p>
+<p><strong>Project Files:</strong></p>
+<figure class="code keep"><pre><code>source-code/chapter-02/
+├── index.html
+├── style.css
+├── calculator.js
+├── app.js
+└── calculator.test.js</code></pre></figure>
+<p><strong>Logic Breakdown:</strong> <code>calculateResult(name, marks)</code> একটি Pure Function; এটি DOM-এর ওপর নির্ভর করে না। <code>app.js</code> Form-এর Data নিয়ে Function Call করে। <code>textContent</code> দিয়ে Result দেখানো হয় যাতে User Input HTML হিসেবে Execute না হয়।</p>
+<h3>calculator.js — Core Logic</h3>
+<figure class="code"><figcaption>JavaScript</figcaption><pre><code><span class="s">&quot;use strict&quot;</span>;
+<span class="k">function</span> calculateResult(name, marks) {
+  <span class="k">if</span> (<span class="k">typeof</span> name !== <span class="s">&quot;string&quot;</span> || name.trim().length === <span class="n">0</span> || name.trim().length &gt; <span class="n">80</span>) {
+    <span class="k">throw</span> <span class="k">new</span> TypeError(<span class="s">&quot;শিক্ষার্থীর নাম ১–৮০ অক্ষরের হতে হবে।&quot;</span>);
+  }
+  <span class="k">if</span> (!Array.isArray(marks) || marks.length !== <span class="n">3</span> || marks.some(
+    (mark) =&gt; <span class="k">typeof</span> mark !== <span class="s">&quot;number&quot;</span> || !Number.isInteger(mark) || mark &lt; <span class="n">0</span> || mark &gt; <span class="n">100</span>
+  )) {
+    <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">&quot;প্রতিটি বিষয়ে ০–১০০-এর মধ্যে পূর্ণসংখ্যা দাও।&quot;</span>);
+  }
+  <span class="k">const</span> total = marks.reduce((sum, mark) =&gt; sum + mark, <span class="n">0</span>);
+  <span class="k">const</span> average = total / marks.length;
+  <span class="k">const</span> passed = marks.every((mark) =&gt; mark &gt;= <span class="n">33</span>);
+  <span class="k">let</span> grade;
+  <span class="k">if</span> (!passed) grade = <span class="s">&quot;F&quot;</span>;
+  <span class="k">else</span> <span class="k">if</span> (average &gt;= <span class="n">80</span>) grade = <span class="s">&quot;A+&quot;</span>;
+  <span class="k">else</span> <span class="k">if</span> (average &gt;= <span class="n">70</span>) grade = <span class="s">&quot;A&quot;</span>;
+  <span class="k">else</span> <span class="k">if</span> (average &gt;= <span class="n">60</span>) grade = <span class="s">&quot;A-&quot;</span>;
+  <span class="k">else</span> <span class="k">if</span> (average &gt;= <span class="n">50</span>) grade = <span class="s">&quot;B&quot;</span>;
+  <span class="k">else</span> <span class="k">if</span> (average &gt;= <span class="n">40</span>) grade = <span class="s">&quot;C&quot;</span>;
+  <span class="k">else</span> <span class="k">if</span> (average &gt;= <span class="n">33</span>) grade = <span class="s">&quot;D&quot;</span>;
+  <span class="k">else</span> grade = <span class="s">&quot;F&quot;</span>;
+  <span class="k">return</span> {name: name.trim(), marks: [...marks], total, average, passed, grade};
+}</code></pre></figure>
+<p>Complete <code>index.html</code>, <code>style.css</code>, <code>app.js</code> ও Test Code একই Package-এর <code>source-code/chapter-02/</code> Folder-এ রয়েছে। <code>index.html</code> Browser-এ খুলে Application চালাও।</p>
+<h3>Input → Processing → Output</h3>
+<figure class="code keep"><pre><code>Form Input → Empty Check → Number Conversion → Validation
+     → Total / Average / Pass → Grade → Safe DOM Output</code></pre></figure>
+<p><strong>Example:</strong> <code>Sara</code>, <code>[80, 90, 70]</code> → Total <code>240</code>, Average <code>80.00</code>, Passed <code>true</code>, Grade <code>A+</code>। <code>Sara</code>, <code>[100, 100, 20]</code> → Total <code>220</code>, কিন্তু Math-এ Fail হওয়ায় Grade <code>F</code>।</p>
+<h2>২.১১ Debugging Checklist</h2>
+<ol><li>Input Empty থাকলে <code>Number(&quot;&quot;)</code> দিয়ে <code>0</code> হয়ে যাচ্ছে কি?</li><li>Grade-এর আগে সব বিষয়ে Pass Condition যাচাই হচ্ছে কি?</li><li><code>NaN</code>, Negative বা <code>101</code> Reject হচ্ছে কি?</li><li>User Name Output-এ <code>textContent</code> ব্যবহার করা হচ্ছে কি?</li><li><code>const</code> Object-এর Nested Property পরিবর্তন হলে কেন হচ্ছে বুঝতে পারছ কি?</li></ol>
+<h2>২.১২ Practice Exercises</h2>
+<p><strong>Exercise 1:</strong> <code>const</code> ও <code>let</code>-এর মধ্যে Reassignment-এর পার্থক্য Code দিয়ে দেখাও।</p>
+<p><strong>Exercise 2:</strong> <code>&quot;25&quot;</code>, <code>25</code>, <code>null</code>, <code>undefined</code>, <code>[]</code> এবং <code>NaN</code>-এর <code>typeof</code> বের করো।</p>
+<p><strong>Exercise 3:</strong> কেন <code>Number(&quot;&quot;)</code> Form Validation-এ Problem তৈরি করে? একটি Guard লেখো।</p>
+<p><strong>Exercise 4:</strong> <code>const settings = {theme: {mode: &quot;light&quot;}}</code>-এর Shallow Copy বানিয়ে Nested Mode বদলাও। Original কেন বদলায় ব্যাখ্যা করো।</p>
+<p><strong>Exercise 5:</strong> Calculator-এ একটি Subject-এ ৩২ ও অন্য দুটিতে ৯০ থাকলে Final Grade কী হবে? কেন?</p>
+<p><strong>Exercise 6 (Challenge):</strong> Calculator-এ ৪টি Subject Support করতে Function-টিকে Generalize করো; তবে Empty List Reject করবে।</p>
+<h2>২.১৩ Exercise Solutions</h2>
+<p><strong>Solution 1:</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">let</span> points = <span class="n">10</span>;
+points = <span class="n">20</span>; <span class="c">// works</span>
+<span class="k">const</span> maxPoints = <span class="n">100</span>;
+<span class="c">// maxPoints = 200; // TypeError</span></code></pre></figure>
+<p><strong>Solution 2:</strong> যথাক্রমে <code>&quot;string&quot;</code>, <code>&quot;number&quot;</code>, <code>&quot;object&quot;</code>, <code>&quot;undefined&quot;</code>, <code>&quot;object&quot;</code>, <code>&quot;number&quot;</code>। Array-এর জন্য <code>Array.isArray()</code> দরকার।</p>
+<p><strong>Solution 3:</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> parseMark(raw) {
+  <span class="k">if</span> (raw.trim() === <span class="s">&quot;&quot;</span>) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">&quot;Required&quot;</span>);
+  <span class="k">const</span> value = Number(raw);
+  <span class="k">if</span> (!Number.isInteger(value) || value &lt; <span class="n">0</span> || value &gt; <span class="n">100</span>) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">&quot;Invalid mark&quot;</span>);
+  <span class="k">return</span> value;
+}</code></pre></figure>
+<p><strong>Solution 4:</strong> Spread Copy শুধু Top Level Copy করে; Nested <code>theme</code> Object Shared থাকে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> settings = {theme: {mode: <span class="s">&quot;light&quot;</span>}};
+<span class="k">const</span> shallow = {...settings};
+shallow.theme.mode = <span class="s">&quot;dark&quot;</span>;
+console.log(settings.theme.mode); <span class="c">// &quot;dark&quot;</span></code></pre></figure>
+<p><strong>Solution 5:</strong> <code>F</code>; কারণ যেকোনো Subject-এ ৩৩-এর কম হলে Fail Policy প্রয়োগ করা হয়েছে।</p>
+<p><strong>Solution 6 (One Approach):</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> summarizeMarks(marks) {
+  <span class="k">if</span> (!Array.isArray(marks) || marks.length === <span class="n">0</span> ||
+      marks.some((n) =&gt; !Number.isInteger(n) || n &lt; <span class="n">0</span> || n &gt; <span class="n">100</span>)) {
+    <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">&quot;Invalid marks&quot;</span>);
+  }
+  <span class="k">const</span> total = marks.reduce((sum, n) =&gt; sum + n, <span class="n">0</span>);
+  <span class="k">return</span> {total, average: total / marks.length, passed: marks.every((n) =&gt; n &gt;= <span class="n">33</span>)};
+}</code></pre></figure>
+<h2>২.১৪ Quick Quiz — ১০টি প্রশ্ন</h2>
+<ol><li><code>const</code>-এর Object Property পরিবর্তন করা যায়? <strong>(A) কখনো না (B) হ্যাঁ (C) শুধু Strict Mode-এ</strong></li><li><code>typeof null</code> কী? <strong>(A) null (B) undefined (C) object</strong></li><li><code>Number(&quot;&quot;)</code> কত? <strong>(A) 0 (B) NaN (C) undefined</strong></li><li><code>Boolean([])</code> কী? <strong>(A) false (B) true (C) error</strong></li><li><code>&quot;5&quot; + 2</code> কী? <strong>(A) 7 (B) &quot;52&quot; (C) NaN</strong></li><li><code>0 ?? 10</code> কী? <strong>(A) 0 (B) 10 (C) null</strong></li><li><code>0 || 10</code> কী? <strong>(A) 0 (B) 10 (C) false</strong></li><li><code>Number.isNaN(NaN)</code> কী? <strong>(A) true (B) false (C) error</strong></li><li><code>let</code>-এর Scope সাধারণত কী? <strong>(A) Function only (B) Block (C) Always global</strong></li><li><code>const x = [1]</code>-এর পর <code>x.push(2)</code> কি সম্ভব? <strong>(A) না (B) হ্যাঁ (C) শুধু Node.js-এ</strong></li></ol>
+<h3>Quiz Answer Key ও Explanation</h3>
+<table><thead><tr><th>প্রশ্ন</th><th>উত্তর</th><th>ব্যাখ্যা</th></tr></thead><tbody><tr><td>1</td><td>B</td><td><code>const</code> Binding স্থির, Object Contents নয়।</td></tr><tr><td>2</td><td>C</td><td>Historical Quirk।</td></tr><tr><td>3</td><td>A</td><td>Empty String Numeric Conversion-এ Zero।</td></tr><tr><td>4</td><td>B</td><td>Empty Array-ও Truthy Object।</td></tr><tr><td>5</td><td>B</td><td><code>+</code> String Concatenation করে।</td></tr><tr><td>6</td><td>A</td><td><code>??</code> Zero-কে Missing ধরে না।</td></tr><tr><td>7</td><td>B</td><td><code>||</code> Zero-কে Falsy ধরে।</td></tr><tr><td>8</td><td>A</td><td><code>Number.isNaN</code> সঠিক NaN Detection।</td></tr><tr><td>9</td><td>B</td><td><code>let</code> Block Scoped।</td></tr><tr><td>10</td><td>B</td><td>Array Contents Mutable।</td></tr></tbody></table>
+<h2>২.১৫ অধ্যায়ের সারসংক্ষেপ</h2>
+<p>Variable Binding, Primitive বনাম Object Reference, Scope, Type Conversion ও Input Validation বুঝলে JavaScript-এর অনেক Common Bug আগেই এড়ানো যায়। এই অধ্যায়ের Calculator Project পরের অধ্যায়ের Operators ও Decision Making-এর ভিত্তি তৈরি করে।</p>
+<p><strong>পরবর্তী অধ্যায়:</strong> Operators, Expressions এবং Decision Making।</p>
+</section></body></html>

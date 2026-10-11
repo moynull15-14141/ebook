@@ -1,0 +1,198 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-27"><header class="opener"><div class="chap-label">অধ্যায় ২৭</div><h1>Real-Time JavaScript Applications</h1><p class="subtitle">WebSockets, Socket.IO, Event-Driven Architecture এবং Distributed Messaging</p></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে polling, Server-Sent Events (SSE), WebSocket, Socket.IO, event-driven design, event contracts, delivery semantics, reconnect, heartbeat, authorization, backpressure, Redis Pub/Sub ও distributed scaling-এর মূল ধারণা ব্যাখ্যা করতে পারবেন। TravelLive নামে একটি real-time booking event simulator তৈরি করবেন।</p>
+<h2>২৭.১ Real-Time Application কী?</h2>
+<p>একটি booking dashboard-এ একজন operator booking confirm করলে অন্য operator-এর screen-এ যত দ্রুত সম্ভব status update দেখা দরকার। শুধু page refresh করলে তা হয় না। Real-time application সাধারণত server থেকে client-এ নতুন event পৌঁছে দেয়; তবে network delay, connection drop ও duplicate delivery বিবেচনায় নিতে হয়। <strong>Real-time মানে guaranteed instant নয়</strong>—এটি low-latency update-এর একটি engineering goal।</p>
+<p><strong>Use cases:</strong> booking status updates, live seat availability, chat, collaborative dashboards, notifications, delivery tracking এবং support agent presence।</p>
+<h2>২৭.২ Polling, Long Polling, SSE এবং WebSocket</h2>
+<table><thead><tr><th>Technique</th><th>Communication</th><th>Suitable use</th><th>Limitations</th></tr></thead><tbody><tr><td>Short polling</td><td>Repeated HTTP request</td><td>Rare updates, simple clients</td><td>Unnecessary requests, delayed updates</td></tr><tr><td>Long polling</td><td>Server holds request until data/timeout</td><td>Fallback</td><td>Connection churn</td></tr><tr><td>SSE</td><td>Server → browser, HTTP stream</td><td>Notifications, status feed</td><td>One-way, text/event format</td></tr><tr><td>WebSocket</td><td>Bidirectional persistent connection</td><td>Chat, live collaboration</td><td>Connection lifecycle, scaling</td></tr><tr><td>Socket.IO</td><td>Event-oriented library with transport abstraction</td><td>Rooms, reconnect support</td><td>Socket.IO protocol, not raw WebSocket-compatible</td></tr></tbody></table>
+<p>Socket.IO client দিয়ে arbitrary raw WebSocket server-এ সরাসরি connect করা যায় না; উভয় পাশে compatible protocol দরকার। SSE-তে <code>EventSource</code> ব্যবহার করা যায়; authenticated cross-origin requests-এর cookie/CORS আচরণ বুঝতে হবে।</p>
+<h2>২৭.৩ WebSocket Lifecycle</h2>
+<p>Browser একটি HTTP Upgrade handshake দিয়ে WebSocket সংযোগ শুরু করতে পারে। সংযোগ সফল হলে client ও server দুই দিকেই message পাঠাতে পারে। <code>open</code>, <code>message</code>, <code>error</code>, <code>close</code> lifecycle events handle করতে হয়। Browser-side উদাহরণ:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> socket = <span class="k">new</span> WebSocket(<span class="s">'wss://example.com/live'</span>);
+socket.addEventListener(<span class="s">'open'</span>, () =&gt; console.log(<span class="s">'Connected'</span>));
+socket.addEventListener(<span class="s">'message'</span>, (event) =&gt; {
+  <span class="k">try</span> { <span class="k">const</span> update = JSON.parse(event.data); console.log(update); }
+  <span class="k">catch</span> { console.warn(<span class="s">'Invalid server message'</span>); }
+});
+socket.addEventListener(<span class="s">'close'</span>, () =&gt; console.log(<span class="s">'Disconnected'</span>));</code></pre></figure>
+<p>Production-এ <code>wss://</code>, authenticated session, allowed origins, per-message validation, message-size limit এবং rate limiting জরুরি। শুধু client-এ validation থাকলে নিরাপত্তা নিশ্চিত হয় না।</p>
+<h2>২৭.৪ Socket.IO Events এবং Rooms</h2>
+<p>Socket.IO server-এ booking-specific room-এ authorized clients যুক্ত করা যায়। নিচের snippet একটি <strong>illustrative server design</strong>, bundle-এর tested implementation নয়:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>io.use(<span class="k">async</span> (socket, next) =&gt; {
+  <span class="k">try</span> {
+    socket.data.user = <span class="k">await</span> authenticateSession(socket.request);
+    next();
+  } <span class="k">catch</span> { next(<span class="k">new</span> Error(<span class="s">'UNAUTHORIZED'</span>)); }
+});
+
+io.on(<span class="s">'connection'</span>, (socket) =&gt; {
+  socket.on(<span class="s">'booking:subscribe'</span>, <span class="k">async</span> ({ bookingId }, ack) =&gt; {
+    <span class="k">if</span> (<span class="k">typeof</span> bookingId !== <span class="s">'string'</span>) <span class="k">return</span> ack?.({ ok: <span class="k">false</span> });
+    <span class="k">if</span> (!<span class="k">await</span> canViewBooking(socket.data.user.id, bookingId)) {
+      <span class="k">return</span> ack?.({ ok: <span class="k">false</span> });
+    }
+    <span class="k">await</span> socket.join(<span class="s">`booking:${bookingId}`</span>);
+    ack?.({ ok: <span class="k">true</span> });
+  });
+});</code></pre></figure>
+<p><strong>Important:</strong> Room name গোপন রাখলেই authorization হয় না। প্রতিটি subscribe ও mutation server-side অনুমতি যাচাই করতে হবে। Room membership connection-specific; reconnect হলে আবার subscribe করতে হতে পারে।</p>
+<h2>২৭.৫ Event Contract ও Versioning</h2>
+<p>অর্থপূর্ণ event envelope ব্যবহার করলে client সহজে handle করতে পারে:</p>
+<figure class="code keep"><figcaption>JSON</figcaption><pre><code>{
+  <span class="s">&quot;eventId&quot;</span>: <span class="s">&quot;evt-102&quot;</span>,
+  <span class="s">&quot;type&quot;</span>: <span class="s">&quot;booking.status.changed&quot;</span>,
+  <span class="s">&quot;version&quot;</span>: <span class="n">1</span>,
+  <span class="s">&quot;bookingId&quot;</span>: <span class="s">&quot;bk-22&quot;</span>,
+  <span class="s">&quot;sequence&quot;</span>: <span class="n">8</span>,
+  <span class="s">&quot;occurredAt&quot;</span>: <span class="s">&quot;2026-10-11T00:00:00.000Z&quot;</span>,
+  <span class="s">&quot;payload&quot;</span>: { <span class="s">&quot;status&quot;</span>: <span class="s">&quot;CONFIRMED&quot;</span> }
+}</code></pre></figure>
+<p><code>eventId</code> duplicate detection-এ, <code>sequence</code> per-booking ordering-এ, <code>version</code> schema evolution-এ কাজে লাগে। Event payload-এ password, access token, ব্যক্তিগত তথ্য বা unnecessary financial details পাঠাবেন না।</p>
+<h2>২৭.৬ Event-Driven Architecture</h2>
+<p>Command (যেমন <code>ConfirmBooking</code>) একটি action-এর অনুরোধ; Event (<code>BookingConfirmed</code>) ঘটে যাওয়া fact। Command validation ও authorization-এর পর state change হয়, তারপর event publish করা হয়। একই event দিয়ে notification, analytics এবং audit trail update করা যায়।</p>
+<figure class="code keep"><pre><code>Client Command → API/Auth → Booking Service → Database Transaction
+                                           ↓
+                                     Outbox Record
+                                           ↓
+                                    Event Publisher
+                                           ↓
+                                  Broker / Socket Gateway
+                                           ↓
+                                      Authorized Clients</code></pre></figure>
+<p><strong>Transactional outbox</strong> pattern-এ business update ও outbox event একই database transaction-এ commit হয়; background worker পরে publish করে। এটি database commit সফল কিন্তু publish ব্যর্থ হওয়ার gap কমায়। Broker duplicate delivery করতে পারে, তাই consumers idempotent হওয়া উচিত।</p>
+<h2>২৭.৭ Delivery Semantics এবং Ordering</h2>
+<ul><li><strong>At-most-once:</strong> Event হারাতে পারে, কিন্তু retry করে duplicate তৈরি হয় না।</li><li><strong>At-least-once:</strong> Retry-এর কারণে duplicate আসতে পারে; idempotency দরকার।</li><li><strong>Exactly-once effect:</strong> End-to-end বাস্তবায়ন কঠিন; business operation-এ deduplication, transactions ও unique constraints ব্যবহার করুন।</li><li><strong>Ordering:</strong> Global ordering ধরে নেবেন না। প্রয়োজন হলে per-aggregate sequence রাখুন এবং gap হলে server snapshot fetch করুন।</li></ul>
+<p>Client reconnect-এর পর সর্বশেষ <code>sequence</code> পাঠিয়ে missed events replay চাইতে পারে। Replay history না থাকলে authoritative API থেকে full snapshot আনতে হবে।</p>
+<h2>২৭.৮ Reconnect, Heartbeat এবং Backpressure</h2>
+<p>Connection drop হওয়া স্বাভাবিক। Exponential backoff + jitter দিয়ে reconnect করতে হবে; infinite immediate retry server overload করে। Heartbeat/ping-pong দিয়ে dead connection শনাক্ত করা যায়। Slow client-এ unlimited queue রাখলে memory বাড়ে; bounded buffer, coalescing অথবা disconnect policy প্রয়োজন।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> reconnectDelay(attempt, random = Math.random) {
+  <span class="k">const</span> capped = Math.min(<span class="n">30_000</span>, <span class="n">500</span> * <span class="n">2</span> ** Math.min(attempt, <span class="n">6</span>));
+  <span class="k">return</span> Math.floor(capped * (<span class="n">0.75</span> + random() * <span class="n">0.5</span>));
+}</code></pre></figure>
+<p>এই উদাহরণে <code>random</code> inject করা হয়েছে, যাতে deterministic tests লেখা যায়।</p>
+<h2>২৭.৯ Redis Pub/Sub এবং Multi-Instance Scaling</h2>
+<p>একাধিক Socket.IO server থাকলে একই room-এর client বিভিন্ন instance-এ থাকতে পারে। Redis adapter ব্যবহার করে event fan-out সমন্বয় করা যায়। তবে Redis Pub/Sub <strong>durable queue নয়</strong>—offline subscriber-এর জন্য history ধরে রাখে না। Reliable replay দরকার হলে Redis Streams, Kafka বা persistent event store বিবেচনা করুন। Load balancer, sticky sessions, transport choice এবং shared authorization state-ও পরিকল্পনায় রাখতে হবে।</p>
+<h2>২৭.১০ Security Checklist</h2>
+<p>১. TLS (<code>wss://</code>) ও origin policy যাচাই করুন। ২. Session authentication এবং per-resource authorization দিন। ৩. Client message schema, size ও rate limit enforce করুন। ৪. Event data minimization করুন। ৫. Logout/revocation-এর পর unauthorized subscription বন্ধ করুন। ৬. Observability-তে connection count, publish lag, failed authorization, dropped events ও queue depth মাপুন।</p>
+<h2>২৭.১১ Practical Project — TravelLive</h2>
+<p>এই অধ্যায়ের <code>source-code/chapter-27/</code>-এ একটি <strong>dependency-free, in-memory real-time event simulator</strong> রয়েছে। এতে booking creation, status transition, room subscriptions, sequence-based replay, duplicate event suppression, unauthorized room access prevention, capped history এবং reconnect delay calculation আছে। Browser UI ও actual network socket নয়; core event architecture শেখার জন্য intentionally ছোট রাখা হয়েছে।</p>
+<h3>Project Structure</h3>
+<figure class="code keep"><pre><code>chapter-27/
+├── package.json
+├── live-core.mjs
+├── live-core.test.mjs
+├── demo.mjs
+└── README.md</code></pre></figure>
+<h3>Run</h3>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code>cd source-code/chapter-27
+node --test
+node demo.mjs</code></pre></figure>
+<p><strong>Business rule:</strong> <code>PENDING → CONFIRMED/CANCELLED</code>; <code>CONFIRMED → CANCELLED</code>; <code>CANCELLED</code> terminal। User কেবল নিজের booking-এর event দেখতে পারবেন। Subscription authorization শুধু subscribe-time-এ নয়, event dispatch-এর সময়ও পরীক্ষা করা হয়। এই simulator single-process; multi-process durable replay, network reconnection, DB persistence ও production security দেয় না।</p>
+<h2>২৭.১২ Debugging এবং Common Mistakes</h2>
+<p><strong>Mistake 1:</strong> Socket connected মানেই user authorized—ভুল। <strong>Mistake 2:</strong> <code>emit</code> সফল মানেই client processed—ভুল; acknowledgments এবং retry দরকার হতে পারে। <strong>Mistake 3:</strong> Reconnect-এর পর event loss নেই—ভুল; replay/snapshot strategy লাগবে। <strong>Mistake 4:</strong> Event ID ছাড়াই repeated updates apply করা—duplicate side effects হতে পারে। <strong>Mistake 5:</strong> Redis Pub/Sub-কে persistent message queue ভাবা—ভুল।</p>
+<h2>২৭.১৩ Exercises</h2>
+<p>১. Polling ও SSE-এর একটি tradeoff লিখুন।<br>২. Socket.IO কেন raw WebSocket-এর সঙ্গে wire-compatible নয়?<br>৩. Booking-specific room-এর authorization কোথায় করবেন?<br>৪. <code>eventId</code> ও <code>sequence</code>-এর আলাদা কাজ কী?<br>৫. At-least-once delivery-তে idempotency কেন জরুরি?<br>৬. Client reconnect হলে gap recovery কীভাবে করবেন?<br>৭. Redis Pub/Sub-এর durability limitation ব্যাখ্যা করুন।<br>৮. Transactional outbox কী সমস্যা সমাধান করে?<br>৯. Slow client-এর backpressure policy ডিজাইন করুন।<br>১০. TravelLive-এ booking owner ছাড়া অন্য user-এর subscription reject করার test লিখুন।</p>
+<h2>২৭.১৪ Sample Solutions</h2>
+<p>১. Polling সহজ কিন্তু idle request বেশি; SSE server-initiated updates efficiently পাঠায়, তবে একমুখী।<br>২. Socket.IO নিজস্ব framing, handshake ও event protocol ব্যবহার করে।<br>৩. Server-side authenticated user ও booking ownership যাচাই করে।<br>৪. <code>eventId</code> deduplication, <code>sequence</code> per-booking ordering/gap detection।<br>৫. Retry duplicate event তৈরি করতে পারে; idempotent consumer একই action দ্বিতীয়বার করবে না।<br>৬. Last-seen sequence পাঠিয়ে replay; gap unrecoverable হলে full snapshot fetch।<br>৭. Subscriber offline থাকলে Pub/Sub message ধরে রাখে না।<br>৮. Database commit ও event publication-এর dual-write inconsistency কমায়।<br>৯. Bounded queue, coalescing, slow-client disconnect এবং metrics।<br>১০. <code>assert.throws(() =&gt; live.subscribe('other-user', bookingId, fn), /FORBIDDEN/)</code>।</p>
+<h2>২৭.১৫ MCQ</h2>
+<p>১. Bidirectional persistent transport কোনটি? (A) CSS (B) WebSocket (C) JSON (D) localStorage<br>২. SSE-এর direction? (A) Client only (B) Server → Client (C) Both (D) None<br>৩. Room subscription authorization কে করবে? (A) Browser (B) Server (C) CSS (D) URL alone<br>৪. Duplicate event চিনতে কোনটি সহায়ক? (A) eventId (B) font-size (C) margin (D) hostname<br>৫. Per-booking ordering-এর জন্য? (A) random sort (B) sequence (C) CSS order (D) cookie name<br>৬. Redis Pub/Sub offline history রাখে? (A) Always (B) No (C) 30 days (D) One year<br>৭. Transactional outbox কোথায় লেখা হয়? (A) Same DB transaction (B) CSS (C) Browser only (D) CDN<br>৮. Reconnect strategy? (A) Immediate infinite loop (B) Exponential backoff with jitter (C) No retry (D) Delete data<br>৯. Backpressure-এর একটি সমাধান? (A) Unlimited queue (B) Bounded buffer (C) Disable validation (D) Ignore memory<br>১০. At-least-once delivery-তে কী ঘটতে পারে? (A) Duplicate (B) No network (C) Guaranteed order (D) Zero latency</p>
+<p><strong>Answer key:</strong> ১-B, ২-B, ৩-B, ৪-A, ৫-B, ৬-B, ৭-A, ৮-B, ৯-B, ১০-A।</p>
+<h2>২৭.১৬ Chapter Summary</h2>
+<p>Real-time system তৈরি মানে শুধু socket connection নয়। Correctness-এর জন্য authorization, event schema, replay, idempotency, failure handling এবং scaling strategy দরকার। Chapter 28-এ এই ধরনের application Docker, CI/CD, Cloud ও Monitoring-এর মাধ্যমে deploy করার পদ্ধতি শিখব।</p>
+</section></body></html>

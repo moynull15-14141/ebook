@@ -1,0 +1,278 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-11"><header class="opener"><div class="chap-label">অধ্যায় ১১</div><h1>Error Handling, Debugging এবং Defensive Programming</h1></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে তুমি JavaScript-এর Error Type চেনা, <code>try/catch/finally</code>, <code>throw</code>, Custom Error, Asynchronous Rejection, Browser DevTools, Breakpoints, Defensive Validation এবং User-Friendly Error Reporting ব্যবহার করতে পারবে। <strong>Practical Project: OrderGuard — Order Validation Dashboard</strong>।</p>
+<h2>১১.১ Error কেন গুরুত্বপূর্ণ?</h2>
+<p>Production Application-এ সব Input সঠিক হবে না, Network সবসময় সচল থাকবে না, এবং External Data নির্ভরযোগ্য নাও হতে পারে। একটি ভুলকে পুরো App Crash-এ পরিণত না করে <strong>সুনির্দিষ্টভাবে শনাক্ত, ব্যাখ্যা ও নিয়ন্ত্রণ</strong> করাই Error Handling। Error Handling কখনো Validation-এর বিকল্প নয়; বরং Validation-এর ব্যর্থতাকে নিরাপদভাবে উপস্থাপন করার উপায়।</p>
+<p>তিনটি গুরুত্বপূর্ণ শ্রেণি:</p>
+<ol><li><strong>Syntax Error:</strong> JavaScript Parse করার সময় ভুল; Code চালুর আগেই থেমে যেতে পারে।</li><li><strong>Runtime Error:</strong> Code চলার সময় সমস্যা, যেমন <code>null.name</code> পড়া।</li><li><strong>Logical Error:</strong> Code চলে, কিন্তু ফল ভুল; যেমন Discount ভুলভাবে হিসাব করা। Unit Tests এ ধরনের সমস্যা ধরতে সাহায্য করে।</li></ol>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// Syntax error (শুধু উদাহরণ, চালাবে না): const = 42;</span>
+<span class="k">const</span> user = <span class="k">null</span>;
+<span class="c">// console.log(user.name); // TypeError</span>
+<span class="k">const</span> total = <span class="n">100</span> - <span class="n">10</span>; <span class="c">// Discount 10% হলে এটি ভুল গণনা; সঠিক ফল 90, কিন্তু 1000 হলে একই formula ভুল</span></code></pre></figure>
+<h2>১১.২ Built-in Error Objects</h2>
+<p><code>Error</code>, <code>TypeError</code>, <code>ReferenceError</code>, <code>RangeError</code>, <code>SyntaxError</code> প্রভৃতি Standard Error Object। <code>error.message</code> ব্যবহারকারীর উপযোগী Text নাও হতে পারে; <code>error.stack</code> মূলত Developer Diagnostics-এর জন্য।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> readPrice(item) {
+  <span class="k">if</span> (!item || <span class="k">typeof</span> item !== <span class="s">'object'</span>) {
+    <span class="k">throw</span> <span class="k">new</span> TypeError(<span class="s">'Item must be an object'</span>);
+  }
+  <span class="k">if</span> (<span class="k">typeof</span> item.price !== <span class="s">'number'</span>) {
+    <span class="k">throw</span> <span class="k">new</span> TypeError(<span class="s">'Item price must be a number'</span>);
+  }
+  <span class="k">return</span> item.price;
+}</code></pre></figure>
+<p><code>throw</code> দিয়ে যে কোনো JavaScript Value Throw করা যায়, কিন্তু <strong>Error Instance</strong> Throw করা উত্তম: Stack ও Error Type সহজে পাওয়া যায়।</p>
+<h2>১১.৩ <code>try</code>, <code>catch</code> এবং <code>finally</code></h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> safeParseJSON(text) {
+  <span class="k">try</span> {
+    <span class="k">return</span> { ok: <span class="k">true</span>, value: JSON.parse(text) };
+  } <span class="k">catch</span> (error) {
+    <span class="k">if</span> (error <span class="k">instanceof</span> SyntaxError) {
+      <span class="k">return</span> { ok: <span class="k">false</span>, message: <span class="s">'Invalid JSON format'</span> };
+    }
+    <span class="k">throw</span> error; <span class="c">// অপরিচিত Error চাপা দিচ্ছি না</span>
+  } <span class="k">finally</span> {
+    <span class="c">// প্রয়োজন হলে Cleanup বা Diagnostic Logging</span>
+  }
+}
+console.log(safeParseJSON(<span class="s">'{&quot;name&quot;:&quot;Amina&quot;}'</span>));
+console.log(safeParseJSON(<span class="s">'{broken'</span>));</code></pre></figure>
+<p><code>finally</code> সাধারণত <code>try/catch</code>-এর পরে চলে, এমনকি Return বা Throw থাকলেও। তবে <code>finally</code>-তে <code>return</code> দিলে আগের Return/Throw Override হতে পারে—এটি এড়িয়ে চলো।</p>
+<h2>১১.৪ Expected Failure বনাম Unexpected Failure</h2>
+<p>একটি Invalid Form Input <strong>Expected Failure</strong>: User-কে কোন Field সংশোধন করতে হবে বলো। কিন্তু <code>Cannot read properties of undefined</code> <strong>Unexpected Failure</strong>: Developer Log-এ Detail রাখো, User-কে সাধারণ বার্তা দেখাও। Sensitive Data, Access Token বা Password Console কিংবা Error Message-এ প্রকাশ করবে না।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">class</span> ValidationError <span class="k">extends</span> Error {
+  constructor(message, issues = []) {
+    <span class="k">super</span>(message);
+    <span class="k">this</span>.name = <span class="s">'ValidationError'</span>;
+    <span class="k">this</span>.issues = issues;
+  }
+}
+
+<span class="k">function</span> assertName(name) {
+  <span class="k">if</span> (<span class="k">typeof</span> name !== <span class="s">'string'</span> || name.trim().length &lt; <span class="n">2</span>) {
+    <span class="k">throw</span> <span class="k">new</span> ValidationError(<span class="s">'Invalid customer'</span>, [<span class="s">'Name needs at least 2 characters'</span>]);
+  }
+  <span class="k">return</span> name.trim();
+}</code></pre></figure>
+<h2>১১.৫ Defensive Programming: Trust Boundaries</h2>
+<p>Browser Input, URL Parameters, <code>localStorage</code>, Server Responses—সব External Data যাচাই করা প্রয়োজন। <code>typeof</code> যথেষ্ট নয়: <code>typeof null === 'object'</code>, <code>NaN</code>-এর Type-ও <code>number</code>। Numeric Input-এ <code>Number.isFinite()</code> বা <code>Number.isSafeInteger()</code> প্রয়োগ করো।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> parsePositiveInteger(input) {
+  <span class="k">const</span> text = String(input).trim();
+  <span class="k">if</span> (!/^[<span class="n">1</span>-<span class="n">9</span>]\d*$/.test(text)) <span class="k">return</span> <span class="k">null</span>;
+  <span class="k">const</span> value = Number(text);
+  <span class="k">return</span> Number.isSafeInteger(value) ? value : <span class="k">null</span>;
+}
+console.log(parsePositiveInteger(<span class="s">'12'</span>));   <span class="c">// 12</span>
+console.log(parsePositiveInteger(<span class="s">'12px'</span>)); <span class="c">// null</span>
+console.log(parsePositiveInteger(<span class="s">'1.5'</span>));  <span class="c">// null</span></code></pre></figure>
+<p><code>parseInt('12px', 10)</code> কিন্তু <code>12</code> ফেরত দেয়। Strict Form Validation-এ এটি প্রায়ই অনাকাঙ্ক্ষিত। আবার অতিরিক্ত Validation-ও ক্ষতিকর হতে পারে; Business Rules অনুযায়ী পরিষ্কার Constraint নির্ধারণ করো।</p>
+<h2>১১.৬ Async Error Handling</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">async</span> <span class="k">function</span> getUser(id, signal) {
+  <span class="k">const</span> response = <span class="k">await</span> fetch(<span class="s">`/api/users/${encodeURIComponent(id)}`</span>, { signal });
+  <span class="k">if</span> (!response.ok) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">`HTTP ${response.status}`</span>);
+  <span class="k">return</span> response.json();
+}
+<span class="k">async</span> <span class="k">function</span> loadUser(id) {
+  <span class="k">const</span> controller = <span class="k">new</span> AbortController();
+  <span class="k">try</span> {
+    <span class="k">return</span> <span class="k">await</span> getUser(id, controller.signal);
+  } <span class="k">catch</span> (error) {
+    <span class="k">if</span> (error?.name === <span class="s">'AbortError'</span>) <span class="k">return</span> <span class="k">null</span>;
+    console.error(<span class="s">'User request failed'</span>, error);
+    <span class="k">throw</span> error;
+  }
+}</code></pre></figure>
+<p><strong>মনে রাখবে:</strong> <code>fetch()</code> সাধারণত HTTP 404/500-এ Promise Reject করে না; <code>response.ok</code> পরীক্ষা করতে হয়। কিন্তু Network Failure-এ Reject হতে পারে। <code>await</code> ছাড়া Promise Return করলে Outer <code>try/catch</code> সেটির Rejection ধরতে নাও পারে; Promise <code>await</code> করো বা Caller-কে Handling-এর দায়িত্ব দাও।</p>
+<h2>১১.৭ Debugging with Browser DevTools</h2>
+<ol><li><strong>Console:</strong> <code>console.log</code>, <code>console.table</code>, <code>console.error</code> দিয়ে State পরীক্ষা করো। Production-এ Sensitive Data Log করবে না।</li><li><strong>Sources → Breakpoint:</strong> নির্দিষ্ট Line-এ Execution Pause করে Variables ও Call Stack দেখো।</li><li><strong>Step Over / Into / Out:</strong> Function Flow অনুসরণ করো।</li><li><strong>Network:</strong> Request URL, Status, Timing, Payload ও Response দেখো।</li><li><strong>Preserve Log:</strong> Navigation বা Reload-এর পরও Debug History রাখতে সাহায্য করে।</li><li><strong>Reproduce → Isolate → Fix → Test:</strong> Bug Report-এর নির্ভরযোগ্য Workflow।</li></ol>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> discountedTotal(price, discountRate) {
+  debugger; <span class="c">// DevTools খোলা থাকলে এখানে Pause করতে পারে</span>
+  <span class="k">return</span> price * (<span class="n">1</span> - discountRate);
+}
+<span class="c">// discountedTotal(1000, 0.1) =&gt; 900</span></code></pre></figure>
+<h2>১১.৮ Error Handling Anti-Patterns</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// ❌ Error গিলে ফেলা</span>
+<span class="k">try</span> { JSON.parse(<span class="s">'{broken'</span>); } <span class="k">catch</span> (error) {}
+
+<span class="c">// ❌ কোনো Context ছাড়াই generic error</span>
+<span class="c">// throw new Error('Oops');</span>
+
+<span class="c">// ❌ User Input HTML হিসেবে Inject করা</span>
+<span class="c">// element.innerHTML = userInput;</span>
+
+<span class="c">// ✅ নিরাপদভাবে Text Render করা</span>
+<span class="c">// element.textContent = userInput;</span></code></pre></figure>
+<p>কোনো Error Retry করা উচিত কি না, সেটিও গুরুত্বপূর্ণ: Validation Error Retry করলে লাভ নেই; সাময়িক Network Error-এ সীমিত Backoff সহ Retry করা যায়। Payment বা Booking-এর মতো Side Effecting Request Retry করতে হলে Server-side Idempotency প্রয়োজন।</p>
+<h2>১১.৯ Practical Project — OrderGuard: Order Validation Dashboard</h2>
+<p><strong>Goal:</strong> Customer Name, Email, Product ও Quantity যাচাই করে Order Total দেখানো; Invalid Input-এ স্পষ্ট Error, Unexpected Error-এ Safe Fallback। এটি <strong>Learning Demo</strong>, কোনো Payment/Backend নেই।</p>
+<h3>Project Structure</h3>
+<figure class="code keep"><pre><code>source-code/chapter-11/
+├── index.html
+├── style.css
+├── app.mjs
+├── order-core.mjs
+└── order-core.test.mjs</code></pre></figure>
+<h3>Step 1 — Domain Logic</h3>
+<p><code>order-core.mjs</code>-এ <code>ValidationError</code>, <code>parseQuantity</code>, <code>validateOrder</code> এবং <code>formatBDT</code> রয়েছে। Quantity 1–100, Product Catalog-এ উপস্থিত এবং Total Safe Integer হতে হবে। <code>Object.hasOwn()</code> ব্যবহার করা হয়েছে, যাতে Prototype Property ভুল করে Product হিসেবে গৃহীত না হয়।</p>
+<h3>Step 2 — User Interface</h3>
+<p><code>index.html</code> Form, Feedback Region (<code>role=&quot;status&quot;</code>) এবং Accepted Order List তৈরি করে। <code>app.mjs</code>-এ Submit Handler <code>try/catch/finally</code> ব্যবহার করে; <code>finally</code> Button পুনরায় Enable করে। DOM-এ <code>textContent</code> ব্যবহারে User Text HTML হিসেবে Execute হয় না।</p>
+<h3>Step 3 — Run and Test</h3>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code><span class="c"># project folder-এর ভেতর থেকে</span>
+python3 -m http.server 8000
+<span class="c"># browser: http://localhost:8000/</span>
+
+<span class="c"># Node.js 20+ recommended</span>
+node --test order-core.test.mjs</code></pre></figure>
+<p><strong>Expected Behavior:</strong> <code>Amina</code>, <code>amina@example.com</code>, <code>Keyboard</code>, Quantity <code>2</code> দিলে Total BDT 2,500। Quantity <code>0</code>, Unknown Product, Invalid Email দিলে Validation Message। Order History শুধুমাত্র চলমান Page Session-এর Memory-তে থাকবে; Refresh করলে মুছে যাবে।</p>
+<h3>Step 4 — Manual QA Checklist</h3>
+<ul><li class="task"><span class="box">☐</span> Valid Order Submit করলে Success Message এবং History Row দেখা যায়।</li><li class="task"><span class="box">☐</span> Invalid Name, Email, Quantity আলাদাভাবে Reject হয়।</li><li class="task"><span class="box">☐</span> Double Submit এড়াতে Processing চলাকালে Button Disabled থাকে।</li><li class="task"><span class="box">☐</span> Error-এর পর Button পুনরায় Enabled হয়।</li><li class="task"><span class="box">☐</span> HTML-like Customer Name Text হিসেবেই Render হয়।</li><li class="task"><span class="box">☐</span> Mobile Width-এ Form ব্যবহারযোগ্য।</li></ul>
+<h2>১১.১০ Testing ও Error Diagnosis</h2>
+<p>Automated Tests-এ Happy Path-এর পাশাপাশি Boundary ও Failure Cases পরীক্ষা করো। যেমন: Quantity <code>0</code>, <code>101</code>, <code>1.5</code>, <code>1e2</code>, <code>null</code>; Unknown Product; Empty Name; Malformed Email; Unsafe Total। UI Tests আলাদা, কারণ Node Unit Test DOM Render যাচাই করে না।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">import</span> assert <span class="k">from</span> <span class="s">'node:assert/strict'</span>;
+<span class="k">import</span> { validateOrder, ValidationError } <span class="k">from</span> <span class="s">'./order-core.mjs'</span>;
+<span class="k">const</span> catalog = { pen: { name: <span class="s">'Pen'</span>, price: <span class="n">20</span> } };
+assert.throws(() =&gt; validateOrder({
+  customer: <span class="s">'Amina'</span>, email: <span class="s">'amina@example.com'</span>,
+  productId: <span class="s">'pen'</span>, quantity: <span class="n">0</span>
+}, catalog), ValidationError);</code></pre></figure>
+<h2>১১.১১ Exercises</h2>
+<ol><li><code>safeDivide(a,b)</code> লেখো: Invalid Input ও Division by Zero-তে Error Throw করবে।</li><li><code>safeJSONParse(text)</code> Result Object (<code>ok</code>, <code>value</code>/<code>message</code>) Return করবে।</li><li>Custom <code>ValidationError</code> তৈরি করে Invalid Username Reject করো।</li><li><code>fetch()</code> Response-এ <code>response.ok</code> যাচাই করার Function লেখো।</li><li><code>parseQuantity()</code>-তে <code>0</code>, <code>1.5</code>, <code>101</code>, <code>1e2</code> Reject হচ্ছে কি না Test করো।</li><li><code>finally</code> ব্যবহার করে Async Submit-এর Loading State Reset করো।</li><li>DevTools-এ Breakpoint বসিয়ে <code>validateOrder()</code>-এর <code>issues</code> Array পরীক্ষা করো।</li><li>DOM Rendering-এ <code>innerHTML</code> বদলে <code>textContent</code> ব্যবহারের Security Benefit ব্যাখ্যা করো।</li><li><code>Object.hasOwn()</code> ছাড়া Catalog Lookup-এ কী সমস্যা হতে পারে দেখাও।</li><li>OrderGuard-এর জন্য তিনটি নতুন Unit Test এবং দুটি Manual UI Test Case লিখো।</li></ol>
+<h2>১১.১২ Exercise Solutions</h2>
+<p><strong>১.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> safeDivide(a, b) {
+  <span class="k">if</span> (!Number.isFinite(a) || !Number.isFinite(b)) <span class="k">throw</span> <span class="k">new</span> TypeError(<span class="s">'Numbers required'</span>);
+  <span class="k">if</span> (b === <span class="n">0</span>) <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">'Cannot divide by zero'</span>);
+  <span class="k">return</span> a / b;
+}</code></pre></figure>
+<p><strong>২.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> safeJSONParse(text) {
+  <span class="k">try</span> { <span class="k">return</span> {ok: <span class="k">true</span>, value: JSON.parse(text)}; }
+  <span class="k">catch</span> (error) { <span class="k">if</span> (error <span class="k">instanceof</span> SyntaxError) <span class="k">return</span> {ok: <span class="k">false</span>, message: <span class="s">'Invalid JSON'</span>}; <span class="k">throw</span> error; }
+}</code></pre></figure>
+<p><strong>৩.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">class</span> ValidationError <span class="k">extends</span> Error {
+  constructor(message) { <span class="k">super</span>(message); <span class="k">this</span>.name = <span class="s">'ValidationError'</span>; }
+}
+<span class="k">function</span> validateUsername(name) {
+  <span class="k">if</span> (<span class="k">typeof</span> name !== <span class="s">'string'</span> || name.trim().length &lt; <span class="n">3</span>) <span class="k">throw</span> <span class="k">new</span> ValidationError(<span class="s">'Minimum 3 characters'</span>);
+  <span class="k">return</span> name.trim();
+}</code></pre></figure>
+<p><strong>৪.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">async</span> <span class="k">function</span> fetchJSON(url) {
+  <span class="k">const</span> response = <span class="k">await</span> fetch(url);
+  <span class="k">if</span> (!response.ok) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">`HTTP ${response.status}`</span>);
+  <span class="k">return</span> response.json();
+}</code></pre></figure>
+<p><strong>৫.</strong> <code>parseQuantity()</code>-এ Strict Digit Regex, <code>Number.isSafeInteger()</code> এবং <code>&lt;= 100</code> Constraint ব্যবহার করো; Project-এর Unit Tests-এ সব Cases আছে।</p>
+<p><strong>৬.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">async</span> <span class="k">function</span> submitOrder(button, task) {
+  button.disabled = <span class="k">true</span>;
+  <span class="k">try</span> { <span class="k">return</span> <span class="k">await</span> task(); }
+  <span class="k">finally</span> { button.disabled = <span class="k">false</span>; }
+}</code></pre></figure>
+<p><strong>৭.</strong> DevTools Sources Tab-এ <code>validateOrder()</code>-এর <code>if (issues.length)</code> Line-এ Breakpoint দাও; Invalid Email Submit করে <code>issues</code> Inspect করো।</p>
+<p><strong>৮.</strong> <code>textContent</code> Input-কে Plain Text হিসেবে দেখায়; <code>innerHTML</code> Markup Parse করে এবং Untrusted Input-এ XSS ঝুঁকি তৈরি করতে পারে।</p>
+<p><strong>৯.</strong> Prototype Chain-এর <code>toString</code> বা <code>__proto__</code>-এর মতো Property Catalog Product নয়; <code>Object.hasOwn(catalog, id)</code> দিয়ে নিজস্ব Key নিশ্চিত করো।</p>
+<p><strong>১০.</strong> Unit Test: Empty Name, Unknown Product, Unsafe Total। Manual UI: Submit Feedback, Responsive Layout।</p>
+<h2>১১.১৩ MCQ Quiz — ১০টি প্রশ্ন</h2>
+<ol><li><code>try/catch</code> মূলত কোন Error Handle করে? (A) Syntax-only (B) Runtime thrown errors (C) CSS errors (D) HTTP automatically</li><li><code>finally</code> কখন চলে? (A) শুধু Success (B) শুধু Failure (C) সাধারণত উভয় ক্ষেত্রেই (D) কখনো নয়</li><li><code>typeof null</code> কী? (A) null (B) undefined (C) object (D) boolean</li><li><code>fetch()</code> HTTP 404 পেলে সাধারণত কী হয়? (A) Promise Reject (B) Promise Resolve, <code>ok=false</code> (C) Page Reload (D) Browser Crash</li><li><code>Number.isSafeInteger(1.5)</code> কী? (A) true (B) false (C) null (D) Error</li><li><code>throw new TypeError()</code> কী করে? (A) Log Only (B) Exception Throw (C) Promise Resolve (D) DOM Update</li><li>Untrusted User Text Render-এর জন্য কোনটি নিরাপদ? (A) <code>innerHTML</code> (B) <code>eval</code> (C) <code>textContent</code> (D) <code>document.write</code></li><li><code>catch</code>-এ Unknown Error এলে কী করা ভালো? (A) Silent Ignore (B) Context অনুযায়ী Log ও Rethrow/Handle (C) Password Print (D) Infinite Retry</li><li>Debugger Breakpoint-এর উদ্দেশ্য? (A) CSS Style (B) Execution Pause ও State Inspect (C) Network Speed (D) Build Bundle</li><li><code>Object.hasOwn(catalog,id)</code> কেন? (A) Async Support (B) Own Property Check (C) Price Format (D) Browser Cache</li></ol>
+<h3>Answer Key ও ব্যাখ্যা</h3>
+<ol><li><strong>B</strong> — Throw হওয়া Runtime Error Catch করা যায়; Parse-time Syntax Error সাধারণ Script-এ আগে ঘটে।</li><li><strong>C</strong> — <code>finally</code> Cleanup-এর জন্য, Success/Failure দুই পথেই সাধারণত চলে।</li><li><strong>C</strong> — JavaScript-এর ঐতিহাসিক আচরণ।</li><li><strong>B</strong> — HTTP Status পরীক্ষা করতে <code>response.ok</code> প্রয়োজন।</li><li><strong>B</strong> — Safe Integer হতে পূর্ণসংখ্যা হতে হবে।</li><li><strong>B</strong> — Execution-এর Normal Flow ভেঙে Exception তৈরি করে।</li><li><strong>C</strong> — Plain Text Rendering, Markup Interpretation নয়।</li><li><strong>B</strong> — Unknown Error গোপন করলে Debugging কঠিন হয়।</li><li><strong>B</strong> — Call Stack, Variables ও Flow Inspect করা যায়।</li><li><strong>B</strong> — Inherited Property-কে Catalog Entry হিসেবে গ্রহণ ঠেকায়।</li></ol>
+<h2>১১.১৪ Chapter Recap এবং পরবর্তী অধ্যায়</h2>
+<p>Error Handling মানে শুধু <code>try/catch</code> নয়: Input Boundary যাচাই, User-Friendly Feedback, Safe Logging, Tests এবং Debugging Process একসঙ্গে Reliability তৈরি করে। এই অধ্যায়ের OrderGuard Project-এ Pure Validation Logic ও DOM Interaction আলাদা রাখা হয়েছে—পরবর্তী অধ্যায়ে <strong>Modern JavaScript, ES Modules এবং Clean Code</strong> শেখার জন্য এটি ভালো ভিত্তি।</p>
+<p><strong>পরবর্তী অধ্যায়: ১২ — Modern JavaScript (ES6+), Modules এবং Clean Code Practices।</strong></p>
+</section></body></html>

@@ -1,0 +1,15 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {ValidationError,parseQuantity,validateOrder,formatBDT} from './order-core.mjs';
+const catalog={book:{name:'Book',price:200}};
+const valid={customer:'  Amina  ',email:'amina@example.com',productId:'book',quantity:'2'};
+test('valid order normalized and total calculated',()=>assert.deepEqual(validateOrder(valid,catalog),{customer:'Amina',email:'amina@example.com',productId:'book',productName:'Book',quantity:2,unitPrice:200,total:400}));
+for(const value of ['0','-1','1.5','101','abc','1e2','',null,undefined]) test(`reject quantity ${String(value)}`,()=>assert.equal(parseQuantity(value),null));
+test('quantity 100 accepted',()=>assert.equal(parseQuantity('100'),100));
+test('reject missing customer',()=>assert.throws(()=>validateOrder({...valid,customer:' '},catalog),ValidationError));
+test('reject invalid email',()=>assert.throws(()=>validateOrder({...valid,email:'bad'},catalog),ValidationError));
+test('reject unknown product',()=>assert.throws(()=>validateOrder({...valid,productId:'__proto__'},catalog),ValidationError));
+test('reject null order',()=>assert.throws(()=>validateOrder(null,catalog),ValidationError));
+test('reject unsafe total',()=>assert.throws(()=>validateOrder(valid,{book:{name:'Book',price:Number.MAX_SAFE_INTEGER}}),ValidationError));
+test('format positive BDT',()=>assert.match(formatBDT(400),/400/));
+test('reject invalid amount',()=>assert.throws(()=>formatBDT(-1),TypeError));

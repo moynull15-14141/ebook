@@ -1,0 +1,60 @@
+$ node --test   (in project\interactive-greeting-app)
+
+TAP version 13
+# Subtest: নাম দিলে সেই নামসহ শুভেচ্ছা-বার্তা তৈরি হয়
+ok 1 - নাম দিলে সেই নামসহ শুভেচ্ছা-বার্তা তৈরি হয়
+  ---
+  duration_ms: 1.4646
+  type: 'test'
+  ...
+# Subtest: বাংলা নামও ঠিকভাবে কাজ করে
+ok 2 - বাংলা নামও ঠিকভাবে কাজ করে
+  ---
+  duration_ms: 0.1663
+  type: 'test'
+  ...
+# Subtest: নামের আগে-পরের ফাঁকা জায়গা বাদ যায়
+ok 3 - নামের আগে-পরের ফাঁকা জায়গা বাদ যায়
+  ---
+  duration_ms: 0.1566
+  type: 'test'
+  ...
+# Subtest: নামের মাঝখানের ফাঁকা জায়গা থেকে যায়
+ok 4 - নামের মাঝখানের ফাঁকা জায়গা থেকে যায়
+  ---
+  duration_ms: 0.1372
+  type: 'test'
+  ...
+# Subtest: ফাঁকা String দিলে ফাঁকা String ফেরত আসে
+ok 5 - ফাঁকা String দিলে ফাঁকা String ফেরত আসে
+  ---
+  duration_ms: 0.5334
+  type: 'test'
+  ...
+# Subtest: শুধু Space দিলে ফাঁকা String ফেরত আসে
+ok 6 - শুধু Space দিলে ফাঁকা String ফেরত আসে
+  ---
+  duration_ms: 1.041
+  type: 'test'
+  ...
+# Subtest: শুধু Tab ও নতুন লাইন দিলেও ফাঁকা String ফেরত আসে
+ok 7 - শুধু Tab ও নতুন লাইন দিলেও ফাঁকা String ফেরত আসে
+  ---
+  duration_ms: 0.2358
+  type: 'test'
+  ...
+# Subtest: HTML-এর মতো লেখা বদলানো হয় না; সাধারণ Text হিসেবেই ফেরত আসে
+ok 8 - HTML-এর মতো লেখা বদলানো হয় না; সাধারণ Text হিসেবেই ফেরত আসে
+  ---
+  duration_ms: 0.1285
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 118.1029

@@ -1,0 +1,1 @@
+console.Log('Hello, JavaScript!');

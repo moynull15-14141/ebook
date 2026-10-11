@@ -1,0 +1,2 @@
+OK    node --check result.js   (in project/student-result-calculator)
+OK    node --check tests/result.test.js   (in project/student-result-calculator)

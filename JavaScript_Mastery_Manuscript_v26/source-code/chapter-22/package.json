@@ -1,0 +1,1 @@
+{"name":"booking-quality-lab","private":true,"type":"module","scripts":{"test":"node --test booking.test.mjs","test:coverage":"node --experimental-test-coverage --test booking.test.mjs"}}

@@ -1,0 +1,27 @@
+"use strict";
+const assert = require('node:assert/strict');
+const S = require('./students');
+let tests = 0;
+function check(label, fn) { fn(); tests++; console.log('PASS', label); }
+const a = {id:'ST-01',name:'  Amina   Rahman ',age:19,marks:86};
+check('normalize whitespace', () => assert.equal(S.normalizeName(a.name), 'Amina Rahman'));
+check('grade A+', () => assert.equal(S.gradeFor(80), 'A+'));
+check('grade F', () => assert.equal(S.gradeFor(32), 'F'));
+check('grade D', () => assert.equal(S.gradeFor(33), 'D'));
+check('add creates a new array', () => { const initial=[]; const result=S.add(initial,a); assert.equal(initial.length,0); assert.equal(result.length,1); });
+let list=S.add([],a);
+check('duplicate ID rejected', () => assert.throws(() => S.add(list,a), /already exists/));
+check('empty marks rejected', () => assert.throws(() => S.add([], {...a,id:'ST-02',marks:''}), /Marks/));
+check('invalid age rejected', () => assert.throws(() => S.add([], {...a,id:'ST-02',age:4}), /Age/));
+check('marks over 100 rejected', () => assert.throws(() => S.add([], {...a,id:'ST-02',marks:101}), /Marks/));
+check('missing name rejected', () => assert.throws(() => S.add([], {...a,id:'ST-02',name:' '}), /Name/));
+check('non-numeric marks rejected', () => assert.throws(() => S.add([], {...a,id:'ST-02',marks:'abc'}), /Marks/));
+check('update preserves original', () => { const changed=S.update(list,'ST-01',{marks:93}); assert.equal(changed[0].marks,93); assert.equal(list[0].marks,86); });
+check('update missing rejected', () => assert.throws(() => S.update(list,'UNKNOWN',{marks:80}), /not found/));
+check('changing ID rejected', () => assert.throws(() => S.update(list,'ST-01',{id:'NEW'}), /cannot be changed/));
+check('case-insensitive search', () => assert.equal(S.search(list,'amina').length,1));
+check('search by ID', () => assert.equal(S.search(list,'st-01').length,1));
+check('remove does not mutate', () => { const removed=S.remove(list,'ST-01'); assert.equal(removed.length,0); assert.equal(list.length,1); });
+check('empty summary', () => assert.deepEqual(S.summary([]),{total:0,average:0,passed:0,topper:null}));
+check('summary statistics', () => { const b=S.add(list,{id:'ST-02',name:'Rahim',age:18,marks:20}); const s=S.summary(b); assert.equal(s.average,53); assert.equal(s.passed,1); assert.equal(s.topper.id,'ST-01'); });
+console.log(`${tests} tests passed`);

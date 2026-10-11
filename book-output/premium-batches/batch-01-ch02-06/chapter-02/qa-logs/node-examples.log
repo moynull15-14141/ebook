@@ -1,0 +1,216 @@
+===== examples/01-variables.js  (exit code 0) =====
+Sara
+240
+250
+
+===== examples/errors/e1-const-reassign.js  (exit code 1) =====
+e1-const-reassign.js:2
+passMark = 40;
+         ^
+
+TypeError: Assignment to constant variable.
+    at Object.<anonymous> (e1-const-reassign.js:2:10)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.16.0
+
+===== examples/02-block-scope.js  (exit code 0) =====
+2
+1
+
+===== examples/03-var-problems.js  (exit code 0) =====
+Sylhet
+Block-এর ভেতরে তৈরি
+
+===== examples/errors/e2-before-declaration.js  (exit code 1) =====
+e2-before-declaration.js:1
+console.log(score);
+            ^
+
+ReferenceError: Cannot access 'score' before initialization
+    at Object.<anonymous> (e2-before-declaration.js:1:13)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.16.0
+
+===== examples/04-typeof.js  (exit code 0) =====
+string
+number
+number
+boolean
+undefined
+bigint
+symbol
+object
+
+===== examples/05-numbers.js  (exit code 0) =====
+0.30000000000000004
+3.3333333333333335
+Infinity
+NaN
+number
+false
+true
+
+===== examples/06-to-fixed.js  (exit code 0) =====
+73.33333333333333
+73.33
+string
+
+===== examples/07-undefined-null.js  (exit code 0) =====
+undefined
+null
+true
+true
+
+===== examples/08-dynamic-typing.js  (exit code 0) =====
+number
+string
+boolean
+
+===== examples/09-explicit-conversion.js  (exit code 0) =====
+42
+7
+NaN
+0
+1
+0
+NaN
+string
+false
+false
+true
+
+===== examples/09b-parse-int.js  (exit code 0) =====
+NaN
+12
+3.5
+80
+NaN
+
+===== examples/10-implicit-conversion.js  (exit code 0) =====
+52
+3
+10
+33
+123
+
+===== examples/11-validate-number.js  (exit code 0) =====
+true
+true
+false
+true
+
+===== examples/12-equality.js  (exit code 0) =====
+false
+true
+true
+true
+false
+true
+
+===== examples/13-primitive-copy.js  (exit code 0) =====
+5
+9
+
+===== examples/14-object-reference.js  (exit code 0) =====
+Nila Islam
+true
+false
+
+===== examples/15-const-object.js  (exit code 0) =====
+Rafi Ahmed
+
+===== examples/15b-pass-to-function.js  (exit code 0) =====
+70
+75
+2
+
+===== examples/16-object-copy.js  (exit code 0) =====
+Dhaka
+Khulna
+false
+
+===== examples/17-debug-types.js  (exit code 0) =====
+8090
+bangla: 80 string
+total: 170 number
+
+===== project/student-result-calculator/result.js  (exit code 0) =====
+Sara: মোট 240, গড় 80.00, Grade A+, উত্তীর্ণ
+Rafi: মোট 220, গড় 73.33, Grade F, অনুত্তীর্ণ
+ইংরেজির নম্বর সঠিক নয়।
+
+===== examples/errors/e3-fix-total.js  (exit code 1) =====
+e3-fix-total.js:2
+total = total + 50;
+      ^
+
+TypeError: Assignment to constant variable.
+    at Object.<anonymous> (e3-fix-total.js:2:7)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.16.0
+
+===== examples/solutions/s01-about-me.js  (exit code 0) =====
+string
+number
+boolean
+
+===== examples/solutions/s03-fix-total.js  (exit code 0) =====
+50
+
+===== examples/solutions/s04-empty-values.js  (exit code 0) =====
+undefined
+null
+
+===== examples/solutions/s06-to-age.js  (exit code 0) =====
+25
+null
+null
+null
+
+===== examples/solutions/s07-shared-object.js  (exit code 0) =====
+JS Mastery
+JS Mastery
+
+===== examples/solutions/s08-paisa.js  (exit code 0) =====
+false
+true
+
+===== examples/solutions/s09-one-decimal.js  (exit code 0) =====
+83.3
+string
+83.31
+
+===== examples/solutions/s10-four-subjects.js  (exit code 0) =====
+মোট 325, গড় 81.25
+
+===== examples/solutions/s11-pass-mark.js  (exit code 0) =====
+false
+true
+
+===== examples/solutions/s12-clean-name.js  (exit code 0) =====
+Sara
+null

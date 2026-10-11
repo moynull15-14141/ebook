@@ -1,0 +1,15 @@
+"use strict";
+const test=require("node:test"),assert=require("node:assert/strict");
+const {calculateInvoice,parseBdtToPaisa,formatBdt,percentOf}=require("./invoice.js");
+test("empty invoice",()=>assert.equal(calculateInvoice([]).totalPaisa,0));
+test("line total",()=>assert.equal(calculateInvoice([{name:"Pen",unitPricePaisa:1250,quantity:3}]).subtotalPaisa,3750));
+test("discount before tax",()=>{const x=calculateInvoice([{name:"A",unitPricePaisa:10000,quantity:1}],{discountBps:1000,taxBps:1000});assert.equal(x.discountPaisa,1000);assert.equal(x.taxPaisa,900);assert.equal(x.totalPaisa,9900);});
+test("decimal price parsing",()=>{assert.equal(parseBdtToPaisa("12.05"),1205);assert.equal(parseBdtToPaisa("0.5"),50);});
+test("invalid decimal price",()=>assert.throws(()=>parseBdtToPaisa("1.999"),TypeError));
+test("reject negative",()=>assert.throws(()=>calculateInvoice([{name:"A",unitPricePaisa:-1,quantity:1}]),TypeError));
+test("reject zero quantity",()=>assert.throws(()=>calculateInvoice([{name:"A",unitPricePaisa:100,quantity:0}]),TypeError));
+test("reject too many lines",()=>assert.throws(()=>calculateInvoice(Array(201).fill({name:"A",unitPricePaisa:1,quantity:1})),TypeError));
+test("format BDT",()=>assert.equal(formatBdt(12345),"BDT 123.45"));
+test("round half up positive",()=>assert.equal(percentOf(1,5000),1));
+test("do not mutate original lines",()=>{const a=[{name:" A ",unitPricePaisa:100,quantity:2}];calculateInvoice(a);assert.equal(a[0].name," A ");});
+test("safe integer overflow",()=>assert.throws(()=>calculateInvoice([{name:"X",unitPricePaisa:Number.MAX_SAFE_INTEGER,quantity:2}]),RangeError));

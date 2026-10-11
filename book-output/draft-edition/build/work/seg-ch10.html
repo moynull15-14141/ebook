@@ -1,0 +1,342 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-10"><header class="opener"><div class="chap-label">অধ্যায় ১০</div><h1>Asynchronous JavaScript: Callbacks, Promises, async/await এবং Event Loop</h1></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে তুমি Synchronous ও Asynchronous Execution-এর পার্থক্য, Callbacks, Promise State, <code>async/await</code>, Event Loop, Microtask ও Task Queue, <code>fetch()</code>, HTTP Error, <code>AbortController</code>, Concurrent Requests এবং User-Friendly Loading/Error States ব্যাখ্যা ও প্রয়োগ করতে পারবে। Practical Project: <strong>User Directory API Explorer</strong>।</p>
+<h2>১০.১ JavaScript কি Single-Threaded?</h2>
+<p>সাধারণ Browser JavaScript Execution Context-এ একটি Main Thread এক সময়ে একটি JavaScript Call Stack চালায়। কিন্তু Browser-এর Network, Timer, DOM Event-এর মতো সুবিধা Asynchronous কাজ পরিচালনা করতে পারে। Node.js-এও Event Loop এবং Host APIs আছে; CPU-intensive JavaScript Main Thread আটকে দিতে পারে। <strong>Single-threaded JavaScript মানে সব I/O কাজ Blocking নয়।</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>console.log(<span class="s">'A'</span>);
+setTimeout(() =&gt; console.log(<span class="s">'C'</span>), <span class="n">0</span>);
+console.log(<span class="s">'B'</span>);
+<span class="c">// A, B, C</span></code></pre></figure>
+<p><code>setTimeout(..., 0)</code> সঙ্গে সঙ্গে Callback চালায় না; নির্ধারিত সময়ের আগে নয়, Event Loop সুযোগ পেলে Timer Task চলবে। Real scheduling Browser/Node Host-এর ওপর নির্ভর করে।</p>
+<h2>১০.২ Call Stack, Web APIs ও Event Loop</h2>
+<p>একটি Function Call Stack-এ Push হয়; Return করলে Pop হয়। <code>fetch()</code> Network Request শুরু করে এবং সঙ্গে সঙ্গে Promise দেয়। Response Ready হলে সংশ্লিষ্ট Promise Reaction Microtask Queue-তে Schedule হয়। Stack খালি হলে Host Microtask Checkpoint-এ Microtasks চালায়। Browser-এ Rendering-এর সুযোগ সাধারণত Task-এর মাঝামাঝি আসে; দীর্ঘ JavaScript Loop UI Freeze করতে পারে।</p>
+<figure class="code keep"><pre><code>JavaScript Call Stack
+        |
+        v
+  Host APIs (timer / fetch / events)
+        |
+        +--&gt; Task queue (timers, events)
+        +--&gt; Microtask queue (Promise reactions)
+        |
+        v
+ Event Loop schedules execution</code></pre></figure>
+<p>এই Diagram একটি Conceptual Model, Browser Specification-এর পূর্ণ Scheduler নয়।</p>
+<h2>১০.৩ Callbacks: প্রথম Asynchronous Pattern</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> afterDelay(message, callback) {
+  setTimeout(() =&gt; callback(<span class="k">null</span>, message), <span class="n">300</span>);
+}
+afterDelay(<span class="s">'Hello'</span>, (error, value) =&gt; {
+  <span class="k">if</span> (error) <span class="k">return</span> console.error(error);
+  console.log(value);
+});</code></pre></figure>
+<p>Callback একটি Function যা অন্য Function-কে দেওয়া হয়। সব Callback Asynchronous নয়: <code>array.map(callback)</code> Synchronous। Nested Callbacks বেশি হলে Control Flow ও Error Handling জটিল হতে পারে।</p>
+<h2>১০.৪ Promise: Future Result-এর Representation</h2>
+<p>Promise-এর তিনটি State: <strong>pending</strong>, <strong>fulfilled</strong>, <strong>rejected</strong>। Fulfilled বা Rejected হলে Promise Settled। <code>then()</code> Success, <code>catch()</code> Rejection এবং <code>finally()</code> Cleanup Handle করে। <code>then()</code> সবসময় নতুন Promise দেয়, তাই Chaining সম্ভব।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> task = <span class="k">new</span> Promise((resolve) =&gt; {
+  setTimeout(() =&gt; resolve(<span class="n">42</span>), <span class="n">200</span>);
+});
+task.then(value =&gt; value * <span class="n">2</span>)
+    .then(value =&gt; console.log(value)) <span class="c">// 84</span>
+    .<span class="k">catch</span>(error =&gt; console.error(error))
+    .<span class="k">finally</span>(() =&gt; console.log(<span class="s">'finished'</span>));</code></pre></figure>
+<p><code>throw</code> করলে Promise Chain Rejected হয়। <code>catch()</code>-এর ভেতরে Error Return করলে Chain Recover করে; পুনরায় Throw করলে Rejection বজায় থাকে। Unhandled Rejection এড়াতে যথাযথ Error Handling করো।</p>
+<h2>১০.৫ <code>async</code> এবং <code>await</code></h2>
+<p><code>async</code> Function সবসময় Promise Return করে। <code>await</code> ওই Async Function-এর Execution Pause করে, পুরো JavaScript Thread নয়। Rejected Promise <code>await</code> করলে Exception-এর মতো আচরণ করে, তাই <code>try/catch</code> ব্যবহার করা যায়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">async</span> <span class="k">function</span> getGreeting() {
+  <span class="k">const</span> value = <span class="k">await</span> Promise.resolve(<span class="s">'Welcome'</span>);
+  <span class="k">return</span> <span class="s">`${value} to JavaScript Mastery`</span>;
+}
+getGreeting().then(console.log);</code></pre></figure>
+<p><code>await</code> শুধু Async Function বা Module-এর Top Level-এ বৈধ (সমর্থিত Module Environment-এ)। <code>forEach(async () =&gt; ...)</code>-এর Return Promises <code>forEach</code> অপেক্ষা করে না। Sequential Loop চাইলে <code>for...of</code> + <code>await</code>, Concurrent কাজ চাইলে <code>Promise.all(items.map(async ...))</code>।</p>
+<h2>১০.৬ Microtask বনাম Task: Output Prediction</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>console.log(<span class="s">'1'</span>);
+setTimeout(() =&gt; console.log(<span class="s">'4'</span>), <span class="n">0</span>);
+Promise.resolve().then(() =&gt; console.log(<span class="s">'3'</span>));
+console.log(<span class="s">'2'</span>);
+<span class="c">// 1, 2, 3, 4</span></code></pre></figure>
+<p>কারণ Synchronous Statements আগে চলে, তারপর Promise Reaction Microtask, তারপর Timer Task। <code>queueMicrotask()</code> দিয়েও Microtask Schedule করা যায়। অতিরিক্ত Microtasks Schedule করতে থাকলে Rendering ও অন্য Tasks Starve হতে পারে।</p>
+<h3>Interactive Thought Experiment</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">async</span> <span class="k">function</span> demo() {
+  console.log(<span class="s">'B'</span>);
+  <span class="k">await</span> Promise.resolve();
+  console.log(<span class="s">'D'</span>);
+}
+console.log(<span class="s">'A'</span>);
+demo();
+console.log(<span class="s">'C'</span>);
+<span class="c">// A, B, C, D</span></code></pre></figure>
+<p><strong>কেন?</strong> <code>await</code>-এর পরের অংশ Promise Reaction হিসেবে পরে চলে। এটি বোঝা Debugging-এর জন্য গুরুত্বপূর্ণ।</p>
+<h2>১০.৭ <code>fetch()</code> দিয়ে API Call</h2>
+<p><code>fetch()</code> Network Failure বা Abort-এর জন্য Reject করতে পারে; কিন্তু HTTP <code>404</code>/<code>500</code> Response এলে সাধারণত Promise Fulfill হয়। তাই <code>response.ok</code> Check করতে হবে। JSON Parsing-ও Fail করতে পারে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">async</span> <span class="k">function</span> loadUsers() {
+  <span class="k">const</span> response = <span class="k">await</span> fetch(<span class="s">'https://jsonplaceholder.typicode.com/users'</span>);
+  <span class="k">if</span> (!response.ok) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">`HTTP ${response.status}`</span>);
+  <span class="k">const</span> data = <span class="k">await</span> response.json();
+  <span class="k">if</span> (!Array.isArray(data)) <span class="k">throw</span> <span class="k">new</span> TypeError(<span class="s">'Unexpected API response'</span>);
+  <span class="k">return</span> data;
+}</code></pre></figure>
+<p><strong>Production Note:</strong> Public Demo API Availability, Rate Limits, CORS, Privacy ও Network Reliability পরিবর্তিত হতে পারে। Secrets Frontend JavaScript-এ Embed করা যাবে না।</p>
+<h2>১০.৮ Request Cancellation ও Race Condition</h2>
+<p>User Search বা Reload দ্রুত বদলালে পুরোনো Request-এর Response পরে এসে নতুন Data Overwrite করতে পারে। <code>AbortController</code> আগের Request Cancel করতে সাহায্য করে। তবে Abort হওয়ার আগেই Response Settle হলে Request-ID Check-ও দরকার হতে পারে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">let</span> controller;
+<span class="k">let</span> latest = <span class="n">0</span>;
+<span class="k">async</span> <span class="k">function</span> searchRemote(query) {
+  controller?.abort();
+  controller = <span class="k">new</span> AbortController();
+  <span class="k">const</span> requestId = ++latest;
+  <span class="k">try</span> {
+    <span class="k">const</span> url = <span class="s">`/api/search?q=${encodeURIComponent(query)}`</span>;
+    <span class="k">const</span> response = <span class="k">await</span> fetch(url, { signal: controller.signal });
+    <span class="k">if</span> (!response.ok) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">`HTTP ${response.status}`</span>);
+    <span class="k">const</span> result = <span class="k">await</span> response.json();
+    <span class="k">if</span> (requestId !== latest) <span class="k">return</span>;
+    console.log(result);
+  } <span class="k">catch</span> (error) {
+    <span class="k">if</span> (error.name !== <span class="s">'AbortError'</span>) console.error(error);
+  }
+}</code></pre></figure>
+<p>এই Snippet-এ <code>/api/search</code> একটি উদাহরণ Endpoint, বাস্তব Project-এর Dependency নয়।</p>
+<h2>১০.৯ Sequential বনাম Concurrent Work</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// Sequential: একটি শেষ হওয়ার পরে আরেকটি</span>
+<span class="k">const</span> first = <span class="k">await</span> fetch(<span class="s">'/api/first'</span>);
+<span class="k">const</span> second = <span class="k">await</span> fetch(<span class="s">'/api/second'</span>);
+
+<span class="c">// Concurrent: উভয় Request শুরু, তারপর সব শেষ হওয়ার অপেক্ষা</span>
+<span class="k">const</span> [a, b] = <span class="k">await</span> Promise.all([
+  fetch(<span class="s">'/api/first'</span>), fetch(<span class="s">'/api/second'</span>)
+]);</code></pre></figure>
+<p>দুটি Request Independent হলে Concurrent Pattern Latency কমাতে পারে। <code>Promise.all()</code> একটি Promise Reject হলে দ্রুত Reject করে, তবে অন্য Operation স্বয়ংক্রিয়ভাবে Cancel হয় না। <code>Promise.allSettled()</code> সব ফলাফল (Fulfilled/Rejected) সংগ্রহ করে। <code>Promise.race()</code> প্রথম Settled Result দেয়; <code>Promise.any()</code> প্রথম Fulfilled Result দেয়, সব Reject হলে <code>AggregateError</code> দেয়।</p>
+<table><thead><tr><th>API</th><th>আচরণ</th><th>ব্যবহার</th></tr></thead><tbody><tr><td><code>Promise.all</code></td><td>সব Fulfill হলে Result, প্রথম Rejection-এ Reject</td><td>সব ফলাফল আবশ্যক</td></tr><tr><td><code>Promise.allSettled</code></td><td>সব Settle হওয়া পর্যন্ত অপেক্ষা</td><td>Partial Failure গ্রহণযোগ্য</td></tr><tr><td><code>Promise.race</code></td><td>প্রথম Settled Promise-এর ফল</td><td>Timeout Pattern-এর অংশ</td></tr><tr><td><code>Promise.any</code></td><td>প্রথম Fulfilled Result</td><td>বিকল্প Service/Replica</td></tr></tbody></table>
+<h2>১০.১০ Retry, Timeout ও Backoff</h2>
+<p>সব Error-এ Retry উপযুক্ত নয়। <code>GET</code>-এর মতো Idempotent Request এবং Transient <code>429/503</code> Error-এ সীমিত Retry বিবেচ্য। Payment বা Booking Create-এর মতো Non-idempotent Action অন্ধভাবে Retry করলে Duplicate Transaction হতে পারে। <code>AbortSignal.timeout(ms)</code> আধুনিক Environment-এ Timeout Signal দিতে পারে; Compatibility যাচাই করতে হবে। <code>Promise.race()</code>-এ Timeout দিলেই Underlying Network Request Cancel হয় না।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">async</span> <span class="k">function</span> fetchWithTimeout(url, ms = <span class="n">5000</span>) {
+  <span class="k">const</span> controller = <span class="k">new</span> AbortController();
+  <span class="k">const</span> timer = setTimeout(() =&gt; controller.abort(), ms);
+  <span class="k">try</span> {
+    <span class="k">const</span> response = <span class="k">await</span> fetch(url, { signal: controller.signal });
+    <span class="k">if</span> (!response.ok) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">`HTTP ${response.status}`</span>);
+    <span class="k">return</span> response;
+  } <span class="k">finally</span> {
+    clearTimeout(timer);
+  }
+}</code></pre></figure>
+<h2>১০.১১ Practical Project — User Directory API Explorer</h2>
+<h3>Project Goal</h3>
+<p>একটি Responsive Browser Application, যেখানে Public API থেকে Users Load হবে; Loading, Error, Reload, Search, Sorting ও Cancellation Support থাকবে। Source Code বইয়ের Companion Source Code-এর <code>source-code/chapter-10/</code> Directory-তে রয়েছে।</p>
+<h3>Project Structure</h3>
+<figure class="code keep"><pre><code>source-code/chapter-10/
+├── index.html
+├── style.css
+├── app.mjs
+├── directory-core.mjs
+└── directory-core.test.mjs</code></pre></figure>
+<h3>Running the Project</h3>
+<ol><li><code>source-code/chapter-10</code> Directory-তে Terminal খোলো।</li><li><code>python -m http.server 8000</code> চালাও (অথবা VS Code Live Server ব্যবহার করো)।</li><li>Browser-এ <code>http://localhost:8000</code> খোলো। ES Modules-এর জন্য Local HTTP Server ব্যবহার করা সুবিধাজনক।</li><li>Internet Connection থাকলে JSONPlaceholder Demo API থেকে Users আসবে।</li><li>Search, Sort ও Reload পরীক্ষা করো; DevTools Network Tab-এ Request Observe করো।</li><li>Tests: <code>node --test directory-core.test.mjs</code> (Node.js 18+ Recommended)।</li></ol>
+<h3>HTML: <code>index.html</code></h3>
+<figure class="code"><figcaption>HTML</figcaption><pre><code>&lt;!doctype html&gt;
+&lt;<span class="k">html</span> lang=<span class="s">&quot;en&quot;</span>&gt;
+&lt;<span class="k">head</span>&gt;
+  &lt;<span class="k">meta</span> charset=<span class="s">&quot;utf-8&quot;</span>&gt;
+  &lt;<span class="k">meta</span> name=<span class="s">&quot;viewport&quot;</span> content=<span class="s">&quot;width=device-width,initial-scale=1&quot;</span>&gt;
+  &lt;<span class="k">title</span>&gt;User Directory API Explorer&lt;/<span class="k">title</span>&gt;
+  &lt;<span class="k">link</span> rel=<span class="s">&quot;stylesheet&quot;</span> href=<span class="s">&quot;style.css&quot;</span>&gt;
+&lt;/<span class="k">head</span>&gt;
+&lt;<span class="k">body</span>&gt;
+  &lt;<span class="k">main</span>&gt;
+    &lt;<span class="k">header</span>&gt;
+      &lt;<span class="k">h1</span>&gt;User Directory API Explorer&lt;/<span class="k">h1</span>&gt;
+      &lt;<span class="k">p</span>&gt;Async JavaScript • Fetch • AbortController • Search&lt;/<span class="k">p</span>&gt;
+    &lt;/<span class="k">header</span>&gt;
+    &lt;<span class="k">form</span> id=<span class="s">&quot;controls&quot;</span> onsubmit=<span class="s">&quot;return false&quot;</span>&gt;
+      &lt;<span class="k">label</span>&gt;Search &lt;<span class="k">input</span> id=<span class="s">&quot;search&quot;</span> type=<span class="s">&quot;search&quot;</span> placeholder=<span class="s">&quot;Name, email, city&quot;</span>&gt;&lt;/<span class="k">label</span>&gt;
+      &lt;<span class="k">label</span>&gt;Sort by
+        &lt;<span class="k">select</span> id=<span class="s">&quot;sort&quot;</span>&gt;&lt;<span class="k">option</span> value=<span class="s">&quot;name&quot;</span>&gt;Name&lt;/<span class="k">option</span>&gt;&lt;<span class="k">option</span> value=<span class="s">&quot;email&quot;</span>&gt;Email&lt;/<span class="k">option</span>&gt;&lt;<span class="k">option</span> value=<span class="s">&quot;city&quot;</span>&gt;City&lt;/<span class="k">option</span>&gt;&lt;/<span class="k">select</span>&gt;
+      &lt;/<span class="k">label</span>&gt;
+      &lt;<span class="k">button</span> id=<span class="s">&quot;reload&quot;</span> type=<span class="s">&quot;button&quot;</span>&gt;Reload users&lt;/<span class="k">button</span>&gt;
+    &lt;/<span class="k">form</span>&gt;
+    &lt;<span class="k">p</span> id=<span class="s">&quot;status&quot;</span> role=<span class="s">&quot;status&quot;</span> aria-live=<span class="s">&quot;polite&quot;</span>&gt;Loading…&lt;/<span class="k">p</span>&gt;
+    &lt;<span class="k">ul</span> id=<span class="s">&quot;users&quot;</span> aria-label=<span class="s">&quot;Users&quot;</span>&gt;&lt;/<span class="k">ul</span>&gt;
+  &lt;/<span class="k">main</span>&gt;
+  &lt;<span class="k">script</span> type=<span class="s">&quot;module&quot;</span> src=<span class="s">&quot;app.mjs&quot;</span>&gt;&lt;/<span class="k">script</span>&gt;
+&lt;/<span class="k">body</span>&gt;
+&lt;/<span class="k">html</span>&gt;</code></pre></figure>
+<h3>CSS ও JavaScript Files</h3>
+<p><code>style.css</code>, <code>app.mjs</code>, <code>directory-core.mjs</code>-এর সম্পূর্ণ, Executable Source Code Project Directory-তে দেওয়া আছে। এখানে গুরুত্বপূর্ণ অংশগুলো ব্যাখ্যা করছি।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// directory-core.mjs</span>
+<span class="k">export</span> <span class="k">async</span> <span class="k">function</span> fetchUsers({ fetchImpl = fetch, signal,
+  url = <span class="s">'https://jsonplaceholder.typicode.com/users'</span> } = {}) {
+  <span class="k">const</span> response = <span class="k">await</span> fetchImpl(url, {
+    signal,
+    headers: { Accept: <span class="s">'application/json'</span> }
+  });
+  <span class="k">if</span> (!response.ok) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">`HTTP ${response.status}: users unavailable`</span>);
+  <span class="k">const</span> data = <span class="k">await</span> response.json();
+  <span class="k">if</span> (!Array.isArray(data)) <span class="k">throw</span> <span class="k">new</span> TypeError(<span class="s">'Expected an array of users'</span>);
+  <span class="k">return</span> data.map(normalizeUser);
+}</code></pre></figure>
+<p><code>fetchImpl</code> Inject করার ফলে Real Network ছাড়াই Mock Function দিয়ে Unit Test করা যায়। <code>normalizeUser</code> API Response-এর Field Shape Verify করে। <code>filterUsers</code> Query Match করে এবং <code>sortUsers</code> Original Array Mutate না করে Copy Sort করে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// app.mjs — important fragment</span>
+<span class="k">async</span> <span class="k">function</span> loadUsers() {
+  controller?.abort();
+  controller = <span class="k">new</span> AbortController();
+  <span class="k">const</span> currentRequest = ++requestNumber;
+  reload.disabled = <span class="k">true</span>;
+  status.textContent = <span class="s">'Loading users…'</span>;
+  <span class="k">try</span> {
+    users = <span class="k">await</span> fetchUsers({ signal: controller.signal });
+    <span class="k">if</span> (currentRequest === requestNumber) render();
+  } <span class="k">catch</span> (error) {
+    <span class="k">if</span> (currentRequest !== requestNumber || error.name === <span class="s">'AbortError'</span>) <span class="k">return</span>;
+    users = [];
+    list.replaceChildren();
+    status.textContent = <span class="s">'Could not load users. Check connection and retry.'</span>;
+    console.error(error);
+  } <span class="k">finally</span> {
+    <span class="k">if</span> (currentRequest === requestNumber) reload.disabled = <span class="k">false</span>;
+  }
+}</code></pre></figure>
+<h3>Security, Accessibility ও UX</h3>
+<ul><li><code>textContent</code> দিয়ে User Data Render করা হয়েছে; Raw <code>innerHTML</code> ব্যবহার করা হয়নি।</li><li><code>role=&quot;status&quot;</code> ও <code>aria-live=&quot;polite&quot;</code> Loading/Result Announcements-এ সাহায্য করে।</li><li><code>AbortController</code> দিয়ে পুরোনো Request Cancel করা হয়; Request Counter Stale Result ঠেকায়।</li><li>Network Error হলে Clear Message দেখায়; Reload Button আবার চেষ্টা করতে দেয়।</li><li>Browser Fetch ও JSONPlaceholder API-এর জন্য Network Access দরকার; Offline হলে Failure Message স্বাভাবিক।</li></ul>
+<h2>১০.১২ Common Mistakes ও Debugging</h2>
+<table><thead><tr><th>ভুল</th><th>কারণ</th><th>সমাধান</th></tr></thead><tbody><tr><td><code>await</code> ছাড়া Promise Log</td><td>Result এখনো Pending</td><td><code>await</code> বা <code>.then()</code></td></tr><tr><td>HTTP 404-কে <code>catch</code> ধরবে ভাবা</td><td><code>fetch</code> সাধারণত HTTP Error-এ Reject করে না</td><td><code>response.ok</code> Check</td></tr><tr><td><code>forEach(async ...)</code> Await করা</td><td><code>forEach</code> Promise Aggregate করে না</td><td><code>for...of</code> বা <code>Promise.all</code></td></tr><tr><td>Loading State না দেখানো</td><td>User মনে করে App আটকে গেছে</td><td>Status Text/Spinner</td></tr><tr><td>পুরোনো Response নতুন Result Overwrite</td><td>Request Race</td><td>Abort + Request-ID</td></tr><tr><td>Unbounded Concurrent Requests</td><td>API/Browser Overload</td><td>Limit Concurrency</td></tr><tr><td><code>innerHTML</code>-এ API Data</td><td>XSS Risk</td><td><code>textContent</code>/DOM Nodes</td></tr><tr><td>Timer Delay-কে Exact Timing ধরা</td><td>Event Loop Scheduling</td><td>Delay-কে Minimum Treat</td></tr></tbody></table>
+<h2>১০.১৩ Exercises</h2>
+<ol><li><code>setTimeout(...,0)</code> কেন Synchronous Statement-এর পরে চলে—ব্যাখ্যা করো।</li><li>একটি Callback-based <code>readLater(value, callback)</code> Function লেখো।</li><li><code>Promise.resolve(5)</code>-কে Chain করে 20 Output করো।</li><li><code>async/await</code> দিয়ে দুটি Sequential Promise Resolve করো।</li><li>Independent দুটি Request Concurrent করার Code লেখো।</li><li><code>Promise.allSettled()</code> দিয়ে Partial Failure Handle করো।</li><li><code>fetch()</code>-এর HTTP 404 Error কীভাবে Handle করবে?</li><li><code>AbortController</code> দিয়ে User Search-এর পুরোনো Request Cancel করো।</li><li><code>filterUsers()</code>-এ Search Case-Insensitive করো।</li><li>Project-এ Empty Result-এর জন্য আলাদা Message যোগ করো।</li></ol>
+<h2>১০.১৪ Exercise Solutions</h2>
+<p><strong>১.</strong> Timer Callback একটি পরবর্তী Task হিসেবে Queue-তে যায়; বর্তমান Call Stack শেষ হওয়ার আগে চলতে পারে না।</p>
+<p><strong>২.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> readLater(value, callback) {
+  setTimeout(() =&gt; callback(<span class="k">null</span>, value), <span class="n">100</span>);
+}
+readLater(<span class="s">'done'</span>, (error, value) =&gt; console.log(error ?? value));</code></pre></figure>
+<p><strong>৩.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>Promise.resolve(<span class="n">5</span>).then(n =&gt; n * <span class="n">4</span>).then(console.log); <span class="c">// 20</span></code></pre></figure>
+<p><strong>৪.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">async</span> <span class="k">function</span> sequential() {
+  <span class="k">const</span> a = <span class="k">await</span> Promise.resolve(<span class="n">3</span>);
+  <span class="k">const</span> b = <span class="k">await</span> Promise.resolve(<span class="n">4</span>);
+  <span class="k">return</span> a + b;
+}
+sequential().then(console.log); <span class="c">// 7</span></code></pre></figure>
+<p><strong>৫.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> [a, b] = <span class="k">await</span> Promise.all([fetch(<span class="s">'/api/a'</span>), fetch(<span class="s">'/api/b'</span>)]);</code></pre></figure>
+<p><strong>৬.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> results = <span class="k">await</span> Promise.allSettled([Promise.resolve(<span class="n">1</span>), Promise.reject(<span class="s">'offline'</span>)]);
+<span class="k">for</span> (<span class="k">const</span> result <span class="k">of</span> results) console.log(result.status, result.status === <span class="s">'fulfilled'</span> ? result.value : result.reason);</code></pre></figure>
+<p><strong>৭.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> response = <span class="k">await</span> fetch(<span class="s">'/missing'</span>);
+<span class="k">if</span> (!response.ok) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">`HTTP ${response.status}`</span>);</code></pre></figure>
+<p><strong>৮.</strong> নতুন Request শুরু করার আগে <code>controller?.abort()</code> এবং নতুন <code>AbortController</code> তৈরি করো; <code>fetch(url, { signal: controller.signal })</code> ব্যবহার করো। Project-এর <code>app.mjs</code>-এ পূর্ণ Example রয়েছে।</p>
+<p><strong>৯.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> match = user.name.toLocaleLowerCase().includes(query.toLocaleLowerCase());</code></pre></figure>
+<p><strong>১০.</strong> <code>render()</code>-এ <code>filtered.length === 0</code> হলে <code>status.textContent = 'No matching users found'</code> দেখাও; List Empty রাখো।</p>
+<h2>১০.১৫ Knowledge Check — ১০টি MCQ</h2>
+<p><strong>Q1.</strong> <code>async</code> Function কী Return করে? (A) Number (B) Promise (C) Timer (D) Event — <strong>উত্তর: B</strong>। Return Value Promise দিয়ে Wrap হয়।</p>
+<p><strong>Q2.</strong> <code>fetch()</code> HTTP 404 পেলে সাধারণত কী হয়? (A) Reject (B) Fulfill with Response (C) Crash (D) Retry — <strong>উত্তর: B</strong>। <code>response.ok</code> Check করতে হয়।</p>
+<p><strong>Q3.</strong> Promise Reaction সাধারণত কোথায় Schedule হয়? (A) Call Stack immediately (B) Microtask Queue (C) CSS Queue (D) Storage — <strong>উত্তর: B</strong>। Current Stack শেষ হওয়ার পরে Microtask চলে।</p>
+<p><strong>Q4.</strong> <code>Promise.all()</code>-এ একটি Promise Reject হলে কী হয়? (A) সব Cancel (B) Aggregate Reject (C) সব Ignore (D) Browser Close — <strong>উত্তর: B</strong>। অন্য Operations স্বয়ংক্রিয় Cancel হয় না।</p>
+<p><strong>Q5.</strong> <code>await</code> কী Pause করে? (A) Entire Browser (B) Current Async Function Continuation (C) CSS (D) Server — <strong>উত্তর: B</strong>। Thread পুরোপুরি Block হয় না।</p>
+<p><strong>Q6.</strong> Abort Signal কোন API-তে দেওয়া যায়? (A) <code>fetch</code> (B) <code>JSON.stringify</code> (C) <code>Math.random</code> (D) <code>parseInt</code> — <strong>উত্তর: A</strong>। Request Cancellation-এ সাহায্য করে।</p>
+<p><strong>Q7.</strong> সব Promise Settled হওয়ার Result পেতে কোনটি? (A) <code>allSettled</code> (B) <code>race</code> (C) <code>any</code> (D) <code>resolve</code> — <strong>উত্তর: A</strong>। Success ও Failure দুটোই Report করে।</p>
+<p><strong>Q8.</strong> API Data DOM-এ Text হিসেবে নিরাপদে দেখাতে কোনটি? (A) <code>innerHTML</code> (B) <code>eval</code> (C) <code>textContent</code> (D) <code>document.write</code> — <strong>উত্তর: C</strong>। Text HTML হিসেবে Parse হয় না।</p>
+<p><strong>Q9.</strong> Independent Requests দ্রুত শুরু করতে কোনটি? (A) Sequential <code>await</code> (B) <code>Promise.all</code> (C) <code>while(true)</code> (D) <code>alert</code> — <strong>উত্তর: B</strong>। Concurrent Operations-এর জন্য।</p>
+<p><strong>Q10.</strong> Stale Response Problem-এর সমাধান কী? (A) Ignore errors (B) Abort + Request ID (C) More timers (D) <code>var</code> — <strong>উত্তর: B</strong>। পুরোনো Request নতুন UI Overwrite করতে পারে না।</p>
+<h2>১০.১৬ Chapter Summary ও Next Steps</h2>
+<p>এই অধ্যায়ে Async Execution-এর Mental Model, Promise Chaining, <code>async/await</code>, Microtask Scheduling, HTTP Response Handling, Cancellation, Concurrency এবং User-Friendly Async UI তৈরি করা শিখেছ। Project Source ও Unit Tests আলাদা Files-এ রয়েছে। <strong>পরবর্তী অধ্যায়: Error Handling, Debugging এবং Defensive Programming।</strong></p>
+<h3>Further Reading</h3>
+<ul><li>MDN — JavaScript Guide: Using Promises: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises</li><li>MDN — <code>async function</code>: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function</li><li>MDN — Fetch API: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API</li><li>MDN — AbortController: https://developer.mozilla.org/en-US/docs/Web/API/AbortController</li><li>MDN — Event Loop: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Execution_model</li></ul>
+</section></body></html>

@@ -1,0 +1,39 @@
+{
+  "version": "1.0.0",
+  "titlePattern": "^# অধ্যায় ([০-৯]+) — (.+)$",
+  "sectionClasses": [
+    { "match": "^শেখার লক্ষ্য$", "class": "panel objectives" },
+    { "match": "^পূর্বশর্ত$", "class": "panel prerequisites" },
+    { "match": "অনুশীলনীর সমাধান$", "class": "solutions" },
+    { "match": "অনুশীলনী$", "class": "exercises" },
+    { "match": "MCQ-এর উত্তর ও ব্যাখ্যা$", "class": "answers" },
+    { "match": "MCQ: ", "class": "mcq" },
+    { "match": " Project: ", "class": "project" }
+  ],
+  "requiredSections": [
+    "শেখার লক্ষ্য",
+    "পূর্বশর্ত",
+    "এই অধ্যায় কেন গুরুত্বপূর্ণ",
+    "সাধারণ ভুল",
+    "Debugging নির্দেশিকা",
+    "পেশাদার অভ্যাস",
+    "অনুশীলনী",
+    "অনুশীলনীর সমাধান",
+    "MCQ: নিজেকে যাচাই করুন",
+    "MCQ-এর উত্তর ও ব্যাখ্যা",
+    "অধ্যায়ের সারসংক্ষেপ",
+    "গুরুত্বপূর্ণ পরিভাষা",
+    "আরও পড়ুন"
+  ],
+  "requiredSectionPatterns": [" Project: "],
+  "exerciseLevels": ["প্রাথমিক স্তর", "মধ্যম স্তর", "চ্যালেঞ্জ স্তর"],
+  "mcq": { "questions": 10, "optionsPerQuestion": 4, "optionLabels": "কখগঘ", "questionPattern": "^\\*\\*প্রশ্ন [০-৯]+\\.\\*\\*", "quickKeyLabel": "দ্রুত উত্তরমালা" },
+  "solutionPattern": "^\\*\\*সমাধান [০-৯]+\\*\\*",
+  "calloutLabels": { "নোট": "note", "সতর্কতা": "warn", "পরামর্শ": "tip", "মনে রাখুন": "remember" },
+  "informalAddress": ["তুমি", "তোমার", "তোমাকে", "তোমরা", "তুই", "তোর"],
+  "informalVerbEndings": ["করো", "লিখো", "দেখো", "খোলো", "চালাও", "বানাও", "পড়ো", "ভাবো"],
+  "informalAllowedWhenQuoted": true,
+  "placeholderTerms": ["DRAFT", "TODO", "TBD", "RECONSTRUCTED", "Lorem ipsum", "EDITORIAL STATUS"],
+  "runTargets": ["node", "browser", "both"],
+  "listingKinds": ["output", "error", "terminal", "structure"]
+}

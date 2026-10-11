@@ -1,0 +1,192 @@
+===== examples/01-why-functions.js  (exit code 0) =====
+360
+150
+
+===== examples/02-argument-count.js  (exit code 0) =====
+5
+NaN
+5
+
+===== examples/03-return-vs-log.js  (exit code 0) =====
+360
+undefined
+360
+410
+
+===== examples/04-early-return.js  (exit code 0) =====
+শেষ হয়ে গেছে
+অল্প বাকি
+মজুত আছে
+
+===== examples/05-default-parameter.js  (exit code 0) =====
+স্বাগতম, Sara!
+স্বাগতম, অতিথি!
+স্বাগতম, অতিথি!
+স্বাগতম, null!
+
+===== examples/06-default-discount.js  (exit code 0) =====
+500
+450
+
+===== examples/07-function-expression.js  (exit code 0) =====
+5
+function
+
+===== examples/08-arrow-functions.js  (exit code 0) =====
+42
+false
+Sara: উত্তীর্ণ
+স্বাগতম!
+
+===== examples/09-scopes.js  (exit code 0) =====
+Boi Ghar 500 বড় কেনাকাটা
+undefined
+undefined
+
+===== examples/errors/e1-out-of-scope.js  (exit code 1) =====
+e1-out-of-scope.js:6
+console.log(total);
+            ^
+
+ReferenceError: total is not defined
+    at Object.<anonymous> (e1-out-of-scope.js:6:13)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.16.0
+
+===== examples/10-scope-chain.js  (exit code 0) =====
+10
+5
+
+===== examples/11-lexical-scope.js  (exit code 0) =====
+100 টাকা
+
+===== examples/12-hoisting.js  (exit code 0) =====
+16
+undefined
+var দিয়ে তৈরি
+
+===== examples/errors/e2-arrow-before-declaration.js  (exit code 1) =====
+e2-arrow-before-declaration.js:1
+console.log(cube(3));
+            ^
+
+ReferenceError: Cannot access 'cube' before initialization
+    at Object.<anonymous> (e2-arrow-before-declaration.js:1:13)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.16.0
+
+===== examples/13-small-functions.js  (exit code 0) =====
+900
+945
+
+===== examples/14-pure-vs-impure.js  (exit code 0) =====
+100
+200
+200
+200
+
+===== examples/15-function-as-argument.js  (exit code 0) =====
+900
+950
+
+===== examples/16-arrow-no-return.js  (exit code 0) =====
+undefined
+42
+
+===== examples/17-debug-function.js  (exit code 0) =====
+পেয়েছে: 1000 10 string
+ফেরত দিচ্ছে: 900
+
+===== project/invoice-calculator/invoice.js  (exit code 0) =====
+Notebook x 3: 361.50 টাকা
+Pen x 10: 150.00 টাকা
+School Bag x 1: 950.00 টাকা
+উপমোট: 1461.50 টাকা
+ছাড় (10%): 146.15 টাকা
+কর (5%): 65.77 টাকা
+সর্বমোট: 1381.12 টাকা
+1461.50 টাকা
+
+===== examples/18-predict-return.js  (exit code 0) =====
+Hello, Sara
+undefined
+
+===== examples/errors/e3-scope-bug.js  (exit code 1) =====
+e3-scope-bug.js:6
+console.log(discounted);
+            ^
+
+ReferenceError: discounted is not defined
+    at Object.<anonymous> (e3-scope-bug.js:6:13)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.16.0
+
+===== examples/19-predict-scope.js  (exit code 0) =====
+বাইরের
+
+===== examples/solutions/s01-square.js  (exit code 0) =====
+49
+49
+
+===== examples/solutions/s03-full-name.js  (exit code 0) =====
+Sadia Rahman
+
+===== examples/solutions/s04-power.js  (exit code 0) =====
+25
+1024
+
+===== examples/solutions/s05-scope-fixed.js  (exit code 0) =====
+450
+
+===== examples/solutions/s06-leap-year.js  (exit code 0) =====
+true
+false
+true
+false
+
+===== examples/solutions/s07-average.js  (exit code 0) =====
+80
+0
+
+===== examples/solutions/s09-apply-twice.js  (exit code 0) =====
+25
+20
+
+===== examples/solutions/s10-delivery.js  (exit code 0) =====
+144112
+150112
+300000
+
+===== examples/solutions/s11-price-after.js  (exit code 0) =====
+50000
+42500
+48000
+
+===== examples/solutions/s12-safe-percent.js  (exit code 0) =====
+100
+null
+null

@@ -1,0 +1,11 @@
+"use strict";
+const assert = require("node:assert/strict");
+const {calculateResult} = require("./calculator.js");
+assert.deepEqual(calculateResult(" Sara ",[80,90,70]), {name:"Sara",marks:[80,90,70],total:240,average:80,passed:true,grade:"A+"});
+assert.equal(calculateResult("A",[100,100,20]).grade,"F");
+assert.equal(calculateResult("A",[33,33,33]).grade,"D");
+assert.throws(()=>calculateResult("",[60,60,60]),TypeError);
+assert.throws(()=>calculateResult("A",[60,NaN,60]),RangeError);
+assert.throws(()=>calculateResult("A",[60,101,60]),RangeError);
+assert.throws(()=>calculateResult("A",[60,60]),RangeError);
+console.log("All seven Chapter 2 tests passed.");

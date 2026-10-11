@@ -1,0 +1,34 @@
+$ node D:\MoynullHasan\ebook\allcopy\book-output\master-design-system\scripts\check-typography.mjs D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-01-ch02-06\chapter-05\chapter-05-premium.pdf D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-01-ch02-06\chapter-05\chapter-05-premium.md --json D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-01-ch02-06\chapter-05\.build\typography.json   (in .)
+
+PDF: D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-01-ch02-06\chapter-05\chapter-05-premium.pdf
+Pages: 34 | glyphs: 36959 (13087 Bengali) | source Bengali words: 3018 (719 distinct)
+Fonts: HindSiliguri-Medium, HindSiliguri-Bold, HindSiliguri-Regular, SourceCodePro-Regular, HindSiliguri-SemiBold, SourceCodePro-Bold
+
+[naive] source words recovered intact: 1395 of 3018 (46.22%) | distinct words affected: 486
+   most affected: থেকে×38, করে×35, ফেরত×33, ব্যবহার×29, দিয়ে×25, দেয়×25, লেখা×24, হয়েছে×23, হিসাব×21, হবে×18, তৈরি×17, অধ্যায়×16
+
+[robust] source words recovered intact: 1403 of 3018 (46.49%) | distinct words affected: 481
+   most affected: থেকে×38, করে×35, ফেরত×33, ব্যবহার×29, দিয়ে×25, দেয়×25, লেখা×24, হয়েছে×23, হিসাব×21, হবে×18, তৈরি×17, অধ্যায়×16
+
+[actual] source words recovered intact: 3018 of 3018 (100%) | distinct words affected: 0
+   most affected: none
+
+Probe words (occurrences in source -> intact / split forms):
+   ভুল ×14:  naive 10 ["ভু ল"] | robust 13 [] | actual 15 []
+   নতুন ×4:  naive 0 ["নতু ন"] | robust 4 [] | actual 4 []
+   পরিবর্তন ×2:  naive 0 [] | robust 0 [] | actual 2 []
+   প্রথম ×7:  naive 4 [] | robust 4 [] | actual 7 []
+   কি ×38:  naive 0 ["ক ি"] | robust 0 ["ক ি"] | actual 38 []
+   গুরুত্বপূর্ণ ×3:  naive 0 [] | robust 0 [] | actual 3 []
+
+Naive extractor: spurious in-word breaks occur after these glyphs:
+   ল (advance 0.73 em): 33
+   ু (advance 0.00 em): 8
+   ঁ (advance 0.00 em): 7
+   ণ (advance 0.59 em): 5
+   ৃ (advance 0.00 em): 4
+   য় (advance 0.57 em): 3
+   া (advance 0.26 em): 3
+   শ (advance 0.68 em): 2
+   র (advance 0.53 em): 2
+   ল (advance 0.75 em): 2

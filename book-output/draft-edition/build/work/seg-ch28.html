@@ -1,0 +1,213 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-28"><header class="opener"><div class="chap-label">অধ্যায় ২৮</div><h1>Professional JavaScript Deployment, Docker, CI/CD, Cloud Infrastructure এবং Production Monitoring</h1></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায়ের শেষে development ও production environment-এর পার্থক্য, Twelve-Factor principles, reproducible build, container image, CI/CD, deployment strategies, health checks, observability, incident response এবং নিরাপদ rollback ব্যাখ্যা করতে পারবেন। <strong>DeployReady Travel Operations API</strong>-কে deployment-oriented structure-এ সাজাবেন।</p>
+<h2>২৮.১ Localhost থেকে Production: কী বদলায়?</h2>
+<p>Localhost-এ একটি process চালু হলেই কাজ হয়। Production-এ ব্যবহারকারী, network, DNS, TLS, secrets, persistent storage, uptime, monitoring, scaling এবং incident recovery বিবেচনা করতে হয়। Deployment শুধু code upload নয়; এটি একটি repeatable, reversible operational process।</p>
+<table><thead><tr><th>Concern</th><th>Local development</th><th>Production expectation</th></tr></thead><tbody><tr><td>Configuration</td><td><code>.env</code> বা local variable</td><td>Managed configuration, secret store</td></tr><tr><td>Process</td><td>Terminal session</td><td>Supervised service/container</td></tr><tr><td>Data</td><td>Temporary/in-memory হতে পারে</td><td>Durable storage ও backup</td></tr><tr><td>Networking</td><td>localhost</td><td>TLS, ingress, firewall, DNS</td></tr><tr><td>Failures</td><td>Developer দেখে</td><td>Alerts, logs, incident process</td></tr><tr><td>Releases</td><td>Manual restart</td><td>CI, staged rollout, rollback</td></tr></tbody></table>
+<h2>২৮.২ Twelve-Factor ধারণা ও Environment Configuration</h2>
+<p>Configuration code-এর বাইরে রাখতে হবে। <code>process.env.PORT</code> ব্যবহার করা যায়, কিন্তু value parse ও validate করতে হবে। Secret কখনো Git repository, frontend bundle বা Docker image-এ hardcode করা যাবে না। Development, staging ও production environment আলাদা হওয়া উচিত।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> port = Number(process.env.PORT ?? <span class="n">3000</span>);
+<span class="k">if</span> (!Number.isInteger(port) || port &lt; <span class="n">0</span> || port &gt; <span class="n">65535</span>) {
+  <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'Invalid PORT'</span>);
+}</code></pre></figure>
+<p><strong>Important:</strong> <code>.env</code> ফাইল Git-এ commit না করলেও সেটি একা Secret Management নয়; production-এ access control, rotation ও audit দরকার।</p>
+<h2>২৮.৩ Build Artifact, Dependency Lock ও Reproducibility</h2>
+<p>Source code → automated checks → immutable build artifact → deployment। Dependency lockfile থাকলে <code>npm ci</code> deterministic dependency install করতে সাহায্য করে; তবে OS, runtime, native modules ও registry provenance-ও গুরুত্বপূর্ণ। এই demo-তে কোনো external runtime dependency নেই, তাই <code>npm install</code> প্রয়োজন হয় না। বাস্তব Express app-এ lockfile ও dependency scanning যুক্ত করতে হবে।</p>
+<p>Release identity হিসেবে Git commit SHA এবং image digest সংরক্ষণ করা ভালো। <code>latest</code> tag একা rollback-এর জন্য যথেষ্ট নয়।</p>
+<h2>২৮.৪ Docker Fundamentals</h2>
+<p>Image হলো build করা filesystem ও metadata; container হলো image থেকে চালু হওয়া isolated process। Dockerfile-এর layer cache build দ্রুত করতে পারে। Non-root user, minimal base image, <code>.dockerignore</code>, health check ও explicit runtime command ব্যবহার করা ভালো।</p>
+<figure class="code keep"><figcaption>Dockerfile</figcaption><pre><code>FROM node:22-alpine
+ENV NODE_ENV=production
+WORKDIR /app
+COPY --chown=node:node package.json ./
+COPY --chown=node:node src ./src
+USER node
+EXPOSE 3000
+CMD [&quot;node&quot;, &quot;src/server.mjs&quot;]</code></pre></figure>
+<p><strong>Security trade-off:</strong> Minimal image attack surface কমায়, কিন্তু image scanning, pinned digest, patched base image ও dependency review-এর বিকল্প নয়। Alpine-এ native dependency compatibility যাচাই করতে হয়।</p>
+<h2>২৮.৫ Docker Compose ও Local Production Simulation</h2>
+<p><code>compose.yaml</code>-এ service, environment, ports, restart policy এবং shutdown grace period দেওয়া যায়। এই অধ্যায়ের demo-তে port শুধু <code>127.0.0.1</code>-এ bind করা হয়েছে, যাতে local machine-এর বাইরে অনিচ্ছাকৃত exposure কমে।</p>
+<figure class="code keep"><figcaption>YAML</figcaption><pre><code>services:
+  api:
+    build: .
+    ports:
+      - &quot;127.0.0.1:3000:3000&quot;
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+    restart: unless-stopped</code></pre></figure>
+<p>Docker Compose development ও small deployment-এ কার্যকর; multi-node orchestration, autoscaling, high availability-এর জন্য অতিরিক্ত infrastructure দরকার।</p>
+<h2>২৮.৬ CI: প্রতিটি Change যাচাই</h2>
+<p>Continuous Integration-এ code push বা pull request হলে syntax, unit/integration tests, type checks, lint, security checks এবং image build চালানো হয়। Fail করা test থাকলে release block করতে হবে।</p>
+<figure class="code keep"><figcaption>YAML</figcaption><pre><code>name: CI
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm test
+      - run: docker build -t deployready:ci .</code></pre></figure>
+<p><strong>Security:</strong> Third-party actions production pipeline-এ full commit SHA দিয়ে pin করা, least-privilege permissions এবং secret exposure prevention বিবেচনা করুন। CI success মানে production readiness নয়।</p>
+<h2>২৮.৭ CD: Staging, Approval এবং Rollback</h2>
+<p>Continuous Delivery release-ready artifact তৈরি করে; Continuous Deployment সফল pipeline থেকে স্বয়ংক্রিয় release করে। একটি সাধারণ flow:</p>
+<figure class="code keep"><pre><code>Pull Request → Tests → Build Image → Security Scan
+     → Staging Deploy → Smoke Test → Approval
+     → Production Rollout → Monitor → Rollback if needed</code></pre></figure>
+<p>Blue/Green-এ দুটি environment থাকে; traffic switch করে দ্রুত rollback সম্ভব। Canary deployment-এ অল্প traffic নতুন version-এ পাঠানো হয়। Rolling deployment-এ instance ধাপে ধাপে বদলায়। <strong>Database migration backward-compatible না হলে শুধু app rollback যথেষ্ট নাও হতে পারে।</strong></p>
+<h2>২৮.৮ Liveness, Readiness এবং Graceful Shutdown</h2>
+<p><code>/health/live</code> process বেঁচে আছে কি না জানায়। <code>/health/ready</code> traffic গ্রহণের জন্য প্রস্তুত কি না জানায়। Readiness-এ dependency check থাকতে পারে, তবে costly query বা sensitive details প্রকাশ করা উচিত নয়। Shutdown-এর সময় প্রথমে readiness false, তারপর নতুন request বন্ধ ও চলমান কাজ শেষ করার চেষ্টা করা উচিত।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>process.on(<span class="s">'SIGTERM'</span>, () =&gt; {
+  app.drain();          <span class="c">// readiness becomes 503</span>
+  server.close(() =&gt; { process.exitCode = <span class="n">0</span>; });
+});</code></pre></figure>
+<p>এই snippet illustrative; complete timeout ও error handling <code>source-code/chapter-28/src/server.mjs</code>-এ রয়েছে। Container orchestration-এর termination grace period এবং application shutdown deadline সামঞ্জস্যপূর্ণ রাখতে হবে।</p>
+<h2>২৮.৯ Logs, Metrics এবং Traces</h2>
+<p>Observability-এর তিনটি গুরুত্বপূর্ণ signal: <strong>Logs</strong> (ঘটনার বিবরণ), <strong>Metrics</strong> (পরিমাপযোগ্য trend), <strong>Traces</strong> (request-এর end-to-end path)। Structured JSON log এবং request ID debugging সহজ করে। চারটি Golden Signals: latency, traffic, errors, saturation।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>console.log(JSON.stringify({ level: <span class="s">'info'</span>, event: <span class="s">'booking.created'</span>, requestId, bookingId }));</code></pre></figure>
+<p>Logs-এ password, token, payment card বা personal data অপ্রয়োজনে রাখবেন না। Demo-এর <code>/metrics</code> JSON endpoint শিক্ষামূলক; এটি Prometheus exposition format নয় এবং production-এ publicly expose করা উচিত নয়।</p>
+<h2>২৮.১০ SLI, SLO এবং Alerting</h2>
+<p>SLI হলো observed indicator—যেমন successful requests ratio। SLO হলো target—যেমন rolling 30-day window-এ 99.9% successful requests। SLA হলো external contractual commitment। Alerts এমন হওয়া উচিত যাতে action নেওয়া যায়; প্রতিটি isolated error-এ paging করলে alert fatigue হয়।</p>
+<p><strong>উদাহরণ:</strong> ১০,০০০ request-এর মধ্যে ৯,৯৭০টি সফল হলে success rate = 99.7%। যদি SLO 99.9% হয়, target পূরণ হয়নি। Error budget ও traffic window ছাড়া শুধু একটি percentage বিভ্রান্তিকর হতে পারে।</p>
+<h2>২৮.১১ Secrets, Supply Chain ও Infrastructure Security</h2>
+<p>Production deployment-এ TLS termination, network segmentation, restricted database access, secret manager, container scanning, SBOM, dependency review এবং least-privilege CI credentials দরকার। Deployment key বা cloud credential source code-এ রাখা যাবে না। Rotatable short-lived credentials ও workload identity উত্তম।</p>
+<h2>২৮.১২ Backups, Disaster Recovery ও Incident Response</h2>
+<p>RPO (Recovery Point Objective) হলো কতটা data loss সহ্য করা যাবে; RTO (Recovery Time Objective) হলো কত সময়ের মধ্যে service ফিরিয়ে আনতে হবে। Backup আছে মানেই restore কাজ করে—এমন নয়; restore drill করতে হবে। Incident runbook-এ detection, escalation, mitigation, communication, rollback এবং postmortem থাকা উচিত।</p>
+<h2>২৮.১৩ Practical Project — DeployReady Travel Operations API</h2>
+<p>এই Project-এ Node.js built-in HTTP server দিয়ে একটি ছোট Travel Operations Jobs API বানানো হয়েছে। Production concepts শেখার জন্য intentionally dependency-free design। <strong>এটি বাস্তব travel booking/payment backend নয়।</strong></p>
+<h3>Project Structure</h3>
+<figure class="code keep"><pre><code>source-code/chapter-28/
+├── package.json
+├── Dockerfile
+├── .dockerignore
+├── compose.yaml
+├── .github/workflows/ci.yml
+├── src/app.mjs
+├── src/server.mjs
+├── test/app.test.mjs
+└── README.md</code></pre></figure>
+<h3>API Contract</h3>
+<table><thead><tr><th>Method</th><th>Route</th><th>Purpose</th></tr></thead><tbody><tr><td>GET</td><td><code>/health/live</code></td><td>Process liveness</td></tr><tr><td>GET</td><td><code>/health/ready</code></td><td>Traffic readiness</td></tr><tr><td>GET</td><td><code>/metrics</code></td><td>Educational counters</td></tr><tr><td>GET</td><td><code>/api/jobs</code></td><td>In-memory job list</td></tr><tr><td>POST</td><td><code>/api/jobs</code></td><td>Validated job creation</td></tr></tbody></table>
+<h3>Run and Verify</h3>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code>cd source-code/chapter-28
+npm test
+npm start
+<span class="c"># separate terminal</span>
+curl http://localhost:3000/health/ready
+curl -X POST http://localhost:3000/api/jobs \
+  -H 'content-type: application/json' \
+  -d '{&quot;title&quot;:&quot;Verify hotel booking&quot;}'</code></pre></figure>
+<p>Docker installed থাকলে <code>docker compose up --build</code> দিয়ে চালাতে পারবেন। CI workflow GitHub repository-তে push করলে চলবে; এই environment-এ GitHub Actions run করা হয়নি।</p>
+<h3>Design Decisions</h3>
+<ul><li><code>app.mjs</code>-এ HTTP handler ও state; <code>server.mjs</code>-এ process lifecycle। এতে test-এ random port ব্যবহার করা যায়।</li><li><code>x-request-id</code> response header request correlation-এর পরিচিতি দেয়।</li><li>Payload size limit ও title validation আছে; কিন্তু authentication, durable database এবং rate limiting নেই।</li><li><code>/health/ready</code> shutdown-এ 503 দেয়; <code>/health/live</code> process active থাকা পর্যন্ত 200 দেয়।</li><li>In-memory data restart-এ হারিয়ে যাবে। Production deployment-এর আগে persistent database, access control, secret management ও observability দরকার।</li></ul>
+<h2>২৮.১৪ Common Deployment Mistakes</h2>
+<ol><li><code>.env</code> বা private key Git-এ commit করা।</li><li>Image tag <code>latest</code> ব্যবহার করে কোন version deploy হয়েছে তা না জানা।</li><li>Database migration rollback compatibility পরীক্ষা না করা।</li><li>Readiness ও liveness একইভাবে implement করা।</li><li>No timeout, no graceful shutdown।</li><li>শুধু HTTP 200 দেখে success ধরে নেওয়া; latency ও error rate না দেখা।</li><li>In-memory session ব্যবহার করে multiple replicas চালানো।</li><li>Test ছাড়াই production release করা।</li><li>Alerting তৈরি করে runbook না রাখা।</li><li>Backup তৈরি করেও restore test না করা।</li></ol>
+<h2>২৮.১৫ Exercises</h2>
+<p>১. Development ও production-এর পাঁচটি পার্থক্য লিখুন।<br>২. <code>PORT=abc</code> হলে কেন fail-fast করা উচিত ব্যাখ্যা করুন।<br>৩. Docker image ও container-এর পার্থক্য লিখুন।<br>৪. <code>.dockerignore</code>-এ <code>node_modules</code> রাখার কারণ কী?<br>৫. Liveness ও readiness-এর আলাদা উদ্দেশ্য উদাহরণসহ লিখুন।<br>৬. <code>POST /api/jobs</code>-এ empty title পাঠিয়ে status code যাচাই করুন।<br>৭. Request ID কীভাবে incident debugging-এ সাহায্য করে?<br>৮. Blue/Green ও Canary deployment তুলনা করুন।<br>৯. ৪,০০০ request-এর মধ্যে ৩,৯৮০ সফল হলে success rate গণনা করুন।<br>১০. DeployReady-তে persistent database যোগ করার migration plan লিখুন।</p>
+<h3>Sample Solutions</h3>
+<p>১. Config, storage, network, process supervision ও monitoring—প্রতিটি production-এ অধিক নিয়ন্ত্রিত।<br>২. Invalid port দিয়ে অনির্দেশ্য behaviour হওয়ার চেয়ে startup-এ clear error নিরাপদ।<br>৩. Image immutable template; container তার running instance।<br>৪. Host-এর dependency, unnecessary size এবং platform mismatch এড়াতে।<br>৫. Alive কিন্তু DB unavailable হলে live=200, ready=503 হতে পারে।<br>৬. <code>curl -i -X POST http://localhost:3000/api/jobs -d '{&quot;title&quot;:&quot;&quot;}'</code> → 422; content-type সহ JSON পাঠানো উত্তম।<br>৭. একই ID দিয়ে reverse proxy, application ও tracing events correlate করা যায়।<br>৮. Blue/Green দুই environment switch করে; Canary ছোট traffic slice দিয়ে শুরু করে।<br>৯. <code>3980 / 4000 * 100 = 99.5%</code>।<br>১০. Repository abstraction, schema migration, connection secret, readiness dependency, integration tests, backup ও rollback plan যুক্ত করুন।</p>
+<h2>২৮.১৬ MCQ — Final Check</h2>
+<p>১. Readiness failure-এ সাধারণত কী হয়? A) traffic বন্ধ B) CPU double C) image delete D) DNS reset<br>২. <code>SIGTERM</code> সাধারণত কী signal? A) shutdown request B) SQL error C) test pass D) port scan<br>৩. Container image কী? A) build artifact B) live database C) monitoring alert D) browser tab<br>৪. CI-এর উদ্দেশ্য কী? A) automatic checks B) শুধু CSS C) manual backup D) invoice<br>৫. Secret কোথায় রাখা উত্তম? A) managed secret store B) public Git C) frontend JS D) image label<br>৬. SLO কী? A) target objective B) request body C) CSS property D) Docker network<br>৭. Canary rollout-এ কী করা হয়? A) limited traffic B) delete tests C) disable logs D) expose secrets<br>৮. RPO কী বোঝায়? A) tolerable data loss B) uptime port C) memory speed D) request ID<br>৯. Request ID-এর সুবিধা? A) correlation B) encryption C) authorization D) compression<br>১০. Production-এ in-memory data-এর ঝুঁকি? A) restart data loss B) faster TLS C) immutable DB D) automatic backup</p>
+<p><strong>Answers ও ব্যাখ্যা:</strong> ১-A (unready instance-এ নতুন traffic না দেওয়া), ২-A (graceful termination trigger), ৩-A (container চালানোর template), ৪-A (repeatable validation), ৫-A (controlled access/rotation), ৬-A (service-level target), ৭-A (small cohort-এ risk সীমিত), ৮-A (maximum acceptable data loss), ৯-A (distributed debugging), ১০-A (durability নেই)।</p>
+<h2>২৮.১৭ Chapter Recap ও Next Step</h2>
+<p>Production readiness মানে শুধু server চালু থাকা নয়; reproducible builds, validated releases, security, health signals, observability, durable data এবং incident recovery একসঙ্গে কাজ করা। পরবর্তী অধ্যায়ে microservices, distributed transactions ও system design-এর trade-offs আলোচনা করব।</p>
+<p><strong>Further reading:</strong> Node.js HTTP/Process documentation, Docker Dockerfile best practices, GitHub Actions security hardening, OpenTelemetry concepts, Google SRE workbook। Version-specific details অফিসিয়াল documentation দিয়ে যাচাই করতে হবে।</p>
+</section></body></html>

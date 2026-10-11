@@ -1,0 +1,305 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-18"><header class="opener"><div class="chap-label">অধ্যায় ১৮</div><h1>Functional Programming, Immutability এবং Advanced Data Transformation</h1><p class="meta"><strong>Level:</strong> Intermediate → Advanced | <strong>Project:</strong> SalesFlow Analytics | <strong>Prerequisites:</strong> Functions, Arrays, Objects, Modules।</p></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে তুমি Pure Function ও Side Effect আলাদা করতে, Immutable Transformation লিখতে, <code>map</code>/<code>filter</code>/<code>reduce</code>-এর মাধ্যমে Data Pipeline তৈরি করতে, Grouping ও Ranking করতে, Function Composition বুঝতে এবং Automated Test দিয়ে Data Integrity যাচাই করতে পারবে।</p>
+<h2>১৮.১ Functional Programming কী এবং কেন?</h2>
+<p>Functional Programming (FP) হলো এমন একটি Programming Style যেখানে সমস্যাকে ছোট, পুনর্ব্যবহারযোগ্য Function-এর মাধ্যমে সমাধান করা হয়। বিশেষ গুরুত্ব দেওয়া হয় <strong>Pure Functions</strong>, <strong>Immutable Data</strong> এবং <strong>Declarative Transformation</strong>-এ। JavaScript Multi-Paradigm Language: একই Application-এ FP, OOP এবং Imperative Code একসঙ্গে থাকতে পারে।</p>
+<p>ধরা যাক একটি Sales Dashboard-এর জন্য Orders থেকে Paid Revenue বের করতে হবে। Imperative পদ্ধতিতে Loop, Temporary Variable এবং State Update করতে পারো। Functional পদ্ধতিতে Transformation-এর উদ্দেশ্য সরাসরি প্রকাশ করা যায়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> orders = [
+  { id: <span class="n">1</span>, status: <span class="s">'paid'</span>, total: <span class="n">800</span> },
+  { id: <span class="n">2</span>, status: <span class="s">'refunded'</span>, total: <span class="n">500</span> },
+  { id: <span class="n">3</span>, status: <span class="s">'paid'</span>, total: <span class="n">1200</span> }
+];
+
+<span class="k">const</span> revenue = orders
+  .filter(order =&gt; order.status === <span class="s">'paid'</span>)
+  .reduce((sum, order) =&gt; sum + order.total, <span class="n">0</span>);
+console.log(revenue); <span class="c">// 2000</span></code></pre></figure>
+<p>এখানে Original <code>orders</code> Array বদলায়নি। প্রতিটি Step-এর দায়িত্বও আলাদা।</p>
+<h2>১৮.২ Pure Function, Referential Transparency ও Side Effects</h2>
+<p>একটি Function-কে Pure বলা যায় যদি (১) একই Input দিলে একই Output দেয় এবং (২) External State পরিবর্তন না করে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> calculateLineTotal(quantity, unitPrice) {
+  <span class="k">return</span> quantity * unitPrice;
+}</code></pre></figure>
+<p>এটি Pure। কিন্তু নিচের Function বাইরের <code>total</code> পরিবর্তন করে:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">let</span> total = <span class="n">0</span>;
+<span class="k">function</span> addToTotal(amount) {
+  total += amount; <span class="c">// side effect</span>
+  <span class="k">return</span> total;
+}</code></pre></figure>
+<p><strong>Side Effect সবসময় খারাপ নয়।</strong> Browser DOM Update, Network Request, File Write এবং Logging বাস্তব Application-এর প্রয়োজনীয় কাজ। ভালো Architecture-এ এসবকে Core Calculation থেকে আলাদা রাখা হয়। এতে Test সহজ হয়।</p>
+<p><strong>Referential Transparency:</strong> Pure Function Call-কে একই Input-এর Result দিয়ে প্রতিস্থাপন করলেও আচরণ বদলায় না। এটি Reasoning ও Caching সহজ করে।</p>
+<h2>১৮.৩ Immutability — পরিবর্তনের বদলে নতুন Value</h2>
+<p>JavaScript-এ Object ও Array Reference-based। <code>const</code> দিয়ে Variable Reassignment বন্ধ করা যায়; Nested Data Mutation বন্ধ হয় না।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> student = { name: <span class="s">'Amina'</span>, profile: { city: <span class="s">'Dhaka'</span> } };
+student.profile.city = <span class="s">'Khulna'</span>; <span class="c">// বৈধ, যদিও student const</span>
+
+<span class="k">const</span> updated = {
+  ...student,
+  profile: { ...student.profile, city: <span class="s">'Sylhet'</span> }
+};</code></pre></figure>
+<p>Spread Operator একটি <strong>Shallow Copy</strong> তৈরি করে। Deeply Nested Structure-এর ক্ষেত্রে প্রয়োজনীয় স্তরগুলো Copy করতে হয়, অথবা Supported Environment-এ <code>structuredClone()</code> ব্যবহার করা যায়। তবে Function, DOM Node, কিছু Special Object <code>structuredClone</code>-এ Unsupported হতে পারে।</p>
+<p>Array-এর জন্য:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> items = [<span class="s">'A'</span>, <span class="s">'B'</span>];
+<span class="k">const</span> appended = [...items, <span class="s">'C'</span>];
+<span class="k">const</span> removed = items.filter(item =&gt; item !== <span class="s">'A'</span>);
+<span class="k">const</span> replaced = items.map(item =&gt; item === <span class="s">'B'</span> ? <span class="s">'New B'</span> : item);
+console.log(items); <span class="c">// ['A', 'B'] — unchanged</span></code></pre></figure>
+<p><code>sort()</code>, <code>reverse()</code>, <code>splice()</code> Original Array পরিবর্তন করে। Non-mutating বিকল্প হিসেবে <code>toSorted()</code>, <code>toReversed()</code>, <code>toSpliced()</code> Modern Runtimes-এ পাওয়া যায়; Compatibility পরীক্ষা করবে।</p>
+<h2>১৮.৪ <code>map()</code>, <code>filter()</code>, <code>reduce()</code> এবং <code>flatMap()</code></h2>
+<p><code>map</code> একেকটি Item থেকে নতুন Item তৈরি করে; <code>filter</code> শর্ত অনুযায়ী Item রাখে; <code>reduce</code> অনেক Item থেকে একটি Accumulator তৈরি করে; <code>flatMap</code> Mapping-এর পর এক স্তর Flatten করে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> products = [
+  { name: <span class="s">'Book'</span>, price: <span class="n">400</span>, stock: <span class="n">3</span> },
+  { name: <span class="s">'Course'</span>, price: <span class="n">1200</span>, stock: <span class="n">0</span> },
+  { name: <span class="s">'Pen'</span>, price: <span class="n">30</span>, stock: <span class="n">10</span> }
+];
+<span class="k">const</span> availableNames = products
+  .filter(product =&gt; product.stock &gt; <span class="n">0</span>)
+  .map(product =&gt; product.name);
+<span class="c">// ['Book', 'Pen']</span>
+<span class="k">const</span> totalStockValue = products.reduce(
+  (sum, product) =&gt; sum + product.price * product.stock, <span class="n">0</span>
+); <span class="c">// 1500</span></code></pre></figure>
+<p><code>reduce()</code>-এ Initial Value দেওয়া গুরুত্বপূর্ণ। Empty Array-এ Initial Value ছাড়া <code>reduce()</code> Error দেয়।</p>
+<h2>১৮.৫ Data Validation ও Normalization</h2>
+<p>External Data বিশ্বাস করা যায় না। API, CSV বা Form থেকে আসা Numeric Value String হতে পারে। Pipeline-এর শুরুতে Input Normalize এবং Validate করো।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> normalizeOrder(order) {
+  <span class="k">const</span> quantity = Number(order.quantity);
+  <span class="k">const</span> unitPrice = Number(order.unitPrice);
+  <span class="k">if</span> (!Number.isSafeInteger(quantity) || quantity &lt;= <span class="n">0</span>) {
+    <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">'Quantity must be a positive integer'</span>);
+  }
+  <span class="k">if</span> (!Number.isFinite(unitPrice) || unitPrice &lt; <span class="n">0</span>) {
+    <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">'Price must be non-negative'</span>);
+  }
+  <span class="k">return</span> { ...order, quantity, unitPrice, total: quantity * unitPrice };
+}</code></pre></figure>
+<p><strong>Financial Precision Note:</strong> বাস্তব Payment System-এ Floating-Point Price সরাসরি ব্যবহারে Precision Issue হতে পারে। Currency Minor Units (যেমন পয়সা) বা নির্ভরযোগ্য Decimal Library ব্যবহার করা উত্তম। আমাদের Project শিক্ষামূলক।</p>
+<h2>১৮.৬ Grouping এবং Aggregation</h2>
+<p>Category অনুযায়ী Sales Group করার সময় Accumulator ব্যবহার করা যায়:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> revenueByCategory(orders) {
+  <span class="k">return</span> orders
+    .filter(order =&gt; order.status === <span class="s">'paid'</span>)
+    .reduce((groups, order) =&gt; ({
+      ...groups,
+      [order.category]: (groups[order.category] ?? <span class="n">0</span>) + order.total
+    }), {});
+}</code></pre></figure>
+<p>এটি Immutable, কিন্তু প্রতিটি Iteration-এ পুরো Object Spread করলে বড় Dataset-এ Cost বাড়তে পারে। Performance-sensitive Code-এ একটি Function-এর <strong>Local Mutable Accumulator</strong> ব্যবহার করেও বাইরে থেকে Pure আচরণ বজায় রাখা যায়:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> efficientRevenueByCategory(orders) {
+  <span class="k">const</span> groups = <span class="k">new</span> Map();
+  <span class="k">for</span> (<span class="k">const</span> order <span class="k">of</span> orders) {
+    <span class="k">if</span> (order.status !== <span class="s">'paid'</span>) <span class="k">continue</span>;
+    groups.<span class="k">set</span>(order.category, (groups.<span class="k">get</span>(order.category) ?? <span class="n">0</span>) + order.total);
+  }
+  <span class="k">return</span> groups;
+}</code></pre></figure>
+<p><strong>মূল কথা:</strong> FP মানেই প্রতিটি Local Variable অপরিবর্তনীয় হতে হবে, এমন নয়। External Observable Mutation এড়ানোই প্রধান উদ্দেশ্য।</p>
+<h2>১৮.৭ Function Composition ও Pipelines</h2>
+<p>একটি Function-এর Output আরেকটি Function-এর Input হলে Function Composition তৈরি হয়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> pipe = (...functions) =&gt; initial =&gt;
+  functions.reduce((value, fn) =&gt; fn(value), initial);
+
+<span class="k">const</span> trim = value =&gt; value.trim();
+<span class="k">const</span> lower = value =&gt; value.toLowerCase();
+<span class="k">const</span> hyphenate = value =&gt; value.replace(/\s+/g, <span class="s">'-'</span>);
+<span class="k">const</span> slugify = pipe(trim, lower, hyphenate);
+console.log(slugify(<span class="s">'  JavaScript Mastery  '</span>));</code></pre></figure>
+<p><code>pipe</code> বাম থেকে ডানে কাজ করে। <code>compose</code> সাধারণত ডান থেকে বামে কাজ করে। Function Signatures মিলতে হবে।</p>
+<h2>১৮.৮ Closures, Currying ও Partial Application</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> greaterThan = minimum =&gt; <span class="k">number</span> =&gt; <span class="k">number</span> &gt; minimum;
+<span class="k">const</span> premiumPrices = [<span class="n">100</span>, <span class="n">500</span>, <span class="n">1200</span>].filter(greaterThan(<span class="n">400</span>));
+<span class="c">// [500, 1200]</span>
+
+<span class="k">const</span> multiply = a =&gt; b =&gt; a * b;
+<span class="k">const</span> double = multiply(<span class="n">2</span>);
+console.log(double(<span class="n">7</span>)); <span class="c">// 14</span></code></pre></figure>
+<p>এখানে Inner Function বাইরের <code>minimum</code> বা <code>a</code> ধরে রাখে—এটি Closure। Currying একটি Multi-Argument Function-কে একাধিক Single-Argument Function-এর Chain হিসেবে প্রকাশ করে। Partial Application কিছু Argument আগেই Fix করে নতুন Function তৈরি করে।</p>
+<h2>১৮.৯ Sorting, Stability ও Non-Mutation</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> ranked = [...products].sort((a, b) =&gt; b.price - a.price);</code></pre></figure>
+<p>Original <code>products</code> অক্ষত থাকে। String Sort-এ <code>localeCompare()</code> উপযোগী। Multiple Sort Keys থাকলে Tie-breaker যোগ করো। Input Array বড় হলে বারবার Sorting-এর Cost সাধারণত O(n log n)।</p>
+<h2>১৮.১০ Async Pipelines এবং সীমাবদ্ধতা</h2>
+<p><code>map(async ...)</code> একটি <strong>Promise Array</strong> তৈরি করে, Resolved Value Array নয়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> ids = [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>];
+<span class="k">const</span> results = <span class="k">await</span> Promise.all(ids.map(<span class="k">async</span> id =&gt; {
+  <span class="k">return</span> { id, valid: <span class="k">true</span> };
+}));</code></pre></figure>
+<p><code>Promise.all</code>-এ একটি Promise Reject করলে Combined Promise Reject হয়। Concurrent Request বেশি হলে Rate Limit/Memory বিবেচনা করে Bounded Concurrency দরকার হতে পারে।</p>
+<h2>১৮.১১ Practical Project — SalesFlow Analytics</h2>
+<p><strong>Goal:</strong> Raw Sales Orders থেকে Searchable Dashboard, Paid Revenue, Unit Count ও Category Ranking তৈরি করা।</p>
+<p><strong>Folder Structure:</strong></p>
+<figure class="code keep"><pre><code>source-code/chapter-18/
+├── index.html
+├── style.css
+├── sales-core.mjs
+├── app.mjs
+└── sales-core.test.mjs</code></pre></figure>
+<h3>Architecture</h3>
+<figure class="code keep"><pre><code>Raw Orders
+    │
+    ▼
+normalize + validate
+    │
+    ▼
+filter (search/category/status)
+    │
+    ├──► Paid Revenue / Units
+    ├──► Category Aggregation + Ranking
+    └──► DOM Rendering (textContent only)</code></pre></figure>
+<p><strong><code>sales-core.mjs</code></strong>-এ <code>normalizeOrder</code>, <code>prepareOrders</code>, <code>filterOrders</code>, <code>sumRevenue</code>, <code>totalUnits</code>, <code>groupByCategory</code>, <code>rankCategories</code>, <code>summarize</code> ও <code>pipe</code> রয়েছে। এগুলো DOM-নির্ভর নয়, তাই Node.js Test Runner দিয়ে Test করা যায়। <strong><code>app.mjs</code></strong>-এ Event Listener ও DOM Rendering আলাদা রাখা হয়েছে। Full Runnable Files Companion Source Code-এর <code>source-code/chapter-18/</code> Folder-এ রয়েছে।</p>
+<p>Core Usage:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">import</span> { sampleOrders, summarize } <span class="k">from</span> <span class="s">'./sales-core.mjs'</span>;
+<span class="k">const</span> report = summarize(sampleOrders, { category: <span class="s">'Books'</span>, status: <span class="s">'paid'</span> });
+console.log(report.revenue); <span class="c">// 2900</span>
+console.log(report.units);   <span class="c">// 3</span></code></pre></figure>
+<p><strong>চালানোর নিয়ম:</strong> Project Folder-এ Local HTTP Server চালিয়ে Browser-এ <code>index.html</code> খুলো। যেমন <code>python -m http.server 8000</code>, তারপর <code>http://localhost:8000</code>। <code>file://</code> দিয়ে ES Modules চালালে Browser Security Restrictions হতে পারে। Test: <code>node --test sales-core.test.mjs</code>।</p>
+<p><strong>Design Decisions:</strong> Source Array Mutate করা হয়নি; <code>textContent</code> ব্যবহার করা হয়েছে যাতে User Text HTML হিসেবে Execute না হয়; Refund/Pending Revenue-তে Count হয় না; Empty Dataset-এর জন্য Safe Default আছে।</p>
+<h2>১৮.১২ Testing Strategy</h2>
+<p>Pure Functions Test করতে Browser লাগে না। গুরুত্বপূর্ণ Cases:</p>
+<ol><li>Empty Array-তে Revenue 0।</li><li>Refunded Order Revenue-তে যোগ হবে না।</li><li>Duplicate Order ID Reject হবে।</li><li>Negative Price বা Zero Quantity Reject হবে।</li><li>Search Case-insensitive।</li><li>Category Ranking Descending।</li><li>Input Array Mutation হবে না।</li></ol>
+<p>Sample Test:</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">import</span> test <span class="k">from</span> <span class="s">'node:test'</span>;
+<span class="k">import</span> assert <span class="k">from</span> <span class="s">'node:assert/strict'</span>;
+<span class="k">import</span> { summarize } <span class="k">from</span> <span class="s">'./sales-core.mjs'</span>;
+
+test(<span class="s">'empty report'</span>, () =&gt; {
+  assert.equal(summarize([]).revenue, <span class="n">0</span>);
+});</code></pre></figure>
+<h2>১৮.১৩ Common Mistakes</h2>
+<ul><li><code>map()</code> ব্যবহার করে শুধু Side Effect ঘটানো; এমন ক্ষেত্রে <code>forEach()</code> বা Loop বেশি স্পষ্ট।</li><li><code>sort()</code> দিয়ে Original Array অজান্তে বদলে ফেলা।</li><li><code>reduce()</code>-এ Initial Value বাদ দেওয়া।</li><li><code>const</code>-কে Deep Immutability মনে করা।</li><li><code>map(async ...)</code> থেকে Promise Array পাওয়ার বিষয়টি ভুলে যাওয়া।</li><li>Monetary Values-এর Floating-Point Precision উপেক্ষা করা।</li><li>Large Dataset-এ প্রতিটি <code>reduce</code> Iteration-এ Object Spread করে অপ্রয়োজনীয় Cost বাড়ানো।</li></ul>
+<h2>১৮.১৪ Practice Exercises</h2>
+<p>১. <code>[1,2,3,4]</code> থেকে প্রতিটি সংখ্যার Square-এর Array তৈরি করো।<br>২. <code>products</code> থেকে Stock-এ থাকা Product Name বের করো।<br>৩. Paid Orders-এর মোট Revenue বের করো।<br>৪. Category অনুযায়ী Order Count তৈরি করো।<br>৫. Input Array না বদলে Price অনুযায়ী Descending Sort করো।<br>৬. <code>pipe()</code> দিয়ে Trim → Lowercase → Slug Generator বানাও।<br>৭. Duplicate ID Reject করার Function লিখো।<br>৮. Empty Dataset-এর জন্য Safe Summary তৈরি করো।<br>৯. <code>async map</code> এবং <code>Promise.all</code> দিয়ে Fake Data Enrichment করো।<br>১০. <code>groupByCategory()</code>-এর Unit Test লিখো।</p>
+<h2>১৮.১৫ Sample Solutions</h2>
+<figure class="code"><figcaption>JavaScript</figcaption><pre><code><span class="c">// 1</span>
+<span class="k">const</span> squares = [<span class="n">1</span>,<span class="n">2</span>,<span class="n">3</span>,<span class="n">4</span>].map(n =&gt; n*n);
+<span class="c">// 2</span>
+<span class="k">const</span> inStock = products.filter(p =&gt; p.stock &gt; <span class="n">0</span>).map(p =&gt; p.name);
+<span class="c">// 3</span>
+<span class="k">const</span> paidRevenue = orders.filter(o =&gt; o.status === <span class="s">'paid'</span>)
+  .reduce((sum,o) =&gt; sum + o.total, <span class="n">0</span>);
+<span class="c">// 4</span>
+<span class="k">const</span> countByCategory = orders.reduce((acc,o) =&gt; {
+  acc[o.category] = (acc[o.category] ?? <span class="n">0</span>) + <span class="n">1</span>;
+  <span class="k">return</span> acc;
+}, {});
+<span class="c">// 5</span>
+<span class="k">const</span> sorted = [...products].sort((a,b) =&gt; b.price - a.price);
+<span class="c">// 6</span>
+<span class="k">const</span> slug = pipe(s =&gt; s.trim(), s =&gt; s.toLowerCase(),
+  s =&gt; s.replace(/\s+/g,<span class="s">'-'</span>));
+<span class="c">// 7</span>
+<span class="k">function</span> rejectDuplicates(items) {
+  <span class="k">const</span> ids = items.map(item =&gt; item.id);
+  <span class="k">if</span> (<span class="k">new</span> Set(ids).size !== ids.length) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'Duplicate IDs'</span>);
+  <span class="k">return</span> items;
+}
+<span class="c">// 8</span>
+<span class="k">const</span> safeSummary = items =&gt; ({ count: items.length,
+  total: items.reduce((sum,item) =&gt; sum + item.total,<span class="n">0</span>) });
+<span class="c">// 9</span>
+<span class="k">async</span> <span class="k">function</span> enrich(ids) {
+  <span class="k">return</span> Promise.all(ids.map(<span class="k">async</span> id =&gt; ({id, valid:<span class="k">true</span>})));
+}
+<span class="c">// 10: source-code/chapter-18/sales-core.test.mjs দেখো।</span></code></pre></figure>
+<p><strong>Exercise Note:</strong> Solutions 2–5-এ পূর্ববর্তী Sections-এর <code>products</code> ও <code>orders</code> Sample Variables ব্যবহার করা হয়েছে।</p>
+<h2>১৮.১৬ Knowledge Check — ১০টি MCQ</h2>
+<p>১. Pure Function-এর বৈশিষ্ট্য কোনটি? A) Global State Update B) Same Input → Same Output C) DOM Mutation D) Random Output<br>২. <code>filter()</code> কী Return করে? A) Boolean B) New Array C) Single Number D) Promise<br>৩. কোন Method Original Array Mutate করে? A) <code>map</code> B) <code>filter</code> C) <code>sort</code> D) <code>slice</code><br>৪. <code>reduce([])</code>-এ Initial Value না থাকলে কী হয়? A) 0 B) null C) TypeError D) undefined<br>৫. <code>const obj = {x:1}</code> হলে <code>obj.x=2</code>? A) সবসময় Error B) সম্ভব C) Syntax Error D) Compile Error<br>৬. <code>map(async fn)</code> কী Return করে? A) Resolved Values B) Promise Array C) String D) Map Object<br>৭. <code>pipe(f,g)(x)</code> সাধারণত কোন Order? A) g তারপর f B) f তারপর g C) Random D) Parallel<br>৮. External State পরিবর্তন না করেও Local Mutation কি থাকতে পারে? A) না B) হ্যাঁ C) শুধু Browser-এ D) শুধু React-এ<br>৯. <code>structuredClone()</code> কি Function Clone করতে পারে? A) সবসময় B) না C) শুধু Async Function D) শুধু Arrow Function<br>১০. Refund বাদ দিয়ে Revenue হিসাবের আগে কী প্রয়োজন? A) <code>filter</code> B) <code>alert</code> C) <code>document.write</code> D) <code>eval</code></p>
+<h3>Answer Key ও Explanation</h3>
+<ol><li><strong>B</strong> — Deterministic Result ও Observable Side Effect না থাকা Pure Function-এর মূল বৈশিষ্ট্য।</li><li><strong>B</strong> — <code>filter</code> নতুন Array দেয়।</li><li><strong>C</strong> — <code>sort</code> In-place Mutate করে।</li><li><strong>C</strong> — Empty Array-এ Initial Accumulator না থাকলে TypeError।</li><li><strong>B</strong> — <code>const</code> Binding Reassignment আটকায়, Object Mutation নয়।</li><li><strong>B</strong> — <code>async</code> Callback-এর Result Promise।</li><li><strong>B</strong> — Pipe Left-to-Right।</li><li><strong>B</strong> — Local Mutation বাইরের Observable State না বদলালে Function Pure থাকতে পারে।</li><li><strong>B</strong> — Function <code>structuredClone</code>-এ Supported নয়।</li><li><strong>A</strong> — Status Filter দিয়ে Eligible Orders নির্বাচন করা যায়।</li></ol>
+<h2>১৮.১৭ Chapter Recap ও Next Step</h2>
+<p>Functional Programming একটি চিন্তার পদ্ধতি: ছোট Pure Functions, Immutable Data Flow, Explicit Validation এবং Testable Transformations। SalesFlow Analytics-এ আমরা এই ধারণাগুলোকে বাস্তব Project-এ ব্যবহার করেছি। পরবর্তী অধ্যায়ে Performance Optimization, Memory Management ও Web Application Efficiency নিয়ে কাজ করব।</p>
+</section></body></html>

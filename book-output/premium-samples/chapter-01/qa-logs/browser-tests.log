@@ -1,0 +1,17 @@
+Browser: Chrome/155.0.8059.40
+Page:    file:///D:/MoynullHasan/ebook/allcopy/book-output/premium-samples/chapter-01/project/interactive-greeting-app/index.html
+
+PASS  Page খুললে বার্তা ফাঁকা থাকে এবং কোনো Error হয় না
+PASS  নাম লিখে Button Click করলে শুভেচ্ছা দেখায়
+PASS  ফাঁকা রেখে Submit করলে সতর্কবার্তা দেখায় এবং Input-এ Focus ফেরে
+PASS  শুধু Space লিখে Submit করলে সতর্কবার্তা দেখায়
+PASS  Input-এ Enter চাপলে শুভেচ্ছা দেখায়
+PASS  নামের আগে-পরের Space বাদ দিয়ে শুভেচ্ছা দেখায়
+PASS  HTML-এর মতো লেখা Tag হিসেবে নয়, সাধারণ Text হিসেবে দেখায়
+PASS  ভুলের পর সঠিক নাম দিলে সতর্কবার্তা সরে গিয়ে শুভেচ্ছা দেখায়
+PASS  Accessibility: Label, Status Region ও ভাষা ঠিকভাবে চিহ্নিত
+PASS  Keyboard: Tab চাপলে Input থেকে Button-এ Focus যায়, Space চাপলে Submit হয়
+PASS  Mobile (360px): পাশে Scroll হয় না, Card পর্দার ভেতরে থাকে, লেখার আকার যথেষ্ট বড়
+PASS  পুরো Test চলাকালে Console-এ কোনো Error আসেনি
+
+12 passed, 0 failed (মোট 12)

@@ -1,0 +1,6 @@
+<!doctype html>
+<html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Invoice Calculator | Chapter 5</title><link rel="stylesheet" href="style.css"></head>
+<body><main><header><p class="eyebrow">JavaScript Mastery · Chapter 05</p><h1>Invoice Calculator</h1><p>Reusable functions দিয়ে বিল হিসাব করুন। উদাহরণে Tax ও Discount Rate শেখার উদ্দেশ্যে দেওয়া; বাস্তব করহার নয়।</p></header>
+<form id="line-form"><label>পণ্যের নাম <input id="name" required maxlength="80" placeholder="Notebook"></label><label>Unit Price (BDT) <input id="price" required inputmode="decimal" placeholder="250.50"></label><label>Quantity <input id="quantity" type="number" min="1" max="10000" step="1" value="1" required></label><button>Add Item</button></form>
+<div class="rates"><label>Discount % <input id="discount" type="number" min="0" max="100" step="0.01" value="5"></label><label>Example Tax % <input id="tax" type="number" min="0" max="100" step="0.01" value="10"></label><button id="clear" type="button" class="secondary">Clear</button></div>
+<p id="error" role="alert"></p><section aria-live="polite"><h2>Invoice Preview</h2><ul id="lines"></ul><dl id="summary"></dl></section></main><script src="invoice.js"></script><script src="app.js"></script></body></html>

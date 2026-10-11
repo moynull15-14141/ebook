@@ -1,0 +1,298 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-8"><header class="opener"><div class="chap-label">অধ্যায় ৮</div><h1>Strings এবং Modern Text Processing</h1></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে পাঠক String Primitive, Indexing, Unicode, Normalization, Template Literals, Searching, Splitting, Regular Expression, Safe DOM Rendering এবং Content Analysis বুঝবেন। Practical Project-এ বাংলা ও English কনটেন্ট থেকে Word Count, Slug, Excerpt, Frequency এবং Search Preview তৈরি করবেন।</p>
+<h2>৮.১ String কী এবং কেন গুরুত্বপূর্ণ?</h2>
+<p>ওয়েব অ্যাপ্লিকেশনে নাম, ইমেইল, URL, Search Query, Blog Post, API Message—সবই Text Data। JavaScript-এর <code>string</code> হলো Primitive Data Type; String Value অপরিবর্তনীয় (<em>immutable</em>)। Variable-এ নতুন String Assign করা যায়, কিন্তু আগের String-এর Character সরাসরি পরিবর্তন করা যায় না।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> language = <span class="s">'JavaScript'</span>;
+console.log(<span class="k">typeof</span> language); <span class="c">// string</span>
+console.log(language[<span class="n">0</span>]);    <span class="c">// J</span>
+language[<span class="n">0</span>] = <span class="s">'j'</span>;           <span class="c">// Primitive string অপরিবর্তিত থাকে (strict mode-এ error হতে পারে)</span>
+console.log(language);       <span class="c">// JavaScript</span></code></pre></figure>
+<p>String Object Wrapper ও Primitive String আলাদা। সাধারণ কাজে <code>new String('hello')</code> ব্যবহার না করাই ভালো, কারণ সেটি Object এবং Truthiness/Equality-তে বিভ্রান্তি তৈরি করে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> a = <span class="s">'hello'</span>;
+<span class="k">const</span> b = <span class="k">new</span> String(<span class="s">'hello'</span>);
+console.log(a === b); <span class="c">// false</span>
+console.log(Boolean(<span class="k">new</span> String(<span class="s">''</span>))); <span class="c">// true: Object truthy</span></code></pre></figure>
+<h2>৮.২ String লেখার তিন পদ্ধতি</h2>
+<p>Single Quote, Double Quote ও Backtick—সবই বৈধ। Backtick-এর Template Literal Expression Interpolation এবং Multiline Content-এর জন্য উপযোগী।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> name = <span class="s">'Amina'</span>;
+<span class="k">const</span> city = <span class="s">&quot;Dhaka&quot;</span>;
+<span class="k">const</span> message = <span class="s">`Hello, ${name}! Welcome to ${city}.`</span>;
+<span class="k">const</span> invoice = <span class="s">`Customer: ${name}
+Location: ${city}`</span>;
+console.log(message);</code></pre></figure>
+<p>HTML-এ Template Literal দিয়ে User Input সরাসরি <code>innerHTML</code>-এ ঢোকানো ঝুঁকিপূর্ণ। Display Text-এর জন্য <code>textContent</code> ব্যবহার করুন।</p>
+<h2>৮.৩ Length, Index ও UTF-16-এর বাস্তবতা</h2>
+<p>JavaScript String-এর <code>length</code> এবং Numeric Index মূলত UTF-16 <strong>Code Unit</strong> গণনা করে, মানুষের চোখে দেখা Character নয়। Emoji ও Combined Character-এ এই পার্থক্য গুরুত্বপূর্ণ।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>console.log(<span class="s">'ABC'</span>.length);      <span class="c">// 3</span>
+console.log(<span class="s">'🙂'</span>.length);       <span class="c">// 2 (UTF-16 code units)</span>
+console.log([...<span class="s">'🙂'</span>].length);   <span class="c">// 1 (Unicode code point)</span>
+console.log(<span class="s">'👨‍👩‍👧‍👦'</span>.length);  <span class="c">// 1 নয়; একাধিক code point ও joiner আছে</span></code></pre></figure>
+<p>একটি দৃশ্যমান Character (<em>grapheme cluster</em>) গণনার জন্য উপযুক্ত Environment-এ <code>Intl.Segmenter</code> ব্যবহার করুন। এটি বাংলা যুক্তাক্ষর, Emoji Sequence এবং Combining Mark-এর ক্ষেত্রে সাধারণ <code>.length</code>-এর চেয়ে অর্থপূর্ণ ফল দিতে পারে। তবে Segmentation Locale ও Unicode Version অনুযায়ী আচরণ পরিবর্তিত হতে পারে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> segmenter = <span class="k">new</span> Intl.Segmenter(<span class="s">'bn'</span>, { granularity: <span class="s">'grapheme'</span> });
+<span class="k">const</span> visible = [...segmenter.segment(<span class="s">'বাংলা 🙂'</span>)].length;
+console.log(visible);</code></pre></figure>
+<h2>৮.৪ String Access: <code>at()</code>, <code>charAt()</code>, <code>slice()</code></h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> text = <span class="s">'JavaScript'</span>;
+console.log(text.at(<span class="n">0</span>));      <span class="c">// J</span>
+console.log(text.at(-<span class="n">1</span>));     <span class="c">// t</span>
+console.log(text.charAt(<span class="n">4</span>));  <span class="c">// S</span>
+console.log(text.slice(<span class="n">0</span>, <span class="n">4</span>)); <span class="c">// Java</span>
+console.log(text.slice(-<span class="n">6</span>));  <span class="c">// Script</span></code></pre></figure>
+<p><code>slice(start, end)</code>-এর <code>end</code> অন্তর্ভুক্ত নয়। <code>substring()</code> Negative Index-কে 0 হিসেবে ধরে এবং Start/End উল্টো হলে অদলবদল করতে পারে। নতুন Code-এ <code>slice()</code> সাধারণত সহজ ও Predictable। UTF-16 Boundary মাঝখানে কাটলে Emoji ভেঙে যেতে পারে; Unicode-Aware Truncation-এর জন্য Code Point বা Grapheme ভিত্তিক পদ্ধতি দরকার।</p>
+<h2>৮.৫ Searching: <code>includes()</code>, <code>startsWith()</code>, <code>endsWith()</code>, <code>indexOf()</code></h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> title = <span class="s">'Learn Modern JavaScript'</span>;
+console.log(title.includes(<span class="s">'Modern'</span>));      <span class="c">// true</span>
+console.log(title.startsWith(<span class="s">'Learn'</span>));     <span class="c">// true</span>
+console.log(title.endsWith(<span class="s">'Script'</span>));      <span class="c">// true</span>
+console.log(title.indexOf(<span class="s">'Java'</span>));         <span class="c">// 13</span>
+console.log(title.indexOf(<span class="s">'Python'</span>));       <span class="c">// -1</span></code></pre></figure>
+<p>Search Case-Sensitive। Case-Insensitive Search-এর সাধারণ কৌশল হলো দুই দিক একই Case-এ রূপান্তর করা। কিন্তু Unicode Case Mapping-এ কিছু ভাষায় String Length পরিবর্তিত হতে পারে; তাই Search Highlight-এর Index Mapping জটিল হয়ে যায়। Production Search-এ Locale-Aware Rules, Tokenization এবং প্রয়োজনে Dedicated Search Engine বিবেচনা করুন।</p>
+<h2>৮.৬ Clean Text: <code>trim()</code>, <code>replace()</code>, <code>replaceAll()</code></h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> raw = <span class="s">'   Learn   JavaScript   '</span>;
+console.log(raw.trim());                    <span class="c">// Learn   JavaScript</span>
+console.log(raw.trim().replace(/\s+/g, <span class="s">' '</span>)); <span class="c">// Learn JavaScript</span>
+console.log(<span class="s">'red blue red'</span>.replace(<span class="s">'red'</span>, <span class="s">'green'</span>)); <span class="c">// green blue red</span>
+console.log(<span class="s">'red blue red'</span>.replaceAll(<span class="s">'red'</span>, <span class="s">'green'</span>)); <span class="c">// green blue green</span></code></pre></figure>
+<p><code>trim()</code> কেবল String-এর শুরু ও শেষের Whitespace সরায়। সব Internal Whitespace পরিবর্তন করা Content Formatting-এর জন্য সবসময় উপযুক্ত নয়—Poetry, Code Snippet ও Address-এর Line Break হারাতে পারে।</p>
+<h2>৮.৭ Case Conversion এবং Locale</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>console.log(<span class="s">'HELLO'</span>.toLowerCase());
+console.log(<span class="s">'hello'</span>.toUpperCase());
+console.log(<span class="s">'İSTANBUL'</span>.toLocaleLowerCase(<span class="s">'tr'</span>));</code></pre></figure>
+<p>Case Folding সব ভাষায় একই নয়। Bangla Script-এ সাধারণত Uppercase/Lowercase নেই। Multilingual Search-এ Locale সম্পর্কে সচেতন থাকুন।</p>
+<h2>৮.৮ Split, Join ও Tokenization</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> csvLike = <span class="s">'apple,banana,mango'</span>;
+console.log(csvLike.split(<span class="s">','</span>));
+console.log([<span class="s">'Learn'</span>, <span class="s">'JavaScript'</span>].join(<span class="s">' '</span>));
+<span class="k">const</span> tokens = <span class="s">'বাংলা JavaScript 2026'</span>.match(/[\p{L}\p{M}\p{N}]+/gu) ?? [];
+console.log(tokens);</code></pre></figure>
+<p><code>split(',')</code> একটি Full CSV Parser নয়: Quoted Field-এর ভেতরে Comma থাকলে ভুল ফল দিতে পারে। একইভাবে Word Tokenization-এর একটি Regular Expression সব ভাষা, Apostrophe, Hyphen, Emoji ও Punctuation নিখুঁতভাবে সামলাতে পারে না। Project-এর Word Count একটি শিক্ষামূলক Heuristic।</p>
+<h2>৮.৯ Unicode Normalization: NFC বনাম NFD</h2>
+<p>একই দৃশ্যমান Text Unicode-এ একাধিক Code Point Sequence দিয়ে প্রকাশিত হতে পারে। Normalization Search, Comparison ও Deduplication-এর কাজে সহায়ক।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> composed = <span class="s">'café'</span>;
+<span class="k">const</span> decomposed = <span class="s">'cafe\u0301'</span>;
+console.log(composed === decomposed); <span class="c">// false</span>
+console.log(composed.normalize(<span class="s">'NFC'</span>) === decomposed.normalize(<span class="s">'NFC'</span>)); <span class="c">// true</span></code></pre></figure>
+<p><code>NFC</code> সাধারণ Canonical Composition; <code>NFD</code> Decomposition। <code>NFKC</code>/<code>NFKD</code> Compatibility Transformation করে, যা কিছু প্রতীকের অর্থপূর্ণ পার্থক্যও বদলাতে পারে। Identifier, Legal Text বা Security-Sensitive Data-তে Normalization Policy স্পষ্ট করুন।</p>
+<h2>৮.১০ Regular Expression-এর পরিচিতি</h2>
+<p>Regular Expression Pattern Matching-এর শক্তিশালী উপায়। পরবর্তী Advanced Validation অধ্যায়ে আরও গভীরভাবে আলোচনা হবে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> text = <span class="s">'Order A-102, Order B-205'</span>;
+console.log(text.match(/[A-Z]-\d{<span class="n">3</span>}/g)); <span class="c">// ['A-102', 'B-205']</span>
+console.log(/^\d{<span class="n">4</span>}$/.test(<span class="s">'2026'</span>));     <span class="c">// true</span></code></pre></figure>
+<p>Regex Flag <code>g</code> মানে Global Search, <code>i</code> Case-Insensitive, <code>u</code> Unicode-Aware Pattern। User-Provided Regex সরাসরি চালালে Invalid Pattern বা ReDoS ঝুঁকি থাকতে পারে। আমাদের Project-এ User Search Query-কে Literal Text হিসেবে Search করা হয়েছে।</p>
+<h2>৮.১১ Content SEO: Slug, Excerpt, Keyword Frequency</h2>
+<p><strong>Slug</strong> হলো URL-Friendly Path Segment, যেমন <code>learn-javascript-basics</code>। English-Only Slug বানাতে ASCII Transliteration প্রচলিত হলেও বাংলা Unicode Slug-ও URL Encoding-এর মাধ্যমে ব্যবহারযোগ্য। Slug Uniqueness, Reserved Words, Maximum Length ও Redirect Strategy Production CMS-এ আলাদা সমস্যা।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> slugify(value) {
+  <span class="k">return</span> String(value).normalize(<span class="s">'NFC'</span>).trim().toLocaleLowerCase(<span class="s">'en'</span>)
+    .replace(/[^\p{L}\p{M}\p{N}]+/gu, <span class="s">'-'</span>)
+    .replace(/^-+|-+$/g, <span class="s">''</span>);
+}
+console.log(slugify(<span class="s">'Learn JavaScript — Step by Step!'</span>));
+<span class="c">// learn-javascript-step-by-step</span>
+console.log(slugify(<span class="s">'বাংলা কনটেন্ট'</span>)); <span class="c">// বাংলা-কনটেন্ট</span></code></pre></figure>
+<p><strong>Excerpt</strong> সংক্ষিপ্ত Preview; এটি HTML Meta Description-এর সঙ্গে সম্পর্কিত হতে পারে, কিন্তু নির্দিষ্ট Character Count থাকলেই SEO Ranking নিশ্চিত হয় না। <strong>Keyword Frequency</strong> শুধু Count; Content Quality বা Search Intent-এর বিকল্প নয়।</p>
+<h2>৮.১২ Text Security: XSS ও Safe Rendering</h2>
+<p>Search Highlight দেখানোর সময় একটি সাধারণ ভুল হলো <code>innerHTML</code> দিয়ে User Content জুড়ে দেওয়া। এতে HTML Injection/XSS-এর ঝুঁকি তৈরি হয়। নিরাপদ পদ্ধতিতে <code>document.createTextNode()</code> এবং <code>mark.textContent</code> ব্যবহার করা যায়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> mark = document.createElement(<span class="s">'mark'</span>);
+mark.textContent = <span class="s">'&lt;script&gt;alert(1)&lt;/script&gt;'</span>; <span class="c">// Text হিসেবে দেখাবে, চালাবে না</span>
+preview.append(mark);</code></pre></figure>
+<p><code>textContent</code> HTML Interpret করে না। তবে নিরাপত্তা Context-Specific: URL, CSS, Attribute, SQL ও Shell-এর জন্য আলাদা Safe Handling প্রয়োজন।</p>
+<h2>৮.১৩ Practical Project — Search-Friendly Content Tool</h2>
+<p><strong>Scenario:</strong> একজন Content Editor বাংলা ও English Article লিখছেন। তিনি Word Count, Unicode Character Count, Slug, Short Excerpt, Most Frequent Words এবং Search Match দেখতে চান। আমরা একটি Offline Browser Tool বানাব।</p>
+<h3>Feature Requirements</h3>
+<ol><li>বাংলা/English Input ও Search Phrase।</li><li>Word Count, Code Point Count এবং Grapheme Count।</li><li>Unicode-Compatible Slug Generation।</li><li>Configurable Excerpt Length।</li><li>Top Eight Word Frequency।</li><li>Case-Insensitive Search Highlight—HTML Injection ছাড়া।</li><li>Responsive UI এবং Clipboard Copy।</li><li>Content Browser-এ Process হবে; কোনো Server Request নেই।</li></ol>
+<h3>Project Folder</h3>
+<figure class="code keep"><pre><code>source-code/chapter-08/
+├── index.html
+├── style.css
+├── text-tools.js
+├── app.js
+└── text-tools.test.js</code></pre></figure>
+<p><strong>সম্পূর্ণ Runnable Source</strong> বইয়ের Companion Source Code-এর <code>source-code/chapter-08/</code>-এ সংযুক্ত। নিচে মূল Algorithm এবং Integration ব্যাখ্যা করা হলো।</p>
+<h3>Step 1: Pure Functions</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> normalize = value =&gt; String(value ?? <span class="s">''</span>).normalize(<span class="s">'NFC'</span>).trim();
+<span class="k">const</span> words = value =&gt; normalize(value).match(/[\p{L}\p{M}\p{N}]+(?:['’][\p{L}\p{M}\p{N}]+)*/gu) ?? [];
+<span class="k">const</span> wordCount = value =&gt; words(value).length;
+<span class="k">const</span> characterCount = value =&gt; Array.<span class="k">from</span>(normalize(value)).length;</code></pre></figure>
+<p>এখানে <code>String(value ?? '')</code> Nullish Value-এর জন্য Empty String দেয়। <code>Array.from</code> Unicode Code Point Count করে; Grapheme Count নয়। Full Source-এ <code>Intl.Segmenter</code> ব্যবহার করা হয়েছে।</p>
+<h3>Step 2: Frequency Analysis</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> frequency(value) {
+  <span class="k">const</span> map = <span class="k">new</span> Map();
+  <span class="k">for</span> (<span class="k">const</span> word <span class="k">of</span> words(value)) {
+    <span class="k">const</span> key = word.toLocaleLowerCase();
+    map.<span class="k">set</span>(key, (map.<span class="k">get</span>(key) ?? <span class="n">0</span>) + <span class="n">1</span>);
+  }
+  <span class="k">return</span> [...map].sort((a, b) =&gt; b[<span class="n">1</span>] - a[<span class="n">1</span>] || a[<span class="n">0</span>].localeCompare(b[<span class="n">0</span>]));
+}</code></pre></figure>
+<p><code>Map</code> প্রতিটি Word-এর Count ধরে। Sort Frequency অনুযায়ী Descending, সমান হলে Alphabetic। N হলো Token Count, U হলো Unique Word Count: Counting প্রায় O(N), Sorting প্রায় O(U log U)।</p>
+<h3>Step 3: Literal Search</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> search(value, query) {
+  <span class="k">const</span> source = normalize(value);
+  <span class="k">const</span> needle = normalize(query);
+  <span class="k">if</span> (!needle) <span class="k">return</span> [];
+  <span class="k">const</span> haystack = source.toLocaleLowerCase();
+  <span class="k">const</span> target = needle.toLocaleLowerCase();
+  <span class="k">const</span> matches = [];
+  <span class="k">let</span> start = <span class="n">0</span>;
+  <span class="k">while</span> (start &lt;= haystack.length - target.length) {
+    <span class="k">const</span> index = haystack.indexOf(target, start);
+    <span class="k">if</span> (index &lt; <span class="n">0</span>) <span class="k">break</span>;
+    matches.push({ index, text: source.slice(index, index + needle.length) });
+    start = index + needle.length;
+  }
+  <span class="k">return</span> matches;
+}</code></pre></figure>
+<p><strong>Limitation:</strong> Case Mapping যদি Text Length বদলায়, Original Index ও Lowercased Index ভিন্ন হতে পারে। এই Beginner Tool-এ সাধারণ বাংলা/English Input-এর জন্য পদ্ধতিটি ব্যবহার করা হয়েছে। Full Unicode Search Engine তৈরি করতে Offset Mapping দরকার।</p>
+<h3>Step 4: Safe Highlight</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> preview = document.getElementById(<span class="s">'preview'</span>);
+preview.replaceChildren();
+<span class="k">let</span> cursor = <span class="n">0</span>;
+<span class="k">for</span> (<span class="k">const</span> match <span class="k">of</span> search(content, query)) {
+  preview.append(document.createTextNode(content.slice(cursor, match.index)));
+  <span class="k">const</span> mark = document.createElement(<span class="s">'mark'</span>);
+  mark.textContent = match.text;
+  preview.append(mark);
+  cursor = match.index + match.text.length;
+}
+preview.append(document.createTextNode(content.slice(cursor)));</code></pre></figure>
+<p>Full UI-তে Analysis, Copy Slug, Error Message, Responsive Styling এবং Accessibility Label রয়েছে।</p>
+<h3>Run Instructions</h3>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code><span class="c"># Folder: source-code/chapter-08</span>
+<span class="c"># Browser-এ index.html খুলুন; network প্রয়োজন নেই।</span>
+node --check text-tools.js
+node --check app.js
+node text-tools.test.js</code></pre></figure>
+<p>Node.js Test-এর জন্য Modern Node Version প্রয়োজন। Browser-এ <code>Intl.Segmenter</code> না থাকলে Code Point Count Fallback দেখাবে; সেই ফল Grapheme Count-এর সমতুল্য নয়।</p>
+<h2>৮.১৪ Debugging এবং Common Mistakes</h2>
+<table><thead><tr><th>সমস্যা</th><th>ভুল ধারণা</th><th>সঠিক সমাধান</th></tr></thead><tbody><tr><td>Emoji Length 2</td><td>একটি Emoji সবসময় 1 Code Unit</td><td>Code Point/Grapheme পার্থক্য বুঝুন</td></tr><tr><td>Search Result -1</td><td><code>indexOf()</code> False দেয়</td><td><code>-1</code> দিয়ে Not Found পরীক্ষা করুন</td></tr><tr><td><code>replace()</code> একটি Match বদলায়</td><td>সব Match বদলায়</td><td><code>replaceAll()</code> বা Global Regex</td></tr><tr><td><code>split(',')</code> দিয়ে CSV</td><td>সব CSV Simple</td><td>Proper CSV Parser ব্যবহার করুন</td></tr><tr><td><code>innerHTML</code> দিয়ে Highlight</td><td>User Text সবসময় Safe</td><td>Text Node + <code>textContent</code></td></tr><tr><td>Slug Duplicate</td><td>একই Title মানেই Unique URL</td><td>Uniqueness Strategy যোগ করুন</td></tr><tr><td><code>.toLowerCase()</code> সব Locale-এ সমান</td><td>Universal Case Mapping</td><td>Locale-Aware Search Design</td></tr></tbody></table>
+<h2>৮.১৫ অনুশীলনী — ১০টি Exercise</h2>
+<ol><li>একটি String-এর প্রথম ও শেষ Character বের করুন।</li><li><code>slice()</code> দিয়ে একটি Filename-এর Extension আলাদা করুন।</li><li>Case-Insensitive Search Function লিখুন।</li><li>Multiple Spaces এক Space-এ রূপান্তর করুন।</li><li><code>map()</code> দিয়ে Array of Names-কে Trim করুন।</li><li>Unicode Code Point ও UTF-16 Length-এর পার্থক্য দেখান।</li><li><code>slugify()</code> Function লিখুন।</li><li>একটি Paragraph-এর Top Three Frequent Words বের করুন।</li><li>২৫ Character-এর Excerpt তৈরি করুন।</li><li>User Search Term Highlight করার সময় XSS এড়ানোর DOM Strategy লিখুন।</li></ol>
+<h2>৮.১৬ Exercise Solutions</h2>
+<figure class="code"><figcaption>JavaScript</figcaption><pre><code><span class="c">// 1</span>
+<span class="k">const</span> text = <span class="s">'JavaScript'</span>;
+console.log(text.at(<span class="n">0</span>), text.at(-<span class="n">1</span>));
+<span class="c">// 2</span>
+<span class="k">const</span> filename = <span class="s">'report.final.pdf'</span>;
+console.log(filename.slice(filename.lastIndexOf(<span class="s">'.'</span>) + <span class="n">1</span>)); <span class="c">// pdf</span>
+<span class="c">// 3</span>
+<span class="k">const</span> includesIgnoreCase = (source, query) =&gt;
+  String(source).toLocaleLowerCase().includes(String(query).toLocaleLowerCase());
+<span class="c">// 4</span>
+console.log(<span class="s">'A   B  C'</span>.replace(/\s+/g, <span class="s">' '</span>));
+<span class="c">// 5</span>
+console.log([<span class="s">'  Amina '</span>, <span class="s">' Karim  '</span>].map(name =&gt; name.trim()));
+<span class="c">// 6</span>
+console.log(<span class="s">'🙂'</span>.length, Array.<span class="k">from</span>(<span class="s">'🙂'</span>).length); <span class="c">// 2, 1</span>
+<span class="c">// 7</span>
+<span class="k">const</span> slug = text =&gt; String(text).trim().toLocaleLowerCase().replace(/[^\p{L}\p{M}\p{N}]+/gu,<span class="s">'-'</span>).replace(/^-+|-+$/g,<span class="s">''</span>);
+console.log(slug(<span class="s">'Learn JavaScript!'</span>));
+<span class="c">// 8</span>
+<span class="k">const</span> top3 = paragraph =&gt; TextTools.frequency(paragraph).slice(<span class="n">0</span>, <span class="n">3</span>);
+<span class="c">// 9</span>
+console.log(TextTools.excerpt(<span class="s">'JavaScript is a versatile language.'</span>, <span class="n">25</span>));
+<span class="c">// 10: document.createTextNode() + mark.textContent; user text কখনো HTML হিসেবে parse নয়</span></code></pre></figure>
+<p><strong>Note:</strong> Solution 8 ও 9 চালাতে Project-এর <code>text-tools.js</code> Load করা থাকতে হবে।</p>
+<h2>৮.১৭ Knowledge Check — ১০টি MCQ</h2>
+<ol><li>String Primitive কি Mutable? A. Yes B. No C. Only in Browser D. Only Emoji</li><li><code>'🙂'.length</code> কত? A. 1 B. 2 C. 4 D. 0</li><li>Negative Index Support করে কোনটি? A. <code>at()</code> B. <code>charAt()</code> C. <code>indexOf()</code> D. <code>startsWith()</code></li><li><code>indexOf()</code>-এ Not Found Result? A. false B. null C. -1 D. undefined</li><li>সব Literal Occurrence বদলাতে? A. <code>replaceAll()</code> B. <code>trim()</code> C. <code>slice()</code> D. <code>split()</code></li><li>Unicode Canonical Composition? A. NFC B. CSV C. DOM D. JSON</li><li>Template Literal Delimiter? A. <code>'</code> B. <code>&quot;</code> C. Backtick D. Slash</li><li>Safe Plain Text Rendering? A. <code>innerHTML</code> B. <code>textContent</code> C. <code>eval</code> D. <code>document.write</code></li><li>Unicode Letter Match-এর জন্য কোন Regex Class? A. <code>\p{L}</code> with <code>u</code> B. <code>\d</code> only C. <code>.</code> only D. <code>\s</code></li><li>Search-Friendly Slug-এ কোনটি প্রয়োজন হতে পারে? A. Uniqueness Check B. <code>eval()</code> C. Password D. Global Variable</li></ol>
+<h3>Answer Key ও Explanation</h3>
+<table><thead><tr><th>Q</th><th>Answer</th><th>কারণ</th></tr></thead><tbody><tr><td>1</td><td>B</td><td>String Primitive Immutable</td></tr><tr><td>2</td><td>B</td><td>Emoji UTF-16-এ দুটি Code Unit</td></tr><tr><td>3</td><td>A</td><td><code>at(-1)</code> শেষ Element দেয়</td></tr><tr><td>4</td><td>C</td><td><code>indexOf()</code> Not Found হলে -1</td></tr><tr><td>5</td><td>A</td><td><code>replaceAll()</code> সব Occurrence বদলায়</td></tr><tr><td>6</td><td>A</td><td>NFC Canonical Composition করে</td></tr><tr><td>7</td><td>C</td><td>Template Literal Backtick দিয়ে লেখা হয়</td></tr><tr><td>8</td><td>B</td><td><code>textContent</code> HTML Parse করে না</td></tr><tr><td>9</td><td>A</td><td>Unicode Property Escape ও <code>u</code> Flag</td></tr><tr><td>10</td><td>A</td><td>Duplicate Slug URL Collision তৈরি করতে পারে</td></tr></tbody></table>
+<h2>৮.১৮ Final Project Challenge</h2>
+<p>Project-এ তিনটি Feature যোগ করুন: (১) Local Draft Save/Load, (২) Stopword Exclusion Option, (৩) Keyword Density Percentage। প্রতিটি Feature-এর জন্য অন্তত একটি Automated Test লিখুন। Stopword List ভাষাভেদে ভিন্ন হবে—বাংলা ও English-এর জন্য আলাদা Config ব্যবহার করুন।</p>
+<h2>৮.১৯ Chapter Summary ও Next Step</h2>
+<p>String Processing শুধু <code>slice()</code> বা <code>replace()</code> শেখার বিষয় নয়; Unicode, Locale, Security, Search Quality এবং Content Usability-ও গুরুত্বপূর্ণ। এই অধ্যায়ের Search-Friendly Content Tool একটি Testable, Browser-Based Example। পরবর্তী <strong>Chapter 9 — DOM Manipulation, Events এবং Interactive Web Applications</strong>-এ Event Handling, Dynamic UI ও Task Manager Project তৈরি করব।</p>
+</section></body></html>

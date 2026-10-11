@@ -1,0 +1,5 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Booking Management Lab</title><link rel="stylesheet" href="style.css"></head>
+<body><main><h1>Booking Management Lab</h1><p>Chapter 13 · Object-Oriented JavaScript</p>
+<form id="booking-form"><label>Booking ID<input name="id" required maxlength="40"></label><label>Customer<input name="customer" required maxlength="80"></label><label>Booking type<select id="type" name="type"><option value="flight">Flight</option><option value="hotel">Hotel</option></select></label><label>Base price (BDT)<input name="price" type="number" min="0.01" step="0.01" required></label><label><span id="extra-label">Baggage fee (BDT)</span><input id="extra" name="extra" type="number" min="0" step="1" value="0" required></label><button type="submit">Add booking</button></form>
+<p id="message" role="status" aria-live="polite"></p><h2>Bookings</h2><ul id="booking-list"></ul><strong id="revenue"></strong></main><script type="module" src="app.mjs"></script></body></html>

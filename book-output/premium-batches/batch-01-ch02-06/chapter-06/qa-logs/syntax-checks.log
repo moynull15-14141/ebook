@@ -1,0 +1,2 @@
+OK    node --check inventory.js   (in project/inventory-dashboard)
+OK    node --check tests/inventory.test.js   (in project/inventory-dashboard)

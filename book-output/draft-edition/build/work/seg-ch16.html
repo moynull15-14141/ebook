@@ -1,0 +1,319 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-16"><header class="opener"><div class="chap-label">অধ্যায় ১৬</div><h1>JavaScript Error Handling, Debugging, Testing এবং Software Reliability</h1></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে তুমি (১) Error-এর উৎস শনাক্ত, (২) প্রত্যাশিত Validation Failure এবং অপ্রত্যাশিত System Failure আলাদা, (৩) <code>try/catch/finally</code> সঠিকভাবে ব্যবহার, (৪) Browser DevTools-এ Debug, (৫) Unit ও Integration Test লিখতে এবং (৬) Reliability-কেন্দ্রিক BookingGuard Application তৈরি করতে পারবে।</p>
+<h2>১৬.১ Software Reliability কেন গুরুত্বপূর্ণ?</h2>
+<p>কোনো Web Application শুধু <em>happy path</em>-এ কাজ করলেই যথেষ্ট নয়। ব্যবহারকারী ভুল Input দিতে পারে, Browser Storage বন্ধ থাকতে পারে, Network Request Timeout হতে পারে কিংবা একই Booking দুবার Submit হতে পারে। Reliability মানে সব Error অদৃশ্য করা নয়; বরং Error হলে Predictable, Recoverable ও Testable Behavior নিশ্চিত করা।</p>
+<table><thead><tr><th>পরিস্থিতি</th><th>দুর্বল আচরণ</th><th>নির্ভরযোগ্য আচরণ</th></tr></thead><tbody><tr><td>Invalid Email</td><td>ভুল Data সংরক্ষণ</td><td>Field-specific Validation Message</td></tr><tr><td>Duplicate Booking</td><td>Duplicate Record</td><td>Conflict Error</td></tr><tr><td>Storage Blocked</td><td>App Crash</td><td>User-facing Warning</td></tr><tr><td>Unexpected Exception</td><td>Blank Screen</td><td>Safe Fallback + Diagnostic Log</td></tr><tr><td>API Timeout</td><td>Infinite Spinner</td><td>Timeout, Retry Option ও Cancellation</td></tr></tbody></table>
+<p><strong>মূল নীতি:</strong> User-friendly Message এবং Developer Diagnostic আলাদা। Browser Console-এ Debug Details দেখানো যায়, কিন্তু User-কে Sensitive Stack Trace দেখানো উচিত নয়।</p>
+<h2>১৬.২ Error-এর ধরন</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// SyntaxError: কোড Parse করা যায় না</span>
+<span class="c">// const name = ;</span>
+
+<span class="c">// ReferenceError: অঘোষিত Identifier</span>
+<span class="c">// console.log(unknownVariable);</span>
+
+<span class="c">// TypeError: ভুল ধরনের Operation</span>
+<span class="c">// null.toString();</span>
+
+<span class="c">// RangeError: অগ্রহণযোগ্য Range</span>
+<span class="c">// new Array(-1);</span>
+
+<span class="c">// JSON Parsing-এর SyntaxError</span>
+<span class="k">try</span> {
+  JSON.parse(<span class="s">'{broken json}'</span>);
+} <span class="k">catch</span> (error) {
+  console.log(error.name); <span class="c">// SyntaxError</span>
+}</code></pre></figure>
+<p>সব Error একইভাবে Handle করা উচিত নয়। ভুল User Input হলে Validation Error; Data Conflict হলে Conflict Error; Programming Bug হলে তা গোপন না করে Log ও Test দিয়ে Fix করতে হবে।</p>
+<h2>১৬.৩ <code>try</code>, <code>catch</code>, <code>finally</code> ও <code>throw</code></h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> parseSettings(raw) {
+  <span class="k">try</span> {
+    <span class="k">return</span> JSON.parse(raw);
+  } <span class="k">catch</span> (error) {
+    console.error(<span class="s">'Invalid settings JSON'</span>, error);
+    <span class="k">return</span> {};
+  } <span class="k">finally</span> {
+    console.log(<span class="s">'Parse attempt finished'</span>);
+  }
+}</code></pre></figure>
+<p><code>finally</code> সাধারণত Resource Cleanup বা Loading State Reset-এর জন্য উপযোগী। <code>catch</code> Block-এ Error নীরবে Ignore করা বিপজ্জনক; Recovery Strategy না থাকলে Error পুনরায় <code>throw</code> করা যুক্তিযুক্ত।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> assertPositivePrice(price) {
+  <span class="k">if</span> (!Number.isFinite(price) || price &lt;= <span class="n">0</span>) {
+    <span class="k">throw</span> <span class="k">new</span> RangeError(<span class="s">'Price must be a positive finite number'</span>);
+  }
+  <span class="k">return</span> price;
+}</code></pre></figure>
+<h2>১৬.৪ Custom Error Classes</h2>
+<p>Domain-specific Error ব্যবহার করলে UI Layer সিদ্ধান্ত নিতে পারে কী Message দেখাবে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">class</span> ValidationError <span class="k">extends</span> Error {
+  constructor(field, message) {
+    <span class="k">super</span>(message);
+    <span class="k">this</span>.name = <span class="s">'ValidationError'</span>;
+    <span class="k">this</span>.field = field;
+  }
+}
+
+<span class="k">function</span> validateSeats(seats) {
+  <span class="k">if</span> (!Number.isSafeInteger(seats) || seats &lt; <span class="n">1</span> || seats &gt; <span class="n">9</span>) {
+    <span class="k">throw</span> <span class="k">new</span> ValidationError(<span class="s">'seats'</span>, <span class="s">'Seats must be 1–9'</span>);
+  }
+  <span class="k">return</span> seats;
+}</code></pre></figure>
+<p><code>instanceof ValidationError</code> দিয়ে পরিচিত Validation Failure আলাদা করা যায়। কিন্তু Third-party Error বা Cross-realm Error-এ শুধু <code>instanceof</code>-এর ওপর নির্ভর করা সবসময় যথেষ্ট নয়।</p>
+<h2>১৬.৫ Defensive Programming এবং Input Boundaries</h2>
+<p><strong>Boundary Validation:</strong> Browser Form-এর <code>required</code> বা <code>min</code> Attribute ভালো User Experience দেয়, কিন্তু এগুলো Security Boundary নয়। Backend-এ একই নিয়ম স্বাধীনভাবে Validate করতে হবে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> parseQuantity(value) {
+  <span class="k">const</span> quantity = Number(value);
+  <span class="k">if</span> (!Number.isSafeInteger(quantity) || quantity &lt; <span class="n">1</span> || quantity &gt; <span class="n">9</span>) {
+    <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'Quantity must be an integer between 1 and 9'</span>);
+  }
+  <span class="k">return</span> quantity;
+}</code></pre></figure>
+<p><code>Number('')</code> শূন্য হয়—তাই খালি Input আলাদা করে Reject করতে চাইলে <code>String(value).trim()</code> আগে পরীক্ষা করো। <code>Number.isFinite()</code> দিয়ে <code>NaN</code> ও <code>Infinity</code> Reject করো। Financial Calculation-এ Floating-point Precision গুরুত্বপূর্ণ; Production Payment System-এ Minor Currency Unit (যেমন পয়সা) Integer হিসেবে বা Decimal Library ব্যবহার করো।</p>
+<h2>১৬.৬ Async Error Handling</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">async</span> <span class="k">function</span> loadBookings(signal) {
+  <span class="k">const</span> response = <span class="k">await</span> fetch(<span class="s">'/api/bookings'</span>, { signal });
+  <span class="k">if</span> (!response.ok) {
+    <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">`HTTP ${response.status}`</span>);
+  }
+  <span class="k">return</span> response.json();
+}
+
+<span class="k">async</span> <span class="k">function</span> refreshBookings() {
+  <span class="k">const</span> controller = <span class="k">new</span> AbortController();
+  <span class="k">try</span> {
+    <span class="k">const</span> bookings = <span class="k">await</span> loadBookings(controller.signal);
+    console.log(bookings);
+  } <span class="k">catch</span> (error) {
+    <span class="k">if</span> (error.name === <span class="s">'AbortError'</span>) <span class="k">return</span>;
+    console.error(<span class="s">'Could not refresh bookings'</span>, error);
+  }
+}</code></pre></figure>
+<p><code>fetch()</code> সাধারণত HTTP 404/500-এ Promise Reject করে না; <code>response.ok</code> পরীক্ষা করতে হয়। Cancellation ইচ্ছাকৃত হলে তাকে সাধারণ Network Failure-এর মতো দেখানো উচিত নয়। <code>Promise.all()</code>-এ একটি Promise Reject করলে Combined Promise Reject হয়; সব Result জানতে <code>Promise.allSettled()</code> ব্যবহার করা যায়।</p>
+<h2>১৬.৭ Debugging: একটি পুনরাবৃত্তিযোগ্য পদ্ধতি</h2>
+<ol><li><strong>Reproduce:</strong> ঠিক কোন Input-এ Bug হচ্ছে তা লিখে রাখো।</li><li><strong>Observe:</strong> Console, Network Tab, Sources এবং Stack Trace দেখো।</li><li><strong>Hypothesis:</strong> কোন State বা Function ভুল করছে অনুমান করো।</li><li><strong>Isolate:</strong> সবচেয়ে ছোট Reproduction তৈরি করো।</li><li><strong>Fix:</strong> Root Cause সংশোধন করো, শুধু Symptom নয়।</li><li><strong>Regression Test:</strong> একই Bug যেন ফিরে না আসে, তার Automated Test লেখো।</li></ol>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> calculateTotal(items) {
+  debugger; <span class="c">// DevTools খোলা থাকলে এখানে Pause করবে</span>
+  <span class="k">return</span> items.reduce((sum, item) =&gt; sum + item.price * item.quantity, <span class="n">0</span>);
+}</code></pre></figure>
+<p><code>console.table(items)</code> Array/Object Data তুলনা করতে সহায়ক। <code>console.assert(condition, message)</code> Development Diagnostic-এর জন্য; Business Validation-এর বিকল্প নয়। Production Code-এ অপ্রয়োজনীয় <code>debugger</code> Statement সরিয়ে ফেলো।</p>
+<h2>১৬.৮ Testing Pyramid এবং Test Types</h2>
+<table><thead><tr><th>Test Type</th><th>লক্ষ্য</th><th>উদাহরণ</th></tr></thead><tbody><tr><td>Unit Test</td><td>একক Function-এর আচরণ</td><td><code>validateBooking()</code></td></tr><tr><td>Integration Test</td><td>একাধিক Component-এর সংযোগ</td><td>Form → Domain → Storage</td></tr><tr><td>End-to-End Test</td><td>বাস্তব User Journey</td><td>Browser-এ Booking Confirm</td></tr><tr><td>Regression Test</td><td>পুরোনো Bug পুনরায় না হওয়া</td><td>Duplicate ID Reject</td></tr><tr><td>Boundary Test</td><td>Minimum/Maximum Limit</td><td>0, 1, 9, 10 Seats</td></tr></tbody></table>
+<p>Unit Test দ্রুত, কিন্তু Browser UI কাজ করছে কি না তার নিশ্চয়তা নয়। E2E Test User Journey যাচাই করে, তবে তুলনামূলক ধীর ও Maintenance-heavy। Balanced Testing Strategy দরকার।</p>
+<h2>১৬.৯ Node.js Built-in Test Runner</h2>
+<p>Node.js-এর <code>node:test</code> ও <code>node:assert/strict</code> দিয়ে Dependency ছাড়াই Test লেখা যায়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">import</span> test <span class="k">from</span> <span class="s">'node:test'</span>;
+<span class="k">import</span> assert <span class="k">from</span> <span class="s">'node:assert/strict'</span>;
+<span class="k">import</span> { validateBooking } <span class="k">from</span> <span class="s">'./booking-core.mjs'</span>;
+
+test(<span class="s">'valid booking calculates total'</span>, () =&gt; {
+  <span class="k">const</span> booking = validateBooking({
+    customer: <span class="s">'Amina'</span>, email: <span class="s">'amina@example.com'</span>, seats: <span class="n">2</span>, unitPrice: <span class="n">350</span>
+  });
+  assert.equal(booking.total, <span class="n">700</span>);
+});
+
+test(<span class="s">'rejects zero seats'</span>, () =&gt; {
+  assert.throws(() =&gt; validateBooking({
+    customer: <span class="s">'Amina'</span>, email: <span class="s">'amina@example.com'</span>, seats: <span class="n">0</span>, unitPrice: <span class="n">350</span>
+  }));
+});</code></pre></figure>
+<p>Run: <code>node --test booking-core.test.mjs</code>। ভালো Test শুধু Pass হওয়ার জন্য নয়; Failure হলে কেন Fail হয়েছে তা দ্রুত বোঝার জন্য।</p>
+<h2>১৬.১০ Test Doubles: Stub, Mock ও Fake</h2>
+<p><strong>Stub</strong> নির্ধারিত Return Value দেয়। <strong>Spy/Mock</strong> Function Call-এর Behaviour পরীক্ষা করে। <strong>Fake</strong> হলো সহজ In-memory Implementation, যেমন Test Storage।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> fakeStorage = {
+  getItem(key) {
+    <span class="k">return</span> key === <span class="s">'bookings'</span> ? <span class="s">'[{&quot;id&quot;:&quot;BK-1&quot;}]'</span> : <span class="k">null</span>;
+  }
+};
+
+console.log(fakeStorage.getItem(<span class="s">'bookings'</span>));</code></pre></figure>
+<p>Test-এ বাস্তব Network/Payment Gateway ব্যবহার না করে Controlled Dependency Injection করো। এতে Test Deterministic হয়।</p>
+<h2>১৬.১১ Practical Project — BookingGuard</h2>
+<p><strong>Problem:</strong> Booking Form-এ ভুল Data, Duplicate ID, Storage Failure এবং Cancellation-এর সময় Application Crash বা ভুল Revenue দেখা যায়।</p>
+<p><strong>Solution:</strong> Pure Domain Functions + Browser UI + Storage Adapter + Automated Tests।</p>
+<h3>Project Folder</h3>
+<figure class="code keep"><pre><code>source-code/chapter-16/
+├── index.html
+├── style.css
+├── booking-core.mjs
+├── app.mjs
+└── booking-core.test.mjs</code></pre></figure>
+<p>সম্পূর্ণ File-by-File Runnable Code বইয়ের Companion Source Code-এর <code>source-code/chapter-16/</code> Folder-এ দেওয়া হয়েছে। এই অধ্যায়ে Core Logic ব্যাখ্যা করছি;</p>
+<h3>Data Flow</h3>
+<figure class="code keep"><figcaption>Flowchart (Mermaid)</figcaption><pre><code>flowchart TD
+  A[User submits booking] --&gt; B[Read form data]
+  B --&gt; C{Validation valid?}
+  C -- No --&gt; D[Show field error]
+  C -- Yes --&gt; E{Duplicate ID?}
+  E -- Yes --&gt; F[Show conflict error]
+  E -- No --&gt; G[Update immutable booking list]
+  G --&gt; H[Persist in localStorage]
+  H --&gt; I[Render booking list and revenue]</code></pre></figure>
+<h3>Domain Function</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">export</span> <span class="k">function</span> summarizeBookings(bookings) {
+  <span class="k">const</span> active = bookings.filter(item =&gt; item.status === <span class="s">'confirmed'</span>);
+  <span class="k">return</span> {
+    totalBookings: bookings.length,
+    confirmed: active.length,
+    revenue: Math.round(active.reduce((sum, item) =&gt; sum + item.total, <span class="n">0</span>) * <span class="n">100</span>) / <span class="n">100</span>
+  };
+}</code></pre></figure>
+<p>Cancellation-এর পরে <code>confirmed</code> Count ও Revenue কমবে; Original Array Mutation না করে New Array Return করা হয়েছে। UI-তে <code>textContent</code> ব্যবহার করে User Data Render করা হয়েছে, যাতে HTML Injection-এর ঝুঁকি কমে।</p>
+<h3>Run Instructions</h3>
+<ol><li><code>source-code/chapter-16/</code> Folder-এ যাও।</li><li>Terminal-এ <code>python -m http.server 8000</code> চালাও।</li><li>Browser-এ <code>http://localhost:8000</code> খোলো।</li><li>Test চালাও: <code>node --test booking-core.test.mjs</code>।</li><li>Invalid Email, Zero Seats, Cancel এবং Browser Storage Blocked Scenario পরীক্ষা করো।</li></ol>
+<p><strong>Limitations:</strong> এটি Learning Demo; Authentication, Server-side Validation, Payment Processing, Concurrent Booking Control বা Real Database নেই। <code>localStorage</code> Production Booking Database নয়।</p>
+<h2>১৬.১২ Error-handling Anti-patterns</h2>
+<p><strong>Anti-pattern 1: Silent Catch</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">try</span> { riskyOperation(); } <span class="k">catch</span> (error) { <span class="c">/* ignored */</span> }</code></pre></figure>
+<p>এতে Failure লুকিয়ে যায়। Recovery Strategy থাকলে তা Document করো; না থাকলে Log বা Re-throw করো।</p>
+<p><strong>Anti-pattern 2: Error Message থেকে HTML Injection</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// ভুল: element.innerHTML = error.message;</span>
+<span class="c">// ভালো: element.textContent = error.message;</span></code></pre></figure>
+<p><strong>Anti-pattern 3: শুধু Happy-path Test</strong> — Invalid, Empty, Boundary, Duplicate ও Cancellation Case অবশ্যই Test করো।</p>
+<p><strong>Anti-pattern 4: Client-side Validation-কে Security মনে করা</strong> — Server-side Revalidation অপরিহার্য।</p>
+<h2>১৬.১৩ Hands-on Exercises</h2>
+<ol><li><code>validateBooking()</code>-এ Customer Name-এর Maximum Length 80 থেকে 60 করো।</li><li>Seats-এর Boundary Values 0, 1, 9, 10-এর জন্য Test লেখো।</li><li>Duplicate Booking ID-এর জন্য <code>ConflictError</code> Assert করো।</li><li><code>cancelBooking()</code>-এ Missing ID-এর জন্য Error Test লেখো।</li><li><code>summarizeBookings()</code>-এ Cancelled Booking Revenue বাদ যাচ্ছে কি না Test করো।</li><li>Storage-এর <code>getItem()</code> Exception Throw করলে কী হয় পরীক্ষা করো।</li><li>UI-তে Error Message-এর জন্য <code>aria-live</code> কেন দরকার ব্যাখ্যা করো।</li><li><code>fetch()</code> HTTP 500 Response-এর জন্য Testable Wrapper তৈরি করো।</li><li>Error Handling-এ <code>finally</code> দিয়ে Loading Indicator Reset করো।</li><li>BookingGuard-এর জন্য Browser E2E Test Case Outline লেখো।</li></ol>
+<h2>১৬.১৪ Exercise Solutions (Sample)</h2>
+<p><strong>১.</strong> <code>customer.length &gt; 60</code> Check ব্যবহার করো এবং Error Message-ও আপডেট করো।</p>
+<p><strong>২.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">for</span> (<span class="k">const</span> seats <span class="k">of</span> [<span class="n">0</span>, <span class="n">10</span>]) {
+  assert.throws(() =&gt; validateBooking({
+    customer: <span class="s">'Amina'</span>, email: <span class="s">'amina@example.com'</span>, seats, unitPrice: <span class="n">100</span>
+  }));
+}
+<span class="k">for</span> (<span class="k">const</span> seats <span class="k">of</span> [<span class="n">1</span>, <span class="n">9</span>]) {
+  assert.equal(validateBooking({
+    customer: <span class="s">'Amina'</span>, email: <span class="s">'amina@example.com'</span>, seats, unitPrice: <span class="n">100</span>
+  }).seats, seats);
+}</code></pre></figure>
+<p><strong>৩.</strong> <code>assert.throws(() =&gt; addBooking([booking], booking), ConflictError)</code>।</p>
+<p><strong>৪.</strong> <code>assert.throws(() =&gt; cancelBooking([], 'missing'), ValidationError)</code>।</p>
+<p><strong>৫.</strong> একটি Confirmed ও একটি Cancelled Booking দিয়ে <code>revenue</code>-তে শুধু Confirmed Amount Assert করো।</p>
+<p><strong>৬.</strong> Fake Storage-এর <code>getItem()</code> থেকে Error Throw করিয়ে <code>safeReadBookings()</code> Empty Array Return করছে কি না দেখো।</p>
+<p><strong>৭.</strong> <code>aria-live=&quot;polite&quot;</code> Screen Reader-কে নতুন Status Message ঘোষণা করতে সাহায্য করে।</p>
+<p><strong>৮.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">async</span> <span class="k">function</span> getJSON(url, fetchImpl = fetch) {
+  <span class="k">const</span> response = <span class="k">await</span> fetchImpl(url);
+  <span class="k">if</span> (!response.ok) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">`HTTP ${response.status}`</span>);
+  <span class="k">return</span> response.json();
+}
+<span class="c">// Test-এ fetchImpl হিসেবে Stub Function Pass করো।</span></code></pre></figure>
+<p><strong>৯.</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">async</span> <span class="k">function</span> withLoading(task, setLoading) {
+  setLoading(<span class="k">true</span>);
+  <span class="k">try</span> { <span class="k">return</span> <span class="k">await</span> task(); }
+  <span class="k">finally</span> { setLoading(<span class="k">false</span>); }
+}</code></pre></figure>
+<p><strong>১০.</strong> Browser-এ Valid Booking Submit → Confirmation Visible → Cancel Click → Revenue Zero → Reload → Cancelled State Persist—এই Journey Test করো।</p>
+<h2>১৬.১৫ MCQ — Final Knowledge Check</h2>
+<p><strong>১.</strong> <code>finally</code> কখন Run করে? A) শুধু Success B) সাধারণত <code>try/catch</code> Completion-এর পরে C) শুধু SyntaxError D) কখনো না</p>
+<p><strong>২.</strong> <code>fetch()</code>-এ HTTP 404 হলে সাধারণত কী হয়? A) Promise সবসময় Reject B) Response Resolve হতে পারে C) Browser বন্ধ D) JSON Automatic Empty</p>
+<p><strong>৩.</strong> <code>assert.throws()</code> কী Test করে? A) Function Throw করে B) Promise Resolve C) CSS D) HTTP Status</p>
+<p><strong>৪.</strong> Duplicate ID কোন Error-এর উদাহরণ? A) Validation B) Conflict C) Syntax D) Range</p>
+<p><strong>৫.</strong> Pure Function-এর সুবিধা কী? A) Random Output B) Deterministic Testing C) Browser Required D) Global Mutation</p>
+<p><strong>৬.</strong> <code>textContent</code> কেন ভালো? A) HTML Execute করে B) Text Render করে C) Database Save করে D) Network Call করে</p>
+<p><strong>৭.</strong> <code>localStorage</code> Production Booking Database? A) হ্যাঁ B) না C) শুধু Chrome-এ D) শুধু Offline</p>
+<p><strong>৮.</strong> Regression Test-এর লক্ষ্য? A) UI Design B) পুরোনো Bug ফিরে আসা আটকানো C) Images Compress D) Hosting</p>
+<p><strong>৯.</strong> <code>AbortError</code> সাধারণত কী বোঝায়? A) Cancellation B) Syntax Failure C) Duplicate ID D) CSS Error</p>
+<p><strong>১০.</strong> Unit Test Pass মানে কি Browser UI নিশ্চিতভাবে ঠিক? A) হ্যাঁ B) না C) শুধু Mobile D) শুধু Server</p>
+<h3>MCQ Answer Key ও Explanation</h3>
+<ol><li><strong>B</strong> — <code>finally</code> সাধারণত <code>try/catch</code> শেষে চলে; Process Termination-এর মতো ব্যতিক্রম থাকতে পারে।</li><li><strong>B</strong> — <code>response.ok</code> পরীক্ষা জরুরি।</li><li><strong>A</strong> — Synchronous Exception Assert করে; Async Rejection-এর জন্য <code>assert.rejects()</code>।</li><li><strong>B</strong> — Duplicate ID একটি Conflict Scenario।</li><li><strong>B</strong> — Same Input → Same Output হলে Test সহজ হয়।</li><li><strong>B</strong> — <code>textContent</code> HTML Markup Interpret করে না।</li><li><strong>B</strong> — Production-এর জন্য Server-side Storage ও Validation দরকার।</li><li><strong>B</strong> — Fixed Bug-এর জন্য Automated Guard তৈরি করে।</li><li><strong>A</strong> — ইচ্ছাকৃত Request Cancellation হতে পারে।</li><li><strong>B</strong> — UI আলাদাভাবে Integration/E2E Test করতে হয়।</li></ol>
+<h2>১৬.১৬ Chapter Recap</h2>
+<p>Reliable JavaScript মানে Error-free হওয়ার দাবি নয়; Failure Predict, Detect, Handle ও Test করার দক্ষতা। এই অধ্যায়ে Custom Errors, Boundary Validation, Async Error Handling, Debugging, Unit Testing এবং BookingGuard Project-এর মাধ্যমে এই ধারণাগুলো বাস্তবে প্রয়োগ করেছ। পরবর্তী অধ্যায়ে Regular Expressions ও Secure Input Processing আরও গভীরভাবে শিখবে।</p>
+</section></body></html>

@@ -1,0 +1,19 @@
+﻿PASS  header: %PDF-1.4
+PASS  file ends with %%EOF (not truncated)
+PASS  page count: 38 (page objects: 38)
+PASS  font embedded: AAAAAA+HindSiliguri-Medium
+PASS  font embedded: BAAAAA+HindSiliguri-Bold
+PASS  font embedded: CAAAAA+HindSiliguri-Regular
+PASS  font embedded: DAAAAA+HindSiliguri-SemiBold
+PASS  font embedded: EAAAAA+Consolas
+PASS  font embedded: FAAAAA+Consolas-Bold
+PASS  font descriptors found: 6
+PASS  only the intended families are used: HindSiliguri-Medium, HindSiliguri-Bold, HindSiliguri-Regular, HindSiliguri-SemiBold, Consolas, Consolas-Bold
+PASS  text is real, selectable text (ToUnicode maps: 6)
+INFO  bookmark/outline entries: 67
+INFO  size: 1069 KB
+PASS  rendered pages: 38 of 38
+PASS  no blank pages (smallest render: page-025.png, 38 KB)
+PASS  no duplicate pages (all page renders differ)
+
+All PDF checks passed

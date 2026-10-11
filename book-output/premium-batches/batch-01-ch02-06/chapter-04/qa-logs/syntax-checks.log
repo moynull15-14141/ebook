@@ -1,0 +1,2 @@
+OK    node --check cart.js   (in project/cart-analyzer)
+OK    node --check tests/cart.test.js   (in project/cart-analyzer)

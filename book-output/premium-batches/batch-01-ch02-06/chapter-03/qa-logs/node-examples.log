@@ -1,0 +1,163 @@
+===== examples/01-expression.js  (exit code 0) =====
+2550
+true
+
+===== examples/02-remainder.js  (exit code 0) =====
+0
+1
+5
+-1
+
+===== examples/03-math-round.js  (exit code 0) =====
+42
+43
+43
+
+===== examples/04-assignment.js  (exit code 0) =====
+15
+13
+26
+27
+26
+
+===== examples/05-increment.js  (exit code 0) =====
+5
+6
+7
+
+===== examples/06-compare-strings.js  (exit code 0) =====
+true
+false
+true
+
+===== examples/07-logical.js  (exit code 0) =====
+true
+true
+false
+true
+
+===== examples/08-short-circuit.js  (exit code 0) =====
+Guest
+Sara
+10
+0
+10
+
+===== examples/09-truthy-falsy.js  (exit code 0) =====
+false
+false
+false
+true
+true
+true
+true
+
+===== examples/10-zero-trap.js  (exit code 0) =====
+নম্বর: 75
+নম্বর দেওয়া হয়নি
+
+===== examples/11-shipping.js  (exit code 0) =====
+Delivery ফ্রি
+Delivery-তে অর্ধেক ছাড়
+সাধারণ Delivery
+
+===== examples/12-wrong-order.js  (exit code 0) =====
+Delivery-তে অর্ধেক ছাড়
+
+===== examples/13-payment.js  (exit code 0) =====
+পণ্য হাতে পেয়ে পরিশোধ
+অজানা পদ্ধতি
+
+===== examples/14-fallthrough.js  (exit code 0) =====
+সাপ্তাহিক ছুটি
+সাপ্তাহিক ছুটি
+কর্মদিবস
+
+===== examples/15-ternary.js  (exit code 0) =====
+শেষ হয়ে গেছে
+5
+
+===== examples/16-precedence.js  (exit code 0) =====
+14
+20
+3
+512
+true
+false
+
+===== examples/17-validate-quantity.js  (exit code 0) =====
+true
+false
+false
+false
+false
+false
+
+===== examples/18-assign-in-condition.js  (exit code 0) =====
+Coupon প্রয়োগ হয়েছে
+SAVE10
+
+===== examples/19-debug-condition.js  (exit code 0) =====
+code মিলেছে: true
+ন্যূনতম পূরণ: false
+পুরো শর্ত: false
+
+===== project/shopping-discount-calculator/discount.js  (exit code 0) =====
+মোট 3000, ছাড় 300, Delivery 120, দিতে হবে 2820
+মোট 7500, ছাড় 1800, Delivery 0, দিতে হবে 5700
+মোট 850, ছাড় 43, Delivery 120, দিতে হবে 927
+SAVE20-এর জন্য কমপক্ষে 5000 টাকার কেনাকাটা প্রয়োজন।
+পরিমাণ ১ থেকে ১০০-এর মধ্যে হতে হবে।
+Coupon Code সঠিক নয়।
+
+===== examples/20-can-vote-bug.js  (exit code 0) =====
+true
+
+===== examples/solutions/s02-is-even.js  (exit code 0) =====
+true
+false
+
+===== examples/solutions/s03-points.js  (exit code 0) =====
+60
+120
+119
+
+===== examples/solutions/s05-can-vote.js  (exit code 0) =====
+false
+true
+
+===== examples/solutions/s06-get-grade.js  (exit code 0) =====
+A+
+A
+B
+F
+
+===== examples/solutions/s07-season.js  (exit code 0) =====
+শীত
+বর্ষা
+অজানা
+
+===== examples/solutions/s08-ticket.js  (exit code 0) =====
+0
+50
+50
+
+===== examples/solutions/s09-valid-age.js  (exit code 0) =====
+true
+true
+false
+false
+
+===== examples/solutions/s10-flat200.js  (exit code 0) =====
+0
+200
+
+===== examples/solutions/s11-delivery-fee.js  (exit code 0) =====
+0
+60
+60
+120
+
+===== examples/solutions/s12-capped-discount.js  (exit code 0) =====
+300
+1000

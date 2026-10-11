@@ -1,0 +1,4 @@
+OK    node --check app.js   (in project/interactive-greeting-app)
+OK    node --check tests/greeting.test.js   (in project/interactive-greeting-app)
+OK    node --check tests/browser/run-browser-tests.mjs   (in project/interactive-greeting-app)
+OK    node --check app.js   (in examples/solutions/challenge-greeting-app)

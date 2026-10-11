@@ -1,0 +1,11 @@
+{
+  "title": "JavaScript Mastery",
+  "subtitle": "শূন্য থেকে প্রফেশনাল",
+  "author": "Moynul Hasan",
+  "language": "bn-BD",
+  "runningTitle": "JavaScript Mastery — শূন্য থেকে প্রফেশনাল",
+  "chapterWord": "অধ্যায়",
+  "chapters": [
+    { "number": 1, "dir": "../../premium-final/chapter-01", "status": "final-candidate" }
+  ]
+}

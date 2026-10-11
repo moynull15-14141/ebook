@@ -1,0 +1,366 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-6"><header class="opener"><div class="chap-label">অধ্যায় ৬</div><h1>Arrays: Data Collection, Array Methods এবং Practical Data Processing</h1></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে তুমি Array তৈরি ও পরিবর্তন, Indexing, Traversal, <code>map</code>/<code>filter</code>/<code>reduce</code>/<code>find</code>/<code>some</code>/<code>every</code>/<code>sort</code> ব্যবহার, Reference ও Mutation-এর পার্থক্য, Shallow Copy, Nested Arrays, Real-World Inventory Data Processing এবং Automated Test লিখতে পারবে।</p>
+<h2>৬.১ Array কেন দরকার?</h2>
+<p>ধরো একটি দোকানে ৫০০টি পণ্যের নাম আছে। <code>product1</code>, <code>product2</code> এভাবে ৫০০টি Variable তৈরি করা বাস্তবসম্মত নয়। Array হলো একটি <strong>ordered collection</strong>, যেখানে প্রতিটি Element-এর অবস্থান বা Index থাকে। JavaScript-এ Index শুরু হয় <strong>০</strong> থেকে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> products = [<span class="s">'Mouse'</span>, <span class="s">'Keyboard'</span>, <span class="s">'Monitor'</span>];
+console.log(products[<span class="n">0</span>]);          <span class="c">// Mouse</span>
+console.log(products[<span class="n">2</span>]);          <span class="c">// Monitor</span>
+console.log(products.length);      <span class="c">// 3</span>
+console.log(products[<span class="n">3</span>]);          <span class="c">// undefined</span></code></pre></figure>
+<p><strong>বাস্তব উদাহরণ:</strong> Shopping Cart-এর Items, API থেকে আসা Search Results, Students-এর Marks, Travel Packages-এর List, Booking Records—সব জায়গায় Arrays কাজে লাগে।</p>
+<h2>৬.২ Array তৈরি: Literal, Array.from, Array.of</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> empty = [];
+<span class="k">const</span> scores = [<span class="n">80</span>, <span class="n">95</span>, <span class="n">76</span>];
+<span class="k">const</span> mixed = [<span class="s">'Dhaka'</span>, <span class="n">2026</span>, <span class="k">true</span>, <span class="k">null</span>];
+<span class="k">const</span> squares = Array.<span class="k">from</span>({ length: <span class="n">5</span> }, (_, index) =&gt; index ** <span class="n">2</span>);
+<span class="k">const</span> oneNumber = Array.<span class="k">of</span>(<span class="n">5</span>);  <span class="c">// [5]</span>
+<span class="k">const</span> fiveSlots = Array(<span class="n">5</span>);     <span class="c">// length 5, কিন্তু পাঁচটি initialized element নয়</span>
+console.log(squares);          <span class="c">// [0, 1, 4, 9, 16]</span></code></pre></figure>
+<p>Array-তে বিভিন্ন Type রাখা সম্ভব হলেও একই ধরনের Data Structure ব্যবহার করলে Maintenance সহজ হয়। <code>Array(5)</code>-এর Sparse Slots এবং <code>[undefined, ...]</code> এক জিনিস নয়।</p>
+<h2>৬.৩ Index, Length এবং Boundary</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> cities = [<span class="s">'Dhaka'</span>, <span class="s">'Chattogram'</span>, <span class="s">'Sylhet'</span>];
+console.log(cities.at(-<span class="n">1</span>));                 <span class="c">// Sylhet</span>
+console.log(cities[cities.length - <span class="n">1</span>]);   <span class="c">// Sylhet</span>
+cities[<span class="n">1</span>] = <span class="s">'Rajshahi'</span>;
+console.log(cities); <span class="c">// ['Dhaka', 'Rajshahi', 'Sylhet']</span></code></pre></figure>
+<p><code>const</code> দিয়ে Array Declare করলেও তার Element পরিবর্তন করা যায়; <code>const</code> শুধু Variable-টিকে অন্য Array দিয়ে Reassign করতে দেয় না। <code>cities[100] = 'X'</code> করলে মাঝখানে অনেক Empty Slot তৈরি হয়—সাধারণ Data Model-এ এটি এড়িয়ে চলা ভালো।</p>
+<h2>৬.৪ Mutating বনাম Non-Mutating Methods</h2>
+<table><thead><tr><th>Method</th><th>কাজ</th><th>Original Array বদলায়?</th></tr></thead><tbody><tr><td><code>push</code>, <code>pop</code></td><td>শেষে যোগ/সরানো</td><td>হ্যাঁ</td></tr><tr><td><code>unshift</code>, <code>shift</code></td><td>শুরুতে যোগ/সরানো</td><td>হ্যাঁ</td></tr><tr><td><code>splice</code></td><td>মাঝখানে যোগ/মুছা</td><td>হ্যাঁ</td></tr><tr><td><code>sort</code>, <code>reverse</code></td><td>সাজানো/উল্টানো</td><td>হ্যাঁ</td></tr><tr><td><code>slice</code></td><td>অংশ Copy</td><td>না</td></tr><tr><td><code>map</code>, <code>filter</code></td><td>নতুন Array তৈরি</td><td>না</td></tr><tr><td><code>concat</code></td><td>Array যুক্ত</td><td>না</td></tr><tr><td><code>toSorted</code>, <code>toReversed</code></td><td>Copy সাজানো/উল্টানো</td><td>না (আধুনিক Runtime)</td></tr></tbody></table>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> cart = [<span class="s">'Pen'</span>, <span class="s">'Book'</span>];
+cart.push(<span class="s">'Bag'</span>);                <span class="c">// original cart changes</span>
+<span class="k">const</span> firstTwo = cart.slice(<span class="n">0</span>, <span class="n">2</span>); <span class="c">// independent outer array</span>
+<span class="k">const</span> updated = [...cart, <span class="s">'Pencil'</span>]; <span class="c">// original untouched</span>
+console.log(cart, firstTwo, updated);</code></pre></figure>
+<p><strong>সতর্কতা:</strong> <code>splice(1, 1)</code>-এ দ্বিতীয় Argument হলো কতগুলো Element Delete হবে; শেষ Index নয়।</p>
+<h2>৬.৫ Array Traversal: for, for...of, forEach</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> prices = [<span class="n">100</span>, <span class="n">250</span>, <span class="n">75</span>];
+<span class="k">for</span> (<span class="k">let</span> index = <span class="n">0</span>; index &lt; prices.length; index++) {
+  console.log(index, prices[index]);
+}
+<span class="k">for</span> (<span class="k">const</span> price <span class="k">of</span> prices) console.log(price);
+prices.forEach((price, index) =&gt; console.log(index, price));</code></pre></figure>
+<p><code>forEach</code> নতুন Array Return করে না। <code>forEach</code>-এর Callback-এর মধ্যে <code>return</code> দিলে শুধু সেই Callback শেষ হয়, পুরো Iteration থামে না। Loop মাঝপথে থামাতে চাইলে <code>for...of</code> + <code>break</code> ব্যবহার করো।</p>
+<h2>৬.৬ map: প্রতিটি Element Transform করা</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> prices = [<span class="n">100</span>, <span class="n">200</span>, <span class="n">300</span>];
+<span class="k">const</span> withVat = prices.map(price =&gt; price * <span class="n">1.15</span>);
+console.log(withVat); <span class="c">// [114.99999999999999, 229.99999999999997, 345]</span></code></pre></figure>
+<p>JavaScript Floating-Point Representation-এর কারণে Decimal Money Calculation-এ অদ্ভুত Fraction দেখা যেতে পারে। Monetary Calculation-এর জন্য Minor Units (যেমন পয়সা) ব্যবহার করা বেশি নিরাপদ।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> priceInPaisa = [<span class="n">10000</span>, <span class="n">20000</span>, <span class="n">30000</span>];
+<span class="k">const</span> afterTenPercent = priceInPaisa.map(paisa =&gt; Math.round(paisa * <span class="n">1.10</span>));
+console.log(afterTenPercent); <span class="c">// [11000, 22000, 33000]</span></code></pre></figure>
+<h2>৬.৭ filter: শর্ত অনুযায়ী Data নির্বাচন</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> stock = [
+  { name: <span class="s">'Mouse'</span>, quantity: <span class="n">12</span> },
+  { name: <span class="s">'Keyboard'</span>, quantity: <span class="n">3</span> },
+  { name: <span class="s">'Monitor'</span>, quantity: <span class="n">0</span> }
+];
+<span class="k">const</span> lowStock = stock.filter(product =&gt; product.quantity &lt;= <span class="n">5</span>);
+console.log(lowStock.map(item =&gt; item.name)); <span class="c">// ['Keyboard', 'Monitor']</span></code></pre></figure>
+<p><code>filter</code> সব Matching Items দিয়ে নতুন Array দেয়। <code>find</code> প্রথম Matching Item দেয়, না পেলে <code>undefined</code>।</p>
+<h2>৬.৮ find, findIndex, some, every, includes</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> numbers = [<span class="n">4</span>, <span class="n">7</span>, <span class="n">10</span>, <span class="n">12</span>];
+console.log(numbers.find(n =&gt; n &gt; <span class="n">8</span>));       <span class="c">// 10</span>
+console.log(numbers.findIndex(n =&gt; n &gt; <span class="n">8</span>));  <span class="c">// 2</span>
+console.log(numbers.some(n =&gt; n % <span class="n">2</span> !== <span class="n">0</span>)); <span class="c">// true</span>
+console.log(numbers.every(n =&gt; n &gt; <span class="n">0</span>));      <span class="c">// true</span>
+console.log(numbers.includes(<span class="n">7</span>));            <span class="c">// true</span></code></pre></figure>
+<p><code>some</code> অন্তত একটি Item শর্ত পূরণ করে কি না জানায়। <code>every</code> সব Item শর্ত পূরণ করে কি না জানায়। খালি Array-তে <code>every</code> true এবং <code>some</code> false Return করে—এটি Logic Design-এ মনে রাখতে হবে।</p>
+<h2>৬.৯ reduce: একটি Summary Value তৈরি</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> orders = [
+  { price: <span class="n">250</span>, quantity: <span class="n">2</span> },
+  { price: <span class="n">100</span>, quantity: <span class="n">3</span> }
+];
+<span class="k">const</span> total = orders.reduce((sum, item) =&gt; sum + item.price * item.quantity, <span class="n">0</span>);
+console.log(total); <span class="c">// 800</span></code></pre></figure>
+<p>এখানে <code>0</code> হলো Initial Accumulator। Empty Array-তেও নিরাপদভাবে কাজ করতে Initial Value দেওয়া উচিত।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> marks = [<span class="n">80</span>, <span class="n">95</span>, <span class="n">75</span>, <span class="n">90</span>];
+<span class="k">const</span> sum = marks.reduce((total, mark) =&gt; total + mark, <span class="n">0</span>);
+<span class="k">const</span> average = marks.length ? sum / marks.length : <span class="n">0</span>;
+console.log(average); <span class="c">// 85</span></code></pre></figure>
+<p><code>reduce</code> দিয়ে সব কিছু লেখা যায়, কিন্তু Readability কমে গেলে <code>map</code>/<code>filter</code> বা সাধারণ Loop বেশি উপযুক্ত।</p>
+<h2>৬.১০ Sorting: সবচেয়ে সাধারণ ভুল</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> prices = [<span class="n">9</span>, <span class="n">100</span>, <span class="n">20</span>];
+console.log([...prices].sort());             <span class="c">// [100, 20, 9] — lexicographic</span>
+console.log([...prices].sort((a, b) =&gt; a - b)); <span class="c">// [9, 20, 100]</span>
+console.log([...prices].sort((a, b) =&gt; b - a)); <span class="c">// [100, 20, 9]</span></code></pre></figure>
+<p><code>sort()</code> Original Array পরিবর্তন করে। Copy প্রয়োজন হলে <code>[...array].sort(...)</code> বা Supported Runtime-এ <code>toSorted(...)</code> ব্যবহার করো। Object Sorting-এ Numeric ও Text Field আলাদাভাবে Compare করতে হয়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> items = [
+  { name: <span class="s">'Pen'</span>, price: <span class="n">25</span> },
+  { name: <span class="s">'Bag'</span>, price: <span class="n">700</span> }
+];
+<span class="k">const</span> byPrice = [...items].sort((a, b) =&gt; a.price - b.price);
+<span class="k">const</span> byName = [...items].sort((a, b) =&gt; a.name.localeCompare(b.name));</code></pre></figure>
+<h2>৬.১১ slice, splice এবং Immutable Updates</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> list = [<span class="s">'A'</span>, <span class="s">'B'</span>, <span class="s">'C'</span>, <span class="s">'D'</span>];
+console.log(list.slice(<span class="n">1</span>, <span class="n">3</span>)); <span class="c">// ['B', 'C']; original intact</span>
+<span class="k">const</span> changed = [...list];
+changed.splice(<span class="n">1</span>, <span class="n">2</span>, <span class="s">'X'</span>);
+console.log(changed); <span class="c">// ['A', 'X', 'D']</span>
+console.log(list);    <span class="c">// ['A', 'B', 'C', 'D']</span></code></pre></figure>
+<p>Immutable Update বলতে সাধারণত Existing Collection না বদলে নতুন Collection Return করা বোঝায়। UI State Management, Testing ও Debugging-এ এটি উপকারী।</p>
+<h2>৬.১২ Spread, Destructuring এবং Shallow Copy</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> [first, second, ...remaining] = [<span class="s">'A'</span>, <span class="s">'B'</span>, <span class="s">'C'</span>, <span class="s">'D'</span>];
+console.log(first, second, remaining); <span class="c">// A B ['C', 'D']</span>
+<span class="k">const</span> original = [{ name: <span class="s">'Mouse'</span>, stock: <span class="n">5</span> }];
+<span class="k">const</span> copy = [...original];
+copy[<span class="n">0</span>].stock = <span class="n">2</span>;
+console.log(original[<span class="n">0</span>].stock); <span class="c">// 2! nested object shared</span></code></pre></figure>
+<p>Spread দিয়ে Array-এর <strong>Shallow Copy</strong> হয়। Nested Object একই Reference ধরে রাখে। একটি Object পরিবর্তন করতে হলে <code>{ ...item, stock: newStock }</code> দিয়ে সেই Object-ও Copy করো। গভীর Clone-এর জন্য Data Type ও Browser Support অনুযায়ী <code>structuredClone()</code> ব্যবহার করা যায়, তবে Function ও কিছু বিশেষ Object Clone করা যায় না।</p>
+<h2>৬.১৩ Multi-Dimensional Arrays</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> matrix = [
+  [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>],
+  [<span class="n">4</span>, <span class="n">5</span>, <span class="n">6</span>]
+];
+console.log(matrix[<span class="n">1</span>][<span class="n">2</span>]); <span class="c">// 6</span>
+<span class="k">const</span> flattened = matrix.flat();
+console.log(flattened); <span class="c">// [1, 2, 3, 4, 5, 6]</span></code></pre></figure>
+<p><code>flat()</code> Default-এ এক Level Flatten করে। Matrix, Timetable বা Grid Data-তে Nested Array দরকার হয়।</p>
+<h2>৬.১৪ Real-World Data Pipeline</h2>
+<p>ধরো Inventory Dashboard-এ User লিখল <code>mo</code>, Category বেছে নিল <code>Accessories</code>, তারপর Price অনুযায়ী Sort করল। পুরো Flow:</p>
+<figure class="code keep"><pre><code>Raw Products Array
+      ↓
+Validate / Normalize
+      ↓
+Search + Category Filter
+      ↓
+Sort (without mutation)
+      ↓
+Render Table
+      ↓
+Summary Metrics (all products)</code></pre></figure>
+<p>Search Results ও Overall Inventory Summary আলাদা রাখা জরুরি। Search-এ তিনটি Product দেখা গেলেও Overall Total Value যেন সব Product-এর হয়।</p>
+<h2>৬.১৫ Practical Project — Inventory Dashboard</h2>
+<p><strong>Project Objective:</strong> Product Add, Stock Increase/Decrease, Delete, Search, Category Filter, Low-Stock Filter, Sort, Total Inventory Value এবং Browser Storage।</p>
+<h3>File Structure</h3>
+<figure class="code keep"><pre><code>source-code/chapter-06/
+├── index.html
+├── style.css
+├── inventory.js
+├── app.js
+└── inventory.test.js</code></pre></figure>
+<p><strong>Run:</strong> <code>index.html</code> Browser-এ Open করো। External Package বা Build Step লাগে না। Automated Test-এর জন্য Node.js (18+) Install করে Project Directory-তে <code>node --test inventory.test.js</code> চালাও।</p>
+<h3>HTML-এর মূল অংশ</h3>
+<p><code>index.html</code>-এ চারটি Summary Card, Product Form, Search/Filter Controls এবং একটি Table আছে। নিচের অংশে Product Entry Form-এর ধারণা দেখানো হলো:</p>
+<figure class="code keep"><figcaption>HTML</figcaption><pre><code>&lt;<span class="k">form</span> id=<span class="s">&quot;product-form&quot;</span>&gt;
+  &lt;<span class="k">label</span>&gt;ID &lt;<span class="k">input</span> name=<span class="s">&quot;id&quot;</span> required&gt;&lt;/<span class="k">label</span>&gt;
+  &lt;<span class="k">label</span>&gt;Name &lt;<span class="k">input</span> name=<span class="s">&quot;name&quot;</span> required&gt;&lt;/<span class="k">label</span>&gt;
+  &lt;<span class="k">label</span>&gt;Category &lt;<span class="k">input</span> name=<span class="s">&quot;category&quot;</span> required&gt;&lt;/<span class="k">label</span>&gt;
+  &lt;<span class="k">label</span>&gt;Price &lt;<span class="k">input</span> name=<span class="s">&quot;price&quot;</span> type=<span class="s">&quot;number&quot;</span> min=<span class="s">&quot;0&quot;</span> step=<span class="s">&quot;0.01&quot;</span> required&gt;&lt;/<span class="k">label</span>&gt;
+  &lt;<span class="k">label</span>&gt;Stock &lt;<span class="k">input</span> name=<span class="s">&quot;stock&quot;</span> type=<span class="s">&quot;number&quot;</span> min=<span class="s">&quot;0&quot;</span> step=<span class="s">&quot;1&quot;</span> required&gt;&lt;/<span class="k">label</span>&gt;
+  &lt;<span class="k">button</span>&gt;Add product&lt;/<span class="k">button</span>&gt;
+&lt;/<span class="k">form</span>&gt;</code></pre></figure>
+<h3>Inventory Logic: Separation of Concerns</h3>
+<p><code>inventory.js</code>-এ Data Operations রাখা হয়েছে; এটি DOM-এর উপর নির্ভরশীল নয়। <code>app.js</code>-এ Browser UI ও <code>localStorage</code> Handle করা হয়। ফলে Pure Functions আলাদাভাবে Test করা যায়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> addProduct(items, product) {
+  <span class="k">const</span> item = validateProduct(product);
+  <span class="k">if</span> (items.some(existing =&gt; existing.id === item.id)) {
+    <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'Duplicate product ID'</span>);
+  }
+  <span class="k">return</span> [...items, item];
+}</code></pre></figure>
+<p><strong>কেন নতুন Array?</strong> <code>push()</code> দিয়ে Original পরিবর্তন না করে <code>[...items, item]</code> Return করলে Function-এর Side Effect কমে।</p>
+<h3>Stock Update</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> updateStock(items, id, change) {
+  <span class="k">if</span> (!Number.isSafeInteger(change)) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'Invalid change'</span>);
+  <span class="k">if</span> (!items.some(item =&gt; item.id === id)) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'Not found'</span>);
+  <span class="k">return</span> items.map(item =&gt; {
+    <span class="k">if</span> (item.id !== id) <span class="k">return</span> item;
+    <span class="k">const</span> stock = item.stock + change;
+    <span class="k">if</span> (stock &lt; <span class="n">0</span>) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'Insufficient stock'</span>);
+    <span class="k">return</span> { ...item, stock };
+  });
+}</code></pre></figure>
+<p>এই Design-এ কোনো Product-এর Stock Negative করা যায় না।</p>
+<h3>Filter + Sort</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> visible = Inventory.sortProducts(
+  Inventory.filterProducts(products, {
+    query: searchText,
+    category: selectedCategory,
+    lowStockOnly: <span class="k">true</span>
+  }),
+  <span class="s">'price'</span>,
+  <span class="s">'asc'</span>
+);</code></pre></figure>
+<p><code>filterProducts()</code> এবং <code>sortProducts()</code> দুটোই নতুন Array Return করে; Master Inventory পরিবর্তন হয় না।</p>
+<h3>Summary Calculation</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> summarize(items, threshold = <span class="n">5</span>) {
+  <span class="k">return</span> items.reduce((result, item) =&gt; {
+    result.productCount++;
+    result.totalUnits += item.stock;
+    result.totalValueCents += Math.round(item.price * <span class="n">100</span>) * item.stock;
+    <span class="k">if</span> (item.stock &lt;= threshold) result.lowStockCount++;
+    <span class="k">return</span> result;
+  }, { productCount: <span class="n">0</span>, totalUnits: <span class="n">0</span>, totalValueCents: <span class="n">0</span>, lowStockCount: <span class="n">0</span> });
+}</code></pre></figure>
+<p>Currency Integer Minor Units-এ হিসাব হচ্ছে। Dashboard-এ Display করার সময় ১০০ দিয়ে ভাগ করে BDT দেখানো হয়।</p>
+<h3>Safe DOM Rendering</h3>
+<p>User Input সরাসরি <code>innerHTML</code>-এ বসানো হয়নি। <code>textContent</code> ব্যবহার করা হয়েছে, যাতে Product Name-এ HTML-like Text থাকলেও তা Executable Markup না হয়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> cell = document.createElement(<span class="s">'td'</span>);
+cell.textContent = product.name;
+row.append(cell);</code></pre></figure>
+<h3>Local Storage</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>localStorage.setItem(<span class="s">'inventory'</span>, JSON.stringify(products));
+<span class="k">const</span> restored = JSON.parse(localStorage.getItem(<span class="s">'inventory'</span>) ?? <span class="s">'[]'</span>);</code></pre></figure>
+<p>এটি Conceptual Example। প্রকৃত Project-এ Loaded Data পুনরায় Validate করা হয়েছে এবং Invalid/Corrupted Data Handle করার ব্যবস্থা আছে। Browser Storage Production Database বা Secure Server Storage-এর বিকল্প নয়।</p>
+<h3>Complete Runnable Files</h3>
+<p>বইয়ের Companion Source Code-এর <code>source-code/chapter-06/</code> Folder-এ <strong>সম্পূর্ণ <code>index.html</code>, <code>style.css</code>, <code>inventory.js</code>, <code>app.js</code> এবং <code>inventory.test.js</code></strong> অন্তর্ভুক্ত।</p>
+<h2>৬.১৬ Debugging ও Common Mistakes</h2>
+<table><thead><tr><th>সমস্যা</th><th>কারণ</th><th>সমাধান</th></tr></thead><tbody><tr><td><code>sort()</code>-এ 100 আগে আসে</td><td>Default String Comparison</td><td>Numeric Comparator</td></tr><tr><td><code>map()</code> Result <code>undefined</code></td><td>Callback-এ <code>return</code> নেই</td><td>Explicit Return</td></tr><tr><td>Original Array বদলে গেছে</td><td><code>sort</code>, <code>splice</code>, <code>push</code> Mutate করে</td><td>Copy First</td></tr><tr><td><code>reduce</code> Empty Array-তে Error</td><td>Initial Value নেই</td><td><code>reduce(callback, 0)</code></td></tr><tr><td>Spread Copy-তে Nested Data বদলায়</td><td>Shallow Copy</td><td>Nested Object Copy</td></tr><tr><td>Price Calculation অদ্ভুত Decimal</td><td>Floating Point</td><td>Minor Units ব্যবহার</td></tr><tr><td>UI-তে Untrusted HTML</td><td><code>innerHTML</code></td><td><code>textContent</code></td></tr></tbody></table>
+<h2>৬.১৭ Time Complexity</h2>
+<table><thead><tr><th>Operation</th><th>সাধারণ Complexity</th></tr></thead><tbody><tr><td>Array Index Access</td><td>O(1)</td></tr><tr><td><code>push</code></td><td>Amortized O(1)</td></tr><tr><td><code>find</code>, <code>filter</code>, <code>map</code></td><td>O(n)</td></tr><tr><td><code>sort</code></td><td>সাধারণভাবে O(n log n), Implementation-Dependent</td></tr><tr><td><code>includes</code></td><td>O(n)</td></tr><tr><td><code>unshift</code>, <code>shift</code></td><td>O(n)</td></tr></tbody></table>
+<p>এই Complexity Big-O-এর সাধারণ ধারণা; Engine Implementation ও Input Pattern অনুযায়ী বাস্তব Performance ভিন্ন হতে পারে।</p>
+<h2>৬.১৮ Exercises — নিজে চেষ্টা করো</h2>
+<ol><li><code>[5, 10, 15, 20]</code> থেকে শুধু ১০-এর বেশি সংখ্যাগুলো বের করো।</li><li>Product Prices <code>[100, 250, 400]</code>-এর ওপর ১০% Discount দিয়ে নতুন Array বানাও।</li><li><code>['Dhaka', 'Sylhet', 'Dhaka']</code> থেকে Unique City বের করো।</li><li>Students Array থেকে সর্বোচ্চ Marks-এর Student খুঁজে বের করো। Empty Array Handle করো।</li><li>Stock Array-তে <code>quantity &lt;= 5</code> হলে Low-Stock Product Count বের করো।</li><li>Numeric Array Descending Order-এ Sort করো, Original অপরিবর্তিত রেখে।</li><li>Array of Orders থেকে <code>price * quantity</code> যোগ করে Grand Total বের করো।</li><li>একটি Product-এর Stock Immutable পদ্ধতিতে Update করো।</li><li><code>categorySummary()</code>-এর মতো Category অনুযায়ী Product Count বের করো।</li><li>Inventory Dashboard-এ <code>Out of Stock</code> Filter যোগ করো।</li></ol>
+<h2>৬.১৯ Exercise Solutions</h2>
+<p><strong>Solution 1</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>console.log([<span class="n">5</span>, <span class="n">10</span>, <span class="n">15</span>, <span class="n">20</span>].filter(n =&gt; n &gt; <span class="n">10</span>)); <span class="c">// [15, 20]</span></code></pre></figure>
+<p><strong>Solution 2</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> prices = [<span class="n">100</span>, <span class="n">250</span>, <span class="n">400</span>];
+<span class="k">const</span> discounted = prices.map(price =&gt; Math.round(price * <span class="n">90</span>) / <span class="n">100</span>);
+console.log(discounted); <span class="c">// [90, 225, 360]</span></code></pre></figure>
+<p><strong>Solution 3</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> cities = [<span class="s">'Dhaka'</span>, <span class="s">'Sylhet'</span>, <span class="s">'Dhaka'</span>];
+console.log([...<span class="k">new</span> Set(cities)]); <span class="c">// ['Dhaka', 'Sylhet']</span></code></pre></figure>
+<p><strong>Solution 4</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> students = [{ name: <span class="s">'A'</span>, marks: <span class="n">78</span> }, { name: <span class="s">'B'</span>, marks: <span class="n">91</span> }];
+<span class="k">const</span> topper = students.reduce((best, student) =&gt;
+  best === <span class="k">null</span> || student.marks &gt; best.marks ? student : best, <span class="k">null</span>);
+console.log(topper); <span class="c">// { name: 'B', marks: 91 }</span></code></pre></figure>
+<p><strong>Solution 5</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> inventory = [{ quantity: <span class="n">8</span> }, { quantity: <span class="n">3</span> }, { quantity: <span class="n">0</span> }];
+console.log(inventory.filter(item =&gt; item.quantity &lt;= <span class="n">5</span>).length); <span class="c">// 2</span></code></pre></figure>
+<p><strong>Solution 6</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> nums = [<span class="n">3</span>, <span class="n">20</span>, <span class="n">1</span>];
+<span class="k">const</span> descending = [...nums].sort((a, b) =&gt; b - a);
+console.log(descending, nums); <span class="c">// [20, 3, 1] [3, 20, 1]</span></code></pre></figure>
+<p><strong>Solution 7</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> orders = [{ price: <span class="n">100</span>, quantity: <span class="n">2</span> }, { price: <span class="n">50</span>, quantity: <span class="n">3</span> }];
+console.log(orders.reduce((sum, item) =&gt; sum + item.price * item.quantity, <span class="n">0</span>)); <span class="c">// 350</span></code></pre></figure>
+<p><strong>Solution 8</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> items = [{ id: <span class="s">'A'</span>, stock: <span class="n">5</span> }, { id: <span class="s">'B'</span>, stock: <span class="n">2</span> }];
+<span class="k">const</span> next = items.map(item =&gt; item.id === <span class="s">'A'</span> ? { ...item, stock: <span class="n">7</span> } : item);
+console.log(items[<span class="n">0</span>].stock, next[<span class="n">0</span>].stock); <span class="c">// 5 7</span></code></pre></figure>
+<p><strong>Solution 9</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> products = [{ category: <span class="s">'Tech'</span> }, { category: <span class="s">'Books'</span> }, { category: <span class="s">'Tech'</span> }];
+<span class="k">const</span> counts = products.reduce((acc, product) =&gt; {
+  acc[product.category] = (acc[product.category] ?? <span class="n">0</span>) + <span class="n">1</span>;
+  <span class="k">return</span> acc;
+}, Object.create(<span class="k">null</span>));
+console.log(counts.Tech, counts.Books); <span class="c">// 2 1</span></code></pre></figure>
+<p><strong>Solution 10</strong></p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> outOfStock = products =&gt; products.filter(item =&gt; item.stock === <span class="n">0</span>);
+<span class="c">// Dashboard UI-তে নতুন Checkbox যোগ করে এই Filter ব্যবহার করো।</span></code></pre></figure>
+<h2>৬.২০ Knowledge Check — ১০টি MCQ</h2>
+<p><strong>১.</strong> Array-এর প্রথম Element-এর Index কত? (A) 1 (B) 0 (C) -1 (D) 2</p>
+<p><strong>২.</strong> কোন Method নতুন Array Return করে? (A) push (B) pop (C) map (D) reverse</p>
+<p><strong>৩.</strong> <code>filter()</code> কী Return করে? (A) Boolean (B) প্রথম Match (C) Matching Elements-এর Array (D) Number</p>
+<p><strong>৪.</strong> <code>[10, 2].sort()</code>-এর Result কী? (A) <code>[2,10]</code> (B) <code>[10,2]</code> (C) Error (D) <code>undefined</code></p>
+<p><strong>৫.</strong> <code>find()</code> Match না পেলে কী Return করে? (A) <code>null</code> (B) <code>[]</code> (C) <code>undefined</code> (D) <code>false</code></p>
+<p><strong>৬.</strong> Original Array পরিবর্তন করে কোনটি? (A) slice (B) filter (C) map (D) splice</p>
+<p><strong>৭.</strong> <code>reduce()</code>-এর Initial Value কেন গুরুত্বপূর্ণ? (A) Styling (B) Empty Array Support (C) Sorting (D) String Conversion</p>
+<p><strong>৮.</strong> <code>[...items]</code> Nested Object-কে Deep Clone করে? (A) Yes (B) No</p>
+<p><strong>৯.</strong> <code>some()</code> কখন true? (A) সব Match (B) অন্তত একটি Match (C) কোনো Match নয় (D) Empty হলে সবসময়</p>
+<p><strong>১০.</strong> Monetary Total হিসাবের ভালো পদ্ধতি কোনটি? (A) String Concatenation (B) Minor Currency Units (C) Random Rounding (D) Array Join</p>
+<h3>Answer Key ও ব্যাখ্যা</h3>
+<table><thead><tr><th>প্রশ্ন</th><th>উত্তর</th><th>ব্যাখ্যা</th></tr></thead><tbody><tr><td>1</td><td>B</td><td>Array Index ০ থেকে শুরু</td></tr><tr><td>2</td><td>C</td><td><code>map()</code> প্রতিটি Element Transform করে নতুন Array দেয়</td></tr><tr><td>3</td><td>C</td><td><code>filter()</code> সব Matching Element দেয়</td></tr><tr><td>4</td><td>B</td><td>Default Sort String Comparison করে</td></tr><tr><td>5</td><td>C</td><td>Match না পেলে <code>undefined</code></td></tr><tr><td>6</td><td>D</td><td><code>splice()</code> Original Array Mutate করে</td></tr><tr><td>7</td><td>B</td><td>Initial Value Empty Array Handle করে</td></tr><tr><td>8</td><td>B</td><td>Spread Shallow Copy করে</td></tr><tr><td>9</td><td>B</td><td>অন্তত একটি Match হলেই true</td></tr><tr><td>10</td><td>B</td><td>Integer Minor Units Floating-Point Error কমায়</td></tr></tbody></table>
+<h2>৬.২১ Final Challenge</h2>
+<p>Inventory Dashboard-এ তিনটি Feature যোগ করো: (১) Category-wise Inventory Value, (২) JSON Export, (৩) Price Range Filter। প্রতিটি Feature-এর জন্য অন্তত একটি Automated Test লেখো। <code>localStorage</code> থেকে Restore করা Data-ও Validate করবে।</p>
+<h2>৬.২২ Chapter Summary</h2>
+<p>এই অধ্যায়ে Array Creation, Indexing, Iteration, Transformation, Filtering, Searching, Sorting, Reducing, Immutability, Nested Data এবং Complexity শিখলে। Practical Inventory Dashboard-এ এগুলো একত্রে ব্যবহার করা হয়েছে। পরের অধ্যায়ে <strong>Objects, Destructuring ও Real-World Data Modeling</strong> শেখা হবে, যেখানে Inventory-এর Product Object-এর গঠন আরও গভীরভাবে বোঝা যাবে।</p>
+</section></body></html>

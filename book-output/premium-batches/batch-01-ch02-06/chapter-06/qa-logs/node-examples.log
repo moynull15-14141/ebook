@@ -1,0 +1,159 @@
+===== examples/01-why-arrays.js  (exit code 0) =====
+[ 120, 15, 950 ]
+3
+object
+true
+
+===== examples/02-creating.js  (exit code 0) =====
+[]
+[ 'আম', 'কলা', 'লিচু' ]
+[ 42, 'লেখা', true, null ]
+Pen
+
+===== examples/03-indexing.js  (exit code 0) =====
+আম
+লিচু
+লিচু
+undefined
+[ 'আম', 'কাঁঠাল', 'লিচু' ]
+true
+2
+-1
+
+===== examples/04-push-pop.js  (exit code 0) =====
+3
+[ 'Sara', 'Rafi', 'Mina' ]
+Mina
+[ 'Nila', 'Sara', 'Rafi' ]
+Nila
+[ 'Sara', 'Rafi' ]
+
+===== examples/05-slice.js  (exit code 0) =====
+[ 'b', 'c' ]
+[ 'c', 'd', 'e' ]
+[ 'd', 'e' ]
+[ 'a', 'b', 'c', 'd', 'e' ]
+[ 'a', 'b', 'c', 'd', 'e' ]
+
+===== examples/06-splice.js  (exit code 0) =====
+[ 'b', 'c' ]
+[ 'a', 'd', 'e' ]
+[ 'a', 'x', 'd', 'e' ]
+[ 'z', 'x', 'd', 'e' ]
+
+===== examples/07-for-of.js  (exit code 0) =====
+Sara
+Rafi
+Mina
+
+===== examples/08-for-of-break.js  (exit code 0) =====
+950
+
+===== examples/09-map.js  (exit code 0) =====
+[ 138, 17, 1093 ]
+[ '120 টাকা', '15 টাকা', '950 টাকা' ]
+[ 120, 15, 950 ]
+
+===== examples/10-map-objects.js  (exit code 0) =====
+[ 'Notebook', 'Pen' ]
+Notebook, Pen
+
+===== examples/11-filter.js  (exit code 0) =====
+[ 950, 280 ]
+[]
+2
+[ 'Notebook', 'Bag' ]
+
+===== examples/12-find.js  (exit code 0) =====
+Pen
+undefined
+2
+
+===== examples/13-reduce.js  (exit code 0) =====
+1085
+
+===== examples/14-reduce-objects.js  (exit code 0) =====
+9550
+0
+
+===== examples/15-mutation-bug.js  (exit code 0) =====
+[ 70, 80, 5 ]
+true
+[ 70, 80 ]
+[ 70, 80, 5 ]
+
+===== examples/16-immutable-update.js  (exit code 0) =====
+39
+40
+
+===== examples/17-chaining.js  (exit code 0) =====
+Notebook, School Bag
+9550
+
+===== examples/18-sort-trap.js  (exit code 0) =====
+[ 100, 40, 9 ]
+[ 9, 40, 100 ]
+[ 40, 100, 9 ]
+
+===== examples/19-debug-chain.js  (exit code 0) =====
+filter-এর পর: 1
+map-এর পর: [ 'Notebook' ]
+[{"name":"Notebook","stock":40}]
+
+===== project/inventory-dashboard/inventory.js  (exit code 0) =====
+P1 Notebook: 2 x 120
+P3 School Bag: 5 x 950
+P4 Calculator: 12 x 650
+পণ্য: 3টি
+মোট মূল্য: 12790 টাকা
+মজুত কম: Notebook, School Bag
+শুরুর তালিকায় এখনো 3টি পণ্য
+শুরুর তালিকায় Notebook-এর মজুত: 40
+
+===== examples/20-map-bug.js  (exit code 0) =====
+[ undefined, undefined, undefined ]
+
+===== examples/solutions/s01-cities.js  (exit code 0) =====
+Dhaka
+Rajshahi
+Sylhet
+
+===== examples/solutions/s02-push-three.js  (exit code 0) =====
+1
+3
+2
+
+===== examples/solutions/s04-double-each.js  (exit code 0) =====
+20
+40
+60
+
+===== examples/solutions/s05-map-fixed.js  (exit code 0) =====
+[ 2, 4, 6 ]
+
+===== examples/solutions/s06-passed-bonus.js  (exit code 0) =====
+[ 77, 50, 96, 65 ]
+
+===== examples/solutions/s07-sum-average.js  (exit code 0) =====
+1365
+341.25
+
+===== examples/solutions/s08-top-student.js  (exit code 0) =====
+Mina
+
+===== examples/solutions/s09-without-first.js  (exit code 0) =====
+[ 'Rafi', 'Mina' ]
+[ 'Sara', 'Rafi', 'Mina' ]
+
+===== examples/solutions/s10-add-unique.js  (exit code 0) =====
+2
+2
+true
+
+===== examples/solutions/s11-valuable.js  (exit code 0) =====
+Notebook, School Bag
+
+===== examples/solutions/s12-raise-prices.js  (exit code 0) =====
+132
+17
+120

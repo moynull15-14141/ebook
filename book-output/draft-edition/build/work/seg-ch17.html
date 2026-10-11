@@ -1,0 +1,241 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-17"><header class="opener"><div class="chap-label">অধ্যায় ১৭</div><h1>JavaScript Regular Expressions, Advanced Validation এবং Secure Input Processing</h1></header>
+<h2>এই অধ্যায়ে যা শিখবে</h2>
+<p>Regular Expression (Regex) ব্যবহার করে Text Pattern খোঁজা, Extract, Replace, Validation, Unicode-aware Processing, Input Normalization এবং নিরাপদ DOM Rendering। অধ্যায়ের শেষে <strong>FormShield</strong> নামে একটি বাস্তব Browser Application তৈরি করবে।</p>
+<h2>১৭.১ Regex কেন প্রয়োজন?</h2>
+<p>ধরো, একটি Form-এ Email, Phone Number, Full Name এবং Password নেওয়া হচ্ছে। শুধু <code>value.length &gt; 0</code> পরীক্ষা করলে ভুল Input আটকানো যায় না। Regex একটি <em>pattern language</em>: এটি নির্দিষ্ট Character বা Character Sequence মিলিয়ে দেখতে পারে। তবে Regex কোনো Magic Security Shield নয়—এটি কেবল Validation-এর একটি স্তর।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> message = <span class="s">'Order ID: TRV-2048'</span>;
+<span class="k">const</span> found = message.match(/TRV-\d{<span class="n">4</span>}/);
+console.log(found?.[<span class="n">0</span>]); <span class="c">// TRV-2048</span></code></pre></figure>
+<p><code>/TRV-\d{4}/</code>-এ <code>TRV-</code> Literal Text, <code>\d</code> Digit এবং <code>{4}</code> ঠিক চারবার উপস্থিতি বোঝায়।</p>
+<h2>১৭.২ Regex Syntax: Literals, Character Classes এবং Quantifiers</h2>
+<table><thead><tr><th>Pattern</th><th>অর্থ</th><th>উদাহরণ</th></tr></thead><tbody><tr><td><code>abc</code></td><td>সরাসরি <code>abc</code></td><td><code>abc123</code></td></tr><tr><td><code>.</code></td><td>Line Terminator ছাড়া যেকোনো Character</td><td><code>a.c</code></td></tr><tr><td><code>\d</code></td><td>ASCII Digit</td><td><code>2026</code></td></tr><tr><td><code>\w</code></td><td>ASCII Word Character</td><td><code>user_1</code></td></tr><tr><td><code>\s</code></td><td>Whitespace</td><td>Space, Tab</td></tr><tr><td><code>[A-Z]</code></td><td>Capital English Letter</td><td><code>HELLO</code></td></tr><tr><td><code>[^0-9]</code></td><td>Digit ছাড়া Character</td><td><code>a</code></td></tr><tr><td><code>?</code></td><td>০ অথবা ১ বার</td><td><code>colou?r</code></td></tr><tr><td><code>+</code></td><td>১ বা একাধিক</td><td><code>a+</code></td></tr><tr><td><code>*</code></td><td>০ বা একাধিক</td><td><code>a*</code></td></tr><tr><td><code>{2,5}</code></td><td>২ থেকে ৫ বার</td><td><code>\d{2,5}</code></td></tr></tbody></table>
+<p>একটি গুরুত্বপূর্ণ ভুল: <code>.</code> মানে Literal Dot নয়। Email Domain-এর Dot মিলাতে <code>\.</code> লিখতে হয়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code>console.log(/a.c/.test(<span class="s">'abc'</span>));   <span class="c">// true</span>
+console.log(/a\.c/.test(<span class="s">'a.c'</span>));  <span class="c">// true</span>
+console.log(/a\.c/.test(<span class="s">'abc'</span>));  <span class="c">// false</span></code></pre></figure>
+<h2>১৭.৩ Anchors, Groups এবং Alternation</h2>
+<p><code>^</code> String-এর শুরু, <code>$</code> String-এর শেষ বোঝায় (Multiline Flag ছাড়া সাধারণ ব্যবহার)। Validation-এর ক্ষেত্রে Full Input Match করতে এগুলো প্রয়োজন।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> codePattern = /^BD-(?:DAC|CGP)-\d{<span class="n">3</span>}$/;
+console.log(codePattern.test(<span class="s">'BD-DAC-101'</span>)); <span class="c">// true</span>
+console.log(codePattern.test(<span class="s">'XBD-DAC-101'</span>)); <span class="c">// false</span></code></pre></figure>
+<p>এখানে <code>(?:...)</code> Non-capturing Group এবং <code>|</code> Alternation। Capturing Group চাইলে <code>(\d{4})-(\d{2})-(\d{2})</code> ব্যবহার করা যায়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> date = <span class="s">'2026-10-11'</span>;
+<span class="k">const</span> parts = date.match(/^(\d{<span class="n">4</span>})-(\d{<span class="n">2</span>})-(\d{<span class="n">2</span>})$/);
+console.log(parts?.slice(<span class="n">1</span>)); <span class="c">// ['2026','10','11']</span></code></pre></figure>
+<p><strong>সতর্কতা:</strong> Pattern মিললেই Date বাস্তব হয় না; <code>2026-99-99</code>-ও এই Regex-এ মিলে যাবে। পরে Calendar Validation প্রয়োজন।</p>
+<h2>১৭.৪ Regex Flags ও JavaScript Methods</h2>
+<ul><li><code>i</code>: Case-insensitive Matching।</li><li><code>g</code>: Global Matches।</li><li><code>m</code>: Multiline Anchors।</li><li><code>s</code>: Dotall Mode।</li><li><code>u</code>: Unicode-aware Mode।</li></ul>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> text = <span class="s">'JS 101, JS 202, JS 303'</span>;
+console.log([...text.matchAll(/JS (\d+)/g)].map(match =&gt; match[<span class="n">1</span>]));
+<span class="c">// ['101', '202', '303']</span>
+console.log(text.replace(/JS/gi, <span class="s">'JavaScript'</span>));
+console.log(<span class="s">'Bangladesh'</span>.search(/desh/i));</code></pre></figure>
+<p><code>test()</code> Boolean দেয়; <code>match()</code> Match Data দেয়; <code>matchAll()</code> Iterator দেয়; <code>replace()</code> Replacement করে; <code>split()</code> Regex Delimiter নিতে পারে। <code>g</code> Flag-যুক্ত Regex-এর <code>test()</code> বারবার চালালে <code>lastIndex</code>-এর কারণে Result বদলাতে পারে—এটি Debugging-এর গুরুত্বপূর্ণ বিষয়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> pattern = /a/g;
+console.log(pattern.test(<span class="s">'a'</span>)); <span class="c">// true</span>
+console.log(pattern.test(<span class="s">'a'</span>)); <span class="c">// false: lastIndex পরিবর্তিত</span></code></pre></figure>
+<h2>১৭.৫ Unicode ও বাংলা Text Validation</h2>
+<p>বাংলা নাম বা আন্তর্জাতিক নাম Validate করতে শুধু <code>[A-Za-z]</code> ব্যবহার করা উচিত নয়। Unicode Property Escape <code>\p{L}</code> Letter এবং <code>\p{M}</code> Combining Mark বোঝায়। <code>u</code> Flag ছাড়া Property Escape প্রত্যাশামতো কাজ করে না।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> humanName = /^[\p{L}\p{M}][\p{L}\p{M} .'-]*$/u;
+console.log(humanName.test(<span class="s">'রহমান'</span>));      <span class="c">// true</span>
+console.log(humanName.test(<span class="s">'Amina Rahman'</span>)); <span class="c">// true</span></code></pre></figure>
+<p>বাস্তব নামের বৈচিত্র্য অনেক বেশি। Apostrophe, Hyphen, Script, Transliteration ও Length Requirement ব্যবসায়িক প্রয়োজন অনুযায়ী নির্ধারণ করতে হবে। <code>String.prototype.normalize('NFC')</code> Unicode Normalization-এর জন্য কাজে লাগে, তবে এটি সব Linguistic সমস্যা সমাধান করে না।</p>
+<h2>১৭.৬ Normalization বনাম Validation</h2>
+<p>Input Normalize করার অর্থ হলো অপ্রয়োজনীয় পার্থক্য দূর করা, যেমন Leading/Trailing Space Trim বা Email Lowercase করা। Validation হলো গ্রহণযোগ্যতার নিয়ম পরীক্ষা। দুটিকে আলাদা রাখলে Code Test করা সহজ হয়।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> normalizeSpace(value) {
+  <span class="k">return</span> String(value ?? <span class="s">''</span>).trim().replace(/\s+/gu, <span class="s">' '</span>);
+}
+<span class="k">function</span> validateUsername(value) {
+  <span class="k">const</span> username = normalizeSpace(value);
+  <span class="k">return</span> /^[a-z][a-z0-<span class="n">9_</span>]{<span class="n">2</span>,<span class="n">19</span>}$/i.test(username);
+}</code></pre></figure>
+<p>কিছু Input কখনো স্বয়ংক্রিয়ভাবে বদলানো উচিত নয়—যেমন Password Trim করলে User-এর দেওয়া Secret পরিবর্তিত হতে পারে।</p>
+<h2>১৭.৭ Email, Phone এবং Password Validation-এর সীমা</h2>
+<p>Email-এর জন্য একটি সাধারণ Pattern <code>^[^\s@]+@[^\s@]+\.[^\s@]+$</code> UI-তে প্রাথমিক Check দিতে পারে। কিন্তু এটি RFC-complete Email Parser নয়। Email সত্যি ব্যবহারযোগ্য কি না জানতে Verification Link বা OTP দরকার।</p>
+<p>Phone Number আন্তর্জাতিকভাবে জটিল; Production-এ Country-aware Phone Parsing Library প্রয়োজন হতে পারে। Password-এর ক্ষেত্রে শুধু Regex Complexity Rule যথেষ্ট নয়। Server-এ Secure Password Hashing, Rate Limiting, Breached Password Check এবং MFA গুরুত্বপূর্ণ।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> basicEmailCheck(value) {
+  <span class="k">const</span> email = String(value).trim();
+  <span class="k">return</span> email.length &lt;= <span class="n">254</span> &amp;&amp; /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}</code></pre></figure>
+<h2>১৭.৮ Regex Security: ReDoS ও Untrusted Input</h2>
+<p>Nested Quantifier-এর মতো কিছু Pattern-এ Catastrophic Backtracking হতে পারে। উদাহরণস্বরূপ, <code>^(a+)+$</code> দীর্ঘ <code>aaaa...!</code> Input-এ অত্যন্ত ধীর হতে পারে। তাই Untrusted Text-এর ক্ষেত্রে Regex-এর Complexity, Maximum Input Length এবং বিকল্প Parser বিবেচনা করো।</p>
+<p><strong>আরেকটি ঝুঁকি:</strong> User Input সরাসরি <code>new RegExp(userInput)</code>-এ বসালে Special Character Pattern বদলে দিতে পারে। Literal Search চাইলে Escape করো।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">function</span> escapeRegex(value) {
+  <span class="k">return</span> String(value).replace(/[.*+?^${}()|[\]\\]/g, <span class="s">'\\$&amp;'</span>);
+}
+<span class="k">const</span> query = <span class="s">'a+b'</span>;
+<span class="k">const</span> safePattern = <span class="k">new</span> RegExp(escapeRegex(query), <span class="s">'i'</span>);
+console.log(safePattern.test(<span class="s">'Search: a+b'</span>)); <span class="c">// true</span></code></pre></figure>
+<h2>১৭.৯ XSS, Injection এবং Secure DOM Rendering</h2>
+<p>Regex দিয়ে HTML Sanitization করার চেষ্টা করো না। Untrusted Text দেখাতে <code>textContent</code> ব্যবহার করো। <code>innerHTML</code> দিয়ে User-supplied Content বসানো বিপজ্জনক হতে পারে। HTML প্রয়োজন হলে নির্ভরযোগ্য Sanitization Library ও Strict Content Security Policy বিবেচনা করো।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> display = document.querySelector(<span class="s">'#output'</span>);
+display.textContent = <span class="s">'&lt;img src=x onerror=alert(1)&gt;'</span>;
+<span class="c">// Text হিসেবে দেখাবে; HTML Execute করবে না।</span></code></pre></figure>
+<p>SQL Injection Regex দিয়ে প্রতিরোধ করা যায় না; Database-এ Parameterized Query ব্যবহার করতে হয়। Client-side Validation সহজেই Bypass করা যায়, তাই Server-side Validation বাধ্যতামূলক।</p>
+<h2>১৭.১০ Practical Project — FormShield</h2>
+<p><strong>Project Goal:</strong> User-এর Full Name, Email, Phone, Password এবং Consent যাচাই করে পরিষ্কার Error Feedback দেখানো। এটি শুধুই Browser-side Demonstration; কোনো Personal Data Network-এ পাঠায় না বা Storage-এ রাখে না।</p>
+<h3>Folder Structure</h3>
+<figure class="code keep"><pre><code>source-code/chapter-17/
+├── index.html
+├── style.css
+├── form-core.mjs
+├── app.mjs
+└── form-core.test.mjs</code></pre></figure>
+<p><code>form-core.mjs</code>-এ Pure Validation Functions, <code>app.mjs</code>-এ Form Events এবং DOM Update, <code>index.html</code>-এ Accessible Form এবং <code>style.css</code>-এ Responsive Layout আছে। পূর্ণ Runnable Source Code বইয়ের Companion Source Code-এর <code>source-code/chapter-17/</code> Folder-এ সংযুক্ত।</p>
+<h3>Core Validation Flow</h3>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">import</span> { validateRegistration } <span class="k">from</span> <span class="s">'./form-core.mjs'</span>;
+<span class="k">const</span> result = validateRegistration({
+  name: <span class="s">'Amina Rahman'</span>,
+  email: <span class="s">'amina@example.com'</span>,
+  phone: <span class="s">'+8801712345678'</span>,
+  password: <span class="s">'SecurePass1234'</span>,
+  consent: <span class="k">true</span>
+});
+console.log(result.ok); <span class="c">// true</span></code></pre></figure>
+<h3>Run Instructions</h3>
+<ol><li>Node.js 20+ ইনস্টল করো।</li><li><code>node --test source-code/chapter-17/form-core.test.mjs</code> দিয়ে Tests চালাও।</li><li>Browser Module চালানোর জন্য Folder Root-এ <code>python -m http.server 8000</code> দিয়ে Local Server চালাতে পারো।</li><li><code>http://localhost:8000/source-code/chapter-17/</code> খুলে Form পরীক্ষা করো।</li><li>Invalid Email, Bengali Name, Long Input, Missing Consent এবং HTML Injection Text দিয়ে Test করো।</li></ol>
+<h3>Project Extension Ideas</h3>
+<p>Field-level Live Validation, Accessible Error Summary, Country-aware Phone Parser, Password Strength Feedback এবং Backend Validation Endpoint যুক্ত করতে পারো। Password কখনো Console-এ Log বা Browser Storage-এ Save করবে না।</p>
+<h2>১৭.১১ Exercises</h2>
+<p><strong>Exercise 1:</strong> <code>BD-1234</code> Format Validate করার Regex লেখো।</p>
+<p><strong>Exercise 2:</strong> একটি String থেকে সব ৪-অঙ্কের Year বের করো।</p>
+<p><strong>Exercise 3:</strong> <code>test()</code>-এর Global <code>lastIndex</code> Pitfall প্রদর্শন করো।</p>
+<p><strong>Exercise 4:</strong> বাংলা ও ইংরেজি Letter গ্রহণ করে এমন Name Pattern তৈরি করো।</p>
+<p><strong>Exercise 5:</strong> Email Normalize এবং Validate করার দুটি আলাদা Function লেখো।</p>
+<p><strong>Exercise 6:</strong> User Search Query-কে Regex Literal হিসেবে Escape করো।</p>
+<p><strong>Exercise 7:</strong> Phone Number থেকে Space ও Hyphen সরিয়ে Digit Count Check করো।</p>
+<p><strong>Exercise 8:</strong> <code>innerHTML</code>-এর বদলে <code>textContent</code> ব্যবহার করে Safe Preview বানাও।</p>
+<p><strong>Exercise 9:</strong> Invalid Date Pattern এবং Invalid Calendar Date-এর পার্থক্য বোঝাও।</p>
+<p><strong>Exercise 10:</strong> FormShield-এ Password Confirmation Field যুক্ত করো।</p>
+<h2>১৭.১২ Sample Solutions</h2>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="c">// 1</span>
+<span class="k">const</span> codeOK = /^BD-\d{<span class="n">4</span>}$/.test(<span class="s">'BD-1234'</span>);
+<span class="c">// 2</span>
+<span class="k">const</span> years = [...<span class="s">'1999, 2026 and 2040'</span>.matchAll(/\b\d{<span class="n">4</span>}\b/g)].map(m =&gt; m[<span class="n">0</span>]);
+<span class="c">// 3</span>
+<span class="k">const</span> global = /x/g; console.log(global.test(<span class="s">'x'</span>), global.test(<span class="s">'x'</span>));
+<span class="c">// 4</span>
+<span class="k">const</span> nameOK = /^[\p{L}\p{M} ]+$/u.test(<span class="s">'রহমান Ali'</span>);
+<span class="c">// 5</span>
+<span class="k">const</span> normalizeEmail = v =&gt; String(v).trim().toLowerCase();
+<span class="k">const</span> emailOK = v =&gt; /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalizeEmail(v));
+<span class="c">// 6</span>
+<span class="k">const</span> escapeRegex = v =&gt; String(v).replace(/[.*+?^${}()|[\]\\]/g, <span class="s">'\\$&amp;'</span>);
+<span class="c">// 7</span>
+<span class="k">const</span> digits = <span class="s">'+880 1712-345678'</span>.replace(/[\s-]/g, <span class="s">''</span>);
+<span class="k">const</span> phoneOK = /^\+?\d{<span class="n">7</span>,<span class="n">15</span>}$/.test(digits);
+<span class="c">// 8 (Browser)</span>
+<span class="c">// document.querySelector('#preview').textContent = userInput;</span>
+<span class="c">// 9: 2026-99-99 Regex match করতে পারে, কিন্তু Calendar Date নয়।</span>
+<span class="c">// 10: password === confirmation পরীক্ষা করো; Password Log/Store কোরো না।</span></code></pre></figure>
+<h2>১৭.১৩ MCQ Quiz</h2>
+<p>১. Regex-এ <code>\d</code> কী? A) Letter B) Digit C) Dot D) Space</p>
+<p>২. <code>^</code> ও <code>$</code> একসঙ্গে কেন? A) Style B) Full Input Match C) API Call D) JSON</p>
+<p>৩. বাংলা Unicode Property Escape-এর জন্য কোন Flag? A) g B) i C) u D) m</p>
+<p>৪. <code>test()</code> কী Return করে? A) Boolean B) Array C) Promise D) Object</p>
+<p>৫. <code>g</code> Flag-সহ Repeated <code>test()</code>-এ কোন Property বদলায়? A) length B) lastIndex C) prototype D) size</p>
+<p>৬. Regex দিয়ে HTML Sanitization কি নিরাপদ? A) হ্যাঁ B) না C) শুধু Chrome D) শুধু Node</p>
+<p>৭. Untrusted Text দেখানোর নিরাপদ DOM Property কোনটি? A) innerHTML B) outerHTML C) textContent D) insertAdjacentHTML</p>
+<p>৮. ReDoS সাধারণত কোন সমস্যার সঙ্গে যুক্ত? A) CSS B) Catastrophic Backtracking C) URL Encoding D) JSON</p>
+<p>৯. Client-side Validation কি Server-side Validation-এর বিকল্প? A) হ্যাঁ B) না C) শুধু HTTPS D) শুধু SPA</p>
+<p>১০. Email Regex Pass করলে কি Inbox Ownership নিশ্চিত হয়? A) হ্যাঁ B) না C) শুধু Gmail D) শুধু Corporate</p>
+<h3>Answer Key ও Explanation</h3>
+<ol><li><strong>B</strong> — <code>\d</code> Digit Class।</li><li><strong>B</strong> — Start ও End Anchor দিয়ে সম্পূর্ণ Input Check করা যায়।</li><li><strong>C</strong> — <code>u</code> Unicode Mode চালু করে।</li><li><strong>A</strong> — <code>test()</code> True বা False দেয়।</li><li><strong>B</strong> — Global/Sticky Regex-এর <code>lastIndex</code> Stateful।</li><li><strong>B</strong> — HTML Sanitization-এর জন্য Regex নির্ভরযোগ্য নয়।</li><li><strong>C</strong> — <code>textContent</code> Markup Execute করে না।</li><li><strong>B</strong> — Complex Backtracking CPU Time বাড়াতে পারে।</li><li><strong>B</strong> — Client Validation Bypass করা যায়।</li><li><strong>B</strong> — Ownership Verify করতে Confirmation দরকার।</li></ol>
+<h2>১৭.১৪ Chapter Recap</h2>
+<p>Regex একটি শক্তিশালী Text Processing Tool, কিন্তু Validation, Security ও Business Logic আলাদা বিষয়। Anchors, Groups, Quantifiers, Unicode, <code>matchAll()</code>, Normalization, ReDoS Awareness এবং Safe DOM Rendering—এই দক্ষতাগুলো FormShield Project-এ একসঙ্গে প্রয়োগ করেছ। পরবর্তী অধ্যায়ে Functional Programming, Immutability এবং Advanced Data Transformation নিয়ে কাজ করব।</p>
+</section></body></html>

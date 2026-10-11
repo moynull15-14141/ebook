@@ -1,0 +1,207 @@
+<!doctype html><html lang="bn"><head><meta charset="utf-8"><title>JavaScript Mastery — শূন্য থেকে প্রফেশনাল (Draft Edition)</title><style>/* Bengali glyphs come from a dedicated face; Latin from Segoe UI; code from Cascadia Mono. */
+@font-face { font-family: "BN"; src: local("Nirmala UI"); font-weight: 400; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Bold"); font-weight: 700; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+@font-face { font-family: "BN"; src: local("Nirmala UI Semilight"); font-weight: 300; unicode-range: U+0964-0965, U+0980-09FF, U+200C-200D, U+25CC; }
+
+:root {
+  --ink: #1d2433; --muted: #5b6475; --navy: #1b3a7a; --navy-2: #284f9e; --amber: #f0b429;
+  --code-bg: #f5f7fb; --code-border: #dbe2ee; --rule: #d7deea;
+  --sans: "BN", "Segoe UI", system-ui, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "BN", monospace;
+}
+@page {
+  size: A4; margin: 21mm 19mm 22mm 19mm;
+  @top-left { content: "JavaScript Mastery — শূন্য থেকে প্রফেশনাল"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: "খসড়া সংস্করণ"; font: 7.5pt var(--sans); color: #8a94a6; vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-center { content: counter(page, bengali); font: 9pt var(--sans); color: #5b6475; }
+}
+@page cover { margin: 0; @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+@page plain { @top-left { content: none; } @top-right { content: none; } @bottom-center { content: none; } }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { font-family: var(--sans); font-size: 10.4pt; line-height: 1.72; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 0.62em; text-align: justify; orphans: 3; widows: 3; }
+strong { font-weight: 700; color: #111827; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4 { font-family: var(--sans); color: var(--navy); line-height: 1.35; break-after: avoid; }
+h2 { font-size: 14.2pt; font-weight: 700; margin: 1.45em 0 0.55em; padding: 0.1em 0 0.1em 0.55em; border-left: 4px solid var(--amber); }
+h3 { font-size: 11.6pt; font-weight: 700; margin: 1.15em 0 0.4em; color: var(--navy-2); }
+h4 { font-size: 10.6pt; margin: 1em 0 0.3em; }
+h2 + *, h3 + * { break-before: avoid; }
+
+/* ---------- chapter opener ---------- */
+.chapter, .preface, .toc, .author { break-before: page; }
+.author h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+table.author-card { width: auto; min-width: 120mm; font-size: 10.4pt; }
+table.author-card th { width: 28mm; white-space: nowrap; }
+.cover-author { position: absolute; top: 198mm; }
+.cover-author-name { font: 700 17pt "Segoe UI", sans-serif; color: #fff; }
+.cover-author-role { font-size: 10.5pt; color: #dbe5ff; margin-top: 1mm; }
+.opener { margin: 6mm 0 9mm; padding-bottom: 6mm; border-bottom: 2px solid var(--navy); }
+.chap-label { display: inline-block; font-size: 10pt; font-weight: 700; letter-spacing: 0.04em; color: #3b2a00; background: var(--amber); padding: 0.15em 0.75em; border-radius: 3px; margin-bottom: 4mm; }
+.opener h1 { font-size: 21pt; margin: 0; color: var(--navy); font-weight: 700; }
+.opener .subtitle { font-size: 12.5pt; color: var(--navy-2); margin: 2mm 0 0; text-align: left; }
+.opener .meta { font-size: 9.6pt; color: var(--muted); margin: 2.5mm 0 0; text-align: left; }
+.preface h1, .toc h1 { font-size: 21pt; margin: 6mm 0 7mm; padding-bottom: 5mm; border-bottom: 2px solid var(--navy); }
+
+/* ---------- code ---------- */
+code { font-family: var(--mono); font-size: 0.86em; background: #eef2f8; color: #8a2d0d; padding: 0.05em 0.3em; border-radius: 3px; }
+figure.code { margin: 0.7em 0 1em; border: 1px solid var(--code-border); border-left: 3px solid var(--amber); border-radius: 5px; background: var(--code-bg); }
+figure.code.keep { break-inside: avoid; }
+figure.code figcaption { font: 700 7pt "Segoe UI", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #7a869a; padding: 1.6mm 3mm 0; }
+/* line-height must be set on <pre> itself: its strut otherwise forces the body's 1.72 spacing */
+figure.code pre { margin: 0; padding: 1.6mm 3.2mm 2.4mm; white-space: pre-wrap; overflow-wrap: anywhere; font: 8.3pt/1.48 var(--mono); }
+figure.code pre code { background: none; color: #1f2937; padding: 0; font-size: 1em; line-height: inherit; }
+.k { color: #0b4f9c; font-weight: 600; } .s { color: #0f7b3f; } .c { color: #6b7280; font-style: italic; } .n { color: #b45309; }
+
+/* ---------- tables, quotes, lists ---------- */
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1.1em; font-size: 9.3pt; line-height: 1.5; }
+th, td { border: 1px solid #cdd6e4; padding: 1.4mm 2.2mm; vertical-align: top; text-align: left; }
+th { background: #e9effb; color: var(--navy); font-weight: 700; }
+tbody tr:nth-child(even) td { background: #f8fafd; }
+tr { break-inside: avoid; }
+thead { display: table-header-group; }
+blockquote { margin: 0.8em 0; padding: 2.4mm 4mm; background: #fff8e6; border-left: 3px solid var(--amber); border-radius: 4px; }
+blockquote p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.6em; }
+li { margin: 0.18em 0; }
+li.task { list-style: none; margin-left: -1.2em; }
+li.task .box { font-family: "Segoe UI Symbol", "Segoe UI", sans-serif; color: var(--navy); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.4em 0; }
+
+/* ---------- cover ---------- */
+.cover { page: cover; height: 297mm; width: 210mm; background: linear-gradient(160deg, #10224d 0%, #1b3a7a 55%, #2a5bb8 100%); color: #fff; position: relative; }
+.cover-inner { position: absolute; left: 22mm; right: 22mm; top: 62mm; }
+.badge { width: 34mm; height: 34mm; background: var(--amber); color: #10224d; font: 800 28pt "Segoe UI", sans-serif; display: flex; align-items: flex-end; justify-content: flex-end; padding: 0 3mm 1mm 0; border-radius: 2mm; margin-bottom: 14mm; }
+.cover-title { font: 800 40pt "Segoe UI", sans-serif; letter-spacing: -0.01em; line-height: 1.1; }
+.cover-sub { font-size: 24pt; font-weight: 700; color: #ffd772; margin-top: 4mm; }
+.cover-rule { width: 40mm; height: 3px; background: var(--amber); margin: 12mm 0 8mm; }
+.cover-desc { font-size: 12pt; color: #dbe5ff; max-width: 150mm; line-height: 1.7; }
+.cover-edition { position: absolute; top: 180mm; font-size: 11pt; color: #ffffff; opacity: 0.9; }
+
+/* ---------- copyright ---------- */
+.copyright { page: plain; break-before: page; padding-top: 120mm; font-size: 8.8pt; line-height: 1.6; color: var(--muted); }
+.copyright p { text-align: left; margin-bottom: 0.9em; }
+
+/* ---------- table of contents ---------- */
+.toc-row { display: flex; align-items: baseline; gap: 2.5mm; color: var(--ink); text-decoration: none; padding: 1.25mm 0; border-bottom: 1px solid #eef1f6; font-size: 10pt; line-height: 1.45; break-inside: avoid; }
+.toc-label { flex: 0 0 19mm; font-weight: 700; color: var(--navy); font-size: 9pt; }
+.toc-title { flex: 0 1 auto; }
+.dots { flex: 1 1 8mm; border-bottom: 1px dotted #9aa5b8; transform: translateY(-1.2mm); min-width: 6mm; }
+.pg { flex: 0 0 9mm; text-align: right; font-weight: 700; color: var(--navy); }
+a { color: inherit; text-decoration: none; }
+</style></head><body><section class="chapter" id="ch-30"><header class="opener"><div class="chap-label">অধ্যায় ৩০</div><h1>JavaScript Professional Mastery, Full-Stack Capstone এবং Career Roadmap</h1></header>
+<h2>শেখার লক্ষ্য</h2>
+<p>এই অধ্যায় শেষে পাঠক (১) end-to-end product requirement থেকে implementation plan তৈরি করতে, (২) JavaScript frontend/backend/data/security একসঙ্গে ভাবতে, (৩) tested booking domain লিখতে, (৪) API contract ও architectural trade-off বুঝতে, (৫) deployment-readiness checklist বানাতে এবং (৬) নিজের portfolio ও interview roadmap সাজাতে পারবেন।</p>
+<h2>৩০.১ JavaScript Mastery মানে কী?</h2>
+<p>শুধু syntax মনে রাখা mastery নয়। Mastery হলো: <strong>correctness, maintainability, security, observability, performance, accessibility, product thinking</strong>—এগুলো মিলিয়ে বাস্তব সমস্যা সমাধান করা। একজন professional developer প্রশ্ন করেন: <em>ব্যবহারকারী কে? ব্যর্থ হলে কী হবে? data কে বদলাতে পারবে? duplicate request এলে কী হবে? পরে কীভাবে debug করব?</em></p>
+<table><thead><tr><th>স্তর</th><th>প্রধান দক্ষতা</th><th>প্রমাণ</th></tr></thead><tbody><tr><td>Foundation</td><td>Variables, functions, objects, async</td><td>ছোট utility ও unit tests</td></tr><tr><td>Application</td><td>DOM, API, validation, state</td><td>ব্যবহারযোগ্য UI এবং error states</td></tr><tr><td>Backend</td><td>HTTP, auth, database</td><td>documented API ও integration tests</td></tr><tr><td>Engineering</td><td>Types, tests, security, CI</td><td>reproducible build ও code review</td></tr><tr><td>Architecture</td><td>scale, observability, failure modes</td><td>ADR, diagram, incident plan</td></tr><tr><td>Professional</td><td>collaboration, communication</td><td>portfolio, README, decisions</td></tr></tbody></table>
+<h2>৩০.২ Capstone: TravelMaster Pro</h2>
+<p>ধরা যাক একটি travel booking service-এ ব্যবহারকারী package দেখবে, account তৈরি করবে, login করবে, booking দেবে, নিজের booking দেখবে এবং cancel করবে। সিস্টেমকে ভুল input, unauthorized request, duplicate submission এবং seat oversell থেকে রক্ষা করতে হবে। এই অধ্যায়ের runnable reference হলো <strong>TravelMaster Pro</strong>, <code>source-code/chapter-30/</code>-এ।</p>
+<h3>Functional requirements</h3>
+<ol><li>Public catalog-এ package name, price (BDT) এবং available seats দেখাতে হবে।</li><li>Registration-এ নাম, email ও password validate করতে হবে।</li><li>Login-এর পরে short-lived bearer session token পাওয়া যাবে।</li><li>Booking-এর দাম <strong>server-side package price</strong> থেকে হিসাব হবে; client-sent price বিশ্বাস করা যাবে না।</li><li>Idempotency key দিয়ে একই booking request পুনরায় এলে দ্বিতীয়বার seat কমবে না।</li><li>নিজের booking দেখা ও cancel করা যাবে; অন্যের booking access করা যাবে না।</li><li>Cancel করলে একবারই seat ফেরত যাবে।</li><li>Tests-এ success, failure ও edge cases থাকবে।</li></ol>
+<h3>Non-functional requirements</h3>
+<ul><li>Sensitive error-এ password বা internal stack trace ফেরত নয়।</li><li>JSON body size সীমিত; invalid JSON-এ 400।</li><li>Token মেয়াদ শেষ হলে 401।</li><li>HTTP responses-এ consistent <code>{data}</code> অথবা <code>{error:{code,message}}</code> contract।</li><li>Code-এ domain ও transport layer আলাদা।</li><li>README-তে setup, limitations ও production gaps স্পষ্ট।</li></ul>
+<h2>৩০.৩ Architecture — বাস্তব আর educational scope আলাদা রাখুন</h2>
+<figure class="code keep"><pre><code>Browser / Mobile Client
+        |
+        | HTTPS + JSON + bearer token
+        v
+   HTTP Router / Controller
+        |
+        v
+    Domain Service -------&gt; Audit events
+        |
+        +----&gt; Users / Sessions
+        +----&gt; Package Inventory
+        +----&gt; Bookings / Idempotency
+
+Educational reference: সব state একটি process-এর Map-এ
+Production target: SQL database + transactional inventory + durable sessions</code></pre></figure>
+<p>এই diagram-এর <em>production target</em> বাস্তবে implement করা হয়নি। Project-এ Node.js built-in <code>http</code> দিয়ে transport layer এবং <code>TravelMaster</code> class দিয়ে domain layer আলাদা করা হয়েছে। Frontend UI-ও এই runnable reference-এর অংশ নয়; নিচের section-এ frontend integration-এর design দেওয়া আছে।</p>
+<h2>৩০.৪ Project structure</h2>
+<figure class="code keep"><pre><code>source-code/chapter-30/
+├── package.json
+├── README.md
+├── demo.mjs
+├── src/
+│   ├── domain.mjs
+│   └── server.mjs
+└── test/
+    └── capstone.test.mjs</code></pre></figure>
+<p>Node.js 20+ দিয়ে চালান:</p>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code>cd source-code/chapter-30
+npm test
+npm run check
+npm run demo
+npm start</code></pre></figure>
+<p>Dependencies install করতে হবে না। <code>npm start</code>-এর default address <code>http://127.0.0.1:3000</code>। API example:</p>
+<figure class="code keep"><figcaption>Terminal</figcaption><pre><code>curl http://127.0.0.1:3000/api/packages
+curl -X POST http://127.0.0.1:3000/api/register \
+  -H 'Content-Type: application/json' \
+  -d '{&quot;name&quot;:&quot;Demo User&quot;,&quot;email&quot;:&quot;demo@example.com&quot;,&quot;password&quot;:&quot;long-password-123&quot;}'</code></pre></figure>
+<p>Login response থেকে token নিয়ে protected route-এ <code>Authorization: Bearer TOKEN</code> পাঠাতে হবে। Booking request-এর body:</p>
+<figure class="code keep"><figcaption>JSON</figcaption><pre><code>{<span class="s">&quot;packageId&quot;</span>:<span class="s">&quot;BT-4D&quot;</span>,<span class="s">&quot;travelers&quot;</span>:<span class="n">2</span>,<span class="s">&quot;idempotencyKey&quot;</span>:<span class="s">&quot;unique-key-001&quot;</span>}</code></pre></figure>
+<h3>API contract</h3>
+<table><thead><tr><th>Method</th><th>Endpoint</th><th>Auth</th><th>Expected result</th></tr></thead><tbody><tr><td>GET</td><td><code>/health</code></td><td>No</td><td>200 health status</td></tr><tr><td>GET</td><td><code>/api/packages</code></td><td>No</td><td>200 catalog</td></tr><tr><td>POST</td><td><code>/api/register</code></td><td>No</td><td>201 new user</td></tr><tr><td>POST</td><td><code>/api/login</code></td><td>No</td><td>200 bearer token</td></tr><tr><td>POST</td><td><code>/api/logout</code></td><td>Token</td><td>200 session revoked (demo implementation does not validate token first)</td></tr><tr><td>POST</td><td><code>/api/bookings</code></td><td>Yes</td><td>201 booking</td></tr><tr><td>GET</td><td><code>/api/bookings</code></td><td>Yes</td><td>200 user's bookings</td></tr><tr><td>PATCH</td><td><code>/api/bookings/:id/cancel</code></td><td>Yes</td><td>200 cancellation</td></tr></tbody></table>
+<h2>৩০.৫ Core JavaScript decisions</h2>
+<h3>Validate at trust boundaries</h3>
+<p><code>typeof travelers === 'number'</code> যথেষ্ট নয়: <code>NaN</code>, <code>Infinity</code>, fraction, negative value—সবই সমস্যা। <code>Number.isInteger(travelers) &amp;&amp; travelers &gt;= 1 &amp;&amp; travelers &lt;= 10</code> প্রয়োজন। Email regex এখানে basic format check, বাস্তব email ownership verification নয়।</p>
+<h3>Password handling</h3>
+<p>Plaintext password store করা যাবে না। Project-এ Node-এর <code>scryptSync</code> ও per-user random salt ব্যবহার হয়েছে। Production-এ calibrated Argon2id/scrypt parameters, credential-stuffing defense, login rate limiting এবং password-reset process প্রয়োজন। Authentication মানে কে login করেছে; authorization মানে সে <strong>কোন data</strong> access করতে পারবে।</p>
+<h3>Idempotency</h3>
+<p>একজন ব্যবহারকারী Submit button দুবার চাপলে দুইটি booking হওয়া উচিত নয়। Project-এ <code>(userId, idempotencyKey)</code> lookup করে একই payload-এ একই booking ফেরত দেওয়া হয়; ভিন্ন payload-এ 409। বাস্তব multi-instance server-এ এই guarantee দিতে database unique constraint এবং atomic transaction দরকার।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">const</span> first = service.createBooking(userId, {
+  packageId: <span class="s">'BT-4D'</span>, travelers: <span class="n">2</span>, idempotencyKey: <span class="s">'booking-001'</span>
+});
+<span class="k">const</span> retry = service.createBooking(userId, {
+  packageId: <span class="s">'BT-4D'</span>, travelers: <span class="n">2</span>, idempotencyKey: <span class="s">'booking-001'</span>
+});
+console.log(first.id === retry.id); <span class="c">// true</span></code></pre></figure>
+<h3>Inventory consistency</h3>
+<p><code>if (seats &gt;= requested) seats -= requested</code> একটি process-এ synchronous path-এ কাজ করে, কিন্তু একাধিক server/database transaction-এর ক্ষেত্রে race condition তৈরি করতে পারে। Production SQL উদাহরণ:</p>
+<figure class="code keep"><figcaption>SQL</figcaption><pre><code><span class="k">BEGIN</span>;
+<span class="k">UPDATE</span> packages
+<span class="k">SET</span> seats = seats - $1
+<span class="k">WHERE</span> id = $2 <span class="k">AND</span> seats &gt;= $1
+<span class="k">RETURNING</span> id, price_bdt;
+<span class="c">-- zero rows =&gt; sold out, ROLLBACK</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> bookings(user_id, package_id, travelers, total_bdt)
+<span class="k">VALUES</span> ($3, $2, $1, $4);
+<span class="k">COMMIT</span>;</code></pre></figure>
+<p>বাস্তবে booking insert, idempotency uniqueness, payment state এবং rollback—সব একই transactional design-এ নিশ্চিত করতে হবে। <code>$1</code>-style parameters SQL injection রোধের একটি গুরুত্বপূর্ণ অংশ।</p>
+<h2>৩০.৬ Frontend integration plan</h2>
+<p>একটি responsive UI-তে Home/Catalog, Package Details, Login/Register, Booking Checkout, My Bookings এবং Error/Empty States থাকবে। <code>fetch</code>-এর success path-এর পাশাপাশি loading, network failure, 401, 409 sold-out, duplicate submit, accessibility এবং keyboard navigation ভাবতে হবে।</p>
+<figure class="code keep"><figcaption>JavaScript</figcaption><pre><code><span class="k">async</span> <span class="k">function</span> loadPackages() {
+  <span class="k">const</span> response = <span class="k">await</span> fetch(<span class="s">'/api/packages'</span>);
+  <span class="k">if</span> (!response.ok) <span class="k">throw</span> <span class="k">new</span> Error(<span class="s">'Packages unavailable'</span>);
+  <span class="k">const</span> { data } = <span class="k">await</span> response.json();
+  <span class="k">return</span> data;
+}</code></pre></figure>
+<p><strong>Important:</strong> Exampleটি conceptual frontend integration; capstone archive-এ browser UI তৈরি বা test করা হয়নি। Token browser storage-এ রাখার সিদ্ধান্ত XSS threat model অনুযায়ী নিতে হবে। HttpOnly cookie নিলে CSRF protection-ও ডিজাইন করতে হবে।</p>
+<h2>৩০.৭ Testing pyramid এবং quality gates</h2>
+<ul><li><strong>Unit:</strong> validation, price calculation, idempotency, seat restoration।</li><li><strong>Integration:</strong> HTTP register → login → booking → history।</li><li><strong>Security-focused:</strong> unauthenticated request 401, অন্যের booking 404, malformed JSON 400।</li><li><strong>E2E (future):</strong> real browser, mobile viewport, screen-reader behavior, production-like DB।</li></ul>
+<p>CI gate হিসেবে <code>npm run check</code> এবং <code>npm test</code> চালানো যায়। Tests pass করলেও full security audit বা production correctness প্রমাণ হয় না।</p>
+<h2>৩০.৮ Production architecture upgrade plan</h2>
+<ol><li><strong>PostgreSQL:</strong> users, packages, bookings, idempotency_requests, sessions, audit_events schema।</li><li><strong>Migrations:</strong> version-controlled migrations; constraints, foreign keys, unique keys।</li><li><strong>Atomic transactions:</strong> seat reservation ও booking creation একই transaction।</li><li><strong>Payments:</strong> gateway webhook verification, replay protection, reconciliation, refunds।</li><li><strong>Session security:</strong> durable session store, token rotation/revocation, HTTPS, rate limits।</li><li><strong>Observability:</strong> request ID, structured logs, latency/error metrics, alerting।</li><li><strong>Delivery:</strong> Docker, CI, staged rollout, backups, recovery drill, rollback।</li><li><strong>Privacy:</strong> data minimization, retention policy, access control, secret management।</li></ol>
+<p><strong>Never</strong> expose demo server directly to the public internet as a production travel-booking service.</p>
+<h2>৩০.৯ Architecture Decision Record (ADR)</h2>
+<p><strong>ADR-001: In-memory domain for educational reference.</strong> Context: পাঠককে dependency ছাড়াই code run করাতে হবে। Decision: Node built-ins, small modular service, in-memory repositories। Benefit: সহজ test ও setup। Cost: restart-এ data হারায়, horizontal scaling নেই, persistent transaction নেই। Next decision: PostgreSQL + transactional repository। ADR লিখলে future developer বুঝবেন কেন একটি সিদ্ধান্ত নেওয়া হয়েছিল এবং কখন বদলাতে হবে।</p>
+<h2>৩০.১০ Final assessment rubric (100 marks)</h2>
+<table><thead><tr><th>ক্ষেত্র</th><th style="text-align:right">Marks</th><th>মূল্যায়ন</th></tr></thead><tbody><tr><td>Requirements ও user flows</td><td style="text-align:right">10</td><td>edge cases স্পষ্ট</td></tr><tr><td>JavaScript design</td><td style="text-align:right">15</td><td>modularity, validation</td></tr><tr><td>API &amp; authentication</td><td style="text-align:right">15</td><td>correct status, ownership</td></tr><tr><td>Data consistency</td><td style="text-align:right">15</td><td>idempotency, inventory</td></tr><tr><td>Tests &amp; debugging</td><td style="text-align:right">15</td><td>automated coverage</td></tr><tr><td>Security &amp; privacy</td><td style="text-align:right">10</td><td>threats, mitigations</td></tr><tr><td>Deployment &amp; monitoring plan</td><td style="text-align:right">10</td><td>readiness checklist</td></tr><tr><td>Documentation &amp; communication</td><td style="text-align:right">10</td><td>README, ADR, demo</td></tr></tbody></table>
+<p><strong>Score interpretation:</strong> 85–100 strong capstone; 70–84 good foundation; 50–69 targeted improvement; below 50 revise requirements and tests first। এটি learning rubric, official certification নয়।</p>
+<h2>৩০.১১ Professional roadmap — 12 weeks</h2>
+<table><thead><tr><th>Weeks</th><th>Focus</th><th>Deliverable</th></tr></thead><tbody><tr><td>1–2</td><td>Fundamentals revision, async, Git</td><td>tested utility library</td></tr><tr><td>3–4</td><td>DOM, accessibility, API calls</td><td>responsive package catalog</td></tr><tr><td>5–6</td><td>Node.js, auth, REST</td><td>booking API</td></tr><tr><td>7–8</td><td>SQL, transactions, Prisma/ORM</td><td>persistent booking flow</td></tr><tr><td>9–10</td><td>tests, TypeScript, security</td><td>CI-tested refactor</td></tr><tr><td>11</td><td>Docker, deploy, monitoring</td><td>staging demo</td></tr><tr><td>12</td><td>portfolio, README, interviews</td><td>case study + walkthrough</td></tr></tbody></table>
+<p>Portfolio-তে শুধু screenshot নয়: <strong>problem, architecture, trade-offs, tests, limitations, what I would improve</strong> লিখুন। Interview-এ event loop, closures, async errors, authorization, SQL transaction, caching, idempotency এবং system design নিয়ে যুক্তি ব্যাখ্যা করার অভ্যাস করুন।</p>
+<h2>৩০.১২ দশটি অনুশীলন ও সমাধান নির্দেশনা</h2>
+<ol><li><strong>Email normalization:</strong> <code>TEST@EXAMPLE.COM</code> দিয়ে duplicate account কেন reject হয়? <strong>সমাধান:</strong> <code>trim().toLowerCase()</code>-এর পরে <code>usersByEmail</code> lookup।</li><li><strong>Price tampering:</strong> Client <code>{price:1}</code> পাঠালে total কত? <strong>সমাধান:</strong> catalog-এর <code>price * travelers</code>; client price উপেক্ষিত।</li><li><strong>Retry:</strong> একই idempotency key ও payload দুইবার পাঠান। <strong>সমাধান:</strong> একই booking ID, একবার seat decrement।</li><li><strong>Key collision:</strong> একই key-তে travelers বদলান। <strong>সমাধান:</strong> 409 <code>KEY_CONFLICT</code>।</li><li><strong>Unauthorized access:</strong> token ছাড়া <code>/api/bookings</code>। <strong>সমাধান:</strong> 401 <code>UNAUTHORIZED</code>।</li><li><strong>Ownership:</strong> user A-এর booking user B cancel করতে পারে? <strong>সমাধান:</strong> না, 404।</li><li><strong>Cancellation:</strong> একই booking দুবার cancel করলে seats কতবার বাড়বে? <strong>সমাধান:</strong> একবার।</li><li><strong>Expiry:</strong> clock এক ঘণ্টা এগিয়ে দিলে token valid? <strong>সমাধান:</strong> <code>expiresAt &lt;= now</code> হলে 401।</li><li><strong>Database design:</strong> booking-এ foreign key কী হবে? <strong>সমাধান:</strong> <code>user_id → users.id</code>, <code>package_id → packages.id</code>; constraints ও indexes।</li><li><strong>Operational readiness:</strong> deployment-এর আগে পাঁচটি কাজ লিখুন। <strong>সমাধান:</strong> persistent DB, transactions, auth hardening, rate limits, backups/monitoring।</li></ol>
+<h2>৩০.১৩ দশটি MCQ — উত্তর ও ব্যাখ্যা</h2>
+<ol><li><strong>Server-side price কেন?</strong> A. UI দ্রুত B. tampering প্রতিরোধ C. CSS D. caching। <strong>উত্তর B:</strong> client input বিশ্বাসযোগ্য নয়।</li><li><strong>Idempotency key-এর উদ্দেশ্য?</strong> A. SEO B. duplicate side effect রোধ C. image resize D. login। <strong>উত্তর B।</strong></li><li><strong>Authentication বনাম authorization?</strong> A. একই B. identity বনাম permission C. CSS বনাম HTML D. network বনাম disk। <strong>উত্তর B।</strong></li><li><strong>Atomic booking-এর জন্য কী দরকার?</strong> A. <code>setTimeout</code> B. DB transaction C. localStorage D. alert। <strong>উত্তর B।</strong></li><li><strong>401 কখন?</strong> A. login প্রয়োজন B. package নেই C. sold out D. server success। <strong>উত্তর A।</strong></li><li><strong>409 কোন ক্ষেত্রে যুক্তিযুক্ত?</strong> A. duplicate/conflicting request B. healthy server C. logout success D. list packages। <strong>উত্তর A।</strong></li><li><strong>Unit test-এর কাজ?</strong> A. পুরো cloud deploy B. ছোট behavior isolate করা C. DNS বদলানো D. design logo। <strong>উত্তর B।</strong></li><li><strong>ADR কী document করে?</strong> A. animation B. architecture decision/trade-off C. only CSS D. invoice। <strong>উত্তর B।</strong></li><li><strong>In-memory data-এর সীমাবদ্ধতা?</strong> A. restart-এ state হারায় B. automatically replicated C. ACID guarantee D. infinite scale। <strong>উত্তর A।</strong></li><li><strong>Portfolio case study-তে কী জরুরি?</strong> A. শুধু screenshot B. problem, decisions, evidence, limitations C. শুধু color D. শুধু title। <strong>উত্তর B।</strong></li></ol>
+<h2>৩০.১৪ Final project extension challenges</h2>
+<p><strong>Beginner:</strong> catalog filtering ও pagination। <strong>Intermediate:</strong> PostgreSQL persistence, Prisma migration, secure auth session। <strong>Advanced:</strong> payment webhook, reservation expiry, queue-based notifications, concurrency tests, observability। <strong>Expert:</strong> multi-region trade-offs, disaster recovery, load test, incident simulation। প্রতিটি feature-এ requirement → threat model → test → implementation → review → documentation flow অনুসরণ করুন।</p>
+<h2>৩০.১৫ বই শেষ, শেখা নয়</h2>
+<p>এই ৩০ অধ্যায়ের উদ্দেশ্য হলো আপনাকে independent engineering decisions নিতে সাহায্য করা। প্রতিটি নতুন technology শেখার আগে নিজেকে জিজ্ঞেস করুন: <em>এটি কোন সমস্যার সমাধান? এর ব্যর্থতার ধরন কী? আমি কীভাবে test করব?</em> এই mindset-ই long-term JavaScript mastery-এর ভিত্তি।</p>
+</section></body></html>
