@@ -1,0 +1,15 @@
+{
+  "number": 12,
+  "source": "chapter-12-premium.md",
+  "outputBase": "chapter-12-premium",
+  "companion": ["project", "examples"],
+  "logs": "qa-logs",
+  "tests": [
+    { "name": "listings: Node.js run + compare", "cwd": ".", "cmd": ["node", "../tools/extract-and-run.mjs", "."], "log": "listings-run.log" },
+    { "name": "listings: browser run + compare", "cwd": ".", "cmd": ["node", "../tools/run-browser-listings.mjs", "."], "log": "browser-run.log" },
+    { "name": "syntax: project", "cwd": "project/modular-shopping-cart", "cmd": ["node", "--check", "src/cart.mjs"] },
+    { "name": "syntax: tests", "cwd": "project/modular-shopping-cart", "cmd": ["node", "--check", "tests/cart.test.mjs"] },
+    { "name": "unit tests", "cwd": "project/modular-shopping-cart", "cmd": ["node", "--test"], "log": "unit-tests.log" },
+    { "name": "project browser tests", "cwd": "project/modular-shopping-cart", "cmd": ["node", "tests/browser-check.mjs"], "log": "project-browser-tests.log" }
+  ]
+}

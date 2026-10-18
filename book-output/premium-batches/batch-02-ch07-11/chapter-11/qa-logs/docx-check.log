@@ -1,0 +1,34 @@
+$ python -I D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-02-ch07-11\build-system\scripts\check-docx.py D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-02-ch07-11\chapter-11   (in .)
+
+PASS  ZIP integrity (CRC of every part)
+PASS  every XML part is well-formed  [13 package parts]
+PASS  every relationship target exists in the package
+PASS  figures are embedded  [0 of 0]
+PASS  no undefined styles are used
+PASS  styles name only the design-system fonts  [Cascadia Mono, Hind Siliguri]
+PASS  the chapter title is the only Heading 1  [Error Handling, Debugging এবং Defensive Programming]
+PASS  every H2 section is a Word heading  [22 of 22]
+PASS  every H3 subsection is a Word heading  [14 of 14]
+PASS  exercise levels use the Exercise Level style  [প্রাথমিক স্তর / মধ্যম স্তর / চ্যালেঞ্জ স্তর]
+PASS  every code panel has a caption  [59 of 59]
+PASS  code line count matches the Markdown  [745 of 745]
+PASS  every code line is present character for character (indentation included)  [745 of 745]
+PASS  excerpts and fragments are labelled in their caption  [6 of 6]
+PASS  table count matches the Markdown  [8 of 8]
+PASS  every table has a repeating header row
+PASS  no table row may split across pages
+PASS  10 MCQ questions use the MCQ Question style  [10]
+PASS  40 MCQ options use the MCQ Option style  [40]
+PASS  every solution uses the Solution Label style  [12 of 12]
+PASS  every callout uses a Callout style  [2 paragraphs for 2 callouts]
+PASS  Bengali text is complete and uncorrupted (every source word present)  [3264 of 3264 words]
+PASS  running header carries the book and chapter titles
+PASS  no "DRAFT" placeholder text
+PASS  no "TODO" placeholder text
+PASS  no "TBD" placeholder text
+PASS  no "RECONSTRUCTED" placeholder text
+PASS  no "Lorem ipsum" placeholder text
+PASS  no "EDITORIAL STATUS" placeholder text
+INFO  characters of text: 42940 | paragraphs by style: Code 663, TableText 172, BlockGap 73, CodeOutput 63, CodeCaption 59, ListBullet 53, Normal 44, McqOption 40, Heading2 20, ListNumber 19, PanelText 14, SolutionLabel 12, Heading3 11, CodeStructure 11, McqQuestion 10, CodeError 6, ExerciseLevel 3, PanelHeading 2, CodeTerminal 2, ChapterLabel 1, Heading1 1, CalloutRemember 1, CalloutNote 1, QuickKey 1
+
+All DOCX checks passed

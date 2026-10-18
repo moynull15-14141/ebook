@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  font-family: 'Hind Siliguri', 'Nirmala UI', sans-serif;
+  background: #f4f6fa;
+  color: #1c2430;
+}
+
+.app {
+  max-width: 640px;
+  margin: 32px auto;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 12px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+}
+
+input,
+button {
+  font: inherit;
+  padding: 4px 8px;
+}
+
+.quantity {
+  width: 4em;
+}
+
+#totals p {
+  margin: 4px 0;
+}

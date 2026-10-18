@@ -1,0 +1,18 @@
+$ node tests/browser-check.mjs   (in project\modular-shopping-cart)
+
+Browser: Chrome/155.0.8059.40
+ok 1 - Module লোড হয়: চারটি পণ্য, ফাঁকা কার্ট, সব মোট 0
+ok 2 - Notebook দুবার: পরিমাণ 2; মোট 240, Delivery 60, পরিশোধ 300
+ok 3 - Backpack: মোট 2,090; Delivery 0
+ok 4 - Coupon student10 (Enter দিয়ে): ছাড় 209, Delivery আবার 60, পরিশোধ 1,941
+ok 5 - ভুল Coupon: বার্তা, আগের Coupon ও মোট অপরিবর্তিত
+ok 6 - পরিমাণ 11: সীমার বার্তা, ঘরে আগের মান 2 ফিরে আসে
+ok 7 - পরিমাণ 3: সারির মোট 360
+ok 8 - Reload: কার্ট ও Coupon localStorage থেকে ফিরে আসে
+ok 9 - পরিমাণ 0: সারি সরে যায়; সব সরালে "কার্ট ফাঁকা।"
+ok 10 - অচেনা পণ্যসহ সংরক্ষিত তথ্য: Page Error ছাড়া ফাঁকা কার্ট
+ok 11 - file:// থেকে খুললে Module লোড হয় না (Default Chrome): পণ্য দেখা যায় না, Console-এ CORS ত্রুটি
+ok 12 - Server থেকে চালানোর সময় কোনো ধরা না পড়া Exception বা console.error নেই
+# tests 12
+# pass 12
+# fail 0

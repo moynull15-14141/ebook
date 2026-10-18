@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  font-family: 'Hind Siliguri', 'Nirmala UI', sans-serif;
+  background: #f4f6fa;
+  color: #1c2430;
+}
+
+.app {
+  max-width: 720px;
+  margin: 32px auto;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 12px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+input,
+select,
+button {
+  font: inherit;
+  padding: 6px 10px;
+}
+
+#users {
+  padding: 0;
+  list-style: none;
+}
+
+#users li {
+  padding: 10px 0;
+  border-bottom: 1px solid #e3e7ef;
+}
+
+#users[aria-busy='true'] {
+  opacity: 0.5;
+}

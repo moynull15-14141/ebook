@@ -1,0 +1,122 @@
+===== examples/01-trust-boundary.mjs  (exit code 0) =====
+2        typeof: true   গ্রহণ
+NaN      typeof: true   বাতিল (travelers: ১-১০ পূর্ণসংখ্যা)
+Infinity typeof: true   বাতিল (travelers: ১-১০ পূর্ণসংখ্যা)
+1.5      typeof: true   বাতিল (travelers: ১-১০ পূর্ণসংখ্যা)
+-3       typeof: true   বাতিল (travelers: ১-১০ পূর্ণসংখ্যা)
+0        typeof: true   বাতিল (travelers: ১-১০ পূর্ণসংখ্যা)
+11       typeof: true   বাতিল (travelers: ১-১০ পূর্ণসংখ্যা)
+'2'      typeof: false  বাতিল (travelers: ১-১০ পূর্ণসংখ্যা)
+
+===== project/travel-master-pro/src/validation.mjs  (exit code 0) =====
+
+
+===== project/travel-master-pro/src/passwords.mjs  (exit code 0) =====
+
+
+===== examples/03-password-hash.mjs  (exit code 0) =====
+গঠন: scrypt | 24 অক্ষর | 44 অক্ষর
+দুটি Hash এক? false
+সঠিক Password: true
+ভুল Password: false
+Hash-এ Password আছে? false
+
+===== project/travel-master-pro/src/db.mjs  (exit code 0) =====
+(node:5500) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/02-race-condition.mjs  (exit code 0) =====
+checkThenAct: BOOKED, BOOKED; বাকি আসন 0
+conditionalUpdate: BOOKED, SOLD_OUT; বাকি আসন 0
+(node:10448) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== project/travel-master-pro/src/service.mjs  (exit code 0) =====
+(node:15484) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== project/travel-master-pro/src/http.mjs  (exit code 0) =====
+
+
+===== project/travel-master-pro/src/server.mjs  (exit code 0) =====
+(node:17732) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== project/travel-master-pro/tests/concurrency.test.mjs  (exit code 0) =====
+TAP version 13
+# Subtest: একসঙ্গে Booking-এ Overbooking হয় না
+ok 1 - একসঙ্গে Booking-এ Overbooking হয় না
+  ---
+  duration_ms: 863.0975
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 869.5653
+(node:17080) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:17080) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:17080) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:17080) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:17080) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== project/travel-master-pro/demo.mjs  (exit code 0) =====
+১. Booking (Client price 1 পাঠিয়েছে): 201 CONFIRMED, 25000 টাকা
+২. একই Key আবার: 200 CONFIRMED, 25000 টাকা
+৩. একই Key, ভিন্ন যাত্রী: 409 KEY_CONFLICT
+৪. Token ছাড়া: 401 UNAUTHORIZED
+৫. SYL-2D-তে ৩ জন: 409 SOLD_OUT
+৬. Mina বাতিল করতে চান: 404 NOT_FOUND
+৭. Rafi বাতিল করেন: 200 CANCELLED, 25000 টাকা
+BT-4D-এ আসন: 12
+(node:13404) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/04-rubric.mjs  (exit code 0) =====
+{
+  total: 82,
+  band: 'ভালো ভিত্তি',
+  weakest: 'Deployment ও Monitoring-এর পরিকল্পনা'
+}
+
+===== examples/solutions/s08-token-expiry.test.mjs  (exit code 0) =====
+TAP version 13
+# Subtest: মেয়াদের এক মুহূর্ত আগে বৈধ, ঠিক মেয়াদে অবৈধ
+ok 1 - মেয়াদের এক মুহূর্ত আগে বৈধ, ঠিক মেয়াদে অবৈধ
+  ---
+  duration_ms: 137.2258
+  type: 'test'
+  ...
+# Subtest: মেয়াদ শেষে Booking-এর চেষ্টাও 401-এর পথে
+ok 2 - মেয়াদ শেষে Booking-এর চেষ্টাও 401-এর পথে
+  ---
+  duration_ms: 140.6909
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 288.1737
+(node:15628) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/solutions/s11-catalog-filter.mjs  (exit code 0) =====
+BT-4D 12500 (পরের পাতা: BT-4D-এর পর)
+CXB-3D 9800 (শেষ)
+(node:13536) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)

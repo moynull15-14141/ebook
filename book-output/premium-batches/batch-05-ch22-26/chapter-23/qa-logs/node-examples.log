@@ -1,0 +1,57 @@
+===== examples/01-user-timing.js  (exit code 0) =====
+filter measure 25000
+1 number
+
+===== examples/02-observer.mjs  (exit code 0) =====
+load > index > search
+
+===== examples/03-loop-delay.mjs  (exit code 0) =====
+median 15.4 ms, p99 215.2 ms, max 215.2 ms
+
+===== examples/04-heap.mjs  (exit code 0) =====
+সীমাহীন Cache-এ Heap ৩০ MB-র বেশি বেড়েছে: true
+সীমিত Cache-এ বাড়তি ৫ MB-র কম: true
+400 20
+
+===== examples/06-virtual-demo.mjs  (exit code 0) =====
+scrollTop 0: সারি 0 থেকে 14, মোট 15
+scrollTop 24: সারি 0 থেকে 15, মোট 16
+scrollTop 48000: সারি 995 থেকে 1014, মোট 20
+scrollTop 575520: সারি 11985 থেকে 11999, মোট 15
+
+===== examples/08-transfer.js  (exit code 0) =====
+Clone-এর পরে: মূল 8388608, Copy 8388608
+Transfer-এর পরে: মূল 0, নতুন 8388608
+
+===== project/travel-search/src/data.mjs  (exit code 0) =====
+
+
+===== project/travel-search/src/search.mjs  (exit code 0) =====
+
+
+===== project/travel-search/src/virtual.mjs  (exit code 0) =====
+
+
+===== project/travel-search/src/profile-report.mjs  (exit code 0) =====
+
+
+===== examples/solutions/s01-sort-timing.js  (exit code 0) =====
+sort measure 0 19999
+
+===== examples/solutions/s04-range.mjs  (exit code 0) =====
+{ start: 22, end: 43 } 21
+
+===== examples/solutions/s06-long-measures.mjs  (exit code 0) =====
+[ 'report' ]
+
+===== examples/solutions/s07-profile-two.mjs  (exit code 0) =====
+true
+
+===== examples/solutions/s09-listener-leak.mjs  (exit code 0) =====
+Signal ছাড়া: ২০ MB-র বেশি আটকে আছে: true
+abort()-এর পর ২০ MB-র বেশি মুক্ত: true
+(node:13736) MaxListenersExceededWarning: Possible EventTarget memory leak detected. 11 refresh listeners added to EventTarget. MaxListeners is 10. Use events.setMaxListeners() to increase limit
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/solutions/s10-variable-rows.js  (exit code 0) =====
+600 {"start":1,"end":4} 160

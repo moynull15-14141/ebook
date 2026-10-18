@@ -1,0 +1,31 @@
+$ node D:\MoynullHasan\ebook\allcopy\book-output\master-design-system\scripts\check-manuscript.mjs D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-04-ch17-21\chapter-18   (in .)
+
+PASS  title line matches the pattern: অধ্যায় ১৮ — Functional Programming, Immutability এবং Advanced Data Transformation
+PASS  chapter number in the title matches chapter.json (18)
+PASS  required sections present: 14 of 14
+PASS  no duplicate sections
+PASS  numbered sections run 18.1 to 18.20 without gaps
+PASS  exercise level present: প্রাথমিক স্তর
+PASS  exercise level present: মধ্যম স্তর
+PASS  exercise level present: চ্যালেঞ্জ স্তর
+PASS  exercises are numbered 1 to 12 without gaps
+PASS  every exercise has a solution with the same number (12 of 12)
+PASS  MCQs: 10 of exactly 10 questions
+PASS  each MCQ has the 4 options ক, খ, গ, ঘ in order
+PASS  answer table: 10 rows, each with an explanation
+PASS  quick answer key matches the answer table (খগকঘখকগখগক)
+PASS  correct answers are spread over at least three option positions
+PASS  every source listing states where it runs (31 listings)
+PASS  every non-source panel has a known kind
+PASS  source listings verified against companion files: 27 complete and identical, 4 selected excerpt(s), 0 fragment(s)
+PASS  long-listing policy: no complete listing over 45 lines (longest is 43)
+PASS  no code line longer than 82 characters (84 fit on a line at 9 pt)
+WARN  19 code line(s) will wrap with a hanging indent: line 138 (81 chars); line 203 (81 chars); line 204 (81 chars); line 220 (82 chars); line 277 (81 chars); line 413 (72 chars, Bengali); line 438 (81 chars, Bengali); line 440 (72 chars, Bengali); line 495 (71 chars, Bengali); line 571 (75 chars, Bengali); line 600 (82 chars); line 654 (82 chars); line 730 (71 chars, Bengali); line 748 (79 chars, Bengali); line 835 (81 chars); line 852 (82 chars, Bengali); line 1057 (82 chars); line 1081 (82 chars); line 1133 (82 chars)
+PASS  output and error panels: 63 lines, all found in the recorded run logs
+PASS  figure files exist (0)
+PASS  formal address: no informal pronouns
+PASS  formal address: no informal imperative verbs addressed to the reader
+PASS  no placeholder or draft markers
+PASS  no characters missing from the book fonts (arrows, emoji, symbols)
+
+All manuscript rules passed, 1 warning(s)

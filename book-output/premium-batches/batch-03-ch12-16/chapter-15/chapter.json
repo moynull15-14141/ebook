@@ -1,0 +1,15 @@
+{
+  "number": 15,
+  "source": "chapter-15-premium.md",
+  "outputBase": "chapter-15-premium",
+  "companion": ["project", "examples"],
+  "logs": "qa-logs",
+  "tests": [
+    { "name": "listings: Node.js run + compare", "cwd": ".", "cmd": ["node", "../tools/extract-and-run.mjs", "."], "log": "listings-run.log" },
+    { "name": "listings: browser run + compare", "cwd": ".", "cmd": ["node", "../tools/run-browser-listings.mjs", "."], "log": "browser-run.log" },
+    { "name": "syntax: project", "cwd": "project/bookmark-vault", "cmd": ["node", "--check", "src/bookmarks.mjs"] },
+    { "name": "syntax: tests", "cwd": "project/bookmark-vault", "cmd": ["node", "--check", "tests/bookmarks.test.mjs"] },
+    { "name": "unit tests", "cwd": "project/bookmark-vault", "cmd": ["node", "--test"], "log": "unit-tests.log" },
+    { "name": "project browser tests", "cwd": "project/bookmark-vault", "cmd": ["node", "tests/browser-check.mjs"], "log": "project-browser-tests.log" }
+  ]
+}

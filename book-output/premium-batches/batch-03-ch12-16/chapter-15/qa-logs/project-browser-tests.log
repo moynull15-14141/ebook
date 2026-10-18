@@ -1,0 +1,20 @@
+$ node tests/browser-check.mjs   (in project\bookmark-vault)
+
+Browser: Chrome/155.0.8059.40
+ok 1 - শুরু: ফাঁকা তালিকা, Module লোড হয়েছে
+ok 2 - যোগ: # বাদ, Host ছোট হাতের, Tag পরিষ্কার, বার্তা
+ok 3 - javascript: URL বাতিল, তালিকা অপরিবর্তিত
+ok 4 - একই URL দুবার নয়
+ok 5 - খোঁজা ও Tag ছাঁকনি URL-এ প্রতিফলিত
+ok 6 - Reload ও শেয়ার করা Link: URL থেকে ছাঁকনি ফিরে আসে; বাইরের Link-এ noopener
+ok 7 - sessionStorage খসড়া: Reload-এ ফিরে আসে, যোগ করার পর মুছে যায়
+ok 8 - Export: blob: ঠিকানা, bookmarks.json, Version 1 ও চারটি Bookmark
+ok 9 - Import (আসল File বাছাই): 1টি যোগ, 2টি বাদ (পুনরাবৃত্ত ও javascript:)
+ok 10 - ভাঙা JSON Import: বার্তা, তালিকা অপরিবর্তিত
+ok 11 - storage Event: দ্বিতীয় "Tab" (iframe) নতুন Bookmark দেখে ও জানায়
+ok 12 - মোছা: প্রথম সারি সরে যায়
+ok 13 - Storage-এ হাতে বসানো javascript: Bookmark দেখানো হয় না
+ok 14 - পুরো পরীক্ষায় কোনো ধরা না পড়া Exception বা console.error নেই
+# tests 14
+# pass 14
+# fail 0

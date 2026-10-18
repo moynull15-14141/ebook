@@ -18,7 +18,8 @@ console.log('Hello, JavaScript!');
 | `run=` | `node`, `browser`, `both` | yes, on every source listing | "চলবে: Node.js" / "চলবে: Browser" / "চলবে: Browser Console ও Node.js" |
 | `file=` | file name the reader should use | when the code belongs in a file | file name |
 | `kind=` | `output`, `error`, `terminal`, `structure` | for panels that are not source code | "Output", "Error Message", "Terminal", "Folder-এর কাঠামো" |
-| `excerpt=` | path of the complete companion file | when showing part of a file | "নির্বাচিত অংশ (Selected Excerpt)" |
+| `excerpt=` | path of the complete companion file | when showing a genuinely shortened part of a file | "নির্বাচিত অংশ (Selected Excerpt — Complete file in Companion Code)" |
+| `part=N/M` (with `excerpt=`) | part number / total parts | when a complete file is split across consecutive listings (the parts together are the whole file; marker lines `// ...` join them) | "অংশ N / M (Part N of M)" |
 | `fragment=` | path of the tested file the lines belong to | when showing lines to add to an existing file | "যোগ করার অংশ (Fragment)" |
 
 ## 2. The five panel types

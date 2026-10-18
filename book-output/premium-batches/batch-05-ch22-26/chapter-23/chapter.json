@@ -1,0 +1,14 @@
+{
+  "number": 23,
+  "source": "chapter-23-premium.md",
+  "outputBase": "chapter-23-premium",
+  "companion": ["project", "examples"],
+  "logs": "qa-logs",
+  "tests": [
+    { "name": "listings: Node.js run + compare", "cwd": ".", "cmd": ["node", "../tools/extract-and-run.mjs", "."], "log": "listings-run.log" },
+    { "name": "listings: browser run + compare", "cwd": ".", "cmd": ["node", "../tools/run-browser-listings.mjs", "."], "log": "browser-run.log" },
+    { "name": "syntax: project", "cwd": "project/travel-search", "cmd": ["node", "--check", "src/search.mjs"] },
+    { "name": "syntax: tests", "cwd": "project/travel-search", "cmd": ["node", "--check", "tests/e2e.test.mjs"] },
+    { "name": "unit and e2e tests", "cwd": "project/travel-search", "cmd": ["node", "--test"], "log": "unit-tests.log" }
+  ]
+}

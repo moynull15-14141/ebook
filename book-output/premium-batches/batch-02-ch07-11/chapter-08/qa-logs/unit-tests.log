@@ -1,0 +1,108 @@
+$ node --test   (in project\content-search-utility)
+
+TAP version 13
+# Subtest: normalizeText: NFC, ছোট হাতের অক্ষর, একটিমাত্র ফাঁকা জায়গা
+ok 1 - normalizeText: NFC, ছোট হাতের অক্ষর, একটিমাত্র ফাঁকা জায়গা
+  ---
+  duration_ms: 86.4864
+  type: 'test'
+  ...
+# Subtest: toWords: বাংলা, ইংরেজি ও সংখ্যা; বিরামচিহ্ন বাদ
+ok 2 - toWords: বাংলা, ইংরেজি ও সংখ্যা; বিরামচিহ্ন বাদ
+  ---
+  duration_ms: 1.4776
+  type: 'test'
+  ...
+# Subtest: toWords: কার-চিহ্ন ও হসন্তে শব্দ ভাঙে না
+ok 3 - toWords: কার-চিহ্ন ও হসন্তে শব্দ ভাঙে না
+  ---
+  duration_ms: 0.7543
+  type: 'test'
+  ...
+# Subtest: toWords: ফাঁকা বা শুধু বিরামচিহ্নের লেখায় ফাঁকা Array
+ok 4 - toWords: ফাঁকা বা শুধু বিরামচিহ্নের লেখায় ফাঁকা Array
+  ---
+  duration_ms: 2.7677
+  type: 'test'
+  ...
+# Subtest: countCharacters: Code Point ও Grapheme আলাদা
+ok 5 - countCharacters: Code Point ও Grapheme আলাদা
+  ---
+  duration_ms: 1.9556
+  type: 'test'
+  ...
+# Subtest: countCharacters: দুই রূপের য় Normalization-এর পর একই গণনা
+ok 6 - countCharacters: দুই রূপের য় Normalization-এর পর একই গণনা
+  ---
+  duration_ms: 1.0935
+  type: 'test'
+  ...
+# Subtest: makeSlug: বিরামচিহ্ন বাদ, হাইফেন দিয়ে জোড়া, বাংলা থাকে
+ok 7 - makeSlug: বিরামচিহ্ন বাদ, হাইফেন দিয়ে জোড়া, বাংলা থাকে
+  ---
+  duration_ms: 1.2307
+  type: 'test'
+  ...
+# Subtest: makeExcerpt: ছোট লেখা অপরিবর্তিত, ... ছাড়া
+ok 8 - makeExcerpt: ছোট লেখা অপরিবর্তিত, ... ছাড়া
+  ---
+  duration_ms: 0.6713
+  type: 'test'
+  ...
+# Subtest: makeExcerpt: শব্দের মাঝে কাটে না
+ok 9 - makeExcerpt: শব্দের মাঝে কাটে না
+  ---
+  duration_ms: 2.3787
+  type: 'test'
+  ...
+# Subtest: makeExcerpt: ফাঁকা জায়গা ছাড়া লম্বা শব্দ সীমায় কাটে
+ok 10 - makeExcerpt: ফাঁকা জায়গা ছাড়া লম্বা শব্দ সীমায় কাটে
+  ---
+  duration_ms: 2.086
+  type: 'test'
+  ...
+# Subtest: topWords: সংখ্যা অনুযায়ী, সমান হলে বর্ণানুক্রমে, ছোট শব্দ বাদ
+ok 11 - topWords: সংখ্যা অনুযায়ী, সমান হলে বর্ণানুক্রমে, ছোট শব্দ বাদ
+  ---
+  duration_ms: 1.1909
+  type: 'test'
+  ...
+# Subtest: topWords: minLength চোখে-দেখা নয়, Code Point ধরে; limit মানে
+ok 12 - topWords: minLength চোখে-দেখা নয়, Code Point ধরে; limit মানে
+  ---
+  duration_ms: 0.6577
+  type: 'test'
+  ...
+# Subtest: findAll: বড়-ছোট হাতের অক্ষর নির্বিশেষে সব অবস্থান
+ok 13 - findAll: বড়-ছোট হাতের অক্ষর নির্বিশেষে সব অবস্থান
+  ---
+  duration_ms: 0.4661
+  type: 'test'
+  ...
+# Subtest: findAll: ফাঁকা খোঁজার শব্দে ফাঁকা তালিকা; Loop চলে না
+ok 14 - findAll: ফাঁকা খোঁজার শব্দে ফাঁকা তালিকা; Loop চলে না
+  ---
+  duration_ms: 0.3278
+  type: 'test'
+  ...
+# Subtest: findAll ও highlight: দুই রূপের য় মেলে
+ok 15 - findAll ও highlight: দুই রূপের য় মেলে
+  ---
+  duration_ms: 0.3658
+  type: 'test'
+  ...
+# Subtest: highlight: মূল লেখার রূপ রাখে, HTML তৈরি করে না; demo Output ঠিক
+ok 16 - highlight: মূল লেখার রূপ রাখে, HTML তৈরি করে না; demo Output ঠিক
+  ---
+  duration_ms: 0.4324
+  type: 'test'
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 424.4953

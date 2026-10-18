@@ -1,0 +1,35 @@
+$ node D:\MoynullHasan\ebook\allcopy\book-output\master-design-system\scripts\check-typography.mjs D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-05-ch22-26\chapter-22\chapter-22-premium.pdf D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-05-ch22-26\chapter-22\chapter-22-premium.md --json D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-05-ch22-26\chapter-22\.build\typography.json   (in .)
+
+PDF: D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-05-ch22-26\chapter-22\chapter-22-premium.pdf
+Pages: 39 | glyphs: 57619 (14038 Bengali) | source Bengali words: 3170 (803 distinct)
+Fonts: HindSiliguri-Medium, HindSiliguri-Bold, HindSiliguri-Regular, SourceCodePro-Regular, HindSiliguri-SemiBold, SourceCodePro-Bold
+
+[naive] source words recovered intact: 1551 of 3170 (48.93%) | distinct words affected: 525
+   most affected: করে×54, প্রতিটি×35, ব্যর্থ×32, দিয়ে×24, অপেক্ষা×23, থেকে×23, বলে×21, করুন×20, কখনো×18, অধ্যায়×17, কোনো×17, বেশি×16
+
+[robust] source words recovered intact: 1575 of 3170 (49.68%) | distinct words affected: 518
+   most affected: করে×54, প্রতিটি×35, ব্যর্থ×32, দিয়ে×24, অপেক্ষা×23, থেকে×23, বলে×21, করুন×20, কখনো×18, অধ্যায়×17, কোনো×17, বেশি×16
+
+[actual] source words recovered intact: 3170 of 3170 (100%) | distinct words affected: 0
+   most affected: none
+
+Probe words (occurrences in source -> intact / split forms):
+   ভুল ×17:  naive 15 ["ভু ল"] | robust 17 [] | actual 17 []
+   নতুন ×8:  naive 0 ["নতু ন"] | robust 8 [] | actual 8 []
+   পরিবর্তন ×3:  naive 0 [] | robust 0 [] | actual 3 []
+   প্রথম ×11:  naive 7 [] | robust 7 [] | actual 11 []
+   কি ×21:  naive 1 ["ক ি"] | robust 1 ["ক ি"] | actual 21 []
+   ব্যবহারকারী ×9:  naive 0 [] | robust 0 [] | actual 9 []
+   গুরুত্বপূর্ণ ×6:  naive 0 [] | robust 0 [] | actual 6 []
+
+Naive extractor: spurious in-word breaks occur after these glyphs:
+   ল (advance 0.73 em): 38
+   ু (advance 0.00 em): 24
+   ঁ (advance 0.00 em): 10
+   ৃ (advance 0.00 em): 9
+   ণ (advance 0.59 em): 6
+   র (advance 0.53 em): 4
+   া (advance 0.27 em): 3
+   া (advance 0.26 em): 3
+   ক (advance 0.75 em): 3
+   গ (advance 0.57 em): 3

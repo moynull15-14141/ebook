@@ -1,0 +1,103 @@
+TypeScript compiler: Version 6.0.2 (C:/Users/T/AppData/Roaming/npm/node_modules/firebase-tools/node_modules/typescript/bin/tsc)
+
+===== tsc examples/02-typed.ts (exit code 2) =====
+02-typed.ts(6,30): error TS2345: Argument of type 'string' is not assignable to parameter of type 'number'.
+
+===== tsc examples/03-inference.ts (exit code 2) =====
+03-inference.ts(10,1): error TS2322: Type 'string' is not assignable to type 'number'.
+03-inference.ts(11,35): error TS2345: Argument of type '"ship"' is not assignable to parameter of type 'Mode'.
+
+===== tsc examples/04-nulls.ts (exit code 2) =====
+04-nulls.ts(8,13): error TS18048: 'found' is possibly 'undefined'.
+04-nulls.ts(9,13): error TS2532: Object is possibly 'undefined'.
+
+===== tsc examples/05-nulls-fixed.ts (exit code 0) =====
+
+----- node .build\ts\examples\05-nulls-fixed.js (exit code 0) -----
+Mina নামে কেউ নেই
+BX
+
+
+===== tsc examples/06-any.ts (exit code 0) =====
+
+----- node .build\ts\examples\06-any.js (exit code 0) -----
+Runtime-এ ধরা পড়ল: data.name.toUpperCase is not a function
+
+
+===== tsc examples/07-unknown.ts (exit code 2) =====
+07-unknown.ts(2,13): error TS18046: 'data' is of type 'unknown'.
+
+===== tsc examples/08-guard.ts (exit code 0) =====
+
+----- node .build\ts\examples\08-guard.js (exit code 0) -----
+RAFI
+অবৈধ তথ্য
+
+
+===== tsc examples/09-result.ts (exit code 0) =====
+
+----- node .build\ts\examples\09-result.js (exit code 0) -----
+৳4500
+DAC-XYZ পথ নেই
+
+
+===== tsc examples/10-exhaustive.ts (exit code 2) =====
+10-exhaustive.ts(17,26): error TS2345: Argument of type '{ code: "PRICE_CHANGED"; newPrice: number; }' is not assignable to parameter of type 'never'.
+
+===== tsc examples/11-generics.ts (exit code 0) =====
+
+----- node .build\ts\examples\11-generics.js (exit code 0) -----
+[ 'Khulna', 'Sylhet' ] [ 'Ratargul', 'Jaflong' ]
+
+
+===== tsc examples/12-keyof.ts (exit code 2) =====
+12-keyof.ts(23,15): error TS2345: Argument of type '"prize"' is not assignable to parameter of type 'keyof Tour'.
+
+===== tsc examples/13-brand.ts (exit code 2) =====
+13-brand.ts(17,38): error TS2345: Argument of type 'number' is not assignable to parameter of type 'Paisa'.
+  Type 'number' is not assignable to type '{ readonly [brand]: "Paisa"; }'.
+
+===== tsc examples/14-checkjs/discount.js (exit code 2) =====
+discount.js(13,32): error TS2322: Type 'string' is not assignable to type 'number'.
+discount.js(14,22): error TS2345: Argument of type 'string' is not assignable to parameter of type 'number'.
+
+===== tsc examples/solutions/s01-discount.ts (exit code 2) =====
+s01-discount.ts(6,22): error TS2345: Argument of type 'string' is not assignable to parameter of type 'number'.
+
+===== tsc examples/solutions/s06-is-tour.ts (exit code 0) =====
+
+----- node .build\ts\examples\solutions\s06-is-tour.js (exit code 0) -----
+Sajek: 2 দিন
+অবৈধ
+
+
+===== tsc examples/solutions/s07-shapes.ts (exit code 0) =====
+
+----- node .build\ts\examples\solutions\s07-shapes.js (exit code 0) -----
+[ '3.14', '6.00' ]
+
+
+===== tsc examples/solutions/s08-pluck.ts (exit code 0) =====
+
+----- node .build\ts\examples\solutions\s08-pluck.js (exit code 0) -----
+[ 'Sajek', 'Ratargul' ] [ 2, 1 ]
+
+
+===== tsc examples/solutions/s10-parse-age.ts (exit code 0) =====
+
+----- node .build\ts\examples\solutions\s10-parse-age.js (exit code 0) -----
+বৈধ: 34
+ভুল: বয়স পূর্ণসংখ্যা হতে হবে
+ভুল: বয়স ০ থেকে ১২০
+ভুল: বয়স পূর্ণসংখ্যা হতে হবে
+
+
+===== tsc examples/solutions/s11-cache.ts (exit code 0) =====
+
+----- node .build\ts\examples\solutions\s11-cache.js (exit code 0) -----
+121.45 0 undefined
+
+
+===== tsc examples/solutions/s12-config.ts (exit code 2) =====
+s12-config.ts(11,15): error TS2540: Cannot assign to 'hotelPerNight' because it is a read-only property.
+s12-config.ts(12,14): error TS2339: Property 'push' does not exist on type 'readonly ["bus", "train", "air"]'.

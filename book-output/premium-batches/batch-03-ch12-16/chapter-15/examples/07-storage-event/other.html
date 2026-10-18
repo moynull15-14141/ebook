@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <title>অন্য Page</title>
+</head>
+<body>
+  <script>
+    window.addEventListener('storage', (event) => {
+      console.log(`অন্য Page দেখল: ${event.key} = ${event.newValue}`);
+    });
+  </script>
+</body>
+</html>

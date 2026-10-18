@@ -1,0 +1,105 @@
+===== examples/01-normalize.mjs  (exit code 0) =====
+একই Rafi-র ফোন: 01799999999, 01711111111
+Rafi 01799999999 800 | Mina 01822222222 400
+(node:5224) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/02-constraints.mjs  (exit code 0) =====
+UNIQUE constraint failed: customers.email
+NOT NULL constraint failed: customers.email
+CHECK constraint failed: balance_not_negative
+FOREIGN KEY constraint failed
+(node:4364) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/03-transaction.mjs  (exit code 0) =====
+transferUnsafe: CHECK constraint failed: balance >= 0 | 300 / 500
+transferSafe: CHECK constraint failed: balance >= 0 | 300 / 0
+(node:10236) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/04-savepoint.mjs  (exit code 0) =====
+2 Tea Garden Pass, Boat Ride
+(node:14708) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/05-isolation.mjs  (exit code 0) =====
+Reader শুরুতে: 100
+Writer-এর COMMIT-এর পরে, Reader এখনো: 100
+Reader-এর নতুন Transaction: 900
+(node:1608) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/06-n-plus-one.mjs  (exit code 0) =====
+N+1: 51টি Query, JOIN: 1টি Query
+true
+(node:8880) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== project/travel-data/src/db.mjs  (exit code 0) =====
+(node:8276) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== project/travel-data/src/migrate.mjs  (exit code 0) =====
+(node:9804) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== project/travel-data/src/errors.mjs  (exit code 0) =====
+(node:6456) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== project/travel-data/src/customers.mjs  (exit code 0) =====
+(node:16500) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== project/travel-data/src/ledger.mjs  (exit code 0) =====
+(node:8984) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== project/travel-data/src/reports.mjs  (exit code 0) =====
+
+
+===== project/travel-data/src/backup.mjs  (exit code 0) =====
+(node:18400) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== project/travel-data/demo.mjs  (exit code 0) =====
+Migration: 001-init.sql, 002-indexes.sql, 003-tier.sql
+CHECK: যথেষ্ট Point নেই
+Rafi Ahmed 4500 | Mina Akter 1500
+[{"month":"2026-10","earned":6000,"spent":1500}]
+Audit: balance ও Ledger মেলে
+Backup: ok, {"customers":2,"accounts":2,"ledger_entries":3}
+(node:17872) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/solutions/s01-tour-constraints.mjs  (exit code 0) =====
+SJK-2: যোগ হয়েছে
+SJK-2: UNIQUE constraint failed: tours.code
+KTA-0: CHECK constraint failed: price_positive
+LNG-31: CHECK constraint failed: days_range
+(node:11116) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/solutions/s04-email-index.mjs  (exit code 0) =====
+SCAN customers
+SEARCH customers USING INDEX customers_email (email=?)
+(node:17312) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/solutions/s06-reverse.mjs  (exit code 0) =====
+700 (wrong tour) | -700 (reversal of #1)
+0 0
+(node:21048) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/solutions/s07-migration/apply.mjs  (exit code 0) =====
+001-init.sql, 002-indexes.sql, 003-tier.sql, 004-referral.sql
+true
+(node:12364) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/solutions/s10-retry.mjs  (exit code 0) =====
+লেখা হয়েছে [ 1, 2 ]
+(node:15432) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)

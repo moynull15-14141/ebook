@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# সবচেয়ে কম অনুমতি: Code পড়া ছাড়া কিছু নয়।
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # Production Pipeline-এ Tag-এর বদলে পূর্ণ Commit SHA দিয়ে Pin করুন।
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm test
+      - run: npm run check
+
+  image:
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build image (tag = commit SHA)
+        run: docker build -t deploy-ready:${{ github.sha }} .
+      - name: Run image and smoke test
+        run: |
+          export OPS_TOKEN="$(openssl rand -hex 16)"
+          docker run -d --name api -p 3000:3000 \
+            -e OPS_TOKEN -e GIT_SHA=${{ github.sha }} \
+            deploy-ready:${{ github.sha }}
+          for i in $(seq 1 20); do
+            curl -fs http://127.0.0.1:3000/health/ready && break
+            sleep 1
+          done
+          node scripts/smoke.mjs http://127.0.0.1:3000
+      - name: Logs on failure
+        if: failure()
+        run: docker logs api

@@ -1,0 +1,16 @@
+{
+  "name": "travel-live",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "TravelLive: Real-Time Booking Status (অধ্যায় ২৭)",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node main.mjs",
+    "demo": "node demo.mjs",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "ws": ">=7.5.10 <9"
+  }
+}

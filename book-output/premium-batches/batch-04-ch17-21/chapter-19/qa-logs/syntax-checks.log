@@ -1,0 +1,2 @@
+OK    node --check src/bench.mjs   (in project/perf-lab)
+OK    node --check tests/algorithms.test.mjs   (in project/perf-lab)

@@ -1,0 +1,14 @@
+{
+  "number": 24,
+  "source": "chapter-24-premium.md",
+  "outputBase": "chapter-24-premium",
+  "companion": ["project", "examples"],
+  "logs": "qa-logs",
+  "tests": [
+    { "name": "listings: Node.js run + compare", "cwd": ".", "cmd": ["node", "../tools/extract-and-run.mjs", "."], "log": "listings-run.log" },
+    { "name": "listings: TypeScript compile (+ run) + compare", "cwd": ".", "cmd": ["node", "../tools/ts-examples.mjs", "."], "log": "ts-run.log" },
+    { "name": "project: tsc --strict build (incl. compile-time tests)", "cwd": "project/typesafe-claims", "cmd": ["node", "C:/Users/T/AppData/Roaming/npm/node_modules/firebase-tools/node_modules/typescript/bin/tsc", "-p", ".", "--typeRoots", "C:/Users/T/AppData/Roaming/npm/node_modules/firebase-tools/node_modules/@types"], "log": "tsc-build.log" },
+    { "name": "project: runtime tests on compiled JavaScript", "cwd": "project/typesafe-claims", "cmd": ["node", "--test", "dist/tests/*.test.js"], "log": "unit-tests.log" },
+    { "name": "project: demo", "cwd": "project/typesafe-claims", "cmd": ["node", "dist/src/demo.js"], "log": "demo.log" }
+  ]
+}

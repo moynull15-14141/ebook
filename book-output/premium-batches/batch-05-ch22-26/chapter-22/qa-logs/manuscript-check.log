@@ -1,0 +1,31 @@
+$ node D:\MoynullHasan\ebook\allcopy\book-output\master-design-system\scripts\check-manuscript.mjs D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-05-ch22-26\chapter-22   (in .)
+
+PASS  title line matches the pattern: অধ্যায় ২২ — JavaScript Testing Mastery: Unit Testing, Integration Testing, Mocking, TDD এবং E2E
+PASS  chapter number in the title matches chapter.json (22)
+PASS  required sections present: 14 of 14
+PASS  no duplicate sections
+PASS  numbered sections run 22.1 to 22.23 without gaps
+PASS  exercise level present: প্রাথমিক স্তর
+PASS  exercise level present: মধ্যম স্তর
+PASS  exercise level present: চ্যালেঞ্জ স্তর
+PASS  exercises are numbered 1 to 12 without gaps
+PASS  every exercise has a solution with the same number (12 of 12)
+PASS  MCQs: 10 of exactly 10 questions
+PASS  each MCQ has the 4 options ক, খ, গ, ঘ in order
+PASS  answer table: 10 rows, each with an explanation
+PASS  quick answer key matches the answer table (খকগঘকগখঘকগ)
+PASS  correct answers are spread over at least three option positions
+PASS  every source listing states where it runs (38 listings)
+PASS  every non-source panel has a known kind
+PASS  source listings verified against companion files: 31 complete and identical, 7 selected excerpt(s), 0 fragment(s)
+PASS  long-listing policy: no complete listing over 45 lines (longest is 41)
+PASS  no code line longer than 82 characters (84 fit on a line at 9 pt)
+WARN  25 code line(s) will wrap with a hanging indent: line 110 (74 chars, Bengali); line 151 (83 chars, Bengali); line 367 (70 chars, Bengali); line 370 (93 chars, Bengali); line 422 (76 chars, Bengali); line 462 (73 chars, Bengali); line 463 (73 chars, Bengali); line 503 (79 chars, Bengali); line 526 (72 chars, Bengali); line 539 (80 chars, Bengali); line 601 (77 chars, Bengali); line 637 (74 chars, Bengali); line 670 (73 chars, Bengali); line 698 (72 chars, Bengali); line 791 (74 chars, Bengali); line 813 (74 chars, Bengali); line 830 (75 chars, Bengali); line 845 (75 chars, Bengali); line 864 (76 chars, Bengali); line 877 (77 chars, Bengali); line 920 (75 chars, Bengali); line 963 (70 chars, Bengali); line 964 (75 chars, Bengali); line 1186 (75 chars, Bengali); line 1343 (75 chars, Bengali)
+PASS  output and error panels: 77 lines, all found in the recorded run logs
+PASS  figure files exist (0)
+PASS  formal address: no informal pronouns
+PASS  formal address: no informal imperative verbs addressed to the reader
+PASS  no placeholder or draft markers
+PASS  no characters missing from the book fonts (arrows, emoji, symbols)
+
+All manuscript rules passed, 1 warning(s)

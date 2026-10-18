@@ -1,0 +1,198 @@
+$ node --test   (in project\visa-flow)
+
+TAP version 13
+# Subtest: domain শুধু domain-এর ওপর নির্ভর করে
+ok 1 - domain শুধু domain-এর ওপর নির্ভর করে
+  ---
+  duration_ms: 4.896
+  type: 'test'
+  ...
+# Subtest: app শুধু domain, app-এর ওপর নির্ভর করে
+ok 2 - app শুধু domain, app-এর ওপর নির্ভর করে
+  ---
+  duration_ms: 1.4382
+  type: 'test'
+  ...
+# Subtest: ui শুধু domain, ui-এর ওপর নির্ভর করে
+ok 3 - ui শুধু domain, ui-এর ওপর নির্ভর করে
+  ---
+  duration_ms: 0.4578
+  type: 'test'
+  ...
+# Subtest: infra শুধু infra-এর ওপর নির্ভর করে
+ok 4 - infra শুধু infra-এর ওপর নির্ভর করে
+  ---
+  duration_ms: 0.4518
+  type: 'test'
+  ...
+# Subtest: main.mjs (Composition Root) একাই infra ও ui জোড়ে
+ok 5 - main.mjs (Composition Root) একাই infra ও ui জোড়ে
+  ---
+  duration_ms: 0.6993
+  type: 'test'
+  ...
+# Subtest: Factory: নাম স্বাভাবিক, অবস্থা draft, ইতিহাসে create, Frozen
+ok 6 - Factory: নাম স্বাভাবিক, অবস্থা draft, ইতিহাসে create, Frozen
+  ---
+  duration_ms: 3.5461
+  type: 'test'
+  ...
+# Subtest: Fee-র Strategy: প্রতিটি ধরন ও Express
+ok 7 - Fee-র Strategy: প্রতিটি ধরন ও Express
+  ---
+  duration_ms: 0.5027
+  type: 'test'
+  ...
+# Subtest: withExpress মূল Strategy বদলায় না
+ok 8 - withExpress মূল Strategy বদলায় না
+  ---
+  duration_ms: 0.1718
+  type: 'test'
+  ...
+# Subtest: Factory: অবৈধ ইনপুটে নির্দিষ্ট code-সহ DomainError
+ok 9 - Factory: অবৈধ ইনপুটে নির্দিষ্ট code-সহ DomainError
+  ---
+  duration_ms: 0.6158
+  type: 'test'
+  ...
+# Subtest: Workflow: সম্পূর্ণ বৈধ পথ এবং ইতিহাস
+ok 10 - Workflow: সম্পূর্ণ বৈধ পথ এবং ইতিহাস
+  ---
+  duration_ms: 0.4307
+  type: 'test'
+  ...
+# Subtest: Workflow: অবৈধ কাজ ও উত্তরাধিকারের নাম প্রত্যাখ্যাত
+ok 11 - Workflow: অবৈধ কাজ ও উত্তরাধিকারের নাম প্রত্যাখ্যাত
+  ---
+  duration_ms: 0.4263
+  type: 'test'
+  ...
+# Subtest: applyAction পুরোনো Object বদলায় না
+ok 12 - applyAction পুরোনো Object বদলায় না
+  ---
+  duration_ms: 0.3055
+  type: 'test'
+  ...
+# Subtest: availableActions ও isFinal
+ok 13 - availableActions ও isFinal
+  ---
+  duration_ms: 0.2541
+  type: 'test'
+  ...
+# Subtest: memory: save তারপর get একই তথ্য দেয়; অজানায় null
+ok 14 - memory: save তারপর get একই তথ্য দেয়; অজানায় null
+  ---
+  duration_ms: 2.7183
+  type: 'test'
+  ...
+# Subtest: memory: একই id আবার save করলে হালনাগাদ, নতুন সারি নয়
+ok 15 - memory: একই id আবার save করলে হালনাগাদ, নতুন সারি নয়
+  ---
+  duration_ms: 0.3928
+  type: 'test'
+  ...
+# Subtest: memory: ফেরত দেওয়া Object বদলালে সংরক্ষিত তথ্য বদলায় না
+ok 16 - memory: ফেরত দেওয়া Object বদলালে সংরক্ষিত তথ্য বদলায় না
+  ---
+  duration_ms: 0.3456
+  type: 'test'
+  ...
+# Subtest: memory: list id-র ক্রমে
+ok 17 - memory: list id-র ক্রমে
+  ---
+  duration_ms: 15.9257
+  type: 'test'
+  ...
+# Subtest: storage: save তারপর get একই তথ্য দেয়; অজানায় null
+ok 18 - storage: save তারপর get একই তথ্য দেয়; অজানায় null
+  ---
+  duration_ms: 0.8587
+  type: 'test'
+  ...
+# Subtest: storage: একই id আবার save করলে হালনাগাদ, নতুন সারি নয়
+ok 19 - storage: একই id আবার save করলে হালনাগাদ, নতুন সারি নয়
+  ---
+  duration_ms: 0.3743
+  type: 'test'
+  ...
+# Subtest: storage: ফেরত দেওয়া Object বদলালে সংরক্ষিত তথ্য বদলায় না
+ok 20 - storage: ফেরত দেওয়া Object বদলালে সংরক্ষিত তথ্য বদলায় না
+  ---
+  duration_ms: 0.4415
+  type: 'test'
+  ...
+# Subtest: storage: list id-র ক্রমে
+ok 21 - storage: list id-র ক্রমে
+  ---
+  duration_ms: 0.3438
+  type: 'test'
+  ...
+# Subtest: storage: অন্য Prefix-এর Key ও ভাঙা JSON উপেক্ষিত
+ok 22 - storage: অন্য Prefix-এর Key ও ভাঙা JSON উপেক্ষিত
+  ---
+  duration_ms: 0.7088
+  type: 'test'
+  ...
+# Subtest: create: সংরক্ষণ ও Event
+ok 23 - create: সংরক্ষণ ও Event
+  ---
+  duration_ms: 3.5794
+  type: 'test'
+  ...
+# Subtest: act: অবস্থা বদল, সংরক্ষণ ও from/to Event
+ok 24 - act: অবস্থা বদল, সংরক্ষণ ও from/to Event
+  ---
+  duration_ms: 0.584
+  type: 'test'
+  ...
+# Subtest: ব্যর্থ কাজ: কিছুই সংরক্ষিত হয় না, কোনো Event নেই
+ok 25 - ব্যর্থ কাজ: কিছুই সংরক্ষিত হয় না, কোনো Event নেই
+  ---
+  duration_ms: 0.8193
+  type: 'test'
+  ...
+# Subtest: ব্যর্থ create কোনো ID খরচ করে না
+ok 26 - ব্যর্থ create কোনো ID খরচ করে না
+  ---
+  duration_ms: 0.3165
+  type: 'test'
+  ...
+# Subtest: sequenceAfter: সবচেয়ে বড় সংখ্যার পর থেকে, ফাঁক থাকলেও
+ok 27 - sequenceAfter: সবচেয়ে বড় সংখ্যার পর থেকে, ফাঁক থাকলেও
+  ---
+  duration_ms: 0.3283
+  type: 'test'
+  ...
+# Subtest: summary: অবস্থাভিত্তিক গণনা ও অনুমোদিত Fee
+ok 28 - summary: অবস্থাভিত্তিক গণনা ও অনুমোদিত Fee
+  ---
+  duration_ms: 12.896
+  type: 'test'
+  ...
+# Subtest: DI: যেকোনো চুক্তি-মানা Repository চলে (রেকর্ডিং নকল)
+ok 29 - DI: যেকোনো চুক্তি-মানা Repository চলে (রেকর্ডিং নকল)
+  ---
+  duration_ms: 0.4785
+  type: 'test'
+  ...
+# Subtest: Event Bus: ক্রম, Unsubscribe, এবং একটি Handler-এর Error অন্যদের থামায় না
+ok 30 - Event Bus: ক্রম, Unsubscribe, এবং একটি Handler-এর Error অন্যদের থামায় না
+  ---
+  duration_ms: 0.2798
+  type: 'test'
+  ...
+# Subtest: Event Bus: Handler নিজেকে সরালেও একই emit-এ বাকিরা চলে
+ok 31 - Event Bus: Handler নিজেকে সরালেও একই emit-এ বাকিরা চলে
+  ---
+  duration_ms: 0.4603
+  type: 'test'
+  ...
+1..31
+# tests 31
+# suites 0
+# pass 31
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 238.18

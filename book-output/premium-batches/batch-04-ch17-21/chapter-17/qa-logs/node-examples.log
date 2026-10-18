@@ -1,0 +1,138 @@
+===== examples/01-classes.js  (exit code 0) =====
+[ 'A-102', 'C-3051' ]
+7
+[ 'cat' ]
+[ 'price_2026' ]
+
+===== examples/02-greedy.js  (exit code 0) =====
+<b>সতর্ক</b> এবং <i>দ্রুত</i>
+<b>
+<b> </b> <i> </i>
+
+===== examples/03-groups.js  (exit code 0) =====
+2026-10-15 2026 15
+15/10/2026
+ha-ha-ha
+true false
+true false
+
+===== examples/04-lookaround.js  (exit code 0) =====
+50, 450
+1,234,567 950
+true false false
+
+===== examples/05-methods.js  (exit code 0) =====
+0 ERROR disk
+18 WARN cpu
+34 ERROR net
+12:01=disk; 12:05=cpu; 12:09=net
+ERROR 12h01 disk; WARN 12h05 cpu; ERROR 12h09 net
+[ 'আম', 'কলা', 'লিচু', 'জাম' ]
+
+===== examples/06-last-index.js  (exit code 0) =====
+true 6
+false 0
+true
+true true true
+
+===== examples/07-escape.js  (exit code 0) =====
+SyntaxError
+c\+\+ \(basic\)
+1
+
+===== examples/08-bengali.js  (exit code 0) =====
+01712-345678
+true false true
+[ 'আমি', 'JavaScript', 'শিখি' ]
+null 2
+
+===== examples/09-pipeline.js  (exit code 0) =====
+01712345678 true
+01712345678 true
+01512345678 true
+01212345678 false
+
+===== examples/10-parse-date.js  (exit code 0) =====
+2026-10-15 null null 2024-02-29 null
+
+===== examples/11-password.js  (exit code 0) =====
+[
+  'কমপক্ষে 12 অক্ষর',
+  'একটি বড় হাতের অক্ষর',
+  'একটি সংখ্যা',
+  'একই অক্ষর পরপর তিনবার নয়'
+]
+[]
+
+===== examples/12-redos.js  (exit code 0) =====
+/^(a+)+$/  16 অক্ষর: 0.43 ms
+/^(a+)+$/  18 অক্ষর: 1.64 ms
+/^(a+)+$/  20 অক্ষর: 6.52 ms
+/^(a+)+$/  22 অক্ষর: 27.87 ms
+/^(a+)+$/  24 অক্ষর: 110.71 ms
+/^a+$/     24 অক্ষর: 0.05 ms
+
+===== project/form-shield/src/normalize.mjs  (exit code 0) =====
+
+
+===== project/form-shield/src/patterns.mjs  (exit code 0) =====
+
+
+===== project/form-shield/src/rules.mjs  (exit code 0) =====
+
+
+===== project/form-shield/src/engine.mjs  (exit code 0) =====
+
+
+===== project/form-shield/signup-schema.mjs  (exit code 0) =====
+
+
+===== project/form-shield/demo.mjs  (exit code 0) =====
+true মোঃ রফিক 01712345678 rafiq@example.com
+false false
+false 6
+name: নামে শুধু অক্ষর দিন।
+username: এই নাম সংরক্ষিত।
+email: সঠিক Email লিখুন।
+phone: সঠিক বাংলাদেশি মোবাইল নম্বর লিখুন।
+birthDate: এমন কোনো তারিখ নেই।
+password: দৈর্ঘ্য 12 থেকে 64 অক্ষরের মধ্যে হতে হবে।
+লেখা অনেক বড় (সর্বোচ্চ 256 অক্ষর)।
+
+===== examples/solutions/s01-hashtags.js  (exit code 0) =====
+[ '#JavaScript', '#node_js', '#2026' ]
+
+===== examples/solutions/s02-anchor-group.js  (exit code 0) =====
+false
+true
+
+===== examples/solutions/s03-time-groups.js  (exit code 0) =====
+875
+
+===== examples/solutions/s05-bangla-price.js  (exit code 0) =====
+1251
+
+===== examples/solutions/s06-title-case.js  (exit code 0) =====
+Modern Javascript For Bangla Readers
+
+===== examples/solutions/s07-highlight-escaped.js  (exit code 0) =====
+প্রমাণ: [1+1=2], আর 11=2 নয়
+
+===== examples/solutions/s08-hex-colors.js  (exit code 0) =====
+[ '1d4f9c', 'FFF' ]
+
+===== examples/solutions/s09-postcode.mjs  (exit code 0) =====
+৫৮০০ 5800
+5800 5800
+580 পোস্টকোড 4 অঙ্কের।
+abcd পোস্টকোড 4 অঙ্কের।
+
+===== examples/solutions/s10-tokenizer.js  (exit code 0) =====
+[ '12', '+', '3', '*', '4' ]
+অচেনা অক্ষর, অবস্থান 4
+
+===== examples/solutions/s11-log-levels.js  (exit code 0) =====
+{ ERROR: 2, WARN: 2 }
+
+===== examples/solutions/s12-confirm.mjs  (exit code 0) =====
+{ confirmPassword: 'দুটি Password মেলেনি।' }

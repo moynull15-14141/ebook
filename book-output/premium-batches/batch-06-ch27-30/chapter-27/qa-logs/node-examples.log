@@ -1,0 +1,179 @@
+===== examples/01-polling-cost.mjs  (exit code 0) =====
+Polling ৫ সেকেন্ড: { requests: 720000, wasted: 680000, averageDelay: 2.5 }
+Polling ৬০ সেকেন্ড: { requests: 60000, wasted: 20000, averageDelay: 30 }
+Push: { messages: 40000, averageDelay: 0 }
+
+===== examples/02-sse-basic.mjs  (exit code 0) =====
+Content-Type: text/event-stream
+#1 status: { status: 'PENDING' }
+#2 status: { status: 'CONFIRMED' }
+#3 status: { status: 'TICKETED' }
+
+===== examples/03-ws-lifecycle.mjs  (exit code 0) =====
+শুরুতে readyState = 0
+open, readyState = 1
+message: { type: 'welcome' }
+message: { type: 'echo', text: 'হ্যালো' }
+close: 1000 done clean = true
+
+===== project/travel-live/src/events.mjs  (exit code 0) =====
+
+
+===== examples/04-envelope.mjs  (exit code 0) =====
+{
+  "eventId": "evt-102",
+  "type": "booking.status.changed",
+  "version": 1,
+  "bookingId": "bk-22",
+  "sequence": 8,
+  "occurredAt": "2026-10-11T00:00:00.000Z",
+  "payload": {
+    "status": "CONFIRMED"
+  }
+}
+গ্রহণ 8 1
+বাতিল 8 undefined
+বাতিল 8 2
+বাতিল 0 1
+
+===== examples/06-outbox.mjs  (exit code 0) =====
+১ম Relay: Publish-এর পরে, published লেখার আগেই Crash
+  Email পাঠানো হলো: booking.confirmed {"bookingId":"bk-1"}
+   Crash
+২য় Relay (Restart): একই সারি আবার, Consumer Idempotent
+  duplicate বাদ: 1
+বাকি: 0
+(node:17564) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== project/travel-live/src/client-state.mjs  (exit code 0) =====
+
+
+===== examples/05-dedupe-order.mjs  (exit code 0) =====
+e1 (#1): applied
+e2 (#2): applied
+e2 (#2): duplicate
+e4 (#4): gap
+e1 (#1): duplicate
+দেখানো অবস্থা: { title: '', status: 'CONFIRMED', sequence: 2 }
+Snapshot-এর পরে #4: applied
+দেখানো অবস্থা: { title: 'Sajek', status: 'REFUNDED', sequence: 4 }
+
+===== project/travel-live/src/backoff.mjs  (exit code 0) =====
+
+
+===== examples/07-backoff.mjs  (exit code 0) =====
+চেষ্টা 0: 500 ms
+চেষ্টা 1: 1000 ms
+চেষ্টা 2: 2000 ms
+চেষ্টা 3: 4000 ms
+চেষ্টা 4: 8000 ms
+চেষ্টা 5: 16000 ms
+চেষ্টা 6: 30000 ms
+চেষ্টা 10: 30000 ms
+৩য় চেষ্টা: সর্বনিম্ন 3000 ms, সর্বোচ্চ 4997 ms
+
+===== examples/10-backpressure.mjs  (exit code 0) =====
+drop-oldest dropped-oldest bk-A#4 bk-B#5 bk-A#6
+coalesce    queued         bk-B#5 bk-A#6
+disconnect  disconnect     bk-B#1 bk-A#2 bk-B#3
+
+===== examples/08-pubsub-fanout.mjs  (exit code 0) =====
+Instance A থেকে Publish:
+  A/rafi-phone: { sequence: 2, status: 'CONFIRMED' }
+  B/agent-laptop: { sequence: 2, status: 'CONFIRMED' }
+Agent offline থাকাকালে Publish:
+  A/rafi-phone: { sequence: 3, status: 'CANCELLED' }
+Agent ফিরে এল; #3 আর আসবে না, Snapshot/Replay লাগবে
+
+===== project/travel-live/src/live-hub.mjs  (exit code 0) =====
+
+
+===== project/travel-live/src/gateway.mjs  (exit code 0) =====
+
+
+===== project/travel-live/src/sse.mjs  (exit code 0) =====
+
+
+===== project/travel-live/src/server.mjs  (exit code 0) =====
+
+
+===== project/travel-live/demo.mjs  (exit code 0) =====
+Rafi subscribe: replay
+  #1 booking.created: applied
+Agent CONFIRMED: 200
+  #2 booking.status.changed: applied
+Mina subscribe: FORBIDDEN
+Rafi offline; Agent CANCELLED: 200
+Rafi subscribe: replay
+  #3 booking.status.changed: applied
+Rafi-র Screen: { title: "Cox's Bazar, ৩ দিন", status: 'CANCELLED', sequence: 3 }
+
+===== examples/solutions/s02-safe-payload.mjs  (exit code 0) =====
+[]
+[ 'payload.customer.email', 'payload.token' ]
+
+===== examples/solutions/s05-idempotent-consumer.mjs  (exit code 0) =====
+e1 handled
+e2 handled
+e1 skipped
+e3 handled
+e2 skipped
+e4 handled
+e5 handled
+e1 handled
+পাঠানো SMS: 6
+
+===== examples/solutions/s06-gap-recovery.mjs  (exit code 0) =====
+applied
+gap, snapshot #5, applied
+stale
+{ title: 'Sajek', status: 'CANCELLED', sequence: 6 }
+
+===== examples/solutions/s07-subscribe.test.mjs  (exit code 0) =====
+TAP version 13
+# Subtest: অন্য গ্রাহক Subscribe করতে পারেন না
+ok 1 - অন্য গ্রাহক Subscribe করতে পারেন না
+  ---
+  duration_ms: 3.2322
+  type: 'test'
+  ...
+# Subtest: মালিক ও Agent পারেন
+ok 2 - মালিক ও Agent পারেন
+  ---
+  duration_ms: 0.2695
+  type: 'test'
+  ...
+# Subtest: অজানা Booking-ও FORBIDDEN: অস্তিত্ব ফাঁস হয় না
+ok 3 - অজানা Booking-ও FORBIDDEN: অস্তিত্ব ফাঁস হয় না
+  ---
+  duration_ms: 0.2623
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 14.5837
+
+===== examples/solutions/s08-sse-parser.mjs  (exit code 0) =====
+(মন্তব্য বা ফাঁকা Frame বাদ)
+7 booking.status.changed {"a":1, "b":2}
+null message সাধারণ বার্তা
+
+===== examples/solutions/s09-outbox-retry.mjs  (exit code 0) =====
+দফা 1: 1:pending/1 2:pending/1
+দফা 2: 1:sent/1 2:pending/2
+দফা 3: 1:sent/1 2:dead/3
+(node:2604) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/solutions/s10-subscription-limit.mjs  (exit code 0) =====
+bk-1 subscribed
+bk-2 subscribed
+bk-3 LIMIT সর্বোচ্চ 2টি Subscription
+bk-3 subscribed after unsubscribe; bk-1 count = 0

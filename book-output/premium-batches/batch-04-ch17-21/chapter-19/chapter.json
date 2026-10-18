@@ -1,0 +1,14 @@
+{
+  "number": 19,
+  "source": "chapter-19-premium.md",
+  "outputBase": "chapter-19-premium",
+  "companion": ["project", "examples"],
+  "logs": "qa-logs",
+  "tests": [
+    { "name": "listings: Node.js run + compare", "cwd": ".", "cmd": ["node", "../tools/extract-and-run.mjs", "."], "log": "listings-run.log" },
+    { "name": "listings: browser run + compare", "cwd": ".", "cmd": ["node", "../tools/run-browser-listings.mjs", "."], "log": "browser-run.log" },
+    { "name": "syntax: project", "cwd": "project/perf-lab", "cmd": ["node", "--check", "src/bench.mjs"] },
+    { "name": "syntax: tests", "cwd": "project/perf-lab", "cmd": ["node", "--check", "tests/algorithms.test.mjs"] },
+    { "name": "unit tests", "cwd": "project/perf-lab", "cmd": ["node", "--test"], "log": "unit-tests.log" }
+  ]
+}

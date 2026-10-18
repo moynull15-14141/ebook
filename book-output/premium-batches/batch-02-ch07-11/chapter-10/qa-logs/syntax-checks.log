@@ -1,0 +1,2 @@
+OK    node --check directory.js   (in project/user-directory-explorer)
+OK    node --check tests/directory.test.js   (in project/user-directory-explorer)

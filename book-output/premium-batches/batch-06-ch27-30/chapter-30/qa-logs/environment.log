@@ -1,0 +1,5 @@
+$ node --version
+v22.16.0
+$ npm --version
+10.9.2
+platform: win32 x64

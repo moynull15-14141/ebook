@@ -1,0 +1,30 @@
+:root {
+  --ink: #1d2433;
+  --muted: #5b6475;
+  --accent: #0b6e4f;
+  --danger: #b42318;
+  --line: #d7dce5;
+}
+body {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 1rem;
+  font-family: system-ui, "Noto Sans Bengali", sans-serif;
+  color: var(--ink);
+  line-height: 1.5;
+}
+header { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+header h1 { margin-right: auto; }
+main { display: grid; gap: 1.5rem; }
+@media (min-width: 720px) {
+  main { grid-template-columns: 1fr 1fr; }
+}
+ul { padding-left: 1.2rem; }
+form { display: grid; gap: 0.5rem; margin-bottom: 1rem; }
+label { display: grid; gap: 0.2rem; }
+input, select, button { font: inherit; padding: 0.4rem; }
+button { cursor: pointer; border: 1px solid var(--accent); }
+button:disabled { opacity: 0.6; cursor: wait; }
+#message:not(:empty) { padding: 0.5rem; border-left: 4px solid var(--accent); }
+#message.error { border-color: var(--danger); color: var(--danger); }
+.cancelled { color: var(--muted); text-decoration: line-through; }

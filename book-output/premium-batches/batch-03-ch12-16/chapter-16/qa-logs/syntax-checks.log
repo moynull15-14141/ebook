@@ -1,0 +1,2 @@
+OK    node --check src/booking-service.mjs   (in project/booking-guard)
+OK    node --check tests/service.test.mjs   (in project/booking-guard)

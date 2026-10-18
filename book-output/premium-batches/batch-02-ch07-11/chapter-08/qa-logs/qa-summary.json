@@ -1,0 +1,78 @@
+{
+  "chapter": 8,
+  "ran": "2026-10-15T05:35:59.485Z",
+  "passed": 10,
+  "failed": 0,
+  "results": [
+    {
+      "name": "listings: Node.js run + compare",
+      "ok": true,
+      "exit": 0,
+      "log": "listings-run.log",
+      "summary": "30 files written from the chapter, 29 run, 28 compared with a printed panel, 0 problem(s)"
+    },
+    {
+      "name": "listings: browser run + compare",
+      "ok": true,
+      "exit": 0,
+      "log": "browser-run.log",
+      "summary": "25 listings run in Chrome/155.0.8059.40, 24 compared with a printed panel, 0 problem(s)"
+    },
+    {
+      "name": "syntax: project",
+      "ok": true,
+      "exit": 0,
+      "log": "syntax-checks.log",
+      "summary": ""
+    },
+    {
+      "name": "syntax: tests",
+      "ok": true,
+      "exit": 0,
+      "log": "syntax-checks.log",
+      "summary": ""
+    },
+    {
+      "name": "unit tests",
+      "ok": true,
+      "exit": 0,
+      "log": "unit-tests.log",
+      "summary": "# duration_ms 424.4953"
+    },
+    {
+      "name": "manuscript rules",
+      "ok": true,
+      "exit": 0,
+      "log": "manuscript-check.log",
+      "summary": "All manuscript rules passed, 1 warning(s)"
+    },
+    {
+      "name": "colour tokens",
+      "ok": true,
+      "exit": 0,
+      "log": "tokens-check.log",
+      "summary": "All colour checks passed"
+    },
+    {
+      "name": "PDF checks",
+      "ok": true,
+      "exit": 0,
+      "log": "pdf-check.log",
+      "summary": "All PDF checks passed"
+    },
+    {
+      "name": "DOCX checks",
+      "ok": true,
+      "exit": 0,
+      "log": "docx-check.log",
+      "summary": "All DOCX checks passed"
+    },
+    {
+      "name": "Bengali typography audit",
+      "ok": true,
+      "exit": 0,
+      "log": "typography-audit.log",
+      "summary": "   য় (advance 0.58 em): 2"
+    }
+  ]
+}

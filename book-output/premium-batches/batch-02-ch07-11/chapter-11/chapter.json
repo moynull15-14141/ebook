@@ -1,0 +1,68 @@
+{
+  "number": 11,
+  "source": "chapter-11-premium.md",
+  "outputBase": "chapter-11-premium",
+  "companion": [
+    "project",
+    "examples"
+  ],
+  "logs": "qa-logs",
+  "tests": [
+    {
+      "name": "listings: Node.js run + compare",
+      "cwd": ".",
+      "cmd": [
+        "node",
+        "../tools/extract-and-run.mjs",
+        "."
+      ],
+      "log": "listings-run.log"
+    },
+    {
+      "name": "listings: browser run + compare",
+      "cwd": ".",
+      "cmd": [
+        "node",
+        "../tools/run-browser-listings.mjs",
+        "."
+      ],
+      "log": "browser-run.log"
+    },
+    {
+      "name": "syntax: project",
+      "cwd": "project/order-validation",
+      "cmd": [
+        "node",
+        "--check",
+        "order-validation.js"
+      ]
+    },
+    {
+      "name": "syntax: tests",
+      "cwd": "project/order-validation",
+      "cmd": [
+        "node",
+        "--check",
+        "tests/order-validation.test.js"
+      ]
+    },
+    {
+      "name": "unit tests",
+      "cwd": "project/order-validation",
+      "cmd": [
+        "node",
+        "--test"
+      ],
+      "log": "unit-tests.log"
+    },
+    {
+      "name": "project browser tests",
+      "cwd": "project/order-validation",
+      "cmd": [
+        "node",
+        "tests/browser-check.mjs"
+      ],
+      "log": "project-browser-tests.log"
+    }
+  ]
+}

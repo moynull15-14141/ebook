@@ -1,0 +1,1090 @@
+{
+  "batch": "batch-06-ch27-30",
+  "phase": "4F",
+  "builtWith": "book-output/master-design-system (with 2026-10-15 listing-label fix)",
+  "chapters": [
+    {
+      "number": 27,
+      "title": "Real-Time JavaScript Applications",
+      "deliverables": [
+        "chapter-27/chapter-27-premium.md",
+        "chapter-27/chapter-27-premium.pdf",
+        "chapter-27/chapter-27-premium.docx",
+        "chapter-27/project/travel-live/",
+        "chapter-27/QA_SUMMARY.md"
+      ]
+    },
+    {
+      "number": 28,
+      "title": "Professional JavaScript Deployment, Docker, CI/CD, Cloud Infrastructure এবং Production Monitoring",
+      "deliverables": [
+        "chapter-28/chapter-28-premium.md",
+        "chapter-28/chapter-28-premium.pdf",
+        "chapter-28/chapter-28-premium.docx",
+        "chapter-28/project/deploy-ready/",
+        "chapter-28/QA_SUMMARY.md"
+      ]
+    },
+    {
+      "number": 29,
+      "title": "Advanced JavaScript System Design, Microservices, Distributed Systems এবং Enterprise Architecture",
+      "deliverables": [
+        "chapter-29/chapter-29-premium.md",
+        "chapter-29/chapter-29-premium.pdf",
+        "chapter-29/chapter-29-premium.docx",
+        "chapter-29/project/travel-saga/",
+        "chapter-29/QA_SUMMARY.md"
+      ]
+    },
+    {
+      "number": 30,
+      "title": "JavaScript Professional Mastery, Full-Stack Capstone এবং Career Roadmap",
+      "deliverables": [
+        "chapter-30/chapter-30-premium.md",
+        "chapter-30/chapter-30-premium.pdf",
+        "chapter-30/chapter-30-premium.docx",
+        "chapter-30/project/travel-master-pro/",
+        "chapter-30/QA_SUMMARY.md"
+      ]
+    }
+  ],
+  "generated": "2026-10-18T11:39:47.406Z",
+  "excluded": [
+    ".build/ folders (intermediate build files)",
+    "node_modules/ (none present)",
+    "data/ (runtime SQLite files; none present)"
+  ],
+  "fileCount": 206,
+  "files": [
+    {
+      "path": "BATCH_REPORT.md",
+      "bytes": 7097,
+      "sha256": "41e352f74b715f2e745d7be9e62daeeb0835dd49f441de5494c1e31df76e015d"
+    },
+    {
+      "path": "CHAPTER_REGISTRY.json",
+      "bytes": 38197,
+      "sha256": "08db47eb9715cc7f388ff0d99f00cc1ccf12e455f0742b02ec3dd3f8bf52b52a"
+    },
+    {
+      "path": "chapter-27/QA_SUMMARY.md",
+      "bytes": 6318,
+      "sha256": "5bc359231a104909ab78cf2d7df77faafa6466eeb7fe3c01c90df31f4c5b8e56"
+    },
+    {
+      "path": "chapter-27/chapter-27-premium.docx",
+      "bytes": 75348,
+      "sha256": "cae2f7e3ea5ab59082cf1e60ba64aa4ee7f4f172097ff3f5168ec584e3ca4ab6"
+    },
+    {
+      "path": "chapter-27/chapter-27-premium.md",
+      "bytes": 131772,
+      "sha256": "0d1d184b828117f2618496692f9a0a4574f64211a8dbe4a91428c3ff8d345c8c"
+    },
+    {
+      "path": "chapter-27/chapter-27-premium.pdf",
+      "bytes": 1505173,
+      "sha256": "b930ba38f909e2c3c537ba63b8e42e0b60631c4e2ec772327b0ef860619c80b7"
+    },
+    {
+      "path": "chapter-27/chapter.json",
+      "bytes": 1474,
+      "sha256": "6d830b5a8b268906963bd081f1487a79078cf5b72c51d0888aaf04b4182b97a7"
+    },
+    {
+      "path": "chapter-27/examples/01-polling-cost.mjs",
+      "bytes": 776,
+      "sha256": "242ebf51a4a7902222175c7553ec83902dcc668387ea4e125fd5d0c2c16543e8"
+    },
+    {
+      "path": "chapter-27/examples/02-sse-basic.mjs",
+      "bytes": 1384,
+      "sha256": "b70231105c54cda270d9babf711c88351be0aeaf7767cf41ab9fa4fdac45b511"
+    },
+    {
+      "path": "chapter-27/examples/03-ws-lifecycle.mjs",
+      "bytes": 1270,
+      "sha256": "b73070364e3a45b33cd0b6b90f5e6d101e6e855dc9d3d1da9b817f324f2990b7"
+    },
+    {
+      "path": "chapter-27/examples/04-envelope.mjs",
+      "bytes": 783,
+      "sha256": "835e6a421b34ba2a7709008deefa5cf8effcb8a31b48f53ec93dcb24c89cc691"
+    },
+    {
+      "path": "chapter-27/examples/05-dedupe-order.mjs",
+      "bytes": 1064,
+      "sha256": "aeb35f6009e43df061223b128743c0024ec69b1a821a63aa824263cfd34f326f"
+    },
+    {
+      "path": "chapter-27/examples/06-outbox.mjs",
+      "bytes": 1874,
+      "sha256": "901dac45befa7512f7172a8a3a2a60143463fe9d0413dcfac7bf2d2ed68136ed"
+    },
+    {
+      "path": "chapter-27/examples/07-backoff.mjs",
+      "bytes": 904,
+      "sha256": "64d80945d645e5a446d974003765efd2770829aa0ed017aa39b6c641baae6c71"
+    },
+    {
+      "path": "chapter-27/examples/08-pubsub-fanout.mjs",
+      "bytes": 1693,
+      "sha256": "e2d8a4ff0ead312a4b43a0ca3d898ea60fe231deccb5ac6839088a3fcf4c2f86"
+    },
+    {
+      "path": "chapter-27/examples/09-socketio-design.mjs",
+      "bytes": 1770,
+      "sha256": "86aa200dc8911b23aaea84994ee817ec5dc2e27341343afbfbffad8e0e406522"
+    },
+    {
+      "path": "chapter-27/examples/10-backpressure.mjs",
+      "bytes": 1260,
+      "sha256": "13d72c361c9a21b3acaeb726e8b6e166a3ce608c48c8ba3040a85119ab2c83d2"
+    },
+    {
+      "path": "chapter-27/examples/solutions/s02-safe-payload.mjs",
+      "bytes": 716,
+      "sha256": "0ab9f974f7192826995b6b378d9923de5bccf3888ed1cb0fcf13564a2bc7a27f"
+    },
+    {
+      "path": "chapter-27/examples/solutions/s05-idempotent-consumer.mjs",
+      "bytes": 850,
+      "sha256": "b64b17a976ce927c632ac74d7538619591813aecdd8ee66d8ac3721d101a5f84"
+    },
+    {
+      "path": "chapter-27/examples/solutions/s06-gap-recovery.mjs",
+      "bytes": 1105,
+      "sha256": "3aac8a7b020d0f0368db8f0120325411910bc7916f28edfc04497e838259bd05"
+    },
+    {
+      "path": "chapter-27/examples/solutions/s07-subscribe.test.mjs",
+      "bytes": 1226,
+      "sha256": "db4c17769e282f05c47d341cac2ac90944cfe041cb25a62075f3d0718f531d63"
+    },
+    {
+      "path": "chapter-27/examples/solutions/s08-sse-parser.mjs",
+      "bytes": 1158,
+      "sha256": "77b5362c9aca79ed17e6858f172683f5e2d348ddaef9a3c5a0e9a8f32a3b778f"
+    },
+    {
+      "path": "chapter-27/examples/solutions/s09-outbox-retry.mjs",
+      "bytes": 1471,
+      "sha256": "e7c87b40a5c74f826c3a50d1949455951ea43470440a4fb0d616460a8976c43a"
+    },
+    {
+      "path": "chapter-27/examples/solutions/s10-subscription-limit.mjs",
+      "bytes": 1414,
+      "sha256": "77851646245fdd16e36d477f616eed56ee6ab19b04a4fb01a70b5a0dd8fb70c1"
+    },
+    {
+      "path": "chapter-27/project/travel-live/README.md",
+      "bytes": 3788,
+      "sha256": "fb6c30681c1714d2933429fbc5f0505f933c9c3899dbd72a51223a90108302e7"
+    },
+    {
+      "path": "chapter-27/project/travel-live/demo.mjs",
+      "bytes": 2406,
+      "sha256": "b6728b5fc89136a5b138a17ccc1d536ff1ead6199ddec04eef26c902ffcc5f19"
+    },
+    {
+      "path": "chapter-27/project/travel-live/main.mjs",
+      "bytes": 702,
+      "sha256": "3550c76b0edc375924c58160c82516ee34ec57031cb7a3242d6d79714ca21ef5"
+    },
+    {
+      "path": "chapter-27/project/travel-live/package.json",
+      "bytes": 364,
+      "sha256": "c722ae461dab8c827e964637646f353cc9ddf66657c67036230f44c54b0d4115"
+    },
+    {
+      "path": "chapter-27/project/travel-live/public/app.mjs",
+      "bytes": 2056,
+      "sha256": "28a0daf2e43f4bf0cebd1eed95d1923fd1c81dd2edee07196b67e592f4e1debc"
+    },
+    {
+      "path": "chapter-27/project/travel-live/public/index.html",
+      "bytes": 799,
+      "sha256": "4b5b275916e4078994b991c35e7ffc410c1696849b6e28f0f61f5c889e8ae378"
+    },
+    {
+      "path": "chapter-27/project/travel-live/src/backoff.mjs",
+      "bytes": 481,
+      "sha256": "61dad4ab79262da9b21eae54fb2b8789053c7bc6cdd864e0fd1178b2eacd8879"
+    },
+    {
+      "path": "chapter-27/project/travel-live/src/client-state.mjs",
+      "bytes": 1336,
+      "sha256": "2bf0efaeb2b5008d3b038aa1a93ce87918cba74a4bf923db63b312c670952871"
+    },
+    {
+      "path": "chapter-27/project/travel-live/src/demo-data.mjs",
+      "bytes": 823,
+      "sha256": "815dcd0d28851f7c318732209b06eb604b10ba45140e138ee74a809346a5502d"
+    },
+    {
+      "path": "chapter-27/project/travel-live/src/events.mjs",
+      "bytes": 1033,
+      "sha256": "10f30acbdfad5207395faad2f9bb2ebf11268466abf44d79f8a8afc6d5fb81ba"
+    },
+    {
+      "path": "chapter-27/project/travel-live/src/gateway.mjs",
+      "bytes": 4861,
+      "sha256": "24545f322c694b4c7e0d39bb68b9f604507771a8b6d264647cfdb84d3fe02b33"
+    },
+    {
+      "path": "chapter-27/project/travel-live/src/live-hub.mjs",
+      "bytes": 4982,
+      "sha256": "c32b9199c351e07ba90a6a6fccbe2eb8ef202e5df59bdc6fa6bbdb73b6455465"
+    },
+    {
+      "path": "chapter-27/project/travel-live/src/rate-limit.mjs",
+      "bytes": 453,
+      "sha256": "5746ce6707032856c0febdff0be6add80369545d171ca6795e11cc0a7fff597d"
+    },
+    {
+      "path": "chapter-27/project/travel-live/src/server.mjs",
+      "bytes": 3894,
+      "sha256": "22cb1942368898a2073fca6f5f6ffe7a6480a791b3a898a25c908e6c533ab0b0"
+    },
+    {
+      "path": "chapter-27/project/travel-live/src/sse.mjs",
+      "bytes": 1305,
+      "sha256": "dbb92488d74aed3d910c78aad455f741c563f795b854a53a298774e0117b9c4d"
+    },
+    {
+      "path": "chapter-27/project/travel-live/tests/client-state.test.mjs",
+      "bytes": 1722,
+      "sha256": "d66a3a80e1769729d6b966358b6d66f02ac83bfac2e9557dece593775acebf21"
+    },
+    {
+      "path": "chapter-27/project/travel-live/tests/gateway.test.mjs",
+      "bytes": 5533,
+      "sha256": "03a0cbf8a6512d66982362b22efeb24bf1a3c3c7846948ca18ab849b83be210f"
+    },
+    {
+      "path": "chapter-27/project/travel-live/tests/helpers.mjs",
+      "bytes": 2417,
+      "sha256": "ad4e33d46af7450269d46e32dac0676f2a963d4f491410fd63ef6a439480a541"
+    },
+    {
+      "path": "chapter-27/project/travel-live/tests/http.test.mjs",
+      "bytes": 2949,
+      "sha256": "46f05aeabb0ff8c2ee90554a36a25234014771498c5d15d57c72874604e2e56d"
+    },
+    {
+      "path": "chapter-27/project/travel-live/tests/hub.test.mjs",
+      "bytes": 2810,
+      "sha256": "e57ac7b7acf7f0c048b556c3828a82882458da7f589963d2a20f6e39a4c78055"
+    },
+    {
+      "path": "chapter-27/qa-logs/browser-e2e.log",
+      "bytes": 872,
+      "sha256": "ca212fe1ba0ecd9f058e731f57e8d8decca4834f30aebd3996e358b2b0ea833b"
+    },
+    {
+      "path": "chapter-27/qa-logs/docx-check.log",
+      "bytes": 2318,
+      "sha256": "32584924e4fa618e9bfec6a6591fd16d21473532be2e972d7d6776e1fc76fa59"
+    },
+    {
+      "path": "chapter-27/qa-logs/environment.log",
+      "bytes": 69,
+      "sha256": "0fd652f0a2c91f661c24b50866842f7f92890bdca55dba1fb74d64128fdd02e6"
+    },
+    {
+      "path": "chapter-27/qa-logs/listings-run.log",
+      "bytes": 138,
+      "sha256": "b63de7699c2c00376bf25cd75200396613a1f5c7ac6d6288be7f91a1f52bab31"
+    },
+    {
+      "path": "chapter-27/qa-logs/manuscript-check.log",
+      "bytes": 3596,
+      "sha256": "18174533b3d6ce307f3b6059ad2cc69bc914b9f9801d8570a17e17a7dd9e662f"
+    },
+    {
+      "path": "chapter-27/qa-logs/node-examples.log",
+      "bytes": 5786,
+      "sha256": "17826933dbe8d185a513b379adff51a69ed305d244f0419b5383032395b58b93"
+    },
+    {
+      "path": "chapter-27/qa-logs/pdf-check.log",
+      "bytes": 1257,
+      "sha256": "3d4552e5c9cc60cacc952e7848b8d79bd0cf65cfa7a7eccad6f6fe4164813c39"
+    },
+    {
+      "path": "chapter-27/qa-logs/qa-summary.json",
+      "bytes": 2091,
+      "sha256": "62bea24335e66a27d09388987ce83570b5eec877d2360bfca56894d812f98c63"
+    },
+    {
+      "path": "chapter-27/qa-logs/syntax-checks.log",
+      "bytes": 181,
+      "sha256": "a9542f327b555377f7ef884f60fbb5ab1101a6b2c4ebf7555a5e5b2d2d0f3edd"
+    },
+    {
+      "path": "chapter-27/qa-logs/tokens-check.log",
+      "bytes": 2704,
+      "sha256": "8bc77368ced030603b508a7d29031058afa684ad66d318b0fd0a0c842301e16c"
+    },
+    {
+      "path": "chapter-27/qa-logs/typography-audit.log",
+      "bytes": 2525,
+      "sha256": "a99f3949b77494cb321ef0734bcd80d4f3d4fc1d41e0299ec249e0461c87e205"
+    },
+    {
+      "path": "chapter-27/qa-logs/unit-tests.log",
+      "bytes": 4367,
+      "sha256": "34638e1494daeac4e792a5022de554fd3a706895b42b25ce02bb23aa0732556b"
+    },
+    {
+      "path": "chapter-28/QA_SUMMARY.md",
+      "bytes": 5405,
+      "sha256": "decc68f02b3834264125a3564fc191bf7e8d5a509a0c8006e611db58dcd11286"
+    },
+    {
+      "path": "chapter-28/chapter-28-premium.docx",
+      "bytes": 67014,
+      "sha256": "734c74f4683867a538b57fc01cd9d8ffb8329b928be12d49abc06f53d262669f"
+    },
+    {
+      "path": "chapter-28/chapter-28-premium.md",
+      "bytes": 109092,
+      "sha256": "579e7603199da74252e7f056af4aba0de3a5893dea81e62e8bf61774c3cd82c9"
+    },
+    {
+      "path": "chapter-28/chapter-28-premium.pdf",
+      "bytes": 1265028,
+      "sha256": "99d638626c03773eba997d042bc7a43bb01ae704d070a3b754a4dccd472c959a"
+    },
+    {
+      "path": "chapter-28/chapter.json",
+      "bytes": 1056,
+      "sha256": "a0a11e8e0ae3c4641f9a540b848ff228fd77f13d101cfd6eab13afc5d58d0268"
+    },
+    {
+      "path": "chapter-28/examples/01-config-fail-fast.mjs",
+      "bytes": 792,
+      "sha256": "6e4724938e47a5b2048279bf7cc35aaa7c501257f4e21443f2606e245fab167c"
+    },
+    {
+      "path": "chapter-28/examples/02-structured-log.mjs",
+      "bytes": 928,
+      "sha256": "ea1bbbe4070ab266f7a26b94bda731edd4c0f5ff36235f3cdac739edcf35ffa7"
+    },
+    {
+      "path": "chapter-28/examples/03-metrics-format.mjs",
+      "bytes": 656,
+      "sha256": "23166fb42997a2e6de26c88a87b1aa6e6b726a2be5365e1065da3f937e8cc09b"
+    },
+    {
+      "path": "chapter-28/examples/04-slo-budget.mjs",
+      "bytes": 1203,
+      "sha256": "f02d32807d6be537853dff4f5e2e72f650e51002e335ca78887617911d3ec670"
+    },
+    {
+      "path": "chapter-28/examples/05-canary-decision.mjs",
+      "bytes": 1440,
+      "sha256": "552c636338770848abcbc95edf959899cda7d7fcd5c75b1b44eece09b00dfd30"
+    },
+    {
+      "path": "chapter-28/examples/solutions/s06-empty-title.test.mjs",
+      "bytes": 1032,
+      "sha256": "5746942dde0b09d07f3281cd5ef100e329b7db0f71769b9b39794c97dbb8a637"
+    },
+    {
+      "path": "chapter-28/examples/solutions/s07-trace-request.mjs",
+      "bytes": 1450,
+      "sha256": "5c5a478a2107e34a4489464eb507c977c1ff546a95c6cc0ec4e4d9ad641dc909"
+    },
+    {
+      "path": "chapter-28/examples/solutions/s09-success-rate.mjs",
+      "bytes": 787,
+      "sha256": "f03697ec70768f2483891497e0214be5d1c1093d57ed296659e32acf9c78f55e"
+    },
+    {
+      "path": "chapter-28/examples/solutions/s11-cached-readiness.mjs",
+      "bytes": 1483,
+      "sha256": "87d135f6ac1ff96d40f06a0b1388becbf24c39a6538f7ea7a350bdea75c8d81b"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/.dockerignore",
+      "bytes": 110,
+      "sha256": "3aecaaaeefa25a8f95f70bf5fd9cd07453de729a850ff7470f7c3d8222679035"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/.env.example",
+      "bytes": 359,
+      "sha256": "0078c253d8093564fbb9be98500567dd05cb44f23a2388e650a3a935057643c7"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/.github/workflows/ci.yml",
+      "bytes": 1465,
+      "sha256": "d5a6d55f30cd1e2e10086ae8e3236e05114e8997c0d744714ff50de89d9f6dbd"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/Dockerfile",
+      "bytes": 1139,
+      "sha256": "643468f209e8279777eaf0a1fda21132ad54cb2c6787788cbb8a544bcac07708"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/README.md",
+      "bytes": 4015,
+      "sha256": "18e7249de2d4700bd063b79da5cae6817e2dd9fbed0cd915f8a40d6d581ff98a"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/compose.yaml",
+      "bytes": 768,
+      "sha256": "44357e414984bb25256d3952dc98ac2dc5a6262da31a6ff445c9c2eb5c9583fd"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/healthcheck.mjs",
+      "bytes": 422,
+      "sha256": "5a9bf153854e746cf76a34b60eeb975b575c9a8b78ae03c80708ad492da888e8"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/main.mjs",
+      "bytes": 1232,
+      "sha256": "d045ef7fb3f34728f31395fd6ad84a5bcbac3d554c639be1489c9fda42ee5cee"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/package.json",
+      "bytes": 394,
+      "sha256": "39b23f69f0e7ec9381a1517e14545a80f95416d9b0ff78ea0db8d097dfbae8a9"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/scripts/check-deploy.mjs",
+      "bytes": 2552,
+      "sha256": "9b82eadb85c91bfb9029b6825286cab4bc3d485f9b4a4d2a5e88db2a75321463"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/scripts/smoke.mjs",
+      "bytes": 1200,
+      "sha256": "5efb1bbd85020478b41d1a2a88a899ec9ac2892008ed43d57a120304add504d9"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/src/app.mjs",
+      "bytes": 4615,
+      "sha256": "485e4c0307cbd29ffcc090e4db3226ca451e6e8d86aba00d163d9df907cf8d4d"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/src/config.mjs",
+      "bytes": 1993,
+      "sha256": "a223c5b0eeffc4a20dc9d4a37544664ae9174e82c0bdda5a03ed7471d8a4cb26"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/src/jobs.mjs",
+      "bytes": 1377,
+      "sha256": "16b9f5b2681964320975bbe79263c1dd0f34813914654405abe03deb34032309"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/src/logger.mjs",
+      "bytes": 1247,
+      "sha256": "40c883ea5b5e2e6a32b19424e9d54b6f8308a4154447b4a5512bd238476d6749"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/src/metrics.mjs",
+      "bytes": 1877,
+      "sha256": "904c81754085c8a99cc0576ae88233eedc44f10009b8805b6cf4bb5a7c21b755"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/src/server.mjs",
+      "bytes": 1765,
+      "sha256": "3cbac2f6ea649e157ec685bc407bd1fb15c018ff226534d5e37b65653073921b"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/tests/app.test.mjs",
+      "bytes": 4275,
+      "sha256": "24d6023bea108799eaad281ff1a9d12591c33c47ef1e44eeca4427de5985fcaa"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/tests/config.test.mjs",
+      "bytes": 1951,
+      "sha256": "59641904e334e1580cc6b010618c7acbbd8044073892953cf2ca9a84fcae6b50"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/tests/helpers.mjs",
+      "bytes": 1540,
+      "sha256": "f5306de99f7c78d6bc27c75b9d2dec83b6f6df39a7621158ff4fc544832c2e51"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/tests/observability.test.mjs",
+      "bytes": 1729,
+      "sha256": "480245a06aaba7eff18cf5291d892635cdd88e972c6aa86a3ea270ce230e4136"
+    },
+    {
+      "path": "chapter-28/project/deploy-ready/tests/shutdown.test.mjs",
+      "bytes": 3159,
+      "sha256": "8b02f0d982c7648b7ad4b914b5a5fbafef93c3e67a7014fccbb4fbaa57fc40d7"
+    },
+    {
+      "path": "chapter-28/qa-logs/deploy-static-check.log",
+      "bytes": 100,
+      "sha256": "4424ea33371bd113b1cd0a644d4f2c259571181938efcb1a8f72e015fd0a6df7"
+    },
+    {
+      "path": "chapter-28/qa-logs/deploy-validation.log",
+      "bytes": 3319,
+      "sha256": "1c9e7f38008a7f1902d26a5e62217f329aa02f3e6fd42cc253c251dd0fd0facf"
+    },
+    {
+      "path": "chapter-28/qa-logs/docx-check.log",
+      "bytes": 2384,
+      "sha256": "c43b48d0117b5aecd70a0f08e94285a31a95231716965f5e8246550c104b39d0"
+    },
+    {
+      "path": "chapter-28/qa-logs/environment.log",
+      "bytes": 69,
+      "sha256": "0fd652f0a2c91f661c24b50866842f7f92890bdca55dba1fb74d64128fdd02e6"
+    },
+    {
+      "path": "chapter-28/qa-logs/listings-run.log",
+      "bytes": 138,
+      "sha256": "d8bd2d21082f604e0dc7f57554aefa33ccdc7e81764171c09115c917bcfcf31b"
+    },
+    {
+      "path": "chapter-28/qa-logs/manuscript-check.log",
+      "bytes": 3397,
+      "sha256": "7b2ff0d9f0b06a057f3532e93dd430a6b8a7cb015d0596549cb7b19b6a0f7ae0"
+    },
+    {
+      "path": "chapter-28/qa-logs/node-examples.log",
+      "bytes": 5204,
+      "sha256": "bf7955a43e164eebd70e4da6647bb25b3b26cedccd215c88140a15d9bec0b45d"
+    },
+    {
+      "path": "chapter-28/qa-logs/pdf-check.log",
+      "bytes": 1242,
+      "sha256": "0a6a82b58acfd2592603b42aa14a768a7f1d53db966296c36f3ada1435a515f7"
+    },
+    {
+      "path": "chapter-28/qa-logs/qa-summary.json",
+      "bytes": 1998,
+      "sha256": "db81ae97ef5e2ca9462ac7c05ec3b975578b3c5e14b4adb3c4a7f36a8b8dfbe6"
+    },
+    {
+      "path": "chapter-28/qa-logs/syntax-checks.log",
+      "bytes": 59,
+      "sha256": "fa374c963fc2a55b98bfe4413339a9f7f60ab3592c218f7f7a1ea96a5c679feb"
+    },
+    {
+      "path": "chapter-28/qa-logs/tokens-check.log",
+      "bytes": 2704,
+      "sha256": "8bc77368ced030603b508a7d29031058afa684ad66d318b0fd0a0c842301e16c"
+    },
+    {
+      "path": "chapter-28/qa-logs/typography-audit.log",
+      "bytes": 2500,
+      "sha256": "79048b568b0709ecce5953d7d0ea5c3d0204b39e171bc88a534178f96f043775"
+    },
+    {
+      "path": "chapter-28/qa-logs/unit-tests.log",
+      "bytes": 3274,
+      "sha256": "686977e80faa86860609b97078c4aa19d262c477ef242dfcc116e6a58ace39b9"
+    },
+    {
+      "path": "chapter-29/QA_SUMMARY.md",
+      "bytes": 5875,
+      "sha256": "6e6fe3f96631fd9ad05dedafed2d1ff553bf2444db16c35927051e8762700147"
+    },
+    {
+      "path": "chapter-29/chapter-29-premium.docx",
+      "bytes": 61209,
+      "sha256": "4267020ec345fe950f14aa34e73692e55050329919f19d02eea4c60e688965d0"
+    },
+    {
+      "path": "chapter-29/chapter-29-premium.md",
+      "bytes": 104993,
+      "sha256": "900c24eee4b745668ba6206ffd3238367656e6a35337614296937067e8ff5bdd"
+    },
+    {
+      "path": "chapter-29/chapter-29-premium.pdf",
+      "bytes": 1054521,
+      "sha256": "fd79d4077c80e9519c6de47bccfbf03f4e3e51870785795ec0f4ff60e60c5e51"
+    },
+    {
+      "path": "chapter-29/chapter.json",
+      "bytes": 891,
+      "sha256": "f05d9df6d3f2ed62a46b05d8c7d7868e4605609f3d60d2a4e1c8ec454032c53e"
+    },
+    {
+      "path": "chapter-29/examples/01-capacity.mjs",
+      "bytes": 1106,
+      "sha256": "5a1758de4d61372aeb66417ed19aee42b62970a67c513e540961da3aed31e5a7"
+    },
+    {
+      "path": "chapter-29/examples/02-modular-monolith.mjs",
+      "bytes": 1503,
+      "sha256": "1b153f7a4176e06f6fd44497288123b1c1b34c95ac2dc87b0f8a74662ea036a0"
+    },
+    {
+      "path": "chapter-29/examples/03-choreography.mjs",
+      "bytes": 1316,
+      "sha256": "48b289e771c6c453e0d49a7987aabe43ee9012c1be2c96713a8cf841fc9dbec1"
+    },
+    {
+      "path": "chapter-29/examples/04-partition.mjs",
+      "bytes": 1303,
+      "sha256": "1073c96116c97dd54a9d5708c6660295ec5844871bc89da5a0d1bbbe2b889938"
+    },
+    {
+      "path": "chapter-29/examples/05-fingerprint.mjs",
+      "bytes": 743,
+      "sha256": "ba9fd63659cd97be76a66eb95bfaa77204dd44477a1249bf64662f128c467c14"
+    },
+    {
+      "path": "chapter-29/examples/solutions/s01-capacity.mjs",
+      "bytes": 804,
+      "sha256": "9d18c76c332ac4067de3962acb2738d422196b7b630157541777dc575ed9fa06"
+    },
+    {
+      "path": "chapter-29/examples/solutions/s05-idempotency.mjs",
+      "bytes": 1105,
+      "sha256": "f14974e3617d3eb4a340a22bc274fd579e65dbde02aa2eb06d67bc6e6cbd1938"
+    },
+    {
+      "path": "chapter-29/examples/solutions/s06-retry-storm.mjs",
+      "bytes": 1171,
+      "sha256": "851bbba8e0be0c909ea395597fe6332620d89d2281bf95df3725bc345bf28336"
+    },
+    {
+      "path": "chapter-29/examples/solutions/s07-inbox.mjs",
+      "bytes": 1199,
+      "sha256": "619ea059eb1e0c33e9ccf9b12c958260d2258f7d6b08d0a48d6e539200b347c9"
+    },
+    {
+      "path": "chapter-29/examples/solutions/s10-bulkhead.mjs",
+      "bytes": 1383,
+      "sha256": "65e228baf604610e2e8f5289ae950dea8c46fdc3623e6f48115c9fc822f90a52"
+    },
+    {
+      "path": "chapter-29/examples/solutions/s11-outbox-relay.mjs",
+      "bytes": 1392,
+      "sha256": "06c6d692dd779ac4088bf9bab3cad63f7947ea3869eacd3b6e565ddac1ba1df2"
+    },
+    {
+      "path": "chapter-29/project/travel-saga/README.md",
+      "bytes": 3714,
+      "sha256": "21503002a013b0eb8bcaa5941a7bee8cfa50567956928334000b2dbcdaad174f"
+    },
+    {
+      "path": "chapter-29/project/travel-saga/demo.mjs",
+      "bytes": 1951,
+      "sha256": "091416c6af5e4f141427b0d3e22fddf0fe8e1b3f1d64694011887383c664e625"
+    },
+    {
+      "path": "chapter-29/project/travel-saga/package.json",
+      "bytes": 282,
+      "sha256": "6e1d9aa256beca5fe3ccbcdbbdd04a779fe5d6233e7a6942150cce87cac02a3e"
+    },
+    {
+      "path": "chapter-29/project/travel-saga/src/http-client.mjs",
+      "bytes": 2498,
+      "sha256": "6be558a8e0b39973d012e48cfe99edc0a630e859fa40150b946baaf26b10c14a"
+    },
+    {
+      "path": "chapter-29/project/travel-saga/src/orchestrator.mjs",
+      "bytes": 5785,
+      "sha256": "ced3b69dcf4a60394ef7d844f45e66083b9834b539edc694f98aa64c59282103"
+    },
+    {
+      "path": "chapter-29/project/travel-saga/src/saga-store.mjs",
+      "bytes": 3171,
+      "sha256": "297059b000d160ec0ddf8c8fecce6c34c011875b3b07a57ddd4f25b029addb4c"
+    },
+    {
+      "path": "chapter-29/project/travel-saga/src/services/http-util.mjs",
+      "bytes": 1234,
+      "sha256": "44fad35753bc7e700705ed23dd45e97232c276e43b05f5e3dd28cce89a0911f9"
+    },
+    {
+      "path": "chapter-29/project/travel-saga/src/services/inventory.mjs",
+      "bytes": 1959,
+      "sha256": "35ee785d9fc324dd97c0e680753544d1bd0360b468b2b2535d9a6084f16e5dd0"
+    },
+    {
+      "path": "chapter-29/project/travel-saga/src/services/payment.mjs",
+      "bytes": 2090,
+      "sha256": "b4bf9a510fe53aff7d1d97831383727c716f3c5dceffe45713156f81b327ccea"
+    },
+    {
+      "path": "chapter-29/project/travel-saga/src/system.mjs",
+      "bytes": 1217,
+      "sha256": "765f9164b4bfc4ac5c7d65857685f3efde57ff95ddab99b312c2ef65941c004b"
+    },
+    {
+      "path": "chapter-29/project/travel-saga/tests/http-client.test.mjs",
+      "bytes": 2540,
+      "sha256": "a3921c4abb564df7771265edf6cdd95cdc62fa4ba506b5e1e9341fda6d96463f"
+    },
+    {
+      "path": "chapter-29/project/travel-saga/tests/participants.test.mjs",
+      "bytes": 2362,
+      "sha256": "cbdc4edbb7f608385b7e5bd78b95c38515164768169efb186e38a12b54e3815e"
+    },
+    {
+      "path": "chapter-29/project/travel-saga/tests/recovery.test.mjs",
+      "bytes": 2109,
+      "sha256": "7c78c16d4ed9825373aec45d082d8476657767ee09c4e165a1ae8734864faa84"
+    },
+    {
+      "path": "chapter-29/project/travel-saga/tests/saga.test.mjs",
+      "bytes": 3880,
+      "sha256": "a6826e4c19aaad6ee89d34cfd7bd900044478f2a289ab1235c29c3567164fb6f"
+    },
+    {
+      "path": "chapter-29/qa-logs/demo.log",
+      "bytes": 1005,
+      "sha256": "83a99cadfb7357e26babca68dd7a0940c9bcb6d40705cf38d908fc2697cffc74"
+    },
+    {
+      "path": "chapter-29/qa-logs/docx-check.log",
+      "bytes": 2381,
+      "sha256": "5bc5377b32fab47f2934f2b8c9e2e201777bd2415f79f40d6a1e588f666862c6"
+    },
+    {
+      "path": "chapter-29/qa-logs/environment.log",
+      "bytes": 69,
+      "sha256": "0fd652f0a2c91f661c24b50866842f7f92890bdca55dba1fb74d64128fdd02e6"
+    },
+    {
+      "path": "chapter-29/qa-logs/listings-run.log",
+      "bytes": 138,
+      "sha256": "10f4235baf8b45a2c08799f261bfac0b9e94af08ee1943884892bd4af05c9aae"
+    },
+    {
+      "path": "chapter-29/qa-logs/manuscript-check.log",
+      "bytes": 3477,
+      "sha256": "ef14f03e139f6060c7729327b7e6af7b7f706ee672eee10cfb5da95d2aeede70"
+    },
+    {
+      "path": "chapter-29/qa-logs/node-examples.log",
+      "bytes": 6401,
+      "sha256": "7e3af740b3e9ad330f97ac7b68304335d06a2b21f763ba3813a5e5806ba95bc1"
+    },
+    {
+      "path": "chapter-29/qa-logs/pdf-check.log",
+      "bytes": 1277,
+      "sha256": "f9d3f5431ecd0c6707b60aaff82e6e73a8865e00fb4daf5515953a264b970408"
+    },
+    {
+      "path": "chapter-29/qa-logs/qa-summary.json",
+      "bytes": 1900,
+      "sha256": "3fc1b399ba5f48546e0532dda9b37e4ea81ffdb99b5d1dcd8a531aca9f9c63e5"
+    },
+    {
+      "path": "chapter-29/qa-logs/syntax-checks.log",
+      "bytes": 133,
+      "sha256": "13db193b31b7f7bed9f0771933002d781f5917c287a6c0f0ca19a3148cb284f1"
+    },
+    {
+      "path": "chapter-29/qa-logs/tokens-check.log",
+      "bytes": 2704,
+      "sha256": "8bc77368ced030603b508a7d29031058afa684ad66d318b0fd0a0c842301e16c"
+    },
+    {
+      "path": "chapter-29/qa-logs/typography-audit.log",
+      "bytes": 2510,
+      "sha256": "aff83a6b0e7cd41d6b6c8df3579dcd85df50dd03c19c7ae29abf21bc1d33a29f"
+    },
+    {
+      "path": "chapter-29/qa-logs/unit-tests.log",
+      "bytes": 3727,
+      "sha256": "0f021840c51cb866979198300d3cf1678523da6ced442fb71bc7d7dfd0f875ec"
+    },
+    {
+      "path": "chapter-30/QA_SUMMARY.md",
+      "bytes": 6098,
+      "sha256": "154d41eda658bcf0f9f7c0b91ab7219cfdcab44926aa07d57b7e591aa6a7eaec"
+    },
+    {
+      "path": "chapter-30/chapter-30-premium.docx",
+      "bytes": 65639,
+      "sha256": "b73f418840df9bd1e3278b4ab020a6f22074301000b82ab544983c0a58146779"
+    },
+    {
+      "path": "chapter-30/chapter-30-premium.md",
+      "bytes": 107982,
+      "sha256": "a6c192a50b11b208ad120c33c57b82fe989a0e878fc4dfb838d6be3f11b17edd"
+    },
+    {
+      "path": "chapter-30/chapter-30-premium.pdf",
+      "bytes": 1241619,
+      "sha256": "8ecf32361a732f136897e46ae9e53c738eea8a24ee63616ceb17dd2598c627ca"
+    },
+    {
+      "path": "chapter-30/chapter.json",
+      "bytes": 1131,
+      "sha256": "2f7a8b0701dd6ae9d7d74ef463fd3958dd4dd51bc9334a9b87b686db1055f644"
+    },
+    {
+      "path": "chapter-30/examples/01-trust-boundary.mjs",
+      "bytes": 744,
+      "sha256": "f48b9bea780c4bbdeb98ef5c2575c0c2736555ecc8ec9f9b33d7214b3a963378"
+    },
+    {
+      "path": "chapter-30/examples/02-race-condition.mjs",
+      "bytes": 1593,
+      "sha256": "922eae65df4b000dc93e8e534ff409d2610bba5c8e87b0867ab50309527256ac"
+    },
+    {
+      "path": "chapter-30/examples/03-password-hash.mjs",
+      "bytes": 856,
+      "sha256": "e8c416d6ddb8c994bc36283dcd47f3e901f0604f4e1ba2d3e23e43c244c38223"
+    },
+    {
+      "path": "chapter-30/examples/04-rubric.mjs",
+      "bytes": 1615,
+      "sha256": "a5edb4d68ef0003861eae4aa6978939953370132ab4e7dd50899ee3cfc077693"
+    },
+    {
+      "path": "chapter-30/examples/solutions/s08-token-expiry.test.mjs",
+      "bytes": 1079,
+      "sha256": "78a9947be9bf5c90dbb3a91ad44cf4d222dd4fd6e8632be39de16344ce503d26"
+    },
+    {
+      "path": "chapter-30/examples/solutions/s11-catalog-filter.mjs",
+      "bytes": 1311,
+      "sha256": "e574cd65729f55c2470fe29cf7a332b33121d1f127c6fbbbea7e1b206ddad471"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/README.md",
+      "bytes": 4575,
+      "sha256": "7a5d6f4953933a27cd5025c296089f687214965149abca144224c0da2a4e3437"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/demo.mjs",
+      "bytes": 2269,
+      "sha256": "5ac5066ebd6644345566287309508f796169b9515c080ca20d4c3b7fcd555c67"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/main.mjs",
+      "bytes": 913,
+      "sha256": "7ff55da5c8775e160f855b59845a523cefc2603c4950144e7f8dfe2a918b511a"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/package.json",
+      "bytes": 515,
+      "sha256": "011f42a764b8548e6f9c86010be0ce0c6ba66e092e4dbe7a68f7f299c82387e7"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/public/app.mjs",
+      "bytes": 6479,
+      "sha256": "c178b6c24101b2bb69453b2c90f9197126270ba6f97bf7a3ec2617fcb9ffe141"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/public/index.html",
+      "bytes": 2006,
+      "sha256": "0cab97483a95eb156a2e88d1bbe63a4db749ea8d146e5816b26bd44d764a6af6"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/public/styles.css",
+      "bytes": 1001,
+      "sha256": "48b27c8d7886e5968a2c1f49bb43e8f5a33bf01bd7d523aab58436885d679f48"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/src/db.mjs",
+      "bytes": 2828,
+      "sha256": "c44f50e57da7b295a4b54c9d9da9cafd44c19b9dbc09bc0030f0a4f7341b1fe0"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/src/errors.mjs",
+      "bytes": 881,
+      "sha256": "3d5d0563036f8c013acbdb704d49f67616e845bf2cbb6fa29c2e78a2f01a2f9b"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/src/http.mjs",
+      "bytes": 5153,
+      "sha256": "86bc62963d52ac1e86d53630df6c36ebaf6b6c12b32917dde3eda17eaa4fef0f"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/src/passwords.mjs",
+      "bytes": 1572,
+      "sha256": "9434578ef310170b4fa3b3c78c9b49103c2ed608598db46b1d092c05cb54e261"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/src/server.mjs",
+      "bytes": 1133,
+      "sha256": "0f0c9a2b8de1538cbaab250a846924f94bfff433c7662fa707bec860540f227c"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/src/service.mjs",
+      "bytes": 8265,
+      "sha256": "77d1d250d8fb87713de1ce72344820c2ab2243d09931ff5ad306ae9b1a0da9ee"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/src/validation.mjs",
+      "bytes": 2123,
+      "sha256": "4ea24a37b4003e810c63dd87ff7db101dd0d184b2fc47c549121b01927f3a363"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/tests/auth.test.mjs",
+      "bytes": 2629,
+      "sha256": "a1548881ae0e6cc97efc583a61f336bc603ccf055be8e8c558b006139d411aa3"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/tests/concurrency.test.mjs",
+      "bytes": 1815,
+      "sha256": "8c8164e14a18a3efdcd320e7634463d0e50afe54855f07713b0c7ddb0bc801bf"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/tests/fixtures/booking-worker.mjs",
+      "bytes": 988,
+      "sha256": "ab57feb16be147968985c3004208d1bbd4aced47d48b48360f46baedbb818cae"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/tests/helpers.mjs",
+      "bytes": 2032,
+      "sha256": "18a841093dacaf1f10190348e6e313d7d9b00e5385b304b0d637041febca3bb2"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/tests/http.test.mjs",
+      "bytes": 3388,
+      "sha256": "a3057ab8ffa1bf856182dcb025b8b251d592faca32e91a99ea85f7b3eb7ac286"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/tests/service.test.mjs",
+      "bytes": 3001,
+      "sha256": "b18037a37a7123202b8f31acb8a8da2ce11296bdcda44bd6c8e97714085a65dc"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/tests/validation.test.mjs",
+      "bytes": 1606,
+      "sha256": "4cac989d62496c93499c7fff83ffe7d41cf80a276db47fa8ad1683ec6e7897ca"
+    },
+    {
+      "path": "chapter-30/project/travel-master-pro/tsconfig.json",
+      "bytes": 278,
+      "sha256": "0b5ec785d2ce18029a6a3c97cf1145f109ddfa94ad70a83403b4d98fdfb28e9f"
+    },
+    {
+      "path": "chapter-30/qa-logs/browser-e2e.log",
+      "bytes": 1420,
+      "sha256": "0ec0e7ea7e4d4650fae8ded6a349405c4b8607d06d9eeb4b51c445b45d633b6e"
+    },
+    {
+      "path": "chapter-30/qa-logs/demo.log",
+      "bytes": 703,
+      "sha256": "cd57c90e0b2a5e5c5bc0321493311fd17504b75e4dc05c590ebc87fa16bb79d5"
+    },
+    {
+      "path": "chapter-30/qa-logs/docx-check.log",
+      "bytes": 2359,
+      "sha256": "add153e2dc4a1efbc890aa77900f63b126ae5233730881891f6590d92c623ce5"
+    },
+    {
+      "path": "chapter-30/qa-logs/environment.log",
+      "bytes": 69,
+      "sha256": "0fd652f0a2c91f661c24b50866842f7f92890bdca55dba1fb74d64128fdd02e6"
+    },
+    {
+      "path": "chapter-30/qa-logs/listings-run.log",
+      "bytes": 137,
+      "sha256": "1b75df4668aabbcd4c285a3cb14a54a1a1df66c896ba00a743f6de739baf3093"
+    },
+    {
+      "path": "chapter-30/qa-logs/manuscript-check.log",
+      "bytes": 3400,
+      "sha256": "d48442a0bfb82a34a15aaa686d5331ab9cf108995a3fea04d5c7a47fca33851b"
+    },
+    {
+      "path": "chapter-30/qa-logs/node-examples.log",
+      "bytes": 5673,
+      "sha256": "eb9b03dee68f1e35e6032ae844bc7c6a04c4f8b05f08be4aae3070e2c6dc6c34"
+    },
+    {
+      "path": "chapter-30/qa-logs/pdf-check.log",
+      "bytes": 1242,
+      "sha256": "0c6f16a7726cbb127faa85ba0ae41c17900e97f944870817f84d658e10d773d9"
+    },
+    {
+      "path": "chapter-30/qa-logs/qa-summary.json",
+      "bytes": 2287,
+      "sha256": "69f3ecf18a67616fae686bdc2983befee7ab27f5ade8b0618defc632026ba82d"
+    },
+    {
+      "path": "chapter-30/qa-logs/syntax-checks.log",
+      "bytes": 67,
+      "sha256": "92eb790e3a91d50cb04bbb17bec5c44293fe80d3bd078dbbc423e8261256ecfc"
+    },
+    {
+      "path": "chapter-30/qa-logs/tokens-check.log",
+      "bytes": 2704,
+      "sha256": "8bc77368ced030603b508a7d29031058afa684ad66d318b0fd0a0c842301e16c"
+    },
+    {
+      "path": "chapter-30/qa-logs/typecheck.log",
+      "bytes": 274,
+      "sha256": "2bf684213315e2dcc2ba5684823889e85906c605e416a505c77546f8f7e07fe5"
+    },
+    {
+      "path": "chapter-30/qa-logs/typography-audit.log",
+      "bytes": 2511,
+      "sha256": "92dfdc57f34d467f4c3c43e4a93f37eab02c5e9b98902dc4251ad099e4dcec43"
+    },
+    {
+      "path": "chapter-30/qa-logs/unit-tests.log",
+      "bytes": 5736,
+      "sha256": "6a975ec10eb9f809d5bf55b1829465776f3d42cb293ef28850e2c01a7930b65b"
+    },
+    {
+      "path": "tools/cdp.mjs",
+      "bytes": 5286,
+      "sha256": "c82997ce600a8e5e4725cde3f6590bcf547833f20bc583531d4f8e7d05d47bde"
+    },
+    {
+      "path": "tools/ch27-browser-e2e.mjs",
+      "bytes": 3554,
+      "sha256": "6c778be0bb4e1eb5088f4a6bbbad2530bf14a5e82a143cf5a31d244229a5d4c9"
+    },
+    {
+      "path": "tools/ch28-validate-deploy.mjs",
+      "bytes": 6397,
+      "sha256": "073107af64b508a4a26e690be76e1c1fbfebf79cdc609957468f497fe6af01c9"
+    },
+    {
+      "path": "tools/ch30-browser-e2e.mjs",
+      "bytes": 5978,
+      "sha256": "90f8269577263debb2ff6acada41940a0dbea74e1fd7482a16c390a1d7ab2f3d"
+    },
+    {
+      "path": "tools/ch30-typecheck.mjs",
+      "bytes": 2273,
+      "sha256": "469a191efe8acefd3392db2f3da03aff424152021517b4bff08d0ee14d70a9d0"
+    },
+    {
+      "path": "tools/extract-and-run.mjs",
+      "bytes": 5736,
+      "sha256": "99fd710c6ca86acfe30a6dec94b146cfcc4e2913e1855945a427f154ca406fb2"
+    },
+    {
+      "path": "tools/load-script.js",
+      "bytes": 800,
+      "sha256": "484dc007d6c4b637c2f7e6610e5f09fff6bfc9a3bf3a78bbdc3d32062de2831f"
+    },
+    {
+      "path": "tools/local-deps-hooks.mjs",
+      "bytes": 546,
+      "sha256": "f7b833ec217c8118170fa5945b99b0d1809c578f30c2f7220803340d9e1b41de"
+    },
+    {
+      "path": "tools/local-deps.mjs",
+      "bytes": 411,
+      "sha256": "7676f0a8081ffdaedcb7ca7ccee3eab7927e460eccdf7ff5bfaef4ca6d48ea52"
+    },
+    {
+      "path": "tools/make-summary.mjs",
+      "bytes": 28205,
+      "sha256": "c677d5ce2932b1af506c25d480f309caebb086f5f351b0caeaeb71a8b3ba9330"
+    },
+    {
+      "path": "tools/run-browser-listings.mjs",
+      "bytes": 6373,
+      "sha256": "fa496c8e1bcbdd2fdd4803168788bdf4dc73acdae41dd6f28633d9fc618a8e73"
+    },
+    {
+      "path": "tools/ts-examples.mjs",
+      "bytes": 4479,
+      "sha256": "39c0123b851021dcaac4d8a600688f13126123c4a64dc9bc9c1702722ddb10c1"
+    }
+  ]
+}

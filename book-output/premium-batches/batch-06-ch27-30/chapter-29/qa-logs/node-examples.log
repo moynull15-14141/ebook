@@ -1,0 +1,137 @@
+===== examples/01-capacity.mjs  (exit code 0) =====
+{ avgRps: 1, peakRps: 20, concurrent: 5, dbQps: 32 }
+ব্যর্থতার সময় Payment-এ অনুরোধ/সেকেন্ড: 60
+
+===== examples/02-modular-monolith.mjs  (exit code 0) =====
+{ ok: true, bookingNo: 1 }
+{ ok: false, reason: 'SOLD_OUT' }
+বাকি আসন: 1
+আটকানো হলো: TypeError
+
+===== examples/03-choreography.mjs  (exit code 0) =====
+Rahim: booking.requested > seats.reserved > payment.captured > booking.confirmed
+Karim: booking.requested > seats.reserved > payment.failed > booking.rejected
+বাকি আসন: 3
+
+===== examples/05-fingerprint.mjs  (exit code 0) =====
+প্রথম:       f6b104d2fcb3
+ক্রম বদলানো: f6b104d2fcb3 (একই অনুরোধ)
+দাম বদলানো:  f29354afe76f (Conflict)
+(node:9100) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/04-partition.mjs  (exit code 0) =====
+AP:
+  Dhaka: Agent-A-এর কাছে বিক্রি
+  Chattogram: Agent-B-এর কাছে বিক্রি
+  মিলনের পর বিক্রি: 2 (আসন ছিল 1) Overbooking!
+CP:
+  Dhaka: প্রত্যাখ্যান (অন্য Replica-র সঙ্গে মিলানো যাচ্ছে না)
+  Chattogram: প্রত্যাখ্যান (অন্য Replica-র সঙ্গে মিলানো যাচ্ছে না)
+  মিলনের পর বিক্রি: 0 (আসন ছিল 1) ঠিক আছে
+
+===== project/travel-saga/src/http-client.mjs  (exit code 0) =====
+
+
+===== project/travel-saga/src/services/inventory.mjs  (exit code 0) =====
+
+
+===== project/travel-saga/src/services/payment.mjs  (exit code 0) =====
+
+
+===== project/travel-saga/src/saga-store.mjs  (exit code 0) =====
+(node:2680) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== project/travel-saga/src/orchestrator.mjs  (exit code 0) =====
+(node:7620) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== project/travel-saga/src/system.mjs  (exit code 0) =====
+(node:8584) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== project/travel-saga/demo.mjs  (exit code 0) =====
+১. সাধারণ Booking: CONFIRMED
+২. একই অনুরোধ আবার: CONFIRMED
+৩. একই ID, ভিন্ন দাম: IDEMPOTENCY_CONFLICT
+৪. Card প্রত্যাখ্যাত: REJECTED (PAYMENT_DECLINED)
+৫. Inventory সাময়িক 503: CONFIRMED
+৬. আসন নেই: REJECTED (SOLD_OUT)
+৭. Payment-এর উত্তর অনিশ্চিত: REJECTED (PAYMENT_UNCERTAIN)
+Inventory: { available: 7, reserved: 3 }
+Payment: { captured: 1700000, refunded: 300000, attempts: 4 }
+Outbox-এর Event:
+  trip-101 booking.confirmed
+  trip-102 booking.rejected
+  trip-103 booking.confirmed
+  trip-104 booking.rejected
+  trip-105 booking.rejected
+trip-105-এর ইতিহাস: STARTED > RESERVING > CHARGING > COMPENSATING > REJECTED
+(node:9940) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== project/travel-saga/tests/recovery.test.mjs  (exit code 0) =====
+TAP version 13
+# Subtest: 'reserved'-এর পরে Crash, Restart-এ resume: একবারই কাটা
+ok 1 - 'reserved'-এর পরে Crash, Restart-এ resume: একবারই কাটা
+  ---
+  duration_ms: 630.5414
+  type: 'test'
+  ...
+# Subtest: 'charged'-এর পরে Crash, Restart-এ resume: একবারই কাটা
+ok 2 - 'charged'-এর পরে Crash, Restart-এ resume: একবারই কাটা
+  ---
+  duration_ms: 353.0964
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 994.6696
+(node:11224) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/solutions/s01-capacity.mjs  (exit code 0) =====
+গড়: 5 RPS, Peak: 50 RPS
+একসঙ্গে চলমান অনুরোধ (Peak): 10
+Instance: 2 (একটি অতিরিক্ত, ব্যর্থতার জন্য)
+
+===== examples/solutions/s05-idempotency.mjs  (exit code 0) =====
+{ status: 201, body: { charged: 500 } }
+{ status: 201, body: { charged: 500 }, replay: true }
+{ status: 409, body: { error: 'IDEMPOTENCY_CONFLICT' } }
+আসলে টাকা কাটা হয়েছে: 1 বার
+
+===== examples/solutions/s06-retry-storm.mjs  (exit code 0) =====
+প্রতি স্তরে 1 চেষ্টা: 1টি ডাক
+প্রতি স্তরে 2 চেষ্টা: 8টি ডাক
+প্রতি স্তরে 3 চেষ্টা: 27টি ডাক
+শুধু নিচের স্তরে ৩ চেষ্টা: 3 টি ডাক
+৩^৩ হলে বন্ধ Service-এ অনুরোধ/সেকেন্ড: 5400
+
+===== examples/solutions/s07-inbox.mjs  (exit code 0) =====
+Delivery 1: processed
+Delivery 2: duplicate
+Delivery 3: duplicate
+{ customer: 'Rahim', points: 200 }
+(node:6468) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/solutions/s10-bulkhead.mjs  (exit code 0) =====
+Inventory: উত্তর এল
+Payment: 7 টি সঙ্গে সঙ্গে প্রত্যাখ্যাত, 3 টি সম্পন্ন
+{ active: 0, rejected: 7 }
+
+===== examples/solutions/s11-outbox-relay.mjs  (exit code 0) =====
+দফা ১: 1 টি পাঠানো
+দফা ২: 2 টি পাঠানো
+Broker পেল: trip-1, trip-2, trip-3
+বাকি: 0
+(node:10940) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)

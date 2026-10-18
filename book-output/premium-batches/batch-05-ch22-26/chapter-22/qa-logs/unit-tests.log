@@ -1,0 +1,243 @@
+$ node --test   (in project\currency-desk)
+
+TAP version 13
+# Subtest: Browser-এ Quote
+ok 1 - Browser-এ Quote
+  ---
+  duration_ms: 1848.4837
+  type: 'test'
+  ...
+# Subtest: Fee: সবচেয়ে ছোট বৈধ
+ok 2 - Fee: সবচেয়ে ছোট বৈধ
+  ---
+  duration_ms: 2.7669
+  type: 'test'
+  ...
+# Subtest: Fee: প্রথম স্তরের শেষ (999.99)
+ok 3 - Fee: প্রথম স্তরের শেষ (999.99)
+  ---
+  duration_ms: 0.2432
+  type: 'test'
+  ...
+# Subtest: Fee: দ্বিতীয় স্তরের শুরু (1,000.00)
+ok 4 - Fee: দ্বিতীয় স্তরের শুরু (1,000.00)
+  ---
+  duration_ms: 0.1237
+  type: 'test'
+  ...
+# Subtest: Fee: 1.5% যেখানে ন্যূনতমকে ছাড়ায় (3,333.34)
+ok 5 - Fee: 1.5% যেখানে ন্যূনতমকে ছাড়ায় (3,333.34)
+  ---
+  duration_ms: 0.2588
+  type: 'test'
+  ...
+# Subtest: Fee: তার পরের পয়সা (3,333.67)
+ok 6 - Fee: তার পরের পয়সা (3,333.67)
+  ---
+  duration_ms: 0.1269
+  type: 'test'
+  ...
+# Subtest: Fee: দ্বিতীয় স্তরের শেষ (9,999.99)
+ok 7 - Fee: দ্বিতীয় স্তরের শেষ (9,999.99)
+  ---
+  duration_ms: 0.1245
+  type: 'test'
+  ...
+# Subtest: Fee: তৃতীয় স্তরের শুরু (10,000.00)
+ok 8 - Fee: তৃতীয় স্তরের শুরু (10,000.00)
+  ---
+  duration_ms: 0.1912
+  type: 'test'
+  ...
+# Subtest: Fee: সর্বোচ্চ (500,000.00)
+ok 9 - Fee: সর্বোচ্চ (500,000.00)
+  ---
+  duration_ms: 0.106
+  type: 'test'
+  ...
+# Subtest: সীমার বাইরে: 0, ঋণাত্মক, সর্বোচ্চের এক পয়সা বেশি, ভগ্নাংশ
+ok 10 - সীমার বাইরে: 0, ঋণাত্মক, সর্বোচ্চের এক পয়সা বেশি, ভগ্নাংশ
+  ---
+  duration_ms: 0.8903
+  type: 'test'
+  ...
+# Subtest: Quote API
+    # Subtest: 201: সম্পূর্ণ Quote, সব টাকা পয়সায়
+    ok 1 - 201: সম্পূর্ণ Quote, সব টাকা পয়সায়
+      ---
+      duration_ms: 64.0854
+      type: 'test'
+      ...
+    # Subtest: 400: অবৈধ পরিমাণ, সীমার বাইরে, অবৈধ মুদ্রা, ভাঙা JSON
+    ok 2 - 400: অবৈধ পরিমাণ, সীমার বাইরে, অবৈধ মুদ্রা, ভাঙা JSON
+      ---
+      duration_ms: 92.2452
+      type: 'test'
+      ...
+    # Subtest: 404: অজানা মুদ্রা-জোড়া
+    ok 3 - 404: অজানা মুদ্রা-জোড়া
+      ---
+      duration_ms: 6.0639
+      type: 'test'
+      ...
+    # Subtest: Provider সাময়িক ব্যর্থ: Retry-তে সফল
+    ok 4 - Provider সাময়িক ব্যর্থ: Retry-তে সফল
+      ---
+      duration_ms: 15.9053
+      type: 'test'
+      ...
+    # Subtest: 502: Provider বারবার ব্যর্থ
+    ok 5 - 502: Provider বারবার ব্যর্থ
+      ---
+      duration_ms: 7.961
+      type: 'test'
+      ...
+    # Subtest: অজানা পথ 404
+    ok 6 - অজানা পথ 404
+      ---
+      duration_ms: 67.567
+      type: 'test'
+      ...
+    1..6
+ok 11 - Quote API
+  ---
+  duration_ms: 287.3911
+  type: 'test'
+  ...
+# Subtest: বৈধ: "0.01" = 1 পয়সা
+ok 12 - বৈধ: "0.01" = 1 পয়সা
+  ---
+  duration_ms: 2.4985
+  type: 'test'
+  ...
+# Subtest: বৈধ: "5" = 500 পয়সা
+ok 13 - বৈধ: "5" = 500 পয়সা
+  ---
+  duration_ms: 0.2216
+  type: 'test'
+  ...
+# Subtest: বৈধ: "5.5" = 550 পয়সা
+ok 14 - বৈধ: "5.5" = 550 পয়সা
+  ---
+  duration_ms: 0.1267
+  type: 'test'
+  ...
+# Subtest: বৈধ: "1,234.56" = 123456 পয়সা
+ok 15 - বৈধ: "1,234.56" = 123456 পয়সা
+  ---
+  duration_ms: 0.2618
+  type: 'test'
+  ...
+# Subtest: বৈধ: "  250  " = 25000 পয়সা
+ok 16 - বৈধ: "  250  " = 25000 পয়সা
+  ---
+  duration_ms: 0.1528
+  type: 'test'
+  ...
+# Subtest: বৈধ: "1,000,000" = 100000000 পয়সা
+ok 17 - বৈধ: "1,000,000" = 100000000 পয়সা
+  ---
+  duration_ms: 0.1156
+  type: 'test'
+  ...
+# Subtest: অবৈধ শ্রেণি: প্রতিটিতে MoneyError
+ok 18 - অবৈধ শ্রেণি: প্রতিটিতে MoneyError
+  ---
+  duration_ms: 0.8096
+  type: 'test'
+  ...
+# Subtest: formatAmount: হাজারের কমা, দুই দশমিক, ঋণাত্মক
+ok 19 - formatAmount: হাজারের কমা, দুই দশমিক, ঋণাত্মক
+  ---
+  duration_ms: 26.2443
+  type: 'test'
+  ...
+# Subtest: convert: BigInt-এ গুণ, অর্ধেক হলে ওপরে
+ok 20 - convert: BigInt-এ গুণ, অর্ধেক হলে ওপরে
+  ---
+  duration_ms: 0.5769
+  type: 'test'
+  ...
+# Subtest: format তারপর parse: আগের মান ফেরত (Round-trip)
+ok 21 - format তারপর parse: আগের মান ফেরত (Round-trip)
+  ---
+  duration_ms: 60.7693
+  type: 'test'
+  ...
+# Subtest: Fee কখনো কমে না: বড় পরিমাণে Fee সমান বা বেশি
+ok 22 - Fee কখনো কমে না: বড় পরিমাণে Fee সমান বা বেশি
+  ---
+  duration_ms: 119.9926
+  type: 'test'
+  ...
+# Subtest: Fee সব সময় 1% (পয়সায় পূর্ণ) থেকে 50 টাকা বা 2%-এর মধ্যে
+ok 23 - Fee সব সময় 1% (পয়সায় পূর্ণ) থেকে 50 টাকা বা 2%-এর মধ্যে
+  ---
+  duration_ms: 18.3004
+  type: 'test'
+  ...
+# Subtest: Quote 60 সেকেন্ড বৈধ, তারপর নয় (নকল ঘড়ি)
+ok 24 - Quote 60 সেকেন্ড বৈধ, তারপর নয় (নকল ঘড়ি)
+  ---
+  duration_ms: 4.7465
+  type: 'test'
+  ...
+# Subtest: অবৈধ পরিমাণে Rate Server-এ যাওয়াই হয় না
+ok 25 - অবৈধ পরিমাণে Rate Server-এ যাওয়াই হয় না
+  ---
+  duration_ms: 1.2619
+  type: 'test'
+  ...
+# Subtest: Safe Integer-এর বাইরের পরিমাণে MoneyError
+ok 26 - Safe Integer-এর বাইরের পরিমাণে MoneyError
+  ---
+  duration_ms: 0.5088
+  type: 'test'
+  ...
+# (node:15232) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Cache: TTL-এর মধ্যে দ্বিতীয় অনুরোধ Network-এ যায় না
+ok 27 - Cache: TTL-এর মধ্যে দ্বিতীয় অনুরোধ Network-এ যায় না
+  ---
+  duration_ms: 40.9682
+  type: 'test'
+  ...
+# Subtest: Retry: 503 দুবার, তৃতীয়বার সফল; অপেক্ষা 100 ও 200 ms
+ok 28 - Retry: 503 দুবার, তৃতীয়বার সফল; অপেক্ষা 100 ও 200 ms
+  ---
+  duration_ms: 2.6342
+  type: 'test'
+  ...
+# Subtest: Retry-যোগ্য নয় এমন Error (404) সঙ্গে সঙ্গে, একবারই
+ok 29 - Retry-যোগ্য নয় এমন Error (404) সঙ্গে সঙ্গে, একবারই
+  ---
+  duration_ms: 1.5844
+  type: 'test'
+  ...
+# Subtest: সব চেষ্টা ব্যর্থ: শেষ Error, cause-সহ
+ok 30 - সব চেষ্টা ব্যর্থ: শেষ Error, cause-সহ
+  ---
+  duration_ms: 0.9319
+  type: 'test'
+  ...
+# Subtest: অবৈধ মুদ্রা ও অবৈধ হার
+ok 31 - অবৈধ মুদ্রা ও অবৈধ হার
+  ---
+  duration_ms: 1.1823
+  type: 'test'
+  ...
+# Subtest: mock.timers: আসল setTimeout-এর অপেক্ষা ছাড়াই Default sleep
+ok 32 - mock.timers: আসল setTimeout-এর অপেক্ষা ছাড়াই Default sleep
+  ---
+  duration_ms: 12.6293
+  type: 'test'
+  ...
+1..32
+# tests 38
+# suites 0
+# pass 38
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1999.1071

@@ -1,0 +1,120 @@
+$ node --test   (in project\user-directory-explorer)
+
+TAP version 13
+# Subtest: normalizeUser: প্রয়োজনীয় অংশ, trim করা নাম ও Email
+ok 1 - normalizeUser: প্রয়োজনীয় অংশ, trim করা নাম ও Email
+  ---
+  duration_ms: 1.2817
+  type: 'test'
+  ...
+# Subtest: normalizeUser: ভুল গঠনে null; Email বা শহর না থাকলে নিরাপদ মান
+ok 2 - normalizeUser: ভুল গঠনে null; Email বা শহর না থাকলে নিরাপদ মান
+  ---
+  duration_ms: 0.2046
+  type: 'test'
+  ...
+# Subtest: filterUsers: নাম, Email ও শহরে, বড়-ছোট হাতের অক্ষর নির্বিশেষে
+ok 3 - filterUsers: নাম, Email ও শহরে, বড়-ছোট হাতের অক্ষর নির্বিশেষে
+  ---
+  duration_ms: 0.2652
+  type: 'test'
+  ...
+# Subtest: sortUsers: নাম, শহর; অচেনা Key-তে নাম; মূল তালিকা অপরিবর্তিত
+ok 4 - sortUsers: নাম, শহর; অচেনা Key-তে নাম; মূল তালিকা অপরিবর্তিত
+  ---
+  duration_ms: 12.8033
+  type: 'test'
+  ...
+# Subtest: wait: সময় পরে fulfilled; আগে থেকে বা মাঝপথে বাতিলে AbortError
+ok 5 - wait: সময় পরে fulfilled; আগে থেকে বা মাঝপথে বাতিলে AbortError
+  ---
+  duration_ms: 74.7341
+  type: 'test'
+  ...
+# Subtest: fetchJson: JSON ফেরত, Accept Header এবং signal পাঠায়
+ok 6 - fetchJson: JSON ফেরত, Accept Header এবং signal পাঠায়
+  ---
+  duration_ms: 3.8252
+  type: 'test'
+  ...
+# Subtest: fetchJson: HTTP 404-এ status-সহ ত্রুটি
+ok 7 - fetchJson: HTTP 404-এ status-সহ ত্রুটি
+  ---
+  duration_ms: 0.7032
+  type: 'test'
+  ...
+# Subtest: fetchJson: সাড়া না এলে সময়সীমা শেষে TimeoutError
+ok 8 - fetchJson: সাড়া না এলে সময়সীমা শেষে TimeoutError
+  ---
+  duration_ms: 73.4594
+  type: 'test'
+  ...
+# Subtest: fetchWithRetry: 503, 500, তারপর 200; মোট তিনবার চেষ্টা
+ok 9 - fetchWithRetry: 503, 500, তারপর 200; মোট তিনবার চেষ্টা
+  ---
+  duration_ms: 16.0857
+  type: 'test'
+  ...
+# Subtest: fetchWithRetry: 404-এ আবার চেষ্টা নয়
+ok 10 - fetchWithRetry: 404-এ আবার চেষ্টা নয়
+  ---
+  duration_ms: 1.8411
+  type: 'test'
+  ...
+# Subtest: fetchWithRetry: সব চেষ্টা ব্যর্থ হলে retries + 1 বার পরে শেষ ত্রুটি
+ok 11 - fetchWithRetry: সব চেষ্টা ব্যর্থ হলে retries + 1 বার পরে শেষ ত্রুটি
+  ---
+  duration_ms: 13.4722
+  type: 'test'
+  ...
+# Subtest: fetchWithRetry: Network ত্রুটি (TypeError) সাময়িক; Backoff দ্বিগুণ হয়
+ok 12 - fetchWithRetry: Network ত্রুটি (TypeError) সাময়িক; Backoff দ্বিগুণ হয়
+  ---
+  duration_ms: 140.4534
+  type: 'test'
+  ...
+# Subtest: fetchWithRetry: Backoff-এর অপেক্ষার মাঝে বাতিল করলে সঙ্গে সঙ্গে থামে
+ok 13 - fetchWithRetry: Backoff-এর অপেক্ষার মাঝে বাতিল করলে সঙ্গে সঙ্গে থামে
+  ---
+  duration_ms: 46.0964
+  type: 'test'
+  ...
+# Subtest: isTemporary: শুধু Network, সময়সীমা ও 5xx
+ok 14 - isTemporary: শুধু Network, সময়সীমা ও 5xx
+  ---
+  duration_ms: 1.3062
+  type: 'test'
+  ...
+# Subtest: loadUsers: ভুল গঠনের User বাদ; Array না এলে ত্রুটি
+ok 15 - loadUsers: ভুল গঠনের User বাদ; Array না এলে ত্রুটি
+  ---
+  duration_ms: 3.5676
+  type: 'test'
+  ...
+# Subtest: errorMessage: প্রতিটি ধরনের জন্য ব্যবহারকারীর ভাষায় বার্তা
+ok 16 - errorMessage: প্রতিটি ধরনের জন্য ব্যবহারকারীর ভাষায় বার্তা
+  ---
+  duration_ms: 0.9595
+  type: 'test'
+  ...
+# Subtest: Integration (Local Server, আসল fetch): সফল সাড়া, এবং 503-এর পর আবার চেষ্টায় সফল
+ok 17 - Integration (Local Server, আসল fetch): সফল সাড়া, এবং 503-এর পর আবার চেষ্টায় সফল
+  ---
+  duration_ms: 135.7267
+  type: 'test'
+  ...
+# Subtest: Integration (Local Server, আসল fetch): ধীর Server-এ TimeoutError, ব্যবহারকারীর বাতিলে AbortError
+ok 18 - Integration (Local Server, আসল fetch): ধীর Server-এ TimeoutError, ব্যবহারকারীর বাতিলে AbortError
+  ---
+  duration_ms: 169.1453
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 836.8656

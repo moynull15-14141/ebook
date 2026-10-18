@@ -1,0 +1,14 @@
+{
+  "number": 25,
+  "source": "chapter-25-premium.md",
+  "outputBase": "chapter-25-premium",
+  "companion": ["project", "examples"],
+  "logs": "qa-logs",
+  "nodeArgs": ["--import", "file:///D:/MoynullHasan/ebook/allcopy/book-output/premium-batches/batch-05-ch22-26/tools/local-deps.mjs"],
+  "tests": [
+    { "name": "listings: Node.js run + compare (Express via QA-only local-deps hook)", "cwd": ".", "cmd": ["node", "../tools/extract-and-run.mjs", "."], "log": "listings-run.log" },
+    { "name": "syntax: project", "cwd": "project/lead-desk", "cmd": ["node", "--check", "src/service.mjs"] },
+    { "name": "syntax: tests", "cwd": "project/lead-desk", "cmd": ["node", "--check", "tests/api.test.mjs"] },
+    { "name": "API integration and shutdown tests (Express 4.22.1, local)", "cwd": "project/lead-desk", "cmd": ["node", "--import", "file:///D:/MoynullHasan/ebook/allcopy/book-output/premium-batches/batch-05-ch22-26/tools/local-deps.mjs", "--test"], "log": "unit-tests.log" }
+  ]
+}

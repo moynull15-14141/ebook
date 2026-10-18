@@ -1,0 +1,14 @@
+{
+  "number": 29,
+  "source": "chapter-29-premium.md",
+  "outputBase": "chapter-29-premium",
+  "companion": ["project", "examples"],
+  "logs": "qa-logs",
+  "tests": [
+    { "name": "listings: Node.js run + compare", "cwd": ".", "cmd": ["node", "../tools/extract-and-run.mjs", "."], "log": "listings-run.log" },
+    { "name": "syntax: orchestrator", "cwd": "project/travel-saga", "cmd": ["node", "--check", "src/orchestrator.mjs"] },
+    { "name": "syntax: tests", "cwd": "project/travel-saga", "cmd": ["node", "--check", "tests/saga.test.mjs"] },
+    { "name": "project tests: participants, HTTP client, saga paths, crash recovery (real HTTP services, SQLite saga log)", "cwd": "project/travel-saga", "cmd": ["node", "--test"], "log": "unit-tests.log" },
+    { "name": "failure lab demo: seven scenarios", "cwd": "project/travel-saga", "cmd": ["node", "demo.mjs"], "log": "demo.log" }
+  ]
+}

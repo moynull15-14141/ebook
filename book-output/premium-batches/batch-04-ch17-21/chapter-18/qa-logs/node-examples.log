@@ -1,0 +1,125 @@
+===== examples/01-transparency.js  (exit code 0) =====
+true
+1,2 3,3
+
+===== examples/02-nested-update.js  (exit code 0) =====
+1 3
+true
+true
+true
+false
+
+===== examples/03-update-in.js  (exit code 0) =====
+Dhaka Bogura true
+3 true
+
+===== examples/04-deep-freeze.js  (exit code 0) =====
+TypeError
+TypeError
+15 2
+
+===== examples/04b-normalized.js  (exit code 0) =====
+1 Dhaka Dhaka
+true
+
+===== examples/05-flat-map.js  (exit code 0) =====
+3
+O1:B1x2 O1:B2x1 O3:B1x1
+[ 'আম', 'কলা', 'লিচু' ]
+
+===== examples/06-reduce-map.js  (exit code 0) =====
+Map(2) { 'B1' => 3, 'B2' => 1 }
+[ 'B1', 3 ]
+
+===== examples/07-group-by.js  (exit code 0) =====
+[ 1000, 0 ] number
+{
+  Dhaka: { '2026-01': 1500, '2026-02': 500 },
+  Sylhet: { '2026-01': 800 }
+}
+{ count: 4, total: 2800, max: 1200 }
+
+===== examples/08-join.js  (exit code 0) =====
+[ 'O1 Notebook 240', 'O2 Pen Set 250' ]
+[ 'B9' ]
+
+===== examples/09-sorting.js  (exit code 0) =====
+9-Mina 9-Nila 9-Sara 10-Rafi
+[ 'আরিফ', 'ঋতু', 'কবির', 'সুমন' ]
+[ 'item1', 'item2', 'item10' ]
+
+===== examples/10-result.js  (exit code 0) =====
+12 12
+abc পরিমাণ সংখ্যা নয়: "abc"
+0 পরিমাণ শূন্য
+80 স্টকে 80টি নেই
+
+===== examples/11-async-pipeline.mjs  (exit code 0) =====
+ক্রমে: সর্বোচ্চ একসঙ্গে 1
+একসঙ্গে: সর্বোচ্চ একসঙ্গে 5, ফল 5
+দলে দলে: সর্বোচ্চ একসঙ্গে 2, ফল 5
+may: ১০০ সারি
+
+===== project/ledger-flow/src/immutable.mjs  (exit code 0) =====
+
+
+===== project/ledger-flow/src/validate.mjs  (exit code 0) =====
+
+
+===== project/ledger-flow/src/transform.mjs  (exit code 0) =====
+
+
+===== project/ledger-flow/src/load.mjs  (exit code 0) =====
+
+
+===== project/ledger-flow/data/sample.mjs  (exit code 0) =====
+
+
+===== project/ledger-flow/report.mjs  (exit code 0) =====
+Order: 5, বৈধ 4; বাদ: O4: তারিখ YYYY-MM-DD নয়
+File ব্যর্থ: 2026-04: File নেই; অমিল: O3:B9
+{
+  Dhaka: { '2026-01': 1140, '2026-02': 900 },
+  Bogura: { '2026-01': 750, '2026-03': 360 }
+}
+সারা 1140, রফিক 1110, মিনা 900
+Invariant: true (3150)
+true false
+
+===== examples/solutions/s02-nested-city.js  (exit code 0) =====
+Bogura Dhaka 5800
+
+===== examples/solutions/s03-flat-split.js  (exit code 0) =====
+[ 'a', 'b', 'c' ]
+
+===== examples/solutions/s04-even-odd.js  (exit code 0) =====
+[ 2, 4 ] [ 1, 3, 5 ] [ false, true ]
+
+===== examples/solutions/s05-bangla-sort.js  (exit code 0) =====
+[ 'অনিক', 'ইমরান', 'খাদিজা', 'তানিয়া', 'রফিক' ]
+
+===== examples/solutions/s06-matrix.mjs  (exit code 0) =====
+[ 4, 5, 12 ] [ 4, 5, 6 ]
+true false true
+
+===== examples/solutions/s07-left-join.js  (exit code 0) =====
+Sara:88 Rafi:null Mina:72
+
+===== examples/solutions/s08-stats.js  (exit code 0) =====
+{ count: 4, total: 2800, min: 300, average: 700 }
+
+===== examples/solutions/s09-result-map.js  (exit code 0) =====
+{"ok":true,"value":"250 টাকা"}
+{"ok":false,"error":"দাম নেই"}
+
+===== examples/solutions/s10-diff.mjs  (exit code 0) =====
+[ 'cart' ]
+[]
+
+===== examples/solutions/s11-async-filter.mjs  (exit code 0) =====
+3
+B1,B3
+
+===== examples/solutions/s12-by-product.mjs  (exit code 0) =====
+Notebook 7, Pen Set 3, Atlas 2
+সবচেয়ে বেশি: Notebook

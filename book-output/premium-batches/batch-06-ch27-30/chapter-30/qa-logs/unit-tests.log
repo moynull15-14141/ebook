@@ -1,0 +1,130 @@
+$ node --test   (in project\travel-master-pro)
+
+TAP version 13
+# (node:14720) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Password সাধারণ লেখায় নয়; Token-ও Database-এ শুধু Hash
+ok 1 - Password সাধারণ লেখায় নয়; Token-ও Database-এ শুধু Hash
+  ---
+  duration_ms: 179.6611
+  type: 'test'
+  ...
+# Subtest: একই Email বড় হাতের অক্ষরে আবার: EMAIL_TAKEN
+ok 2 - একই Email বড় হাতের অক্ষরে আবার: EMAIL_TAKEN
+  ---
+  duration_ms: 365.1946
+  type: 'test'
+  ...
+# Subtest: ভুল Password ও অজানা Email: একই বার্তা
+ok 3 - ভুল Password ও অজানা Email: একই বার্তা
+  ---
+  duration_ms: 350.0657
+  type: 'test'
+  ...
+# Subtest: পাঁচবার ভুলের পর ১৫ মিনিট 429, তারপর আবার সুযোগ
+ok 4 - পাঁচবার ভুলের পর ১৫ মিনিট 429, তারপর আবার সুযোগ
+  ---
+  duration_ms: 582.5063
+  type: 'test'
+  ...
+# Subtest: Token-এর মেয়াদ ও Logout
+ok 5 - Token-এর মেয়াদ ও Logout
+  ---
+  duration_ms: 215.6435
+  type: 'test'
+  ...
+# (node:6360) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# (node:6360) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# (node:6360) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# (node:6360) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# (node:6360) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: একসঙ্গে Booking-এ Overbooking হয় না
+ok 6 - একসঙ্গে Booking-এ Overbooking হয় না
+  ---
+  duration_ms: 925.3601
+  type: 'test'
+  ...
+# (node:16988) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: পুরো প্রবাহ: নিবন্ধন, Login, Booking, তালিকা, বাতিল
+ok 7 - পুরো প্রবাহ: নিবন্ধন, Login, Booking, তালিকা, বাতিল
+  ---
+  duration_ms: 372.7369
+  type: 'test'
+  ...
+# Subtest: নিরাপত্তা: 401, অন্যের Booking 404, ভুল Input-এ সঠিক Status
+ok 8 - নিরাপত্তা: 401, অন্যের Booking 404, ভুল Input-এ সঠিক Status
+  ---
+  duration_ms: 430.0725
+  type: 'test'
+  ...
+# Subtest: Error চুক্তি ও Header: Stack বা Password Response-এ নয়
+ok 9 - Error চুক্তি ও Header: Stack বা Password Response-এ নয়
+  ---
+  duration_ms: 90.3401
+  type: 'test'
+  ...
+# (node:10844) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: দাম Server-এর Catalog থেকে; Client-এর price উপেক্ষিত
+ok 10 - দাম Server-এর Catalog থেকে; Client-এর price উপেক্ষিত
+  ---
+  duration_ms: 144.9123
+  type: 'test'
+  ...
+# Subtest: Idempotency: একই Key ও অনুরোধে একই Booking, আসন একবার কমে
+ok 11 - Idempotency: একই Key ও অনুরোধে একই Booking, আসন একবার কমে
+  ---
+  duration_ms: 297.5168
+  type: 'test'
+  ...
+# Subtest: আসন শেষ বা অজানা Package: কিছুই বদলায় না
+ok 12 - আসন শেষ বা অজানা Package: কিছুই বদলায় না
+  ---
+  duration_ms: 144.1511
+  type: 'test'
+  ...
+# Subtest: মালিকানা: অন্যের Booking দেখা বা বাতিল নয় (404)
+ok 13 - মালিকানা: অন্যের Booking দেখা বা বাতিল নয় (404)
+  ---
+  duration_ms: 281.229
+  type: 'test'
+  ...
+# Subtest: বাতিল একবারই আসন ফেরত দেয়
+ok 14 - বাতিল একবারই আসন ফেরত দেয়
+  ---
+  duration_ms: 137.2126
+  type: 'test'
+  ...
+# Subtest: Registration: Email স্বাভাবিক করা, দুর্বল Input-এ সব কারণ
+ok 15 - Registration: Email স্বাভাবিক করা, দুর্বল Input-এ সব কারণ
+  ---
+  duration_ms: 2.4428
+  type: 'test'
+  ...
+# Subtest: travelers: NaN, Infinity, ভগ্নাংশ, ঋণাত্মক, String, ১০-এর বেশি
+ok 16 - travelers: NaN, Infinity, ভগ্নাংশ, ঋণাত্মক, String, ১০-এর বেশি
+  ---
+  duration_ms: 0.664
+  type: 'test'
+  ...
+# Subtest: idempotencyKey ও packageId-এর Format
+ok 17 - idempotencyKey ও packageId-এর Format
+  ---
+  duration_ms: 0.3862
+  type: 'test'
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2347.7193

@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Hind Siliguri', 'Nirmala UI', sans-serif;
+  background: #f4f6fa;
+  color: #1c2430;
+}
+
+.app {
+  max-width: 640px;
+  margin: 32px auto;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 12px;
+}
+
+.row,
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+input,
+select,
+button {
+  font: inherit;
+  padding: 6px 10px;
+}
+
+#task-input,
+#task-list .title,
+#task-list .edit-input {
+  flex: 1;
+}
+
+#task-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e3e7ef;
+}
+
+#task-list li.done .title {
+  text-decoration: line-through;
+  color: #6b7585;
+}
+
+#notice {
+  min-height: 1.5em;
+  color: #12305f;
+}

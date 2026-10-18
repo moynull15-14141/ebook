@@ -1,0 +1,2 @@
+OK    node --check src/app/service.mjs   (in project/visa-flow)
+OK    node --check tests/service.test.mjs   (in project/visa-flow)

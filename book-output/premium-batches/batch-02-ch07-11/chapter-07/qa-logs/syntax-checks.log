@@ -1,0 +1,2 @@
+OK    node --check students.js   (in project/student-management)
+OK    node --check tests/students.test.js   (in project/student-management)

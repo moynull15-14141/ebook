@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SecureTrip</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.mjs"></script>
+</head>
+<body>
+  <h1>SecureTrip <small>শিক্ষামূলক Demo</small></h1>
+  <form id="login">
+    <label>Email <input id="email" type="email" required></label>
+    <label>Password <input id="password" type="password" required></label>
+    <button id="login-btn">Login</button>
+  </form>
+  <form id="trip" hidden>
+    <label>Package <select id="package">
+      <option value="cox-3d">Cox's Bazar, ৩ দিন</option>
+      <option value="sylhet-2d">Sylhet, ২ দিন</option>
+      <option value="sundarbans-3d">Sundarbans, ৩ দিন</option>
+    </select></label>
+    <label>যাত্রী <input id="travelers" type="number" min="1" max="8"
+      value="2"></label>
+    <label>তারিখ <input id="date" type="date" required></label>
+    <label>নোট <input id="note" maxlength="200"></label>
+    <button id="add">অনুরোধ পাঠান</button>
+  </form>
+  <p id="status" role="status"></p>
+  <ul id="trips"></ul>
+</body>
+</html>

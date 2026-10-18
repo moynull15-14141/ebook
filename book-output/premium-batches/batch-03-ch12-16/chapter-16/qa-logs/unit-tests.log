@@ -1,0 +1,191 @@
+$ node --test   (in project\booking-guard)
+
+TAP version 13
+# Subtest: validateRequest
+    # Subtest: বৈধ অনুরোধ পরিষ্কার করে: নাম trim, Email ছোট হাতের অক্ষরে
+    ok 1 - বৈধ অনুরোধ পরিষ্কার করে: নাম trim, Email ছোট হাতের অক্ষরে
+      ---
+      duration_ms: 2.0952
+      type: 'test'
+      ...
+    # Subtest: Boundary: 0 ও 11 আসন বাতিল, 1 ও 10 গৃহীত
+    ok 2 - Boundary: 0 ও 11 আসন বাতিল, 1 ও 10 গৃহীত
+      ---
+      duration_ms: 0.8543
+      type: 'test'
+      ...
+    # Subtest: আসন পূর্ণসংখ্যা হতে হবে; লেখা বা দশমিক নয়
+    ok 3 - আসন পূর্ণসংখ্যা হতে হবে; লেখা বা দশমিক নয়
+      ---
+      duration_ms: 0.6529
+      type: 'test'
+      ...
+    # Subtest: Boundary: নাম 1 অক্ষর বাতিল, 2 অক্ষর গৃহীত
+    ok 4 - Boundary: নাম 1 অক্ষর বাতিল, 2 অক্ষর গৃহীত
+      ---
+      duration_ms: 0.2286
+      type: 'test'
+      ...
+    # Subtest: সব ভুল একসঙ্গে, বার্তাসহ; ফাঁকা বা null ইনপুটেও
+    ok 5 - সব ভুল একসঙ্গে, বার্তাসহ; ফাঁকা বা null ইনপুটেও
+      ---
+      duration_ms: 0.4243
+      type: 'test'
+      ...
+    1..5
+ok 1 - validateRequest
+  ---
+  duration_ms: 6.0858
+  type: 'suite'
+  ...
+# Subtest: priceFor
+    # Subtest: Boundary: 4 আসনে ছাড় নেই, 5 আসন থেকে 10% গ্রুপ ছাড়
+    ok 1 - Boundary: 4 আসনে ছাড় নেই, 5 আসন থেকে 10% গ্রুপ ছাড়
+      ---
+      duration_ms: 0.2937
+      type: 'test'
+      ...
+    # Subtest: ছাড় নিকটতম টাকায় রাউন্ড; 1 ও 10 আসন
+    ok 2 - ছাড় নিকটতম টাকায় রাউন্ড; 1 ও 10 আসন
+      ---
+      duration_ms: 0.2708
+      type: 'test'
+      ...
+    1..2
+ok 2 - priceFor
+  ---
+  duration_ms: 1.1319
+  type: 'suite'
+  ...
+# Subtest: new.target.name: প্রতিটি Class-এর নিজের নাম, আলাদা করে লেখা ছাড়াই
+ok 3 - new.target.name: প্রতিটি Class-এর নিজের নাম, আলাদা করে লেখা ছাড়াই
+  ---
+  duration_ms: 1.3331
+  type: 'test'
+  ...
+# Subtest: instanceof শিকল: সবাই AppError ও Error
+ok 4 - instanceof শিকল: সবাই AppError ও Error
+  ---
+  duration_ms: 1.5593
+  type: 'test'
+  ...
+# Subtest: code, retryable ও অতিরিক্ত Property
+ok 5 - code, retryable ও অতিরিক্ত Property
+  ---
+  duration_ms: 1.3488
+  type: 'test'
+  ...
+# Subtest: cause সংরক্ষিত থাকে
+ok 6 - cause সংরক্ষিত থাকে
+  ---
+  duration_ms: 0.3495
+  type: 'test'
+  ...
+# Subtest: book
+    # Subtest: সফল: সংরক্ষিত, আসন কমে, Email ঠিক একবার, সময় Inject করা
+    ok 1 - সফল: সংরক্ষিত, আসন কমে, Email ঠিক একবার, সময় Inject করা
+      ---
+      duration_ms: 6.1437
+      type: 'test'
+      ...
+    # Subtest: সাময়িক Payment ত্রুটিতে Retry: বিরতি 100, 200; তৃতীয় চেষ্টায় সফল; প্রতিটি Retry Log
+    ok 2 - সাময়িক Payment ত্রুটিতে Retry: বিরতি 100, 200; তৃতীয় চেষ্টায় সফল; প্রতিটি Retry Log
+      ---
+      duration_ms: 2.6362
+      type: 'test'
+      ...
+    # Subtest: Retry শেষ: ত্রুটি ছোড়ে, আসন ফেরত (Compensation), কিছু সংরক্ষিত নয়, error Log
+    ok 3 - Retry শেষ: ত্রুটি ছোড়ে, আসন ফেরত (Compensation), কিছু সংরক্ষিত নয়, error Log
+      ---
+      duration_ms: 1.2501
+      type: 'test'
+      ...
+    # Subtest: স্থায়ী Payment ত্রুটিতে (retryable নয়) Retry নয়, কিন্তু আসন ফেরত
+    ok 4 - স্থায়ী Payment ত্রুটিতে (retryable নয়) Retry নয়, কিন্তু আসন ফেরত
+      ---
+      duration_ms: 0.5952
+      type: 'test'
+      ...
+    # Subtest: অপ্রত্যাশিত ত্রুটিতে (PaymentError নয়) Retry নয়; আসন ফেরত; code UNKNOWN
+    ok 5 - অপ্রত্যাশিত ত্রুটিতে (PaymentError নয়) Retry নয়; আসন ফেরত; code UNKNOWN
+      ---
+      duration_ms: 0.7896
+      type: 'test'
+      ...
+    # Subtest: আসন না থাকলে SoldOutError; Payment-এর চেষ্টাই নয়
+    ok 6 - আসন না থাকলে SoldOutError; Payment-এর চেষ্টাই নয়
+      ---
+      duration_ms: 0.4625
+      type: 'test'
+      ...
+    # Subtest: অবৈধ অনুরোধে ValidationError; আসন বা Payment-এ হাত নেই
+    ok 7 - অবৈধ অনুরোধে ValidationError; আসন বা Payment-এ হাত নেই
+      ---
+      duration_ms: 0.411
+      type: 'test'
+      ...
+    # Subtest: Regression (Idempotency): একই অনুরোধ-ID দুবার; Payment একবার, আসন একবার
+    ok 8 - Regression (Idempotency): একই অনুরোধ-ID দুবার; Payment একবার, আসন একবার
+      ---
+      duration_ms: 0.4891
+      type: 'test'
+      ...
+    # Subtest: Email ব্যর্থ হলেও Booking সফল; warn Log
+    ok 9 - Email ব্যর্থ হলেও Booking সফল; warn Log
+      ---
+      duration_ms: 0.6672
+      type: 'test'
+      ...
+    # Subtest: একসঙ্গে 20টি অনুরোধ, 10 আসন: ঠিক 10টি সফল, বাকি SOLD_OUT, আসন 0
+    ok 10 - একসঙ্গে 20টি অনুরোধ, 10 আসন: ঠিক 10টি সফল, বাকি SOLD_OUT, আসন 0
+      ---
+      duration_ms: 1.757
+      type: 'test'
+      ...
+    1..10
+ok 7 - book
+  ---
+  duration_ms: 17.5922
+  type: 'suite'
+  ...
+# Subtest: cancel
+    # Subtest: Refund রসিদ দিয়ে, আসন ফেরত, অবস্থা cancelled
+    ok 1 - Refund রসিদ দিয়ে, আসন ফেরত, অবস্থা cancelled
+      ---
+      duration_ms: 0.617
+      type: 'test'
+      ...
+    # Subtest: দুবার বাতিল ALREADY_CANCELLED; অচেনা ID NOT_FOUND; Refund একবারই
+    ok 2 - দুবার বাতিল ALREADY_CANCELLED; অচেনা ID NOT_FOUND; Refund একবারই
+      ---
+      duration_ms: 1.9084
+      type: 'test'
+      ...
+    1..2
+ok 8 - cancel
+  ---
+  duration_ms: 2.7766
+  type: 'suite'
+  ...
+# Subtest: Fake Repository-ও আসলের মতো আচরণ করে
+    # Subtest: ফেরত পাওয়া Booking বদলালে সংরক্ষিতটি অক্ষত
+    ok 1 - ফেরত পাওয়া Booking বদলালে সংরক্ষিতটি অক্ষত
+      ---
+      duration_ms: 0.7229
+      type: 'test'
+      ...
+    1..1
+ok 9 - Fake Repository-ও আসলের মতো আচরণ করে
+  ---
+  duration_ms: 0.9696
+  type: 'suite'
+  ...
+1..9
+# tests 24
+# suites 5
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 163.6182

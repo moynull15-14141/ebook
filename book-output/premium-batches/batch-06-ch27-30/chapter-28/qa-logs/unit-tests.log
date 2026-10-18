@@ -1,0 +1,96 @@
+$ node --test   (in project\deploy-ready)
+
+TAP version 13
+# Subtest: Health, Version ও Request ID
+ok 1 - Health, Version ও Request ID
+  ---
+  duration_ms: 67.1159
+  type: 'test'
+  ...
+# Subtest: Job তৈরি: অনুমতি, Content-Type, JSON, আকার ও যাচাই
+ok 2 - Job তৈরি: অনুমতি, Content-Type, JSON, আকার ও যাচাই
+  ---
+  duration_ms: 84.91
+  type: 'test'
+  ...
+# Subtest: Metrics: Token প্রয়োজন; Route-এর নাম Label-এ, আসল Path নয়
+ok 3 - Metrics: Token প্রয়োজন; Route-এর নাম Label-এ, আসল Path নয়
+  ---
+  duration_ms: 43.548
+  type: 'test'
+  ...
+# Subtest: অপ্রত্যাশিত Error: Client পায় Request ID, Stack যায় Log-এ
+ok 4 - অপ্রত্যাশিত Error: Client পায় Request ID, Stack যায় Log-এ
+  ---
+  duration_ms: 14.8296
+  type: 'test'
+  ...
+# Subtest: Readiness: Dependency সাড়া না দিলে 503, Liveness তবু 200
+ok 5 - Readiness: Dependency সাড়া না দিলে 503, Liveness তবু 200
+  ---
+  duration_ms: 1026.6903
+  type: 'test'
+  ...
+# Subtest: Default মান ও Object freeze
+ok 6 - Default মান ও Object freeze
+  ---
+  duration_ms: 2.0451
+  type: 'test'
+  ...
+# Subtest: সব ভুল একসঙ্গে জানায়
+ok 7 - সব ভুল একসঙ্গে জানায়
+  ---
+  duration_ms: 3.5414
+  type: 'test'
+  ...
+# Subtest: Production-এ দুর্বল বা অনুপস্থিত OPS_TOKEN গ্রহণযোগ্য নয়
+ok 8 - Production-এ দুর্বল বা অনুপস্থিত OPS_TOKEN গ্রহণযোগ্য নয়
+  ---
+  duration_ms: 0.3405
+  type: 'test'
+  ...
+# Subtest: ভুল Config-এ Process চালুই হয় না (exit 1)
+ok 9 - ভুল Config-এ Process চালুই হয় না (exit 1)
+  ---
+  duration_ms: 152.865
+  type: 'test'
+  ...
+# Subtest: Logger: JSON Line, Level Filter ও গোপন মান লুকানো
+ok 10 - Logger: JSON Line, Level Filter ও গোপন মান লুকানো
+  ---
+  duration_ms: 5.5831
+  type: 'test'
+  ...
+# Subtest: Metrics: Prometheus Format-এ Counter ও Histogram
+ok 11 - Metrics: Prometheus Format-এ Counter ও Histogram
+  ---
+  duration_ms: 2.8887
+  type: 'test'
+  ...
+# Subtest: Drain: Readiness 503, চলমান অনুরোধ সফলভাবে শেষ
+ok 12 - Drain: Readiness 503, চলমান অনুরোধ সফলভাবে শেষ
+  ---
+  duration_ms: 350.5919
+  type: 'test'
+  ...
+# Subtest: Timeout: শেষ না হওয়া অনুরোধ জোর করে বন্ধ
+ok 13 - Timeout: শেষ না হওয়া অনুরোধ জোর করে বন্ধ
+  ---
+  duration_ms: 233.3142
+  type: 'test'
+  ...
+# Subtest: healthcheck.mjs: চলমান Server-এ 0, বন্ধ Port-এ 1
+ok 14 - healthcheck.mjs: চলমান Server-এ 0, বন্ধ Port-এ 1
+  ---
+  duration_ms: 280.9546
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1446.3907

@@ -1,0 +1,78 @@
+{
+  "chapter": 29,
+  "ran": "2026-10-18T11:37:47.977Z",
+  "passed": 10,
+  "failed": 0,
+  "results": [
+    {
+      "name": "listings: Node.js run + compare",
+      "ok": true,
+      "exit": 0,
+      "log": "listings-run.log",
+      "summary": "19 files written from the chapter, 19 run, 12 compared with a printed panel, 0 problem(s)"
+    },
+    {
+      "name": "syntax: orchestrator",
+      "ok": true,
+      "exit": 0,
+      "log": "syntax-checks.log",
+      "summary": ""
+    },
+    {
+      "name": "syntax: tests",
+      "ok": true,
+      "exit": 0,
+      "log": "syntax-checks.log",
+      "summary": ""
+    },
+    {
+      "name": "project tests: participants, HTTP client, saga paths, crash recovery (real HTTP services, SQLite saga log)",
+      "ok": true,
+      "exit": 0,
+      "log": "unit-tests.log",
+      "summary": "# duration_ms 1078.4393"
+    },
+    {
+      "name": "failure lab demo: seven scenarios",
+      "ok": true,
+      "exit": 0,
+      "log": "demo.log",
+      "summary": "(Use `node --trace-warnings ...` to show where the warning was created)"
+    },
+    {
+      "name": "manuscript rules",
+      "ok": true,
+      "exit": 0,
+      "log": "manuscript-check.log",
+      "summary": "All manuscript rules passed, 1 warning(s)"
+    },
+    {
+      "name": "colour tokens",
+      "ok": true,
+      "exit": 0,
+      "log": "tokens-check.log",
+      "summary": "All colour checks passed"
+    },
+    {
+      "name": "PDF checks",
+      "ok": true,
+      "exit": 0,
+      "log": "pdf-check.log",
+      "summary": "All PDF checks passed, 1 warning(s)"
+    },
+    {
+      "name": "DOCX checks",
+      "ok": true,
+      "exit": 0,
+      "log": "docx-check.log",
+      "summary": "All DOCX checks passed"
+    },
+    {
+      "name": "Bengali typography audit",
+      "ok": true,
+      "exit": 0,
+      "log": "typography-audit.log",
+      "summary": "   ণ (advance 0.56 em): 1"
+    }
+  ]
+}

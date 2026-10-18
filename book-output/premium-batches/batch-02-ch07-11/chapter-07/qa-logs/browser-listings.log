@@ -1,0 +1,122 @@
+Browser: Chrome/155.0.8059.40
+
+===== examples/03-dot-bracket.js =====
+Mina
+Mina
+Khulna
+Mina
+undefined
+
+===== examples/05-has-property.js =====
+true
+true
+true
+false
+true
+false
+
+===== examples/06-methods.js =====
+1500
+Sara: 1500 টাকা
+
+===== examples/errors/e1-lost-this.js =====
+
+TypeError: Cannot read properties of undefined (reading 'owner')
+
+===== examples/07-nested.js =====
+Bogura
+undefined
+অজানা
+
+===== examples/errors/e2-missing-nested.js =====
+
+TypeError: Cannot read properties of undefined (reading 'address')
+
+===== examples/08-destructuring.js =====
+Sara 88
+88 জানা নেই
+Sara পেয়েছেন 88
+
+===== examples/09-array-destructuring.js =====
+আম কলা
+
+===== examples/12-deep-copy.js =====
+Khulna
+Sylhet
+
+===== examples/13-equality.js =====
+false
+true
+true
+
+===== examples/14-freeze.js =====
+light
+18
+
+===== examples/15-json.js =====
+{"name":"Sara","marks":88,"passed":true,"contact":null}
+string
+Sara 88
+false
+
+===== examples/16-json-limits.js =====
+{"name":"Rafi","joined":"1970-01-01T00:00:00.000Z"}
+{
+  "name": "Rafi",
+  "marks": 70
+}
+
+===== examples/errors/e3-bad-json.js =====
+
+SyntaxError: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+
+===== examples/17-storage.js =====
+Sara 88
+null
+
+===== examples/19-key-bug.js =====
+undefined
+
+===== examples/solutions/s01-book.js =====
+450
+500
+
+===== examples/solutions/s02-full-name.js =====
+Sadia Rahman
+
+===== examples/solutions/s03-subjects.js =====
+bangla: 80
+english: 72
+math: 91
+
+===== examples/solutions/s05-key-fixed.js =====
+15
+
+===== examples/solutions/s06-has-own-vs-in.js =====
+true true
+true false
+
+===== examples/solutions/s07-top-students.js =====
+Sara, Mina
+
+===== examples/solutions/s08-counter.js =====
+2
+0
+
+===== examples/solutions/s09-move-city.js =====
+Sylhet 01700-000003
+Khulna
+
+===== examples/solutions/s10-subject-average.js =====
+bangla: 70
+english: 80
+
+===== examples/solutions/s11-same-student.js =====
+false
+true
+false
+
+===== examples/solutions/s12-save-restore.js =====
+2 Rafi
+true
+false

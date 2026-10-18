@@ -1,0 +1,85 @@
+{
+  "chapter": 27,
+  "ran": "2026-10-18T10:55:56.765Z",
+  "passed": 11,
+  "failed": 0,
+  "results": [
+    {
+      "name": "listings: Node.js run + compare (ws 7.5.10 via QA-only local-deps hook)",
+      "ok": true,
+      "exit": 0,
+      "log": "listings-run.log",
+      "summary": "27 files written from the chapter, 24 run, 17 compared with a printed panel, 0 problem(s)"
+    },
+    {
+      "name": "syntax: project",
+      "ok": true,
+      "exit": 0,
+      "log": "syntax-checks.log",
+      "summary": ""
+    },
+    {
+      "name": "syntax: browser client",
+      "ok": true,
+      "exit": 0,
+      "log": "syntax-checks.log",
+      "summary": ""
+    },
+    {
+      "name": "syntax: Socket.IO design example (not executed: socket.io not installed)",
+      "ok": true,
+      "exit": 0,
+      "log": "syntax-checks.log",
+      "summary": ""
+    },
+    {
+      "name": "project tests: domain, HTTP, SSE and real WebSocket connections",
+      "ok": true,
+      "exit": 0,
+      "log": "unit-tests.log",
+      "summary": "# duration_ms 754.0657"
+    },
+    {
+      "name": "browser end-to-end: dashboard in headless Chrome against the real server",
+      "ok": true,
+      "exit": 0,
+      "log": "browser-e2e.log",
+      "summary": "8 checks, 0 failed"
+    },
+    {
+      "name": "manuscript rules",
+      "ok": true,
+      "exit": 0,
+      "log": "manuscript-check.log",
+      "summary": "All manuscript rules passed, 1 warning(s)"
+    },
+    {
+      "name": "colour tokens",
+      "ok": true,
+      "exit": 0,
+      "log": "tokens-check.log",
+      "summary": "All colour checks passed"
+    },
+    {
+      "name": "PDF checks",
+      "ok": true,
+      "exit": 0,
+      "log": "pdf-check.log",
+      "summary": "All PDF checks passed, 1 warning(s)"
+    },
+    {
+      "name": "DOCX checks",
+      "ok": true,
+      "exit": 0,
+      "log": "docx-check.log",
+      "summary": "All DOCX checks passed"
+    },
+    {
+      "name": "Bengali typography audit",
+      "ok": true,
+      "exit": 0,
+      "log": "typography-audit.log",
+      "summary": "   শ্ন (advance 0.67 em): 2"
+    }
+  ]
+}

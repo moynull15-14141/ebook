@@ -1,0 +1,95 @@
+===== examples/02-encoding.js  (exit code 0) =====
+<input value="Rafi&quot; onfocus=&quot;window.flag=1">
+<p>বাজেট &lt;15000 &amp; দুটি রুম</p>
+/search?q=Cox%20%26%20Sylhet%20%3D%20%E0%A6%B8%E0%A6%BE%E0%A6%97%E0%A6%B0
+false true
+
+===== examples/03-sql-injection.mjs  (exit code 0) =====
+SELECT id FROM trips WHERE owner = 'rafi' OR '1'='1'
+জোড়া লাগানো: 1, 2, 3
+Parameterized: 0 টি সারি
+(node:12128) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/04-authz.js  (exit code 0) =====
+401 Login প্রয়োজন
+200 Sylhet | 404 পাওয়া যায়নি | 404 পাওয়া যায়নি
+200 Cox
+
+===== examples/05-password-demo.mjs  (exit code 0) =====
+scrypt salt 16 byte key 32 byte
+true
+false
+false
+
+===== examples/07-pollution.js  (exit code 0) =====
+[ 'theme', '__proto__' ]
+সম্পর্কহীন Object-এ isAdmin: true
+{ theme: 'dark' } undefined
+
+===== examples/08-secrets.js  (exit code 0) =====
+SESSION_SECRET সেট করা নেই বা ৩২ অক্ষরের কম
+48
+
+===== project/secure-trip/src/passwords.mjs  (exit code 0) =====
+
+
+===== project/secure-trip/src/sessions.mjs  (exit code 0) =====
+
+
+===== project/secure-trip/src/validate.mjs  (exit code 0) =====
+
+
+===== project/secure-trip/src/db.mjs  (exit code 0) =====
+(node:7268) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== project/secure-trip/src/http.mjs  (exit code 0) =====
+
+
+===== project/secure-trip/src/app.mjs  (exit code 0) =====
+
+
+===== project/secure-trip/src/limiter.mjs  (exit code 0) =====
+
+
+===== project/secure-trip/src/log.mjs  (exit code 0) =====
+
+
+===== project/secure-trip/src/start.mjs  (exit code 0) =====
+(node:2336) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/solutions/s01-escape.js  (exit code 0) =====
+Tom &amp; &quot;Jerry&quot; &lt;b&gt;
+
+===== examples/solutions/s06-safe-href.js  (exit code 0) =====
+https://ok.example/a | /trips/7 | # | # | # | #
+
+===== examples/solutions/s07-like.mjs  (exit code 0) =====
+"ba" Cox's Bazar, 100% Sundarbans
+"%" 100% Sundarbans
+"'" Cox's Bazar
+(node:2052) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/solutions/s08-cors.js  (exit code 0) =====
+{
+  'access-control-allow-origin': 'https://app.trip.example',
+  'access-control-allow-credentials': 'true',
+  vary: 'Origin'
+}
+{}
+{}
+
+===== examples/solutions/s09-mask-email.mjs  (exit code 0) =====
+{ email: 'ra***@example.com', password: '[REDACTED]' }
+{ email: 'a***@b.example' }
+
+===== examples/solutions/s10-safe-merge.mjs  (exit code 0) =====
+{"a":{"b":1}} undefined null
+RangeError অনেক গভীর Object
+
+===== examples/solutions/s11-dual-limit.mjs  (exit code 0) =====
+401 429 429
+200

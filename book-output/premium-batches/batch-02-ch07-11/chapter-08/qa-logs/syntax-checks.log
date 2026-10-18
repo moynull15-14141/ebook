@@ -1,0 +1,2 @@
+OK    node --check text-tools.js   (in project/content-search-utility)
+OK    node --check tests/text-tools.test.js   (in project/content-search-utility)

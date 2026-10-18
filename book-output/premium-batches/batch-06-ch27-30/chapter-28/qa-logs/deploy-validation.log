@@ -1,0 +1,74 @@
+$ node ../tools/ch28-validate-deploy.mjs .   (in .)
+
+yaml 2.8.3, js-yaml 3.14.2
+----- cat Dockerfile -----
+# syntax=docker/dockerfile:1
+# Production-এ Tag-এর বদলে Digest দিয়ে Pin করুন: node:22-alpine@sha256:<digest>
+FROM node:22-alpine
+
+ENV NODE_ENV=production
+WORKDIR /app
+
+# প্রথমে যা কম বদলায় (package.json), পরে Code: Layer Cache কাজে লাগে।
+# এই Project-এ কোনো Runtime Dependency নেই। থাকলে এখানে:
+#   COPY package-lock.json ./  এবং  RUN npm ci --omit=dev
+COPY --chown=node:node package.json ./
+COPY --chown=node:node main.mjs healthcheck.mjs ./
+COPY --chown=node:node src ./src
+
+# Root হিসেবে নয়: Image-এ আগে থেকে থাকা 'node' ব্যবহারকারী।
+USER node
+EXPOSE 3000
+
+HEALTHCHECK --interval=15s --timeout=3s --start-period=5s --retries=3 \
+  CMD ["node", "healthcheck.mjs"]
+
+# Exec Form: node নিজেই PID 1, তাই SIGTERM সরাসরি পায়।
+# "npm start" ব্যবহার করবেন না; npm Signal ঠিকমতো পৌঁছে দেয় না।
+STOPSIGNAL SIGTERM
+CMD ["node", "main.mjs"]
+----- end Dockerfile -----
+----- cat .dockerignore -----
+node_modules
+npm-debug.log
+.git
+.github
+.env
+.env.*
+!.env.example
+tests
+coverage
+*.md
+compose.yaml
+Dockerfile
+----- end .dockerignore -----
+PASS  compose.yaml: parses with yaml (no errors, no warnings)
+PASS  compose.yaml: js-yaml agrees on the same data
+PASS  .github/workflows/ci.yml: parses with yaml (no errors, no warnings)
+PASS  .github/workflows/ci.yml: js-yaml agrees on the same data
+PASS  compose: services.api with build context
+PASS  compose: ports bound to 127.0.0.1 only  (127.0.0.1:3000:3000)
+PASS  compose: secrets come from env_file, not inline values
+PASS  compose: drain + shutdown timeout fit inside stop_grace_period  (20000 ms < 30000 ms)
+PASS  compose: hardening (read_only, cap_drop ALL, no-new-privileges)
+PASS  .env.example exists and .env is not committed
+PASS  ci: triggers on push and pull_request
+PASS  ci: least-privilege permissions (contents: read only)
+PASS  ci: image job needs test job
+PASS  ci: every job has timeout-minutes
+PASS  ci: npm script "test" exists in package.json
+PASS  ci: npm script "check" exists in package.json
+PASS  ci: called file scripts/smoke.mjs exists
+INFO  actions referenced by tag (not SHA-pinned; the chapter says to pin by SHA in production): actions/checkout@v4, actions/setup-node@v4
+PASS  main.mjs starts in production mode and logs JSON
+PASS  startup log redacts OPS_TOKEN
+      PASS liveness: 200
+      PASS readiness: 200
+      PASS version: 200
+      PASS create job: 201
+      PASS list jobs: 200
+PASS  scripts/smoke.mjs passes against the running server
+PASS  smoke test fails (exit 1) when the token is missing  (FAIL create job: 401)
+NOT RUN  docker build / docker compose up: Docker daemon not reachable (failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.)
+NOT RUN  GitHub Actions workflow: validated as YAML and cross-checked only; it has not run on GitHub
+0 failed

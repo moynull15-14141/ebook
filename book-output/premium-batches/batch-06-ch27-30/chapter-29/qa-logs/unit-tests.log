@@ -1,0 +1,100 @@
+$ node --test   (in project\travel-saga)
+
+TAP version 13
+# Subtest: 5xx-এ Retry, তারপর সফল
+ok 1 - 5xx-এ Retry, তারপর সফল
+  ---
+  duration_ms: 80.2748
+  type: 'test'
+  ...
+# Subtest: 4xx-এ Retry নয়; Retry শেষে শেষ Error
+ok 2 - 4xx-এ Retry নয়; Retry শেষে শেষ Error
+  ---
+  duration_ms: 56.3293
+  type: 'test'
+  ...
+# Subtest: Timeout: ধীর উত্তরের জন্য অনন্তকাল অপেক্ষা নয়
+ok 3 - Timeout: ধীর উত্তরের জন্য অনন্তকাল অপেক্ষা নয়
+  ---
+  duration_ms: 63.3954
+  type: 'test'
+  ...
+# Subtest: Circuit Breaker: closed, open, half-open, closed
+ok 4 - Circuit Breaker: closed, open, half-open, closed
+  ---
+  duration_ms: 20.6713
+  type: 'test'
+  ...
+# Subtest: Inventory: একই reservationId দুবার, আসন একবারই কমে
+ok 5 - Inventory: একই reservationId দুবার, আসন একবারই কমে
+  ---
+  duration_ms: 92.2468
+  type: 'test'
+  ...
+# Subtest: Payment: Idempotent Charge, ভিন্ন Amount-এ 409, প্রত্যাখ্যান ও Refund
+ok 6 - Payment: Idempotent Charge, ভিন্ন Amount-এ 409, প্রত্যাখ্যান ও Refund
+  ---
+  duration_ms: 46.5293
+  type: 'test'
+  ...
+# (node:2204) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: 'reserved'-এর পরে Crash, Restart-এ resume: একবারই কাটা
+ok 7 - 'reserved'-এর পরে Crash, Restart-এ resume: একবারই কাটা
+  ---
+  duration_ms: 287.7702
+  type: 'test'
+  ...
+# Subtest: 'charged'-এর পরে Crash, Restart-এ resume: একবারই কাটা
+ok 8 - 'charged'-এর পরে Crash, Restart-এ resume: একবারই কাটা
+  ---
+  duration_ms: 318.357
+  type: 'test'
+  ...
+# (node:5192) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: সফল পথ: আসন ধরা, টাকা কাটা, নিশ্চিত, Outbox-এ Event
+ok 9 - সফল পথ: আসন ধরা, টাকা কাটা, নিশ্চিত, Outbox-এ Event
+  ---
+  duration_ms: 105.6919
+  type: 'test'
+  ...
+# Subtest: Payment প্রত্যাখ্যাত: আসন ফেরত, কোনো টাকা নেই
+ok 10 - Payment প্রত্যাখ্যাত: আসন ফেরত, কোনো টাকা নেই
+  ---
+  duration_ms: 43.4563
+  type: 'test'
+  ...
+# Subtest: আসন শেষ: Payment ডাকাই হয় না
+ok 11 - আসন শেষ: Payment ডাকাই হয় না
+  ---
+  duration_ms: 18.8457
+  type: 'test'
+  ...
+# Subtest: Duplicate, একসঙ্গে Duplicate ও Conflict
+ok 12 - Duplicate, একসঙ্গে Duplicate ও Conflict
+  ---
+  duration_ms: 28.5604
+  type: 'test'
+  ...
+# Subtest: উত্তর অনিশ্চিত (Timeout): Refund ও আসন ফেরত
+ok 13 - উত্তর অনিশ্চিত (Timeout): Refund ও আসন ফেরত
+  ---
+  duration_ms: 238.3181
+  type: 'test'
+  ...
+# Subtest: Compensation-ও ব্যর্থ: MANUAL_REVIEW, লুকানো নয়
+ok 14 - Compensation-ও ব্যর্থ: MANUAL_REVIEW, লুকানো নয়
+  ---
+  duration_ms: 23.7966
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1078.4393

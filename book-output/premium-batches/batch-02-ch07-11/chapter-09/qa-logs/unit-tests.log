@@ -1,0 +1,108 @@
+$ node --test   (in project\task-manager)
+
+TAP version 13
+# Subtest: checkTitle: ফাঁকা, শুধু ফাঁকা জায়গা, null বাতিল
+ok 1 - checkTitle: ফাঁকা, শুধু ফাঁকা জায়গা, null বাতিল
+  ---
+  duration_ms: 2.9216
+  type: 'test'
+  ...
+# Subtest: checkTitle: ঠিক 120 অক্ষর চলে, 121 চলে না; trim-এর পরে গোনা
+ok 2 - checkTitle: ঠিক 120 অক্ষর চলে, 121 চলে না; trim-এর পরে গোনা
+  ---
+  duration_ms: 0.7805
+  type: 'test'
+  ...
+# Subtest: addTask: trim করা নাম, done false, id লেখা হিসেবে; মূল তালিকা অপরিবর্তিত
+ok 3 - addTask: trim করা নাম, done false, id লেখা হিসেবে; মূল তালিকা অপরিবর্তিত
+  ---
+  duration_ms: 0.4878
+  type: 'test'
+  ...
+# Subtest: addTask: ভুল নামে একই তালিকা এবং বার্তা
+ok 4 - addTask: ভুল নামে একই তালিকা এবং বার্তা
+  ---
+  duration_ms: 0.2204
+  type: 'test'
+  ...
+# Subtest: renameTask: শুধু মিলে যাওয়া Task-এর নাম বদলায়
+ok 5 - renameTask: শুধু মিলে যাওয়া Task-এর নাম বদলায়
+  ---
+  duration_ms: 0.6155
+  type: 'test'
+  ...
+# Subtest: renameTask: ফাঁকা নামে বাতিল; অচেনা id-তে তালিকা একই রকম
+ok 6 - renameTask: ফাঁকা নামে বাতিল; অচেনা id-তে তালিকা একই রকম
+  ---
+  duration_ms: 0.239
+  type: 'test'
+  ...
+# Subtest: toggleTask: অবস্থা উল্টায়, অন্য Task-এর Object একই থাকে
+ok 7 - toggleTask: অবস্থা উল্টায়, অন্য Task-এর Object একই থাকে
+  ---
+  duration_ms: 0.4057
+  type: 'test'
+  ...
+# Subtest: deleteTask ও clearDone
+ok 8 - deleteTask ও clearDone
+  ---
+  duration_ms: 0.2742
+  type: 'test'
+  ...
+# Subtest: visibleTasks: all, active, done
+ok 9 - visibleTasks: all, active, done
+  ---
+  duration_ms: 0.7947
+  type: 'test'
+  ...
+# Subtest: visibleTasks: খোঁজা বড়-ছোট হাতের অক্ষর নির্বিশেষে, trim করে, ছাঁকনির সঙ্গে
+ok 10 - visibleTasks: খোঁজা বড়-ছোট হাতের অক্ষর নির্বিশেষে, trim করে, ছাঁকনির সঙ্গে
+  ---
+  duration_ms: 1.1148
+  type: 'test'
+  ...
+# Subtest: countTasks
+ok 11 - countTasks
+  ---
+  duration_ms: 1.8214
+  type: 'test'
+  ...
+# Subtest: parseStored: null এবং ফাঁকা Array
+ok 12 - parseStored: null এবং ফাঁকা Array
+  ---
+  duration_ms: 0.5898
+  type: 'test'
+  ...
+# Subtest: parseStored: ভাঙা JSON বা Array নয় এমন মানে ফাঁকা তালিকা
+ok 13 - parseStored: ভাঙা JSON বা Array নয় এমন মানে ফাঁকা তালিকা
+  ---
+  duration_ms: 0.6081
+  type: 'test'
+  ...
+# Subtest: parseStored: ভুল গঠনের Task বাদ, সঠিকগুলো থাকে
+ok 14 - parseStored: ভুল গঠনের Task বাদ, সঠিকগুলো থাকে
+  ---
+  duration_ms: 0.4229
+  type: 'test'
+  ...
+# Subtest: সংরক্ষণ ও ফিরিয়ে আনা: JSON-এর মধ্য দিয়ে তালিকা অপরিবর্তিত
+ok 15 - সংরক্ষণ ও ফিরিয়ে আনা: JSON-এর মধ্য দিয়ে তালিকা অপরিবর্তিত
+  ---
+  duration_ms: 0.2072
+  type: 'test'
+  ...
+# Subtest: ক্ষতিকর লেখাও শুধু তথ্য: নাম যেমন ছিল তেমনই থাকে
+ok 16 - ক্ষতিকর লেখাও শুধু তথ্য: নাম যেমন ছিল তেমনই থাকে
+  ---
+  duration_ms: 0.1961
+  type: 'test'
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 225.0798

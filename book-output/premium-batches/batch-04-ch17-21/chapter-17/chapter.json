@@ -1,0 +1,14 @@
+{
+  "number": 17,
+  "source": "chapter-17-premium.md",
+  "outputBase": "chapter-17-premium",
+  "companion": ["project", "examples"],
+  "logs": "qa-logs",
+  "tests": [
+    { "name": "listings: Node.js run + compare", "cwd": ".", "cmd": ["node", "../tools/extract-and-run.mjs", "."], "log": "listings-run.log" },
+    { "name": "listings: browser run + compare", "cwd": ".", "cmd": ["node", "../tools/run-browser-listings.mjs", "."], "log": "browser-run.log" },
+    { "name": "syntax: project", "cwd": "project/form-shield", "cmd": ["node", "--check", "src/engine.mjs"] },
+    { "name": "syntax: tests", "cwd": "project/form-shield", "cmd": ["node", "--check", "tests/engine.test.mjs"] },
+    { "name": "unit tests", "cwd": "project/form-shield", "cmd": ["node", "--test"], "log": "unit-tests.log" }
+  ]
+}

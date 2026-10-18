@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VisaFlow</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="src/main.mjs"></script>
+</head>
+<body>
+  <h1>VisaFlow <small>শিক্ষামূলক Demo</small></h1>
+  <form id="new-application">
+    <label>আবেদনকারী <input id="applicant" required></label>
+    <label>দেশ <select id="country">
+      <option>Thailand</option><option>Malaysia</option>
+      <option>Japan</option><option>Turkey</option>
+    </select></label>
+    <label>ধরন <select id="visa-type">
+      <option value="tourist">Tourist</option>
+      <option value="business">Business</option>
+      <option value="student">Student</option>
+    </select></label>
+    <label>যাত্রী <input id="travelers" type="number" value="1"></label>
+    <label><input id="express" type="checkbox"> Express</label>
+    <button id="create">আবেদন তৈরি</button>
+  </form>
+  <p id="message" role="alert"></p>
+  <p id="summary"></p>
+  <ul id="applications"></ul>
+</body>
+</html>

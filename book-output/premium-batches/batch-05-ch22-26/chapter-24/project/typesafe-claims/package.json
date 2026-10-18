@@ -1,0 +1,17 @@
+{
+  "name": "typesafe-claims",
+  "private": true,
+  "type": "module",
+  "description": "JavaScript Mastery, Chapter 24: a strictly typed expense-claim service (educational demo)",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "tsc && node --test \"dist/tests/*.test.js\"",
+    "demo": "tsc && node dist/src/demo.js"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "typescript": "^6.0.2"
+  }
+}

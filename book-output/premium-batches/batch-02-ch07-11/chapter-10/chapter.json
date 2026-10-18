@@ -1,0 +1,68 @@
+{
+  "number": 10,
+  "source": "chapter-10-premium.md",
+  "outputBase": "chapter-10-premium",
+  "companion": [
+    "project",
+    "examples"
+  ],
+  "logs": "qa-logs",
+  "tests": [
+    {
+      "name": "listings: Node.js run + compare",
+      "cwd": ".",
+      "cmd": [
+        "node",
+        "../tools/extract-and-run.mjs",
+        "."
+      ],
+      "log": "listings-run.log"
+    },
+    {
+      "name": "listings: browser run + compare",
+      "cwd": ".",
+      "cmd": [
+        "node",
+        "../tools/run-browser-listings.mjs",
+        "."
+      ],
+      "log": "browser-run.log"
+    },
+    {
+      "name": "syntax: project",
+      "cwd": "project/user-directory-explorer",
+      "cmd": [
+        "node",
+        "--check",
+        "directory.js"
+      ]
+    },
+    {
+      "name": "syntax: tests",
+      "cwd": "project/user-directory-explorer",
+      "cmd": [
+        "node",
+        "--check",
+        "tests/directory.test.js"
+      ]
+    },
+    {
+      "name": "unit tests",
+      "cwd": "project/user-directory-explorer",
+      "cmd": [
+        "node",
+        "--test"
+      ],
+      "log": "unit-tests.log"
+    },
+    {
+      "name": "project browser tests",
+      "cwd": "project/user-directory-explorer",
+      "cmd": [
+        "node",
+        "tests/browser-check.mjs"
+      ],
+      "log": "project-browser-tests.log"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+Browser: Chrome/155.0.8059.40
+Served from: http://127.0.0.1:57010
+
+===== examples/01-count-steps.js =====
+100 true 7756 200
+1000 true 777556 2000
+10000 true 77775556 20000
+
+===== examples/02-stats.js =====
+{"mean":19.2,"median":11,"p95":95,"min":10}
+
+===== examples/03-chunks.js =====
+একটানা: কাজ চলাকালীন Timer চলেছে? false
+টুকরোয়: Timer চলেছে? true, টুকরো 15
+একই ফল? true
+
+===== examples/04-batch-dom.js =====
+500 500 true
+সারি 500
+
+===== examples/05-weakmap.js =====
+2 true
+false
+undefined undefined
+
+===== project/perf-lab/src/random.mjs =====
+
+
+===== project/perf-lab/src/algorithms.mjs =====
+
+
+===== project/perf-lab/src/bench.mjs =====
+
+
+===== project/perf-lab/src/lru.mjs =====
+
+
+===== project/perf-lab/src/chunk.mjs =====
+
+
+===== examples/solutions/s02-mean-median.js =====
+25.8 12
+
+===== examples/solutions/s03-count-common.js =====
+6275 200
+
+===== examples/solutions/s04-interval-cleanup.js =====
+বন্ধের পর নতুন টিক: 0
+
+===== examples/solutions/s09-abort-listener.js click #go,#go =====
+Click 1

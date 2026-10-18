@@ -1,0 +1,2 @@
+OK    node --check src/cart.mjs   (in project/modular-shopping-cart)
+OK    node --check tests/cart.test.mjs   (in project/modular-shopping-cart)

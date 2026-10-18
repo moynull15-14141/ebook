@@ -1,0 +1,35 @@
+body {
+  font-family: system-ui, "Nirmala UI", sans-serif;
+  max-width: 48rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Scroll-এর পাত্র: নির্দিষ্ট উচ্চতা, ভেতরে একটি লম্বা Spacer। */
+#list {
+  position: relative;
+  height: 480px;
+  overflow-y: auto;
+  border: 1px solid #cbd5e1;
+}
+
+/* সারিগুলো Spacer-এর ওপরে; transform দিয়ে সরানো, Layout ছাড়াই। */
+#rows {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  will-change: transform;
+}
+
+#rows li {
+  height: 48px;
+  line-height: 48px;
+  padding: 0 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+  overflow: hidden;
+  white-space: nowrap;
+}

@@ -1,0 +1,78 @@
+{
+  "chapter": 24,
+  "ran": "2026-10-18T06:36:55.147Z",
+  "passed": 10,
+  "failed": 0,
+  "results": [
+    {
+      "name": "listings: Node.js run + compare",
+      "ok": true,
+      "exit": 0,
+      "log": "listings-run.log",
+      "summary": "32 files written from the chapter, 1 run, 1 compared with a printed panel, 0 problem(s)"
+    },
+    {
+      "name": "listings: TypeScript compile (+ run) + compare",
+      "ok": true,
+      "exit": 0,
+      "log": "ts-run.log",
+      "summary": "20 TypeScript listings checked with Version 6.0.2, 20 compared with a printed panel, 0 problem(s)"
+    },
+    {
+      "name": "project: tsc --strict build (incl. compile-time tests)",
+      "ok": true,
+      "exit": 0,
+      "log": "tsc-build.log",
+      "summary": ""
+    },
+    {
+      "name": "project: runtime tests on compiled JavaScript",
+      "ok": true,
+      "exit": 0,
+      "log": "unit-tests.log",
+      "summary": "# duration_ms 169.5258"
+    },
+    {
+      "name": "project: demo",
+      "ok": true,
+      "exit": 0,
+      "log": "demo.log",
+      "summary": "409 {\"code\":\"INVALID_TRANSITION\",\"from\":\"submitted\",\"action\":\"pay\"}"
+    },
+    {
+      "name": "manuscript rules",
+      "ok": true,
+      "exit": 0,
+      "log": "manuscript-check.log",
+      "summary": "All manuscript rules passed, 1 warning(s)"
+    },
+    {
+      "name": "colour tokens",
+      "ok": true,
+      "exit": 0,
+      "log": "tokens-check.log",
+      "summary": "All colour checks passed"
+    },
+    {
+      "name": "PDF checks",
+      "ok": true,
+      "exit": 0,
+      "log": "pdf-check.log",
+      "summary": "All PDF checks passed, 1 warning(s)"
+    },
+    {
+      "name": "DOCX checks",
+      "ok": true,
+      "exit": 0,
+      "log": "docx-check.log",
+      "summary": "All DOCX checks passed"
+    },
+    {
+      "name": "Bengali typography audit",
+      "ok": true,
+      "exit": 0,
+      "log": "typography-audit.log",
+      "summary": "   ৃ (advance 0.00 em): 1"
+    }
+  ]
+}

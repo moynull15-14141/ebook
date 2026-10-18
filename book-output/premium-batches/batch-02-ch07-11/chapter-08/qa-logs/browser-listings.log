@@ -1,0 +1,137 @@
+Browser: Chrome/155.0.8059.40
+
+===== examples/01-immutable.js =====
+dhaka
+DHAKA
+dhaka
+DHAKA
+
+===== examples/02-template-literal.js =====
+Sara পেয়েছেন 88, Grade A+
+দোকান: Boi Ghar
+মোট: 360 টাকা
+
+===== examples/03-escapes.js =====
+প্রথম লাইন
+দ্বিতীয় লাইন
+It's a book
+C:\Users\Sara
+কা
+
+===== examples/04-length.js =====
+5
+4
+5
+2
+1
+
+===== examples/05-graphemes.js =====
+2
+ক্ষ | মা
+
+===== examples/06-access.js =====
+J
+D
+2026
+BD
+JS
+
+===== examples/07-search.js =====
+true
+true
+true
+4
+-1
+false
+
+===== examples/08-clean.js =====
+[Sara    Ahmed]
+[Sara    Ahmed   ]
+1250,000
+1250000
+007
+----------
+
+===== examples/09-case.js =====
+DHAKA
+dhaka
+ঢাকা
+true
+i
+ı
+
+===== examples/12-normalize.js =====
+1 2
+false
+true
+false 1 2
+true
+
+===== examples/15-validation.js =====
+true
+false
+false
+true
+false
+false
+
+===== examples/16-xss-demo.js =====
+Hello &lt;img src="" onerror="console.log('XSS: Code চলে গেছে!')"&gt;
+0 1
+XSS: Code চলে গেছে!
+
+===== examples/17-debug-text.js =====
+09df
+09af 09bc
+"Sara "
+2
+00a0
+
+===== examples/18-compare-bug.js =====
+false
+
+===== examples/solutions/s01-trim-upper.js =====
+[JAVASCRIPT MASTERY]
+[  JavaScript Mastery  ]
+
+===== examples/solutions/s02-date-parts.js =====
+2026
+10
+15
+
+===== examples/solutions/s03-mask.js =====
+********678
+********678
+
+===== examples/solutions/s05-compare-fixed.js =====
+true
+
+===== examples/solutions/s06-vowel-signs.js =====
+4
+
+===== examples/solutions/s07-initials.js =====
+SAK
+MD
+
+===== examples/solutions/s08-same-text.js =====
+false
+true
+true
+
+===== examples/solutions/s09-username.js =====
+true
+false
+false
+false
+
+===== examples/solutions/s10-shorten-letters.js =====
+ক্ষমা...
+ক্
+
+===== examples/solutions/s11-sentences.js =====
+3
+0
+
+===== examples/solutions/s12-search-summary.js =====
+2 বার পাওয়া গেছে: "...Node.js দিয়ে ..."
+পাওয়া যায়নি

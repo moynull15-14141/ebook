@@ -1,0 +1,55 @@
+===== examples/01-count-steps.js  (exit code 0) =====
+100 true 7756 200
+1000 true 777556 2000
+10000 true 77775556 20000
+
+===== examples/02-stats.js  (exit code 0) =====
+{"mean":19.2,"median":11,"p95":95,"min":10}
+
+===== examples/05-weakmap.js  (exit code 0) =====
+2 true
+false
+undefined undefined
+
+===== examples/06-lru.js  (exit code 0) =====
+[ 'c', 'a', 'd' ] undefined
+
+===== project/perf-lab/src/random.mjs  (exit code 0) =====
+
+
+===== project/perf-lab/src/algorithms.mjs  (exit code 0) =====
+
+
+===== project/perf-lab/src/bench.mjs  (exit code 0) =====
+
+
+===== project/perf-lab/src/lru.mjs  (exit code 0) =====
+
+
+===== project/perf-lab/src/chunk.mjs  (exit code 0) =====
+
+
+===== examples/solutions/s02-mean-median.js  (exit code 0) =====
+25.8 12
+
+===== examples/solutions/s03-count-common.js  (exit code 0) =====
+6275 200
+
+===== examples/solutions/s04-interval-cleanup.js  (exit code 0) =====
+বন্ধের পর নতুন টিক: 0
+
+===== examples/solutions/s06-most-frequent.mjs  (exit code 0) =====
+true
+
+===== examples/solutions/s07-lru-memo.mjs  (exit code 0) =====
+{ hits: 4, misses: 6, evictions: 3 } 3
+
+===== examples/solutions/s08-count-yields.mjs  (exit code 0) =====
+10000 19998 9
+
+===== examples/solutions/s10-two-pointers.mjs  (exit code 0) =====
+true
+
+===== examples/solutions/s12-peek.mjs  (exit code 0) =====
+1
+undefined 2

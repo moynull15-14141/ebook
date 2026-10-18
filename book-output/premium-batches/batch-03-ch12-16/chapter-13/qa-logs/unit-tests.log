@@ -1,0 +1,132 @@
+$ node --test   (in project\booking-lab)
+
+TAP version 13
+# Subtest: Booking: ID ও নাম trim হয়; প্রাথমিক অবস্থা confirmed
+ok 1 - Booking: ID ও নাম trim হয়; প্রাথমিক অবস্থা confirmed
+  ---
+  duration_ms: 1.6
+  type: 'test'
+  ...
+# Subtest: Booking: খালি ID, খালি নাম, অবৈধ দাম বাতিল
+ok 2 - Booking: খালি ID, খালি নাম, অবৈধ দাম বাতিল
+  ---
+  duration_ms: 0.8765
+  type: 'test'
+  ...
+# Subtest: FlightBooking: মোট = ভাড়া + Baggage; Baggage না দিলে 0; ঋণাত্মক বাতিল
+ok 3 - FlightBooking: মোট = ভাড়া + Baggage; Baggage না দিলে 0; ঋণাত্মক বাতিল
+  ---
+  duration_ms: 0.3293
+  type: 'test'
+  ...
+# Subtest: FlightBooking: Parent-এর যাচাইও প্রযোজ্য
+ok 4 - FlightBooking: Parent-এর যাচাইও প্রযোজ্য
+  ---
+  duration_ms: 0.3138
+  type: 'test'
+  ...
+# Subtest: HotelBooking: মোট = রাতপ্রতি × রাত; রাত পূর্ণসংখ্যা, কমপক্ষে 1
+ok 5 - HotelBooking: মোট = রাতপ্রতি × রাত; রাত পূর্ণসংখ্যা, কমপক্ষে 1
+  ---
+  duration_ms: 0.4342
+  type: 'test'
+  ...
+# Subtest: Prototype Chain: Method-গুলো Prototype-এ, Instance-এ নয়; Child-এর শিকলে Parent
+ok 6 - Prototype Chain: Method-গুলো Prototype-এ, Instance-এ নয়; Child-এর শিকলে Parent
+  ---
+  duration_ms: 0.9732
+  type: 'test'
+  ...
+# Subtest: cancel: একবারই সম্ভব; দ্বিতীয়বার BookingError
+ok 7 - cancel: একবারই সম্ভব; দ্বিতীয়বার BookingError
+  ---
+  duration_ms: 0.3032
+  type: 'test'
+  ...
+# Subtest: Encapsulation: status বাইরে থেকে বদলানো যায় না (Module-এ TypeError)
+ok 8 - Encapsulation: status বাইরে থেকে বদলানো যায় না (Module-এ TypeError)
+  ---
+  duration_ms: 0.3071
+  type: 'test'
+  ...
+# Subtest: describe: Polymorphism; প্রতিটি Class-এর নিজের type ও total
+ok 9 - describe: Polymorphism; প্রতিটি Class-এর নিজের type ও total
+  ---
+  duration_ms: 0.7442
+  type: 'test'
+  ...
+# Subtest: toJSON: Private অবস্থা এবং Child-এর Field সংরক্ষিত
+ok 10 - toJSON: Private অবস্থা এবং Child-এর Field সংরক্ষিত
+  ---
+  duration_ms: 0.7585
+  type: 'test'
+  ...
+# Subtest: restoreBooking: সঠিক Class, অবস্থা ও মোট ফিরে আসে
+ok 11 - restoreBooking: সঠিক Class, অবস্থা ও মোট ফিরে আসে
+  ---
+  duration_ms: 0.4412
+  type: 'test'
+  ...
+# Subtest: restoreBooking: অচেনা বা উত্তরাধিকারসূত্রে পাওয়া ধরন বাতিল
+ok 12 - restoreBooking: অচেনা বা উত্তরাধিকারসূত্রে পাওয়া ধরন বাতিল
+  ---
+  duration_ms: 0.2538
+  type: 'test'
+  ...
+# Subtest: add ও find: যোগ হয়, ID দিয়ে পাওয়া যায়; না থাকলে null
+ok 13 - add ও find: যোগ হয়, ID দিয়ে পাওয়া যায়; না থাকলে null
+  ---
+  duration_ms: 2.338
+  type: 'test'
+  ...
+# Subtest: add: একই ID দুবার নয়; সাধারণ Object নয়
+ok 14 - add: একই ID দুবার নয়; সাধারণ Object নয়
+  ---
+  duration_ms: 0.6656
+  type: 'test'
+  ...
+# Subtest: confirmedRevenue ও revenueByType: বাতিল বাদ, Polymorphic মোট
+ok 15 - confirmedRevenue ও revenueByType: বাতিল বাদ, Polymorphic মোট
+  ---
+  duration_ms: 1.322
+  type: 'test'
+  ...
+# Subtest: cancel: অচেনা ID ও দ্বিতীয়বার বাতিলে BookingError
+ok 16 - cancel: অচেনা ID ও দ্বিতীয়বার বাতিলে BookingError
+  ---
+  duration_ms: 0.3889
+  type: 'test'
+  ...
+# Subtest: list: Copy ফেরত দেয়; বাইরে বদলালে Manager অপরিবর্তিত; ভেতরের তালিকা Private
+ok 17 - list: Copy ফেরত দেয়; বাইরে বদলালে Manager অপরিবর্তিত; ভেতরের তালিকা Private
+  ---
+  duration_ms: 0.2664
+  type: 'test'
+  ...
+# Subtest: Composition: Notifier প্রতিটি নতুন ও বাতিল Booking-এর খবর পায়
+ok 18 - Composition: Notifier প্রতিটি নতুন ও বাতিল Booking-এর খবর পায়
+  ---
+  duration_ms: 0.2169
+  type: 'test'
+  ...
+# Subtest: Notifier না দিলেও কাজ করে
+ok 19 - Notifier না দিলেও কাজ করে
+  ---
+  duration_ms: 0.3607
+  type: 'test'
+  ...
+# Subtest: JSON-এর মধ্য দিয়ে: Class, অবস্থা, আয় অক্ষত; পুনরুদ্ধারে খবর যায় না, পরে যায়
+ok 20 - JSON-এর মধ্য দিয়ে: Class, অবস্থা, আয় অক্ষত; পুনরুদ্ধারে খবর যায় না, পরে যায়
+  ---
+  duration_ms: 0.7566
+  type: 'test'
+  ...
+1..20
+# tests 20
+# suites 0
+# pass 20
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 131.347

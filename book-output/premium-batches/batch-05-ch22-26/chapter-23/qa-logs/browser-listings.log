@@ -1,0 +1,39 @@
+Browser: Chrome/155.0.8059.80
+Served from: http://127.0.0.1:56577
+
+===== examples/01-user-timing.js =====
+filter measure 25000
+1 number
+
+===== examples/09-long-task.js =====
+Long Task ধরা পড়েছে: true
+
+===== examples/05-pipeline.js =====
+transform-এর পর পরের অংশ সরেছে? false
+height-এর পর সরেছে? true, 100px
+
+===== examples/06-virtual-demo.mjs =====
+scrollTop 0: সারি 0 থেকে 14, মোট 15
+scrollTop 24: সারি 0 থেকে 15, মোট 16
+scrollTop 48000: সারি 995 থেকে 1014, মোট 20
+scrollTop 575520: সারি 11985 থেকে 11999, মোট 15
+
+===== examples/07-worker/main.mjs =====
+postMessage সঙ্গে সঙ্গে ফিরেছে; Main Thread মুক্ত
+Worker-এর যোগফল: 50000005000000
+
+===== examples/08-transfer.js =====
+Clone-এর পরে: মূল 8388608, Copy 8388608
+Transfer-এর পরে: মূল 0, নতুন 8388608
+
+===== project/travel-search/src/data.mjs =====
+
+
+===== project/travel-search/src/virtual.mjs =====
+
+
+===== examples/solutions/s01-sort-timing.js =====
+sort measure 0 19999
+
+===== examples/solutions/s10-variable-rows.js =====
+600 {"start":1,"end":4} 160

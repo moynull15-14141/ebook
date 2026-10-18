@@ -1,0 +1,158 @@
+$ node --test   (in project\secure-trip)
+
+TAP version 13
+# (node:12948) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: প্রতিটি Response-এ Security Header; API-তে no-store
+ok 1 - প্রতিটি Response-এ Security Header; API-তে no-store
+  ---
+  duration_ms: 317.1061
+  type: 'test'
+  ...
+# Subtest: ভুল Password ও অজানা Email: একই 401 ও একই বার্তা
+ok 2 - ভুল Password ও অজানা Email: একই 401 ও একই বার্তা
+  ---
+  duration_ms: 258.602
+  type: 'test'
+  ...
+# Subtest: সফল Login: HttpOnly ও SameSite Cookie; Hash ফেরত আসে না
+ok 3 - সফল Login: HttpOnly ও SameSite Cookie; Hash ফেরত আসে না
+  ---
+  duration_ms: 146.8304
+  type: 'test'
+  ...
+# Subtest: Cookie ছাড়া 401; CSRF Token বা Origin ভুল হলে 403
+ok 4 - Cookie ছাড়া 401; CSRF Token বা Origin ভুল হলে 403
+  ---
+  duration_ms: 87.534
+  type: 'test'
+  ...
+# Subtest: দাম ও মালিক Server ঠিক করে; Client-এর total ও ownerId উপেক্ষিত
+ok 5 - দাম ও মালিক Server ঠিক করে; Client-এর total ও ownerId উপেক্ষিত
+  ---
+  duration_ms: 85.8375
+  type: 'test'
+  ...
+# Subtest: Object-level Authorization: অন্যের Trip-এ 404; Admin সব দেখে
+ok 6 - Object-level Authorization: অন্যের Trip-এ 404; Admin সব দেখে
+  ---
+  duration_ms: 228.9615
+  type: 'test'
+  ...
+# Subtest: অবৈধ ইনপুটে 422, এবং কারণসহ
+ok 7 - অবৈধ ইনপুটে 422, এবং কারণসহ
+  ---
+  duration_ms: 123.5198
+  type: 'test'
+  ...
+# Subtest: Body: বড় হলে 413, ভুল ধরন 415, ভাঙা JSON 400
+ok 8 - Body: বড় হলে 413, ভুল ধরন 415, ভাঙা JSON 400
+  ---
+  duration_ms: 14.5303
+  type: 'test'
+  ...
+# Subtest: SQL Injection-এর চেষ্টা: Parameterized Query-তে শুধু একটি অজানা Email
+ok 9 - SQL Injection-এর চেষ্টা: Parameterized Query-তে শুধু একটি অজানা Email
+  ---
+  duration_ms: 72.7562
+  type: 'test'
+  ...
+# Subtest: পাঁচবার ব্যর্থতার পর সঠিক Password-এও 429
+ok 10 - পাঁচবার ব্যর্থতার পর সঠিক Password-এও 429
+  ---
+  duration_ms: 350.4907
+  type: 'test'
+  ...
+# Subtest: Logout-এর পর পুরোনো Cookie অবৈধ
+ok 11 - Logout-এর পর পুরোনো Cookie অবৈধ
+  ---
+  duration_ms: 71.1694
+  type: 'test'
+  ...
+# Subtest: Static: শুধু তালিকাভুক্ত File; অন্য পথ 404
+ok 12 - Static: শুধু তালিকাভুক্ত File; অন্য পথ 404
+  ---
+  duration_ms: 9.3572
+  type: 'test'
+  ...
+# Subtest: Log-এ Password বা Token নেই
+ok 13 - Log-এ Password বা Token নেই
+  ---
+  duration_ms: 0.2662
+  type: 'test'
+  ...
+# Subtest: Password: একই Password, ভিন্ন Salt; সঠিকটি মেলে, ভুলটি নয়
+ok 14 - Password: একই Password, ভিন্ন Salt; সঠিকটি মেলে, ভুলটি নয়
+  ---
+  duration_ms: 277.5131
+  type: 'test'
+  ...
+# Subtest: Password: বিকৃত সংরক্ষিত মানে false, Exception নয়
+ok 15 - Password: বিকৃত সংরক্ষিত মানে false, Exception নয়
+  ---
+  duration_ms: 0.4188
+  type: 'test'
+  ...
+# Subtest: Validation: দাম Catalog থেকে; Client-এর total ও ownerId উপেক্ষিত
+ok 16 - Validation: দাম Catalog থেকে; Client-এর total ও ownerId উপেক্ষিত
+  ---
+  duration_ms: 2.1745
+  type: 'test'
+  ...
+# Subtest: Validation: অজানা ও Prototype-এর নামের Package বাতিল
+ok 17 - Validation: অজানা ও Prototype-এর নামের Package বাতিল
+  ---
+  duration_ms: 0.2915
+  type: 'test'
+  ...
+# Subtest: Validation: যাত্রী ১-৮ পূর্ণসংখ্যা, Number হিসেবে
+ok 18 - Validation: যাত্রী ১-৮ পূর্ণসংখ্যা, Number হিসেবে
+  ---
+  duration_ms: 0.2459
+  type: 'test'
+  ...
+# Subtest: Validation: তারিখের আকার, ক্যালেন্ডার ও সীমা
+ok 19 - Validation: তারিখের আকার, ক্যালেন্ডার ও সীমা
+  ---
+  duration_ms: 0.318
+  type: 'test'
+  ...
+# Subtest: Validation: নোট ও Body-র ধরন
+ok 20 - Validation: নোট ও Body-র ধরন
+  ---
+  duration_ms: 0.1924
+  type: 'test'
+  ...
+# Subtest: Session: মেয়াদ শেষে অবৈধ; destroy-এর পর অবৈধ
+ok 21 - Session: মেয়াদ শেষে অবৈধ; destroy-এর পর অবৈধ
+  ---
+  duration_ms: 0.5135
+  type: 'test'
+  ...
+# Subtest: safeEqual: সমান, অসমান ও ভিন্ন দৈর্ঘ্য
+ok 22 - safeEqual: সমান, অসমান ও ভিন্ন দৈর্ঘ্য
+  ---
+  duration_ms: 0.5818
+  type: 'test'
+  ...
+# Subtest: Limiter: সীমার পরে আটকায়; সময়-জানালা শেষে ছাড়ে
+ok 23 - Limiter: সীমার পরে আটকায়; সময়-জানালা শেষে ছাড়ে
+  ---
+  duration_ms: 0.7189
+  type: 'test'
+  ...
+# Subtest: redact: Nested ও Array-র ভেতরেও সংবেদনশীল মান মোছে
+ok 24 - redact: Nested ও Array-র ভেতরেও সংবেদনশীল মান মোছে
+  ---
+  duration_ms: 0.4896
+  type: 'test'
+  ...
+1..24
+# tests 24
+# suites 0
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1946.3714

@@ -1,0 +1,2 @@
+OK    node --check src/rates.mjs   (in project/currency-desk)
+OK    node --check tests/e2e.test.mjs   (in project/currency-desk)

@@ -1,0 +1,85 @@
+{
+  "chapter": 10,
+  "ran": "2026-10-15T05:26:39.819Z",
+  "passed": 11,
+  "failed": 0,
+  "results": [
+    {
+      "name": "listings: Node.js run + compare",
+      "ok": true,
+      "exit": 0,
+      "log": "listings-run.log",
+      "summary": "36 files written from the chapter, 32 run, 31 compared with a printed panel, 0 problem(s)"
+    },
+    {
+      "name": "listings: browser run + compare",
+      "ok": true,
+      "exit": 0,
+      "log": "browser-run.log",
+      "summary": "28 listings run in Chrome/155.0.8059.40, 28 compared with a printed panel, 0 problem(s)"
+    },
+    {
+      "name": "syntax: project",
+      "ok": true,
+      "exit": 0,
+      "log": "syntax-checks.log",
+      "summary": ""
+    },
+    {
+      "name": "syntax: tests",
+      "ok": true,
+      "exit": 0,
+      "log": "syntax-checks.log",
+      "summary": ""
+    },
+    {
+      "name": "unit tests",
+      "ok": true,
+      "exit": 0,
+      "log": "unit-tests.log",
+      "summary": "# duration_ms 836.8656"
+    },
+    {
+      "name": "project browser tests",
+      "ok": true,
+      "exit": 0,
+      "log": "project-browser-tests.log",
+      "summary": "# fail 0"
+    },
+    {
+      "name": "manuscript rules",
+      "ok": true,
+      "exit": 0,
+      "log": "manuscript-check.log",
+      "summary": "All manuscript rules passed, 1 warning(s)"
+    },
+    {
+      "name": "colour tokens",
+      "ok": true,
+      "exit": 0,
+      "log": "tokens-check.log",
+      "summary": "All colour checks passed"
+    },
+    {
+      "name": "PDF checks",
+      "ok": true,
+      "exit": 0,
+      "log": "pdf-check.log",
+      "summary": "All PDF checks passed, 1 warning(s)"
+    },
+    {
+      "name": "DOCX checks",
+      "ok": true,
+      "exit": 0,
+      "log": "docx-check.log",
+      "summary": "All DOCX checks passed"
+    },
+    {
+      "name": "Bengali typography audit",
+      "ok": true,
+      "exit": 0,
+      "log": "typography-audit.log",
+      "summary": "   া (advance 0.26 em): 2"
+    }
+  ]
+}

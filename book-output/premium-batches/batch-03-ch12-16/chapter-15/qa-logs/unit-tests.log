@@ -1,0 +1,138 @@
+$ node --test   (in project\bookmark-vault)
+
+TAP version 13
+# Subtest: normalizeUrl: \# বাদ, Host ছোট হাতের অক্ষরে, আগে-পরের ফাঁকা জায়গা বাদ
+ok 1 - normalizeUrl: \# বাদ, Host ছোট হাতের অক্ষরে, আগে-পরের ফাঁকা জায়গা বাদ
+  ---
+  duration_ms: 1.5284
+  type: 'test'
+  ...
+# Subtest: normalizeUrl: javascript:, data:, ftp: এবং অবৈধ লেখা বাতিল
+ok 2 - normalizeUrl: javascript:, data:, ftp: এবং অবৈধ লেখা বাতিল
+  ---
+  duration_ms: 0.8475
+  type: 'test'
+  ...
+# Subtest: parseTags: কমা বা Array থেকে; ছোট হাতের অক্ষর; পুনরাবৃত্তি ও ফাঁকা বাদ; ক্রম অক্ষত
+ok 3 - parseTags: কমা বা Array থেকে; ছোট হাতের অক্ষর; পুনরাবৃত্তি ও ফাঁকা বাদ; ক্রম অক্ষত
+  ---
+  duration_ms: 1.0377
+  type: 'test'
+  ...
+# Subtest: createBookmark: Inject করা সময় ও ID; শিরোনাম trim; সীমা 100
+ok 4 - createBookmark: Inject করা সময় ও ID; শিরোনাম trim; সীমা 100
+  ---
+  duration_ms: 2.0357
+  type: 'test'
+  ...
+# Subtest: createBookmark: Default-এ crypto.randomUUID ও বর্তমান সময়
+ok 5 - createBookmark: Default-এ crypto.randomUUID ও বর্তমান সময়
+  ---
+  duration_ms: 71.1341
+  type: 'test'
+  ...
+# Subtest: addBookmark: নতুনটি ওপরে; একই URL (\# বাদে) দুবার নয়; মূল তালিকা অপরিবর্তিত
+ok 6 - addBookmark: নতুনটি ওপরে; একই URL (\# বাদে) দুবার নয়; মূল তালিকা অপরিবর্তিত
+  ---
+  duration_ms: 1.6153
+  type: 'test'
+  ...
+# Subtest: toggleFavorite ও removeBookmark: শুধু লক্ষ্যটি বদলায়
+ok 7 - toggleFavorite ও removeBookmark: শুধু লক্ষ্যটি বদলায়
+  ---
+  duration_ms: 0.3994
+  type: 'test'
+  ...
+# Subtest: filterBookmarks: খোঁজা (শিরোনাম ও URL), Tag, শুধু প্রিয়, এবং তিনটি একসঙ্গে
+ok 8 - filterBookmarks: খোঁজা (শিরোনাম ও URL), Tag, শুধু প্রিয়, এবং তিনটি একসঙ্গে
+  ---
+  duration_ms: 0.5678
+  type: 'test'
+  ...
+# Subtest: allTags: পুনরাবৃত্তি ছাড়া, বর্ণানুক্রমে
+ok 9 - allTags: পুনরাবৃত্তি ছাড়া, বর্ণানুক্রমে
+  ---
+  duration_ms: 0.5393
+  type: 'test'
+  ...
+# Subtest: reviveBookmark: বৈধ সংরক্ষিত Bookmark নিজের ID, সময় ও প্রিয়-অবস্থাসহ ফেরে
+ok 10 - reviveBookmark: বৈধ সংরক্ষিত Bookmark নিজের ID, সময় ও প্রিয়-অবস্থাসহ ফেরে
+  ---
+  duration_ms: 0.7046
+  type: 'test'
+  ...
+# Subtest: reviveBookmark: ভুল গঠন বা বিপজ্জনক URL-এ null
+ok 11 - reviveBookmark: ভুল গঠন বা বিপজ্জনক URL-এ null
+  ---
+  duration_ms: 1.1379
+  type: 'test'
+  ...
+# Subtest: parseStored: ভাঙা JSON বা Array নয় এমন মানে ফাঁকা; ভুলগুলো বাদ, বৈধগুলো থাকে
+ok 12 - parseStored: ভাঙা JSON বা Array নয় এমন মানে ফাঁকা; ভুলগুলো বাদ, বৈধগুলো থাকে
+  ---
+  duration_ms: 0.3379
+  type: 'test'
+  ...
+# Subtest: exportData: Version, সময় ও তালিকাসহ পাঠযোগ্য JSON
+ok 13 - exportData: Version, সময় ও তালিকাসহ পাঠযোগ্য JSON
+  ---
+  duration_ms: 0.2279
+  type: 'test'
+  ...
+# Subtest: importData: Round-Trip; পুনরাবৃত্ত (URL বা ID) ও অবৈধগুলো বাদ, সংখ্যা সঠিক
+ok 14 - importData: Round-Trip; পুনরাবৃত্ত (URL বা ID) ও অবৈধগুলো বাদ, সংখ্যা সঠিক
+  ---
+  duration_ms: 0.4196
+  type: 'test'
+  ...
+# Subtest: importData: ভাঙা JSON, অচেনা Version বা গঠনে BookmarkError; তালিকা অপরিবর্তিত
+ok 15 - importData: ভাঙা JSON, অচেনা Version বা গঠনে BookmarkError; তালিকা অপরিবর্তিত
+  ---
+  duration_ms: 0.2624
+  type: 'test'
+  ...
+# Subtest: createStore: save ও load, নির্দিষ্ট Key; Storage ব্যর্থ হলে নিরাপদ মান
+ok 16 - createStore: save ও load, নির্দিষ্ট Key; Storage ব্যর্থ হলে নিরাপদ মান
+  ---
+  duration_ms: 0.3702
+  type: 'test'
+  ...
+# Subtest: readFilters: খালি বা অচেনা URL-এ Default
+ok 17 - readFilters: খালি বা অচেনা URL-এ Default
+  ---
+  duration_ms: 2.8345
+  type: 'test'
+  ...
+# Subtest: readFilters: সব ছাঁকনি, Encode করা অক্ষরসহ
+ok 18 - readFilters: সব ছাঁকনি, Encode করা অক্ষরসহ
+  ---
+  duration_ms: 0.306
+  type: 'test'
+  ...
+# Subtest: filtersToSearch: খালি ছাঁকনিতে খালি লেখা; শুধু ব্যবহৃত অংশ; trim
+ok 19 - filtersToSearch: খালি ছাঁকনিতে খালি লেখা; শুধু ব্যবহৃত অংশ; trim
+  ---
+  duration_ms: 0.2236
+  type: 'test'
+  ...
+# Subtest: Round-Trip: URL-এ নিয়ে আবার পড়লে একই ছাঁকনি (trim করা শব্দ বাদে)
+ok 20 - Round-Trip: URL-এ নিয়ে আবার পড়লে একই ছাঁকনি (trim করা শব্দ বাদে)
+  ---
+  duration_ms: 0.6224
+  type: 'test'
+  ...
+# Subtest: URL-এ যেকোনো লেখা এলেও ত্রুটি নয়
+ok 21 - URL-এ যেকোনো লেখা এলেও ত্রুটি নয়
+  ---
+  duration_ms: 0.4117
+  type: 'test'
+  ...
+1..21
+# tests 21
+# suites 0
+# pass 21
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 288.7095

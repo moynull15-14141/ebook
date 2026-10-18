@@ -1,0 +1,3 @@
+$ node ../tools/extract-and-run.mjs .   (in .)
+
+29 files written from the chapter, 25 run, 15 compared with a printed panel, 0 problem(s)

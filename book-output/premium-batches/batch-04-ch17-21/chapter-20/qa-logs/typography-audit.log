@@ -1,0 +1,34 @@
+$ node D:\MoynullHasan\ebook\allcopy\book-output\master-design-system\scripts\check-typography.mjs D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-04-ch17-21\chapter-20\chapter-20-premium.pdf D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-04-ch17-21\chapter-20\chapter-20-premium.md --json D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-04-ch17-21\chapter-20\.build\typography.json   (in .)
+
+PDF: D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-04-ch17-21\chapter-20\chapter-20-premium.pdf
+Pages: 41 | glyphs: 65645 (15136 Bengali) | source Bengali words: 3283 (854 distinct)
+Fonts: HindSiliguri-Medium, HindSiliguri-Bold, HindSiliguri-Regular, HindSiliguri-SemiBold, SourceCodePro-Regular, SourceCodePro-Bold
+
+[naive] source words recovered intact: 1391 of 3283 (42.37%) | distinct words affected: 598
+   most affected: থেকে×50, করে×38, প্রতিটি×32, লেখা×32, দিয়ে×29, নেই×28, পারে×26, জন্য×24, তথ্য×20, অন্য×20, ব্যবহারকারীর×20, করতে×19
+
+[robust] source words recovered intact: 1410 of 3283 (42.95%) | distinct words affected: 594
+   most affected: থেকে×50, করে×38, প্রতিটি×32, লেখা×32, দিয়ে×29, নেই×28, পারে×26, জন্য×24, তথ্য×20, অন্য×20, ব্যবহারকারীর×20, করতে×19
+
+[actual] source words recovered intact: 3283 of 3283 (100%) | distinct words affected: 0
+   most affected: none
+
+Probe words (occurrences in source -> intact / split forms):
+   ভুল ×12:  naive 10 ["ভু ল"] | robust 12 [] | actual 12 []
+   নতুন ×11:  naive 0 ["নতু ন"] | robust 12 [] | actual 12 []
+   প্রথম ×2:  naive 2 [] | robust 2 [] | actual 2 []
+   কি ×42:  naive 4 ["ক ি"] | robust 4 ["ক ি"] | actual 42 []
+   ব্যবহারকারী ×31:  naive 0 [] | robust 0 [] | actual 31 []
+   গুরুত্বপূর্ণ ×5:  naive 0 [] | robust 0 [] | actual 5 []
+
+Naive extractor: spurious in-word breaks occur after these glyphs:
+   ল (advance 0.73 em): 40
+   ু (advance 0.00 em): 24
+   ঁ (advance 0.00 em): 10
+   ৃ (advance 0.00 em): 5
+   া (advance 0.27 em): 4
+   ণ (advance 0.59 em): 4
+   ন (advance 0.57 em): 3
+   র (advance 0.53 em): 3
+   গ (advance 0.57 em): 3
+   ক (advance 0.75 em): 2

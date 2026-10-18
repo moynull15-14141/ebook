@@ -1,0 +1,144 @@
+$ node --test   (in project\ledger-flow)
+
+TAP version 13
+# Subtest: setIn: Object-এর Path; Frozen মূল অক্ষত; বদলের পথের বাইরে Structural Sharing
+ok 1 - setIn: Object-এর Path; Frozen মূল অক্ষত; বদলের পথের বাইরে Structural Sharing
+  ---
+  duration_ms: 2.3523
+  type: 'test'
+  ...
+# Subtest: updateIn: Array-র Index-সহ Path; অন্য Order ও পণ্য একই Object
+ok 2 - updateIn: Array-র Index-সহ Path; অন্য Order ও পণ্য একই Object
+  ---
+  duration_ms: 0.4532
+  type: 'test'
+  ...
+# Subtest: একই মান বসালে কোনো নতুন Object নয় (পরিবর্তন === দিয়ে শনাক্তযোগ্য)
+ok 3 - একই মান বসালে কোনো নতুন Object নয় (পরিবর্তন === দিয়ে শনাক্তযোগ্য)
+  ---
+  duration_ms: 0.4036
+  type: 'test'
+  ...
+# Subtest: অস্তিত্বহীন Path-এ নতুন শাখা তৈরি হয়
+ok 4 - অস্তিত্বহীন Path-এ নতুন শাখা তৈরি হয়
+  ---
+  duration_ms: 0.9835
+  type: 'test'
+  ...
+# Subtest: deepFreeze: সব স্তর Frozen; Strict Mode-এ বদলানোর চেষ্টা TypeError
+ok 5 - deepFreeze: সব স্তর Frozen; Strict Mode-এ বদলানোর চেষ্টা TypeError
+  ---
+  duration_ms: 0.5898
+  type: 'test'
+  ...
+# Subtest: deepFreeze: Primitive ও null নিরাপদ, একই মান ফেরত
+ok 6 - deepFreeze: Primitive ও null নিরাপদ, একই মান ফেরত
+  ---
+  duration_ms: 0.4152
+  type: 'test'
+  ...
+# Subtest: সর্বোচ্চ batchSize একসঙ্গে; সব ফল নামের ক্রমে
+ok 7 - সর্বোচ্চ batchSize একসঙ্গে; সব ফল নামের ক্রমে
+  ---
+  duration_ms: 29.6279
+  type: 'test'
+  ...
+# Subtest: একটি File ব্যর্থ হলেও বাকিগুলো আসে; ব্যর্থতা নামসহ
+ok 8 - একটি File ব্যর্থ হলেও বাকিগুলো আসে; ব্যর্থতা নামসহ
+  ---
+  duration_ms: 29.12
+  type: 'test'
+  ...
+# Subtest: batchSize 1 মানে ক্রমে; batchSize বড় হলে সব একসঙ্গে
+ok 9 - batchSize 1 মানে ক্রমে; batchSize বড় হলে সব একসঙ্গে
+  ---
+  duration_ms: 62.8395
+  type: 'test'
+  ...
+# Subtest: নমুনা Loader: Copy ফেরত দেয় (ভেতরের তথ্য বদলায় না); অজানা মাসে ব্যর্থ
+ok 10 - নমুনা Loader: Copy ফেরত দেয় (ভেতরের তথ্য বদলায় না); অজানা মাসে ব্যর্থ
+  ---
+  duration_ms: 48.3736
+  type: 'test'
+  ...
+# Subtest: validateOrder: বৈধ Order পরিষ্কার, প্রতিটি পণ্যে refunded 0
+ok 11 - validateOrder: বৈধ Order পরিষ্কার, প্রতিটি পণ্যে refunded 0
+  ---
+  duration_ms: 2.326
+  type: 'test'
+  ...
+# Subtest: validateOrder: প্রতিটি ব্যর্থতার নিজস্ব কারণ
+ok 12 - validateOrder: প্রতিটি ব্যর্থতার নিজস্ব কারণ
+  ---
+  duration_ms: 0.5607
+  type: 'test'
+  ...
+# Subtest: indexBy: Key থেকে সারি
+ok 13 - indexBy: Key থেকে সারি
+  ---
+  duration_ms: 0.2721
+  type: 'test'
+  ...
+# Subtest: flattenOrders: প্রতিটি পণ্য একটি সারি, মাস ও নিট পরিমাণসহ
+ok 14 - flattenOrders: প্রতিটি পণ্য একটি সারি, মাস ও নিট পরিমাণসহ
+  ---
+  duration_ms: 0.4092
+  type: 'test'
+  ...
+# Subtest: joinLines: অঞ্চল, নাম, টাকা যোগ; অচেনা পণ্য ও গ্রাহক আলাদা তালিকায়
+ok 15 - joinLines: অঞ্চল, নাম, টাকা যোগ; অচেনা পণ্য ও গ্রাহক আলাদা তালিকায়
+  ---
+  duration_ms: 0.5725
+  type: 'test'
+  ...
+# Subtest: pivotRegionMonth: অঞ্চল × মাস, মাস ক্রমে; Invariant: ঘরের যোগফল = মোট
+ok 16 - pivotRegionMonth: অঞ্চল × মাস, মাস ক্রমে; Invariant: ঘরের যোগফল = মোট
+  ---
+  duration_ms: 0.5481
+  type: 'test'
+  ...
+# Subtest: pivotRegionMonth: মাসগুলো ইনপুটের ক্রম নির্বিশেষে সাজানো
+ok 17 - pivotRegionMonth: মাসগুলো ইনপুটের ক্রম নির্বিশেষে সাজানো
+  ---
+  duration_ms: 0.4173
+  type: 'test'
+  ...
+# Subtest: topCustomers: মোট বেশি আগে; সমান হলে বাংলা নামের ক্রমে; সংখ্যা সীমিত
+ok 18 - topCustomers: মোট বেশি আগে; সমান হলে বাংলা নামের ক্রমে; সংখ্যা সীমিত
+  ---
+  duration_ms: 0.3719
+  type: 'test'
+  ...
+# Subtest: applyRefund: শুধু সেই Order নতুন; অন্য Order ও পণ্য একই Object; মূল অক্ষত
+ok 19 - applyRefund: শুধু সেই Order নতুন; অন্য Order ও পণ্য একই Object; মূল অক্ষত
+  ---
+  duration_ms: 0.7197
+  type: 'test'
+  ...
+# Subtest: applyRefund: ধাপে ধাপে ফেরত জমে; বিক্রির বেশি নয়
+ok 20 - applyRefund: ধাপে ধাপে ফেরত জমে; বিক্রির বেশি নয়
+  ---
+  duration_ms: 2.3508
+  type: 'test'
+  ...
+# Subtest: applyRefund: অচেনা Order বা পণ্য, শূন্য বা দশমিক পরিমাণ বাতিল
+ok 21 - applyRefund: অচেনা Order বা পণ্য, শূন্য বা দশমিক পরিমাণ বাতিল
+  ---
+  duration_ms: 0.5259
+  type: 'test'
+  ...
+# Subtest: পুরো Pipeline একই ইনপুটে একই ফল (Referential Transparency)
+ok 22 - পুরো Pipeline একই ইনপুটে একই ফল (Referential Transparency)
+  ---
+  duration_ms: 0.4971
+  type: 'test'
+  ...
+1..22
+# tests 22
+# suites 0
+# pass 22
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 304.3204

@@ -1,0 +1,27 @@
+Browser: Chrome/155.0.8059.40
+Served from: http://127.0.0.1:57079
+
+===== examples/01-factory.js =====
+SMS rafi: আপনার Visa আবেদন জমা হয়েছে
+Email rafi: আপনার Visa আবেদন জমা হয়েছে
+অজানা Channel: fax
+
+===== examples/02-strategy.js =====
+none       40000
+earlyBird  36000
+group      34000
+unknown    40000
+student    32000
+
+===== examples/03-observer.js =====
+Email: VF-001 অনুমোদিত
+Report হালনাগাদ: VF-001
+Report হালনাগাদ: VF-002
+
+===== examples/04-di.js =====
+সুপ্রভাত, Mina
+শুভ সন্ধ্যা, Mina
+অজানা ব্যবহারকারী
+
+===== project/visa-flow/src/ui/view.mjs =====
+

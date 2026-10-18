@@ -1,0 +1,58 @@
+{
+  "number": 26,
+  "source": "chapter-26-premium.md",
+  "outputBase": "chapter-26-premium",
+  "companion": [
+    "project",
+    "examples"
+  ],
+  "logs": "qa-logs",
+  "tests": [
+    {
+      "name": "listings: Node.js run + compare",
+      "cwd": ".",
+      "cmd": [
+        "node",
+        "../tools/extract-and-run.mjs",
+        "."
+      ],
+      "log": "listings-run.log"
+    },
+    {
+      "name": "syntax: project",
+      "cwd": "project/travel-data",
+      "cmd": [
+        "node",
+        "--check",
+        "src/ledger.mjs"
+      ]
+    },
+    {
+      "name": "syntax: tests",
+      "cwd": "project/travel-data",
+      "cmd": [
+        "node",
+        "--check",
+        "tests/ledger.test.mjs"
+      ]
+    },
+    {
+      "name": "syntax: PostgreSQL adapter (not executed: no PostgreSQL server)",
+      "cwd": "project/travel-data",
+      "cmd": [
+        "node",
+        "--check",
+        "src/postgres-ledger.mjs"
+      ]
+    },
+    {
+      "name": "database tests (node:sqlite: constraints, transactions, locks)",
+      "cwd": "project/travel-data",
+      "cmd": [
+        "node",
+        "--test"
+      ],
+      "log": "unit-tests.log"
+    }
+  ]
+}

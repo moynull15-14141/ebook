@@ -1,0 +1,14 @@
+{
+  "number": 8,
+  "source": "chapter-08-premium.md",
+  "outputBase": "chapter-08-premium",
+  "companion": ["project", "examples"],
+  "logs": "qa-logs",
+  "tests": [
+    { "name": "listings: Node.js run + compare", "cwd": ".", "cmd": ["node", "../tools/extract-and-run.mjs", "."], "log": "listings-run.log" },
+    { "name": "listings: browser run + compare", "cwd": ".", "cmd": ["node", "../tools/run-browser-listings.mjs", "."], "log": "browser-run.log" },
+    { "name": "syntax: project", "cwd": "project/content-search-utility", "cmd": ["node", "--check", "text-tools.js"] },
+    { "name": "syntax: tests", "cwd": "project/content-search-utility", "cmd": ["node", "--check", "tests/text-tools.test.js"] },
+    { "name": "unit tests", "cwd": "project/content-search-utility", "cmd": ["node", "--test"], "log": "unit-tests.log" }
+  ]
+}

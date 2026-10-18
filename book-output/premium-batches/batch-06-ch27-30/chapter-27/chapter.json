@@ -1,0 +1,16 @@
+{
+  "number": 27,
+  "source": "chapter-27-premium.md",
+  "outputBase": "chapter-27-premium",
+  "companion": ["project", "examples"],
+  "logs": "qa-logs",
+  "nodeArgs": ["--import", "file:///D:/MoynullHasan/ebook/allcopy/book-output/premium-batches/batch-06-ch27-30/tools/local-deps.mjs"],
+  "tests": [
+    { "name": "listings: Node.js run + compare (ws 7.5.10 via QA-only local-deps hook)", "cwd": ".", "cmd": ["node", "../tools/extract-and-run.mjs", "."], "log": "listings-run.log" },
+    { "name": "syntax: project", "cwd": "project/travel-live", "cmd": ["node", "--check", "src/gateway.mjs"] },
+    { "name": "syntax: browser client", "cwd": "project/travel-live", "cmd": ["node", "--check", "public/app.mjs"] },
+    { "name": "syntax: Socket.IO design example (not executed: socket.io not installed)", "cwd": "examples", "cmd": ["node", "--check", "09-socketio-design.mjs"] },
+    { "name": "project tests: domain, HTTP, SSE and real WebSocket connections", "cwd": "project/travel-live", "cmd": ["node", "--import", "file:///D:/MoynullHasan/ebook/allcopy/book-output/premium-batches/batch-06-ch27-30/tools/local-deps.mjs", "--test"], "log": "unit-tests.log" },
+    { "name": "browser end-to-end: dashboard in headless Chrome against the real server", "cwd": ".", "cmd": ["node", "--import", "file:///D:/MoynullHasan/ebook/allcopy/book-output/premium-batches/batch-06-ch27-30/tools/local-deps.mjs", "../tools/ch27-browser-e2e.mjs", "."], "log": "browser-e2e.log" }
+  ]
+}

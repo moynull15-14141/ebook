@@ -1,0 +1,55 @@
+$ node D:\MoynullHasan\ebook\allcopy\book-output\master-design-system\scripts\check-tokens.mjs   (in .)
+
+Text contrast (WCAG 2: 4.5 for body-size text, 3 for large or bold headings)
+
+PASS  15.40:1 (min 7)  body text  #1C2534 on #FFFFFF
+PASS  17.43:1 (min 7)  bold text  #101A2B on #FFFFFF
+PASS   5.82:1 (min 4.5)  muted text: captions, page number  #5A6678 on #FFFFFF
+PASS   4.55:1 (min 4.5)  running header  #6B7788 on #FFFFFF
+PASS  13.01:1 (min 4.5)  H1 / H2 headings  #12305F on #FFFFFF
+PASS   7.92:1 (min 4.5)  H3 headings and emphasis  #1D4F9C on #FFFFFF
+PASS   5.68:1 (min 4.5)  chapter label, list markers  #08708A on #FFFFFF
+PASS  13.62:1 (min 7)  code text  #1E2A3B on #F6F8FB
+PASS   6.13:1 (min 4.5)  code caption  #4A586E on #E8EDF4
+PASS   9.18:1 (min 4.5)  inline code  #173F78 on #EDF1F7
+PASS   7.45:1 (min 4.5)  syntax: keyword  #1D4F9C on #F6F8FB
+PASS   6.14:1 (min 4.5)  syntax: string  #0A6B4A on #F6F8FB
+PASS   5.08:1 (min 4.5)  syntax: comment  #5F6B7D on #F6F8FB
+PASS   5.15:1 (min 4.5)  syntax: number  #A3540A on #F6F8FB
+PASS   6.41:1 (min 4.5)  error caption  #9B2C1F on #F8E9E6
+PASS  13.67:1 (min 7)  error panel text  #1E2A3B on #FDF7F6
+PASS  11.33:1 (min 4.5)  table header  #12305F on #E9F0F8
+PASS  14.73:1 (min 7)  table body  #1C2534 on #F8FAFD
+PASS  13.95:1 (min 7)  note callout text  #1C2534 on #E9F6FA
+PASS   5.15:1 (min 4.5)  note label  #08708A on #E9F6FA
+PASS  14.20:1 (min 7)  warning callout text  #1C2534 on #FDF5E4
+PASS   6.51:1 (min 4.5)  warning label  #7A5000 on #FDF5E4
+PASS  14.06:1 (min 7)  tip callout text  #1C2534 on #EDF7F1
+PASS   5.92:1 (min 4.5)  tip label  #1F6B41 on #EDF7F1
+PASS  11.67:1 (min 4.5)  remember label  #12305F on #EEF3FA
+PASS  14.43:1 (min 7)  panel text  #1C2534 on #F4F8FC
+
+Grayscale print (approximate printed gray; 0% = white, 100% = black)
+
+    98%  body text
+    97%  headings (navy)
+    92%  H3 / emphasis (blue)
+    76%  cyan rule and markers
+     6%  code panel background
+    16%  code caption background
+    14%  table header background
+    10%  note background
+     8%  warning background
+     9%  tip background
+    11%  remember background
+    92%  syntax keyword
+    89%  syntax string
+    86%  syntax comment
+    86%  syntax number
+
+PASS  every tinted background prints lighter than 20% gray
+NOTE  The four callout tints print as nearly the same light gray. They are told apart in grayscale by their bold text label
+      (নোট / সতর্কতা / পরামর্শ / মনে রাখুন) and the warning by its double edge rule — never by colour alone.
+NOTE  Syntax colours print as similar dark grays; keywords are also bold, so structure stays visible without colour.
+
+All colour checks passed

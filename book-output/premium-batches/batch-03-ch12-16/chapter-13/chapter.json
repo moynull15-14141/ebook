@@ -1,0 +1,14 @@
+{
+  "number": 13,
+  "source": "chapter-13-premium.md",
+  "outputBase": "chapter-13-premium",
+  "companion": ["project", "examples"],
+  "logs": "qa-logs",
+  "tests": [
+    { "name": "listings: Node.js run + compare", "cwd": ".", "cmd": ["node", "../tools/extract-and-run.mjs", "."], "log": "listings-run.log" },
+    { "name": "listings: browser run + compare", "cwd": ".", "cmd": ["node", "../tools/run-browser-listings.mjs", "."], "log": "browser-run.log" },
+    { "name": "syntax: project", "cwd": "project/booking-lab", "cmd": ["node", "--check", "src/booking.mjs"] },
+    { "name": "syntax: tests", "cwd": "project/booking-lab", "cmd": ["node", "--check", "tests/booking.test.mjs"] },
+    { "name": "unit tests", "cwd": "project/booking-lab", "cmd": ["node", "--test"], "log": "unit-tests.log" }
+  ]
+}

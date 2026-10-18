@@ -1,0 +1,108 @@
+$ node --test   (in project\student-management)
+
+TAP version 13
+# Subtest: gradeFor: প্রতিটি সীমা
+ok 1 - gradeFor: প্রতিটি সীমা
+  ---
+  duration_ms: 8.0774
+  type: 'test'
+  ...
+# Subtest: validateStudent: সঠিক তথ্যে null
+ok 2 - validateStudent: সঠিক তথ্যে null
+  ---
+  duration_ms: 0.3041
+  type: 'test'
+  ...
+# Subtest: validateStudent: ফাঁকা বা অনুপস্থিত ID
+ok 3 - validateStudent: ফাঁকা বা অনুপস্থিত ID
+  ---
+  duration_ms: 0.232
+  type: 'test'
+  ...
+# Subtest: validateStudent: ছোট নাম
+ok 4 - validateStudent: ছোট নাম
+  ---
+  duration_ms: 0.1554
+  type: 'test'
+  ...
+# Subtest: validateStudent: ভুল নম্বর (সীমার বাইরে, দশমিক, String)
+ok 5 - validateStudent: ভুল নম্বর (সীমার বাইরে, দশমিক, String)
+  ---
+  duration_ms: 0.4476
+  type: 'test'
+  ...
+# Subtest: validateStudent: একই ID
+ok 6 - validateStudent: একই ID
+  ---
+  duration_ms: 0.2701
+  type: 'test'
+  ...
+# Subtest: addStudent: নতুন Array, মূলটি অক্ষত, ফাঁকা জায়গা বাদ
+ok 7 - addStudent: নতুন Array, মূলটি অক্ষত, ফাঁকা জায়গা বাদ
+  ---
+  duration_ms: 0.666
+  type: 'test'
+  ...
+# Subtest: addStudent: সমস্যা থাকলে মূল তালিকাই ফেরত
+ok 8 - addStudent: সমস্যা থাকলে মূল তালিকাই ফেরত
+  ---
+  duration_ms: 0.3162
+  type: 'test'
+  ...
+# Subtest: updateMarks: শুধু একজনের নম্বর; মূল Object অক্ষত
+ok 9 - updateMarks: শুধু একজনের নম্বর; মূল Object অক্ষত
+  ---
+  duration_ms: 1.0157
+  type: 'test'
+  ...
+# Subtest: removeStudent: নির্দিষ্ট ID বাদ, মূল তালিকা অক্ষত
+ok 10 - removeStudent: নির্দিষ্ট ID বাদ, মূল তালিকা অক্ষত
+  ---
+  duration_ms: 1.0296
+  type: 'test'
+  ...
+# Subtest: searchStudents: নাম ও ID-তে, বড়-ছোট হাতের অক্ষর নির্বিশেষে
+ok 11 - searchStudents: নাম ও ID-তে, বড়-ছোট হাতের অক্ষর নির্বিশেষে
+  ---
+  duration_ms: 0.4065
+  type: 'test'
+  ...
+# Subtest: summarize: মোট, গড়, উত্তীর্ণ, সর্বোচ্চ
+ok 12 - summarize: মোট, গড়, উত্তীর্ণ, সর্বোচ্চ
+  ---
+  duration_ms: 0.2047
+  type: 'test'
+  ...
+# Subtest: summarize: গড় এক দশমিক ঘরে
+ok 13 - summarize: গড় এক দশমিক ঘরে
+  ---
+  duration_ms: 0.1948
+  type: 'test'
+  ...
+# Subtest: summarize: ফাঁকা তালিকা
+ok 14 - summarize: ফাঁকা তালিকা
+  ---
+  duration_ms: 0.1056
+  type: 'test'
+  ...
+# Subtest: formatStudent: ফোন থাকলে ও না থাকলে
+ok 15 - formatStudent: ফোন থাকলে ও না থাকলে
+  ---
+  duration_ms: 0.1441
+  type: 'test'
+  ...
+# Subtest: File চালালে দুটি বাতিল, তিনজনের লাইন ও সারসংক্ষেপ দেখায়
+ok 16 - File চালালে দুটি বাতিল, তিনজনের লাইন ও সারসংক্ষেপ দেখায়
+  ---
+  duration_ms: 0.1303
+  type: 'test'
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 206.2002

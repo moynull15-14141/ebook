@@ -1,0 +1,106 @@
+Browser: Chrome/155.0.8059.40
+
+===== examples/01-select/script.js (page examples/01-select/index.html) =====
+আজকের কাজ
+3
+high
+হাঁটা
+null
+বাজার করা, বই পড়া, হাঁটা
+
+===== examples/02-too-early/script.js (page examples/02-too-early/index.html) =====
+null
+TypeError: Cannot set properties of null (setting 'textContent')
+
+===== examples/03-change/script.js (page examples/03-change/index.html) =====
+সংরক্ষিত হয়েছে
+success bold
+false
+https://developer.mozilla.org
+true
+
+===== examples/04-create/script.js (page examples/04-create/index.html) =====
+3
+2
+দ্বিতীয়
+0
+
+===== examples/05-counter/script.js (page examples/05-counter/index.html) click #add,#add,#reset,#add =====
+গণনা: 1
+গণনা: 2
+গণনা: 0
+গণনা: 1
+
+===== examples/06-bubbling/script.js (page examples/06-bubbling/index.html) click #like,h2 =====
+like: click
+card: target BUTTON
+document
+card: target H2
+document
+
+===== examples/07-delegation/script.js (page examples/07-delegation/index.html) click #menu>li:first-child>button,#menu>li:last-child>button =====
+অর্ডার: চা
+অর্ডার: জুস
+
+===== examples/08-form/script.js (page examples/08-form/index.html) steps click:button,type:#email:sara@,key:Enter,type:#email:sara@example.com,key:Enter =====
+ত্রুটি: ""
+ত্রুটি: "sara@"
+পাঠানো হলো: sara@example.com
+
+===== examples/09-state/script.js (page examples/09-state/index.html) click #add-tea,#add-tea =====
+1টি জিনিস, মোট 250 টাকা
+2টি জিনিস, মোট 270 টাকা
+3টি জিনিস, মোট 290 টাকা
+
+===== examples/10-storage.js =====
+string
+18
+string
+null
+0
+
+===== examples/11-safe-storage.js =====
+0
+0
+0
+
+===== examples/solutions/s01-heading.js =====
+নতুন শিরোনাম
+
+===== examples/solutions/s02-theme-button.js click #theme,#theme =====
+Dark
+Light
+
+===== examples/solutions/s05-fruit-list.js =====
+3
+লিচু
+
+===== examples/solutions/s06-char-counter.js steps type:#note:%E0%A6%B9%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B2%E0%A7%8B~JavaScript =====
+0/120
+17/120
+
+===== examples/solutions/s07-delete-rows.js click ul>li:nth-child(2)>button =====
+খ মুছে গেছে; বাকি 2
+
+===== examples/solutions/s08-enter-to-add.js steps type:#item:~~,key:Enter,type:#item:%E0%A6%A6%E0%A7%81%E0%A6%A7~%E0%A6%95%E0%A7%87%E0%A6%A8%E0%A6%BE,key:Enter =====
+ফাঁকা; যোগ হলো না
+যোগ হলো: দুধ কেনা; মোট 1
+
+===== examples/solutions/s09-theme-storage.js =====
+light
+dark
+light
+
+===== examples/solutions/s10-escape-clears.js steps type:#search:JavaScript,key:Escape =====
+খুঁজছেন: JavaScript
+খোঁজা মুছে ফেলা হলো
+
+===== examples/solutions/s11-complete-all.js =====
+true, true
+false
+false
+
+===== examples/solutions/s12-undo.js =====
+কগ
+কখগ
+null

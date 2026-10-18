@@ -1,0 +1,110 @@
+===== examples/01-values.js  (exit code 0) =====
+স্বাগতম, Sara OK
+greet 1 function
+42 21
+
+===== examples/02-closure-state.js  (exit code 0) =====
+102 1
+100 false
+
+===== examples/03-loop-trap.js  (exit code 0) =====
+3, 3, 3
+0, 1, 2
+
+===== examples/04-wrappers.js  (exit code 0) =====
+সংযোগ তৈরি
+connection-1 connection-1
+add(2, 3) = 5
+50
+
+===== examples/05-call-apply-bind.js  (exit code 0) =====
+নাম: Sara।
+নাম: Sara!
+হ্যালো, Sara!
+9 9
+
+===== examples/06-pipe.js  (exit code 0) =====
+3
+modern-javascript-guide
+
+===== examples/07-curry.js  (exit code 0) =====
+1150 230
+1050
+2500, 4000
+450
+
+===== examples/08-purity.js  (exit code 0) =====
+115
+120 115
+stationery | stationery,sale
+
+===== examples/09-memoize.js  (exit code 0) =====
+81 81 16 2
+190392490709135
+
+===== examples/10-throttle.js  (exit code 0) =====
+10টি ঘটনা, কাজ হলো 3 বার
+
+===== examples/11-two-styles.js  (exit code 0) =====
+170 170 50
+
+===== project/sales-function-lab/src/fp.mjs  (exit code 0) =====
+
+
+===== project/sales-function-lab/src/sales.mjs  (exit code 0) =====
+
+
+===== project/sales-function-lab/src/format.mjs  (exit code 0) =====
+
+
+===== project/sales-function-lab/data/sales.mjs  (exit code 0) =====
+
+
+===== project/sales-function-lab/report.mjs  (exit code 0) =====
+মোট আয়: 7,400 টাকা
+Electronics: 2টি বিক্রি, 4,700 টাকা
+Books: 2টি বিক্রি, 1,970 টাকা
+Stationery: 2টি বিক্রি, 730 টাকা
+শীর্ষ ৩: S2, S5, S1
+বাদ: সারি 6: পরিমাণ 1 বা বেশি পূর্ণসংখ্যা হতে হবে
+বাদ: সারি 7: বিভাগ নেই
+১০০০+ টাকার বই: S1
+1,234.50 টাকা 2 0
+
+===== examples/solutions/s01-greeting.js  (exit code 0) =====
+স্বাগতম, Sara!
+শুভ সকাল, Rafi!
+
+===== examples/solutions/s03-twice.js  (exit code 0) =====
+12
+বাহ!!
+
+===== examples/solutions/s05-vat-bind.js  (exit code 0) =====
+150 36
+
+===== examples/solutions/s06-clean-names.js  (exit code 0) =====
+Sara, Rafi, Mina
+
+===== examples/solutions/s07-between.js  (exit code 0) =====
+45, 88, 33
+true false
+
+===== examples/solutions/s08-count-calls.js  (exit code 0) =====
+60, 120, 60, 60, 120
+আসল হিসাব: 2 বার
+
+===== examples/solutions/s09-welcome-once.js  (exit code 0) =====
+স্বাগত Email পাঠানো হলো: sara@example.com
+true
+
+===== examples/solutions/s10-compose.js  (exit code 0) =====
+484
+12
+
+===== examples/solutions/s11-rate-limiter.js  (exit code 0) =====
+true, true, false, true
+
+===== examples/solutions/s12-average.mjs  (exit code 0) =====
+Books: গড় 985
+Electronics: গড় 2350
+Stationery: গড় 365

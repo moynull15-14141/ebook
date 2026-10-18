@@ -1,0 +1,36 @@
+Browser: Chrome/155.0.8059.40
+Served from: http://127.0.0.1:57035
+
+===== examples/01-xss-demo.js =====
+innerHTML: img Element তৈরি? true
+innerHTML: onerror চলেছে? true
+innerHTML: script চলেছে? false
+textContent: Element তৈরি? false
+
+===== examples/02-encoding.js =====
+<input value="Rafi&quot; onfocus=&quot;window.flag=1">
+<p>বাজেট &lt;15000 &amp; দুটি রুম</p>
+/search?q=Cox%20%26%20Sylhet%20%3D%20%E0%A6%B8%E0%A6%BE%E0%A6%97%E0%A6%B0
+false true
+
+===== examples/04-authz.js =====
+401 Login প্রয়োজন
+200 Sylhet | 404 পাওয়া যায়নি | 404 পাওয়া যায়নি
+200 Cox
+
+===== examples/06-csp/check.js (page examples/06-csp/index.html) =====
+Inline script চলেছে? false
+onerror Attribute চলেছে? false
+বাইরের File (check.js) চলেছে? true
+Executing inline script violates the following Content Security Policy directive 'script-src 'self''. Either the 'unsafe-inline' keyword, a hash ('sha256-DwqCCwuGrUEakwAxEO45bEUUaZXG2JK2oBSHshmRaPk='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.
+Executing inline event handler violates the following Content Security Policy directive 'script-src 'self''. Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution. Note that hashes do not apply to event handlers, style attributes and javascript: navigations unless the 'unsafe-hashes' keyword is present. The action has been blocked.
+
+===== examples/08-secrets.js =====
+SESSION_SECRET সেট করা নেই বা ৩২ অক্ষরের কম
+48
+
+===== examples/solutions/s01-escape.js =====
+Tom &amp; &quot;Jerry&quot; &lt;b&gt;
+
+===== examples/solutions/s06-safe-href.js =====
+https://ok.example/a | /trips/7 | # | # | # | #

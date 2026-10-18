@@ -1,0 +1,68 @@
+{
+  "number": 21,
+  "source": "chapter-21-premium.md",
+  "outputBase": "chapter-21-premium",
+  "companion": [
+    "project",
+    "examples"
+  ],
+  "logs": "qa-logs",
+  "tests": [
+    {
+      "name": "listings: Node.js run + compare",
+      "cwd": ".",
+      "cmd": [
+        "node",
+        "../tools/extract-and-run.mjs",
+        "."
+      ],
+      "log": "listings-run.log"
+    },
+    {
+      "name": "listings: browser run + compare",
+      "cwd": ".",
+      "cmd": [
+        "node",
+        "../tools/run-browser-listings.mjs",
+        "."
+      ],
+      "log": "browser-run.log"
+    },
+    {
+      "name": "browser: VisaFlow end-to-end in Chrome",
+      "cwd": ".",
+      "cmd": [
+        "node",
+        "browser-e2e.mjs"
+      ],
+      "log": "browser-e2e.log"
+    },
+    {
+      "name": "syntax: project",
+      "cwd": "project/visa-flow",
+      "cmd": [
+        "node",
+        "--check",
+        "src/app/service.mjs"
+      ]
+    },
+    {
+      "name": "syntax: tests",
+      "cwd": "project/visa-flow",
+      "cmd": [
+        "node",
+        "--check",
+        "tests/service.test.mjs"
+      ]
+    },
+    {
+      "name": "unit tests",
+      "cwd": "project/visa-flow",
+      "cmd": [
+        "node",
+        "--test"
+      ],
+      "log": "unit-tests.log"
+    }
+  ]
+}

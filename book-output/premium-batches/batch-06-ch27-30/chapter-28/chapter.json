@@ -1,0 +1,14 @@
+{
+  "number": 28,
+  "source": "chapter-28-premium.md",
+  "outputBase": "chapter-28-premium",
+  "companion": ["project", "examples"],
+  "logs": "qa-logs",
+  "tests": [
+    { "name": "listings: Node.js run + compare", "cwd": ".", "cmd": ["node", "../tools/extract-and-run.mjs", "."], "log": "listings-run.log" },
+    { "name": "syntax: project", "cwd": "project/deploy-ready", "cmd": ["node", "--check", "src/app.mjs"] },
+    { "name": "npm run check: Dockerfile / .dockerignore / compose static rules", "cwd": "project/deploy-ready", "cmd": ["node", "scripts/check-deploy.mjs"], "log": "deploy-static-check.log" },
+    { "name": "project tests: config, observability, HTTP API, graceful shutdown, healthcheck", "cwd": "project/deploy-ready", "cmd": ["node", "--test"], "log": "unit-tests.log" },
+    { "name": "deploy validation: YAML parsed (yaml + js-yaml), production-mode smoke test; docker build NOT RUN (no daemon), GitHub Actions NOT RUN", "cwd": ".", "cmd": ["node", "../tools/ch28-validate-deploy.mjs", "."], "log": "deploy-validation.log" }
+  ]
+}

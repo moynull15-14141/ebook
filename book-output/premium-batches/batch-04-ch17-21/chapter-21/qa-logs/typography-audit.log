@@ -1,0 +1,35 @@
+$ node D:\MoynullHasan\ebook\allcopy\book-output\master-design-system\scripts\check-typography.mjs D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-04-ch17-21\chapter-21\chapter-21-premium.pdf D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-04-ch17-21\chapter-21\chapter-21-premium.md --json D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-04-ch17-21\chapter-21\.build\typography.json   (in .)
+
+PDF: D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-04-ch17-21\chapter-21\chapter-21-premium.pdf
+Pages: 35 | glyphs: 52448 (12216 Bengali) | source Bengali words: 2690 (740 distinct)
+Fonts: HindSiliguri-Medium, HindSiliguri-Bold, HindSiliguri-Regular, HindSiliguri-SemiBold, SourceCodePro-Regular, SourceCodePro-Bold
+
+[naive] source words recovered intact: 1189 of 2690 (44.2%) | distinct words affected: 497
+   most affected: করে×41, নিয়ম×37, থেকে×29, কে×23, নতুন×23, প্রতিটি×22, দিয়ে×21, আবেদন×20, অধ্যায়×19, অবস্থা×19, তৈরি×18, জন্য×18
+
+[robust] source words recovered intact: 1221 of 2690 (45.39%) | distinct words affected: 491
+   most affected: করে×41, নিয়ম×37, থেকে×29, কে×23, প্রতিটি×22, দিয়ে×21, আবেদন×20, অধ্যায়×19, অবস্থা×19, তৈরি×18, জন্য×18, কোনো×17
+
+[actual] source words recovered intact: 2690 of 2690 (100%) | distinct words affected: 0
+   most affected: none
+
+Probe words (occurrences in source -> intact / split forms):
+   ভুল ×8:  naive 6 ["ভু ল"] | robust 9 [] | actual 9 []
+   নতুন ×23:  naive 0 ["নতু ন"] | robust 23 [] | actual 23 []
+   পরিবর্তন ×8:  naive 0 [] | robust 0 [] | actual 8 []
+   প্রথম ×5:  naive 5 [] | robust 5 [] | actual 5 []
+   কি ×32:  naive 2 ["ক ি"] | robust 2 ["ক ি"] | actual 32 []
+   ব্যবহারকারী ×7:  naive 0 [] | robust 0 [] | actual 7 []
+   গুরুত্বপূর্ণ ×3:  naive 0 [] | robust 0 [] | actual 3 []
+
+Naive extractor: spurious in-word breaks occur after these glyphs:
+   ল (advance 0.73 em): 34
+   ু (advance 0.00 em): 34
+   ঁ (advance 0.00 em): 11
+   া (advance 0.27 em): 7
+   য় (advance 0.57 em): 4
+   া (advance 0.26 em): 4
+   ৃ (advance 0.00 em): 3
+   র (advance 0.53 em): 2
+   শ্ন (advance 0.67 em): 2
+   জ (advance 0.87 em): 2

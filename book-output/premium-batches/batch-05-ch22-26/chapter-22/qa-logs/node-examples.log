@@ -1,0 +1,503 @@
+===== examples/01-aaa/aaa.test.mjs  (exit code 0) =====
+TAP version 13
+# Subtest: 10000 পয়সায় 0% ছাড়
+ok 1 - 10000 পয়সায় 0% ছাড়
+  ---
+  duration_ms: 1.116
+  type: 'test'
+  ...
+# Subtest: 10000 পয়সায় 10% ছাড়
+ok 2 - 10000 পয়সায় 10% ছাড়
+  ---
+  duration_ms: 0.142
+  type: 'test'
+  ...
+# Subtest: 999 পয়সায় 50% ছাড়
+ok 3 - 999 পয়সায় 50% ছাড়
+  ---
+  duration_ms: 0.1032
+  type: 'test'
+  ...
+# Subtest: ৫০%-এর বেশি ছাড় প্রত্যাখ্যাত
+ok 4 - ৫০%-এর বেশি ছাড় প্রত্যাখ্যাত
+  ---
+  duration_ms: 1.4413
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 13.9018
+
+===== examples/02-fee-cliff.js  (exit code 0) =====
+999.99 পাঠালে Fee 50.00
+1000.00 পাঠালে Fee 15.00
+1000.01 পাঠালে Fee 15.00
+
+===== examples/03-property/monotonic.test.mjs  (exit code 1) =====
+TAP version 13
+# Subtest: বেশি পাঠালে Fee কখনো কমে না
+not ok 1 - বেশি পাঠালে Fee কখনো কমে না
+  ---
+  duration_ms: 6.9313
+  type: 'test'
+  location: 'D:\\MoynullHasan\\ebook\\allcopy\\book-output\\premium-batches\\batch-05-ch22-26\\chapter-22\\examples\\03-property\\monotonic.test.mjs:11:1'
+  failureType: 'testCodeFailure'
+  error: '100698 পয়সায় Fee 1510, আগে ছিল 5000'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (monotonic.test.mjs:15:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 0
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 18.2687
+
+===== examples/04-tdd-red/format.mjs  (exit code 0) =====
+
+
+===== examples/04-tdd-red/red.mjs  (exit code 1) =====
+TAP version 13
+# Subtest: পয়সা থেকে হাজারের কমা ও দুই দশমিক
+not ok 1 - পয়সা থেকে হাজারের কমা ও দুই দশমিক
+  ---
+  duration_ms: 2.4079
+  type: 'test'
+  location: 'D:\\MoynullHasan\\ebook\\allcopy\\book-output\\premium-batches\\batch-05-ch22-26\\chapter-22\\examples\\04-tdd-red\\format.test.mjs:5:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    '' !== '1,234.56 BDT'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: '1,234.56 BDT'
+  actual: ''
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (format.test.mjs:6:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 0
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 12.36
+
+===== examples/05-tdd-green/format.mjs  (exit code 0) =====
+
+
+===== examples/05-tdd-green/format.test.mjs  (exit code 0) =====
+TAP version 13
+# Subtest: পয়সা থেকে হাজারের কমা ও দুই দশমিক
+ok 1 - পয়সা থেকে হাজারের কমা ও দুই দশমিক
+  ---
+  duration_ms: 286.5863
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 307.8577
+
+===== examples/06-mocks/mocks.test.mjs  (exit code 0) =====
+TAP version 13
+# Subtest: ৬০ সেকেন্ড পরে ঠিক একটি SMS
+ok 1 - ৬০ সেকেন্ড পরে ঠিক একটি SMS
+  ---
+  duration_ms: 7.9988
+  type: 'test'
+  ...
+# Subtest: Test শেষে আসল Method ফিরে আসে
+ok 2 - Test শেষে আসল Method ফিরে আসে
+  ---
+  duration_ms: 0.1921
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 19.6614
+(node:21668) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/07-mutation.js  (exit code 0) =====
+আসল Code: সব পাস
+cliff    ধরা পড়েছে (100000 পয়সায়)
+truncate ধরা পড়েছে (333367 পয়সায়)
+max>=    ধরা পড়েছে (50000000 পয়সায়)
+from>    টিকে গেছে
+
+===== project/currency-desk/src/money.mjs  (exit code 0) =====
+
+
+===== project/currency-desk/src/fees.mjs  (exit code 0) =====
+
+
+===== project/currency-desk/src/rates.mjs  (exit code 0) =====
+
+
+===== project/currency-desk/src/quote.mjs  (exit code 0) =====
+
+
+===== project/currency-desk/src/rate-server.mjs  (exit code 0) =====
+
+
+===== project/currency-desk/src/api.mjs  (exit code 0) =====
+
+
+===== project/currency-desk/src/start.mjs  (exit code 0) =====
+
+
+===== project/currency-desk/tests/fees.test.mjs  (exit code 0) =====
+TAP version 13
+# Subtest: Fee: সবচেয়ে ছোট বৈধ
+ok 1 - Fee: সবচেয়ে ছোট বৈধ
+  ---
+  duration_ms: 2.0953
+  type: 'test'
+  ...
+# Subtest: Fee: প্রথম স্তরের শেষ (999.99)
+ok 2 - Fee: প্রথম স্তরের শেষ (999.99)
+  ---
+  duration_ms: 0.1568
+  type: 'test'
+  ...
+# Subtest: Fee: দ্বিতীয় স্তরের শুরু (1,000.00)
+ok 3 - Fee: দ্বিতীয় স্তরের শুরু (1,000.00)
+  ---
+  duration_ms: 0.1147
+  type: 'test'
+  ...
+# Subtest: Fee: 1.5% যেখানে ন্যূনতমকে ছাড়ায় (3,333.34)
+ok 4 - Fee: 1.5% যেখানে ন্যূনতমকে ছাড়ায় (3,333.34)
+  ---
+  duration_ms: 0.2259
+  type: 'test'
+  ...
+# Subtest: Fee: তার পরের পয়সা (3,333.67)
+ok 5 - Fee: তার পরের পয়সা (3,333.67)
+  ---
+  duration_ms: 0.1231
+  type: 'test'
+  ...
+# Subtest: Fee: দ্বিতীয় স্তরের শেষ (9,999.99)
+ok 6 - Fee: দ্বিতীয় স্তরের শেষ (9,999.99)
+  ---
+  duration_ms: 0.1089
+  type: 'test'
+  ...
+# Subtest: Fee: তৃতীয় স্তরের শুরু (10,000.00)
+ok 7 - Fee: তৃতীয় স্তরের শুরু (10,000.00)
+  ---
+  duration_ms: 0.1952
+  type: 'test'
+  ...
+# Subtest: Fee: সর্বোচ্চ (500,000.00)
+ok 8 - Fee: সর্বোচ্চ (500,000.00)
+  ---
+  duration_ms: 0.1017
+  type: 'test'
+  ...
+# Subtest: সীমার বাইরে: 0, ঋণাত্মক, সর্বোচ্চের এক পয়সা বেশি, ভগ্নাংশ
+ok 9 - সীমার বাইরে: 0, ঋণাত্মক, সর্বোচ্চের এক পয়সা বেশি, ভগ্নাংশ
+  ---
+  duration_ms: 0.9397
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 19.882
+
+===== project/currency-desk/tests/e2e.test.mjs  (exit code 0) =====
+TAP version 13
+# Subtest: Browser-এ Quote
+ok 1 - Browser-এ Quote
+  ---
+  duration_ms: 1811.6738
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1824.663
+
+===== examples/solutions/s02-age.test.mjs  (exit code 0) =====
+TAP version 13
+# Subtest: বয়স 17: false
+ok 1 - বয়স 17: false
+  ---
+  duration_ms: 2.0706
+  type: 'test'
+  ...
+# Subtest: বয়স 18: true
+ok 2 - বয়স 18: true
+  ---
+  duration_ms: 0.1583
+  type: 'test'
+  ...
+# Subtest: বয়স 19: true
+ok 3 - বয়স 19: true
+  ---
+  duration_ms: 0.1654
+  type: 'test'
+  ...
+# Subtest: বয়স 30: true
+ok 4 - বয়স 30: true
+  ---
+  duration_ms: 0.2243
+  type: 'test'
+  ...
+# Subtest: বয়স 59: true
+ok 5 - বয়স 59: true
+  ---
+  duration_ms: 0.1136
+  type: 'test'
+  ...
+# Subtest: বয়স 60: true
+ok 6 - বয়স 60: true
+  ---
+  duration_ms: 0.1009
+  type: 'test'
+  ...
+# Subtest: বয়স 61: false
+ok 7 - বয়স 61: false
+  ---
+  duration_ms: 0.2049
+  type: 'test'
+  ...
+# Subtest: বয়স 18.5: false
+ok 8 - বয়স 18.5: false
+  ---
+  duration_ms: 0.0946
+  type: 'test'
+  ...
+# Subtest: বয়স "30": false
+ok 9 - বয়স "30": false
+  ---
+  duration_ms: 0.418
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 18.8245
+
+===== examples/solutions/s04-log.test.mjs  (exit code 0) =====
+TAP version 13
+# Subtest: processOrder শেষে একবার "done" Log করে
+ok 1 - processOrder শেষে একবার "done" Log করে
+  ---
+  duration_ms: 1.9501
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 11.511
+
+===== examples/solutions/s06-negative/format.mjs  (exit code 0) =====
+
+
+===== examples/solutions/s06-negative/negative.test.mjs  (exit code 0) =====
+TAP version 13
+# Subtest: ধনাত্মক পরিমাণ
+ok 1 - ধনাত্মক পরিমাণ
+  ---
+  duration_ms: 23.2108
+  type: 'test'
+  ...
+# Subtest: ঋণাত্মক পরিমাণ (ফেরত টাকা)
+ok 2 - ঋণাত্মক পরিমাণ (ফেরত টাকা)
+  ---
+  duration_ms: 0.3571
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 34.6955
+
+===== examples/solutions/s07-debounce.test.mjs  (exit code 0) =====
+TAP version 13
+# Subtest: ৩০০ ms-এর মধ্যে তিন ডাকে একবার, শেষ মান দিয়ে
+ok 1 - ৩০০ ms-এর মধ্যে তিন ডাকে একবার, শেষ মান দিয়ে
+  ---
+  duration_ms: 2.7587
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 13.8204
+(node:18020) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+===== examples/solutions/s08-commas.test.mjs  (exit code 0) =====
+TAP version 13
+# Subtest: কমা থাকুক বা না থাকুক, একই মান
+ok 1 - কমা থাকুক বা না থাকুক, একই মান
+  ---
+  duration_ms: 33.0814
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 48.7087
+
+===== examples/solutions/s09-too-many.test.mjs  (exit code 0) =====
+TAP version 13
+# Subtest: বর্তমান আচরণ: 429 Retry হয় না
+ok 1 - বর্তমান আচরণ: 429 Retry হয় না
+  ---
+  duration_ms: 33.6424
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 44.7444
+
+===== examples/solutions/s10-cache.test.mjs  (exit code 0) =====
+TAP version 13
+# Subtest: একই জোড়ার দুটি Quote, Provider-এ একটি অনুরোধ
+ok 1 - একই জোড়ার দুটি Quote, Provider-এ একটি অনুরোধ
+  ---
+  duration_ms: 78.7545
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 208.1999
+
+===== examples/solutions/s11-retry.test.mjs  (exit code 0) =====
+TAP version 13
+# Subtest: প্রথমবারেই সফল
+ok 1 - প্রথমবারেই সফল
+  ---
+  duration_ms: 1.0623
+  type: 'test'
+  ...
+# Subtest: দুবার ব্যর্থ, তৃতীয়বার সফল; অপেক্ষা 100, 200
+ok 2 - দুবার ব্যর্থ, তৃতীয়বার সফল; অপেক্ষা 100, 200
+  ---
+  duration_ms: 1.6199
+  type: 'test'
+  ...
+# Subtest: সব ব্যর্থ: শেষ Error
+ok 3 - সব ব্যর্থ: শেষ Error
+  ---
+  duration_ms: 1.8053
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 15.0896
+
+===== examples/solutions/s12-e2e-pair.test.mjs  (exit code 0) =====
+TAP version 13
+# Subtest: অজানা মুদ্রা-জোড়ার বার্তা
+ok 1 - অজানা মুদ্রা-জোড়ার বার্তা
+  ---
+  duration_ms: 1593.9643
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1602.9559

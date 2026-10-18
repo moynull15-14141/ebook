@@ -1,0 +1,66 @@
+===== examples/01-express-basics.mjs  (exit code 0) =====
+200 [{"id":1,"title":"Sajek","days":2}]
+200 {"id":2,"title":"Kuakata","days":3}
+404 {"error":"Tour নেই"}
+201 {"received":{"title":"Ratargul"}}
+
+===== examples/02-middleware-order.mjs  (exit code 0) =====
+401 requestId > logger > auth
+200 requestId > logger > auth > route
+
+===== examples/03-async-errors.mjs  (exit code 0) =====
+unhandledRejection: Database বন্ধ
+/unsafe: ৫০০ ms-এ কোনো উত্তর আসেনি
+/safe: 500 {"error":"Server-এ সমস্যা"}
+
+===== project/lead-desk/src/errors.mjs  (exit code 0) =====
+
+
+===== project/lead-desk/src/leads.mjs  (exit code 0) =====
+
+
+===== project/lead-desk/src/config.mjs  (exit code 0) =====
+
+
+===== project/lead-desk/src/repository.mjs  (exit code 0) =====
+
+
+===== project/lead-desk/src/service.mjs  (exit code 0) =====
+
+
+===== project/lead-desk/src/middleware.mjs  (exit code 0) =====
+
+
+===== project/lead-desk/src/error-handler.mjs  (exit code 0) =====
+
+
+===== project/lead-desk/src/routes.mjs  (exit code 0) =====
+
+
+===== project/lead-desk/src/app.mjs  (exit code 0) =====
+
+
+===== project/lead-desk/src/server.mjs  (exit code 0) =====
+
+
+===== examples/solutions/s01-health.mjs  (exit code 0) =====
+200 ok true
+
+===== examples/solutions/s04-response-time.mjs  (exit code 0) =====
+true
+
+===== examples/solutions/s07-require-role.mjs  (exit code 0) =====
+agent 403
+manager 204
+
+===== examples/solutions/s08-timeout.mjs  (exit code 0) =====
+/fast 200
+/slow 503
+
+===== examples/solutions/s09-all-pages.mjs  (exit code 0) =====
+3 7 L-00007
+
+===== examples/solutions/s12-sqlite-repository.mjs  (exit code 0) =====
+true false contacted
+(node:17972) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)

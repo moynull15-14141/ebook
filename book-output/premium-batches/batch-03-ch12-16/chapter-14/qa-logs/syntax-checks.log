@@ -1,0 +1,2 @@
+OK    node --check src/sales.mjs   (in project/sales-function-lab)
+OK    node --check tests/sales.test.mjs   (in project/sales-function-lab)

@@ -1,0 +1,43 @@
+Browser: Chrome/155.0.8059.40
+Served from: http://127.0.0.1:54090
+
+===== examples/01-error-family.js =====
+SaveFailedError: Booking সংরক্ষণ হয়নি
+  <- DatabaseError: INSERT ব্যর্থ
+  <- Error: connection reset
+true SAVE true
+
+===== examples/02-aggregate.mjs =====
+AggregateError 2
+Server A বন্ধ | Server B বন্ধ
+
+===== examples/03-invariant.js =====
+{"a":70,"b":80}
+Invariant ভঙ্গ: a-এর Balance ঋণাত্মক হবে
+
+===== examples/05-logger.js =====
+{"level":"info","event":"created","service":"booking","id":"B-1","seats":2}
+{"level":"warn","event":"payment-retry","service":"booking","attempt":1}
+
+===== project/booking-guard/src/errors.mjs =====
+
+
+===== project/booking-guard/src/booking-core.mjs =====
+
+
+===== project/booking-guard/src/memory-repository.mjs =====
+
+
+===== examples/solutions/s02-age-boundary.js =====
+17:false 18:true 60:true 61:false
+
+===== examples/solutions/s04-greeting-clock.js =====
+শুভ সকাল
+শুভ অপরাহ্ন
+
+===== examples/solutions/s05-not-found.js =====
+NotFoundError NOT_FOUND Booking B-9 পাওয়া যায়নি true
+
+===== examples/solutions/s11-health.mjs =====
+2/3 সুস্থ
+সমস্যা: Payment সাড়া দিচ্ছে না

@@ -1,0 +1,12 @@
+{
+  "name": "currency-desk",
+  "private": true,
+  "type": "module",
+  "description": "JavaScript Mastery, Chapter 22: a tested currency quote service (educational demo)",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test",
+    "coverage": "node --test --experimental-test-coverage"
+  }
+}

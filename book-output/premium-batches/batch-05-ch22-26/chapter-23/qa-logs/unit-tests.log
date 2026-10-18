@@ -1,0 +1,103 @@
+$ node --test   (in project\travel-search)
+
+TAP version 13
+# Subtest: Browser-এ TravelSearch
+    # Subtest: ১২,০০০ ফল, কিন্তু DOM-এ মাত্র কয়েকটি সারি
+    ok 1 - ১২,০০০ ফল, কিন্তু DOM-এ মাত্র কয়েকটি সারি
+      ---
+      duration_ms: 171.5281
+      type: 'test'
+      ...
+    # Subtest: শেষ পর্যন্ত Scroll: শেষ Record আঁকা হয়
+    ok 2 - শেষ পর্যন্ত Scroll: শেষ Record আঁকা হয়
+      ---
+      duration_ms: 76.602
+      type: 'test'
+      ...
+    # Subtest: খোঁজ ও সাজানো: Node.js-এর সরল খোঁজের সঙ্গে মেলে
+    ok 3 - খোঁজ ও সাজানো: Node.js-এর সরল খোঁজের সঙ্গে মেলে
+      ---
+      duration_ms: 247.3679
+      type: 'test'
+      ...
+    1..3
+ok 1 - Browser-এ TravelSearch
+  ---
+  duration_ms: 3173.871
+  type: 'test'
+  ...
+# Subtest: তথ্য Seed থেকে নির্ধারিত: দুবার তৈরি করলে একই
+ok 2 - তথ্য Seed থেকে নির্ধারিত: দুবার তৈরি করলে একই
+  ---
+  duration_ms: 2.6493
+  type: 'test'
+  ...
+# Subtest: নির্দিষ্ট প্রশ্নে দুই খোঁজ একই ফল দেয়
+ok 3 - নির্দিষ্ট প্রশ্নে দুই খোঁজ একই ফল দেয়
+  ---
+  duration_ms: 280.1832
+  type: 'test'
+  ...
+# Subtest: Property: ৩০০টি এলোমেলো প্রশ্নে দুই খোঁজ সমান
+ok 4 - Property: ৩০০টি এলোমেলো প্রশ্নে দুই খোঁজ সমান
+  ---
+  duration_ms: 3375.4026
+  type: 'test'
+  ...
+# Subtest: সাজানো: দাম বাড়ার ক্রমে, সমান দামে id-র ক্রমে
+ok 5 - সাজানো: দাম বাড়ার ক্রমে, সমান দামে id-র ক্রমে
+  ---
+  duration_ms: 2.5525
+  type: 'test'
+  ...
+# Subtest: Index Record-এর Copy নয়, একই Object (Memory দ্বিগুণ নয়)
+ok 6 - Index Record-এর Copy নয়, একই Object (Memory দ্বিগুণ নয়)
+  ---
+  duration_ms: 1.332
+  type: 'test'
+  ...
+# Subtest: শুরুতে: ০ থেকে ১০টি দৃশ্যমান + ৫টি বাড়তি
+ok 7 - শুরুতে: ০ থেকে ১০টি দৃশ্যমান + ৫টি বাড়তি
+  ---
+  duration_ms: 3.0812
+  type: 'test'
+  ...
+# Subtest: মাঝখানে: দুই পাশে ৫টি করে বাড়তি
+ok 8 - মাঝখানে: দুই পাশে ৫টি করে বাড়তি
+  ---
+  duration_ms: 0.2421
+  type: 'test'
+  ...
+# Subtest: শেষে: total-এর বাইরে নয়
+ok 9 - শেষে: total-এর বাইরে নয়
+  ---
+  duration_ms: 0.1767
+  type: 'test'
+  ...
+# Subtest: আধা সারি Scroll: আংশিক দেখা সারিও আঁকা হয়
+ok 10 - আধা সারি Scroll: আংশিক দেখা সারিও আঁকা হয়
+  ---
+  duration_ms: 0.1558
+  type: 'test'
+  ...
+# Subtest: সীমার ক্ষেত্র: ফাঁকা তালিকা, ঋণাত্মক scrollTop, ছোট তালিকা
+ok 11 - সীমার ক্ষেত্র: ফাঁকা তালিকা, ঋণাত্মক scrollTop, ছোট তালিকা
+  ---
+  duration_ms: 0.5197
+  type: 'test'
+  ...
+# Subtest: যত বড় তালিকাই হোক, আঁকা সারির সংখ্যা স্থির
+ok 12 - যত বড় তালিকাই হোক, আঁকা সারির সংখ্যা স্থির
+  ---
+  duration_ms: 0.2683
+  type: 'test'
+  ...
+1..12
+# tests 15
+# suites 0
+# pass 15
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3847.2665

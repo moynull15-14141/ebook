@@ -1,0 +1,20 @@
+$ node demo.mjs   (in project\travel-saga)
+
+১. সাধারণ Booking: CONFIRMED
+২. একই অনুরোধ আবার: CONFIRMED
+৩. একই ID, ভিন্ন দাম: IDEMPOTENCY_CONFLICT
+৪. Card প্রত্যাখ্যাত: REJECTED (PAYMENT_DECLINED)
+৫. Inventory সাময়িক 503: CONFIRMED
+৬. আসন নেই: REJECTED (SOLD_OUT)
+৭. Payment-এর উত্তর অনিশ্চিত: REJECTED (PAYMENT_UNCERTAIN)
+Inventory: { available: 7, reserved: 3 }
+Payment: { captured: 1700000, refunded: 300000, attempts: 4 }
+Outbox-এর Event:
+  trip-101 booking.confirmed
+  trip-102 booking.rejected
+  trip-103 booking.confirmed
+  trip-104 booking.rejected
+  trip-105 booking.rejected
+trip-105-এর ইতিহাস: STARTED > RESERVING > CHARGING > COMPENSATING > REJECTED
+(node:16872) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)

@@ -1,0 +1,33 @@
+$ node D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-02-ch07-11\build-system\scripts\check-typography.mjs D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-02-ch07-11\chapter-07\chapter-07-premium.pdf D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-02-ch07-11\chapter-07\chapter-07-premium.md --json D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-02-ch07-11\chapter-07\.build\typography.json   (in .)
+
+PDF: D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-02-ch07-11\chapter-07\chapter-07-premium.pdf
+Pages: 34 | glyphs: 41725 (12771 Bengali) | source Bengali words: 2874 (706 distinct)
+Fonts: HindSiliguri-Medium, HindSiliguri-Bold, HindSiliguri-Regular, SourceCodePro-Regular, HindSiliguri-SemiBold, SourceCodePro-Bold
+
+[naive] source words recovered intact: 1266 of 2874 (44.05%) | distinct words affected: 486
+   most affected: দিয়ে×39, থেকে×37, তথ্য×37, করে×27, নতুন×24, আছে×24, নেই×24, ব্যবহার×23, করুন×23, থাকলে×21, অধ্যায়×20, প্রতিটি×18
+
+[robust] source words recovered intact: 1302 of 2874 (45.3%) | distinct words affected: 481
+   most affected: দিয়ে×39, থেকে×37, তথ্য×37, করে×27, আছে×24, নেই×24, ব্যবহার×23, করুন×23, থাকলে×21, অধ্যায়×20, প্রতিটি×18, দেয়×18
+
+[actual] source words recovered intact: 2874 of 2874 (100%) | distinct words affected: 0
+   most affected: none
+
+Probe words (occurrences in source -> intact / split forms):
+   ভুল ×10:  naive 8 ["ভু ল"] | robust 10 [] | actual 10 []
+   নতুন ×24:  naive 0 ["নতু ন"] | robust 24 [] | actual 24 []
+   প্রথম ×11:  naive 11 [] | robust 11 [] | actual 11 []
+   কি ×27:  naive 1 ["ক ি"] | robust 1 ["ক ি"] | actual 27 []
+   গুরুত্বপূর্ণ ×4:  naive 0 [] | robust 0 [] | actual 4 []
+
+Naive extractor: spurious in-word breaks occur after these glyphs:
+   ু (advance 0.00 em): 35
+   ল (advance 0.73 em): 33
+   ঁ (advance 0.00 em): 11
+   য় (advance 0.57 em): 4
+   ণ (advance 0.59 em): 4
+   ৃ (advance 0.00 em): 2
+   া (advance 0.26 em): 2
+   া (advance 0.27 em): 2
+   র (advance 0.53 em): 2
+   ক্ত (advance 0.80 em): 1

@@ -1,0 +1,92 @@
+Browser: Chrome/155.0.8059.40
+Served from: http://127.0.0.1:54246
+
+===== examples/01-browser-env.js =====
+object object http:
+true true
+function function
+
+===== examples/03-url.js =====
+shop.example.com 8080 /products/list
+books 2 #top
+?category=books&page=3&tag=%E0%A6%AC%E0%A6%87
+https://example.com/docs/about
+TypeError
+
+===== examples/04-search-params.js =====
+q=js+%26+dom&sort=new
+q = js & dom
+sort = new
+1 null
+
+===== examples/05-storage-kinds.js =====
+dark অর্ধেক লেখা
+1 string
+null 0
+
+===== examples/06-quota.js =====
+ব্যর্থ: QuotaExceededError
+null
+
+===== examples/07-storage-event/main.js (page examples/07-storage-event/index.html) =====
+অন্য Page দেখল: last-update = 10:30
+এই Page নিজে Event পেয়েছে 0 বার
+অন্য Page দেখল: last-update = null
+
+===== examples/08-migrate.js =====
+2 বাজার false
+true
+অচেনা Version: 9
+
+===== examples/09-request.mjs =====
+POST application/json
+MDN
+201 true 7
+
+===== examples/10-fetch-local/app.mjs (page examples/10-fetch-local/index.html) =====
+200 application/json; charset=utf-8
+MDN, Node.js
+/examples/10-fetch-local/links.json
+
+===== examples/11-history.js =====
+?q=javascript
+?q=javascript&page=2 2
+Back: ?q=javascript, state null
+
+===== examples/12-blob.mjs =====
+text/csv 31
+Sara,Dhaka
+result.json 11 true
+
+===== project/bookmark-vault/src/url-state.mjs =====
+
+
+===== project/bookmark-vault/src/storage.mjs =====
+
+
+===== examples/solutions/s01-read-url.js =====
+example.com dom 5
+
+===== examples/solutions/s02-build-query.js =====
+https://example.com/search?city=Dhaka&type=hotel+%26+resort
+
+===== examples/solutions/s03-number-storage.js =====
+string 411 42
+
+===== examples/solutions/s05-safe-link.js =====
+true false
+false false
+
+===== examples/solutions/s06-migrate-v3.js =====
+3 {"name":"বাজার","done":false,"createdAt":null}
+
+===== examples/solutions/s07-read-page.js =====
+3 1 1
+1 1
+
+===== examples/solutions/s08-csv-blob.mjs =====
+26 Sara,88
+
+===== examples/solutions/s12-safe-save.js =====
+সংরক্ষিত
+জায়গা শেষ; পুরোনো তথ্য মুছে আবার চেষ্টা করুন।

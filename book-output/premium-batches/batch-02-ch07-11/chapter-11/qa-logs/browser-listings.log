@@ -1,0 +1,108 @@
+Browser: Chrome/155.0.8059.40
+
+===== examples/03-logical.js =====
+90
+1990
+
+===== examples/04-error-types.js =====
+TypeError, Error-ও? true
+ReferenceError, Error-ও? true
+RangeError, Error-ও? true
+SyntaxError, Error-ও? true
+URIError, Error-ও? true
+
+===== examples/05-throw.js =====
+দাম: 250
+TypeError: পণ্যের দাম একটি সংখ্যা হতে হবে
+RangeError: দাম ঋণাত্মক হতে পারে না: -5
+
+===== examples/06-finally.js =====
+১. চেষ্টা
+৩. finally সব সময়
+সফল
+১. চেষ্টা
+২. ধরা পড়েছে: ঋণাত্মক
+৩. finally সব সময়
+ব্যর্থ
+
+===== examples/07-custom-error.js =====
+বয়স: 32
+age ঘরে: বয়স সঠিক নয়: "abc"
+age ঘরে: বয়স সঠিক নয়: "-4"
+
+===== examples/08-cause.js =====
+Settings পড়া যায়নি
+মূল কারণ: SyntaxError
+
+===== examples/09-swallowed.js =====
+0
+10
+0
+
+===== examples/10-number-traps.js =====
+0 0 1000 16
+NaN 12 2.5
+12 null null
+
+===== examples/11-own-keys.js =====
+function
+null
+1250
+
+===== examples/12-global-handlers.js =====
+saveDraft() ডাকা হয়েছে, কিন্তু await বা catch নেই
+ধরা পড়েনি এমন Promise: Server বন্ধ
+
+===== examples/solutions/s01-which-error.js =====
+TypeError
+ReferenceError
+RangeError
+SyntaxError
+
+===== examples/solutions/s02-safe-divide.js =====
+2.5
+RangeError: শূন্য দিয়ে ভাগ করা যায় না
+
+===== examples/solutions/s03-finally-order.js =====
+খ
+ক
+
+===== examples/solutions/s04-no-empty-catch.js =====
+Order সংরক্ষণ হয়নি: স্টক শেষ
+
+===== examples/solutions/s05-require-text.js =====
+[Sara]
+ValidationError: নাম ঘরটি পূরণ করুন
+TypeError: নাম: লেখা আশা করা হয়েছিল
+
+===== examples/solutions/s06-parse-json-or.js =====
+dark
+light
+
+===== examples/solutions/s07-not-found.js =====
+Keyboard
+true P9 পণ্য পাওয়া যায়নি: P9
+
+===== examples/solutions/s08-read-config.js =====
+Config পড়া যায়নি
+true
+
+===== examples/solutions/s09-load-profile.js =====
+Loading শুরু
+ব্যর্থ: Profile Server সাড়া দেয়নি
+Loading বন্ধ
+
+===== examples/solutions/s10-validate-signup.js =====
+name: নাম কমপক্ষে 2 অক্ষর
+email: সঠিক Email
+password: Password কমপক্ষে 8 অক্ষর
+
+===== examples/solutions/s11-retry-if-allowed.js =====
+চেষ্টা 1 ব্যর্থ, আবার
+চেষ্টা 2 ব্যর্থ, আবার
+সফল
+অনুমতি নেই
+
+===== examples/solutions/s12-attempt.js =====
+true 2
+false SyntaxError

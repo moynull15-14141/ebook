@@ -1,0 +1,161 @@
+===== examples/errors/01-syntax.js  (exit code 1) =====
+01-syntax.js:2
+const = 42;
+      ^
+
+SyntaxError: Unexpected token '='
+    at wrapSafe (node:internal/modules/cjs/loader:1662:18)
+    at Module._compile (node:internal/modules/cjs/loader:1704:20)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.16.0
+
+===== examples/errors/02-runtime.js  (exit code 1) =====
+এই লাইন চলে
+02-runtime.js:4
+console.log(user.name);
+                 ^
+
+TypeError: Cannot read properties of null (reading 'name')
+    at Object.<anonymous> (02-runtime.js:4:18)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.16.0
+
+===== examples/03-logical.js  (exit code 0) =====
+90
+1990
+
+===== examples/04-error-types.js  (exit code 0) =====
+TypeError, Error-ও? true
+ReferenceError, Error-ও? true
+RangeError, Error-ও? true
+SyntaxError, Error-ও? true
+URIError, Error-ও? true
+
+===== examples/05-throw.js  (exit code 0) =====
+দাম: 250
+TypeError: পণ্যের দাম একটি সংখ্যা হতে হবে
+RangeError: দাম ঋণাত্মক হতে পারে না: -5
+
+===== examples/06-finally.js  (exit code 0) =====
+১. চেষ্টা
+৩. finally সব সময়
+সফল
+১. চেষ্টা
+২. ধরা পড়েছে: ঋণাত্মক
+৩. finally সব সময়
+ব্যর্থ
+
+===== examples/07-custom-error.js  (exit code 0) =====
+বয়স: 32
+age ঘরে: বয়স সঠিক নয়: "abc"
+age ঘরে: বয়স সঠিক নয়: "-4"
+
+===== examples/08-cause.js  (exit code 0) =====
+Settings পড়া যায়নি
+মূল কারণ: SyntaxError
+
+===== examples/09-swallowed.js  (exit code 0) =====
+0
+10
+0
+
+===== examples/10-number-traps.js  (exit code 0) =====
+0 0 1000 16
+NaN 12 2.5
+12 null null
+
+===== examples/11-own-keys.js  (exit code 0) =====
+function
+null
+1250
+
+===== examples/errors/13-stack.js  (exit code 1) =====
+13-stack.js:2
+  return product.stock > 0;
+                 ^
+
+TypeError: Cannot read properties of undefined (reading 'stock')
+    at checkStock (13-stack.js:2:18)
+    at addToCart (13-stack.js:6:7)
+    at Object.<anonymous> (13-stack.js:11:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+
+Node.js v22.16.0
+
+===== project/order-validation/order-validation.js  (exit code 0) =====
+
+
+===== examples/solutions/s01-which-error.js  (exit code 0) =====
+TypeError
+ReferenceError
+RangeError
+SyntaxError
+
+===== examples/solutions/s02-safe-divide.js  (exit code 0) =====
+2.5
+RangeError: শূন্য দিয়ে ভাগ করা যায় না
+
+===== examples/solutions/s03-finally-order.js  (exit code 0) =====
+খ
+ক
+
+===== examples/solutions/s04-no-empty-catch.js  (exit code 0) =====
+Order সংরক্ষণ হয়নি: স্টক শেষ
+
+===== examples/solutions/s05-require-text.js  (exit code 0) =====
+[Sara]
+ValidationError: নাম ঘরটি পূরণ করুন
+TypeError: নাম: লেখা আশা করা হয়েছিল
+
+===== examples/solutions/s06-parse-json-or.js  (exit code 0) =====
+dark
+light
+
+===== examples/solutions/s07-not-found.js  (exit code 0) =====
+Keyboard
+true P9 পণ্য পাওয়া যায়নি: P9
+
+===== examples/solutions/s08-read-config.js  (exit code 0) =====
+Config পড়া যায়নি
+true
+
+===== examples/solutions/s09-load-profile.js  (exit code 0) =====
+Loading শুরু
+ব্যর্থ: Profile Server সাড়া দেয়নি
+Loading বন্ধ
+
+===== examples/solutions/s10-validate-signup.js  (exit code 0) =====
+name: নাম কমপক্ষে 2 অক্ষর
+email: সঠিক Email
+password: Password কমপক্ষে 8 অক্ষর
+
+===== examples/solutions/s11-retry-if-allowed.js  (exit code 0) =====
+চেষ্টা 1 ব্যর্থ, আবার
+চেষ্টা 2 ব্যর্থ, আবার
+সফল
+অনুমতি নেই
+
+===== examples/solutions/s12-attempt.js  (exit code 0) =====
+true 2
+false SyntaxError

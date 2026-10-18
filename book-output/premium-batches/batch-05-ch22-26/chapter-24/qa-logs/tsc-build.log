@@ -1,0 +1,2 @@
+$ node C:/Users/T/AppData/Roaming/npm/node_modules/firebase-tools/node_modules/typescript/bin/tsc -p . --typeRoots C:/Users/T/AppData/Roaming/npm/node_modules/firebase-tools/node_modules/@types   (in project\typesafe-claims)
+

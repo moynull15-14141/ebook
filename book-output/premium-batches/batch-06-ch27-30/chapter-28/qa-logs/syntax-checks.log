@@ -1,0 +1,1 @@
+OK    node --check src/app.mjs   (in project/deploy-ready)

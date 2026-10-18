@@ -1,0 +1,156 @@
+$ node --test   (in project\form-shield)
+
+TAP version 13
+# Subtest: বৈধ Signup: আদর্শ রূপে মান, কোনো ভুল নয়
+ok 1 - বৈধ Signup: আদর্শ রূপে মান, কোনো ভুল নয়
+  ---
+  duration_ms: 11.2304
+  type: 'test'
+  ...
+# Subtest: সব ভুল একসঙ্গে, প্রতিটি ঘরে প্রথম ভাঙা নিয়মের বার্তা
+ok 2 - সব ভুল একসঙ্গে, প্রতিটি ঘরে প্রথম ভাঙা নিয়মের বার্তা
+  ---
+  duration_ms: 1.4747
+  type: 'test'
+  ...
+# Subtest: Optional ঘর: ফাঁকা হলে নিয়ম চলে না, ফলেও আসে না; পূরণ করলে যাচাই হয়
+ok 3 - Optional ঘর: ফাঁকা হলে নিয়ম চলে না, ফলেও আসে না; পূরণ করলে যাচাই হয়
+  ---
+  duration_ms: 1.2961
+  type: 'test'
+  ...
+# Subtest: Mass Assignment: Schema-র বাইরের ঘর ফলে যায় না
+ok 4 - Mass Assignment: Schema-র বাইরের ঘর ফলে যায় না
+  ---
+  duration_ms: 0.5894
+  type: 'test'
+  ...
+# Subtest: __proto__ ও উত্তরাধিকারসূত্রে পাওয়া Key: ফল দূষিত হয় না
+ok 5 - __proto__ ও উত্তরাধিকারসূত্রে পাওয়া Key: ফল দূষিত হয় না
+  ---
+  duration_ms: 0.3553
+  type: 'test'
+  ...
+# Subtest: ReDoS প্রতিরোধ: সীমার বেশি লেখা Regex-এর আগেই প্রত্যাখ্যাত, তাৎক্ষণিকভাবে
+ok 6 - ReDoS প্রতিরোধ: সীমার বেশি লেখা Regex-এর আগেই প্রত্যাখ্যাত, তাৎক্ষণিকভাবে
+  ---
+  duration_ms: 3.8868
+  type: 'test'
+  ...
+# Subtest: সীমার ঠিক সমান দৈর্ঘ্য গৃহীত, এক বেশি নয় (Boundary)
+ok 7 - সীমার ঠিক সমান দৈর্ঘ্য গৃহীত, এক বেশি নয় (Boundary)
+  ---
+  duration_ms: 0.447
+  type: 'test'
+  ...
+# Subtest: null বা অদ্ভুত ইনপুটে Engine ভেঙে পড়ে না
+ok 8 - null বা অদ্ভুত ইনপুটে Engine ভেঙে পড়ে না
+  ---
+  duration_ms: 0.3091
+  type: 'test'
+  ...
+# Subtest: ফলের Object সাধারণ Object (Prototype-সহ), JSON-এ পাঠানো যায়
+ok 9 - ফলের Object সাধারণ Object (Prototype-সহ), JSON-এ পাঠানো যায়
+  ---
+  duration_ms: 0.6831
+  type: 'test'
+  ...
+# Subtest: toAsciiDigits: সব বাংলা অঙ্ক, বাকি লেখা অপরিবর্তিত
+ok 10 - toAsciiDigits: সব বাংলা অঙ্ক, বাকি লেখা অপরিবর্তিত
+  ---
+  duration_ms: 1.2772
+  type: 'test'
+  ...
+# Subtest: cleanText: NFC, আগে-পরে ও মাঝের বাড়তি ফাঁকা জায়গা, Tab ও নতুন লাইন
+ok 11 - cleanText: NFC, আগে-পরে ও মাঝের বাড়তি ফাঁকা জায়গা, Tab ও নতুন লাইন
+  ---
+  duration_ms: 0.9699
+  type: 'test'
+  ...
+# Subtest: normalizePhone: +880, 880, বাংলা অঙ্ক, ফাঁকা জায়গা, হাইফেন, বন্ধনী
+ok 12 - normalizePhone: +880, 880, বাংলা অঙ্ক, ফাঁকা জায়গা, হাইফেন, বন্ধনী
+  ---
+  duration_ms: 0.4293
+  type: 'test'
+  ...
+# Subtest: normalizePhone: অবৈধ নম্বর বদলায় না, যাতে যাচাই তাকে ধরতে পারে
+ok 13 - normalizePhone: অবৈধ নম্বর বদলায় না, যাতে যাচাই তাকে ধরতে পারে
+  ---
+  duration_ms: 0.1655
+  type: 'test'
+  ...
+# Subtest: normalizeEmail: ছোট হাতের অক্ষর ও trim
+ok 14 - normalizeEmail: ছোট হাতের অক্ষর ও trim
+  ---
+  duration_ms: 0.3476
+  type: 'test'
+  ...
+# Subtest: সব Pattern Anchor-যুক্ত এবং g/y Flag-মুক্ত (lastIndex-এর ফাঁদ নেই)
+ok 15 - সব Pattern Anchor-যুক্ত এবং g/y Flag-মুক্ত (lastIndex-এর ফাঁদ নেই)
+  ---
+  duration_ms: 2.3697
+  type: 'test'
+  ...
+# Subtest: BD_MOBILE: Boundary—013 থেকে 019 গৃহীত, 012 নয়, 10 বা 12 অঙ্ক নয়
+ok 16 - BD_MOBILE: Boundary—013 থেকে 019 গৃহীত, 012 নয়, 10 বা 12 অঙ্ক নয়
+  ---
+  duration_ms: 0.3064
+  type: 'test'
+  ...
+# Subtest: একই Pattern বারবার test করলে একই ফল
+ok 17 - একই Pattern বারবার test করলে একই ফল
+  ---
+  duration_ms: 1.1865
+  type: 'test'
+  ...
+# Subtest: EMAIL: উদার গঠন—+ চিহ্নসহ ঠিকানা গৃহীত; ফাঁকা জায়গা বা ডট-হীন Domain নয়
+ok 18 - EMAIL: উদার গঠন—+ চিহ্নসহ ঠিকানা গৃহীত; ফাঁকা জায়গা বা ডট-হীন Domain নয়
+  ---
+  duration_ms: 0.2003
+  type: 'test'
+  ...
+# Subtest: USERNAME ও PERSON_NAME
+ok 19 - USERNAME ও PERSON_NAME
+  ---
+  duration_ms: 8.5166
+  type: 'test'
+  ...
+# Subtest: escapeRegExp: বিশেষ অক্ষর আক্ষরিক হয়
+ok 20 - escapeRegExp: বিশেষ অক্ষর আক্ষরিক হয়
+  ---
+  duration_ms: 0.3388
+  type: 'test'
+  ...
+# Subtest: required ও length: Code Point গোনে (Emoji একটি অক্ষর)
+ok 21 - required ও length: Code Point গোনে (Emoji একটি অক্ষর)
+  ---
+  duration_ms: 1.67
+  type: 'test'
+  ...
+# Subtest: matches ও notIn (বড়-ছোট হাতের অক্ষর নির্বিশেষে)
+ok 22 - matches ও notIn (বড়-ছোট হাতের অক্ষর নির্বিশেষে)
+  ---
+  duration_ms: 4.901
+  type: 'test'
+  ...
+# Subtest: realDate: অধিবর্ষ, ৩০ ফেব্রুয়ারি, ১৩তম মাস, ভুল গঠন
+ok 23 - realDate: অধিবর্ষ, ৩০ ফেব্রুয়ারি, ১৩তম মাস, ভুল গঠন
+  ---
+  duration_ms: 2.823
+  type: 'test'
+  ...
+# Subtest: passwordPolicy: প্রতিটি নিয়মের নিজস্ব বার্তা, ক্রমে প্রথমটি
+ok 24 - passwordPolicy: প্রতিটি নিয়মের নিজস্ব বার্তা, ক্রমে প্রথমটি
+  ---
+  duration_ms: 2.4239
+  type: 'test'
+  ...
+1..24
+# tests 24
+# suites 0
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 201.9331

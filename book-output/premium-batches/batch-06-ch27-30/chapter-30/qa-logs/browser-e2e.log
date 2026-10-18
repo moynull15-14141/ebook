@@ -1,0 +1,21 @@
+$ node ../tools/ch30-browser-e2e.mjs .   (in .)
+
+Browser: Chrome/155.0.8059.80
+PASS  catalog loads 4 packages from the API  (Bandarban Trek, ৪ দিন: 12,500 টাকা, আসন 12)
+PASS  booking section hidden for guests
+PASS  registration via the form  (নিবন্ধন সম্পন্ন। এবার Login করুন।)
+PASS  wrong password shows the server message, no session  (Email বা Password ভুল)
+PASS  login shows the booking section and a welcome  (Rafi Ahmed হিসেবে Login)
+PASS  booking confirmed with the server price  (Booking #1 নিশ্চিত: 25,000 টাকা)
+PASS  double submit created exactly one booking  (1 in database)
+PASS  catalog seats refreshed (BT-4D 12 to 10)
+PASS  sold out shows a friendly message  (দুঃখিত, এত আসন খালি নেই।)
+PASS  cancel marks the booking cancelled  (#1 BT-4D, 2 জন, 25,000 টাকা, CANCELLED )
+PASS  seats returned exactly once (BT-4D 12)
+PASS  no horizontal overflow at 375 px  (scrollWidth 375)
+PASS  logout returns to the guest view
+PASS  no console errors or CSP violations (expected 400/401/409 responses excluded)
+INFO  expected HTTP error responses logged by Chrome: 2
+14 checks, 0 failed
+(node:16308) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)

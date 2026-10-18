@@ -1,0 +1,127 @@
+Browser: Chrome/155.0.8059.40
+
+===== examples/01-restaurant.js =====
+১. অর্ডার নেওয়া হলো
+২. পরের অর্ডার
+৩. খাবার তৈরি
+
+===== examples/02-blocking.js =====
+Loop শেষ
+Timer চলল, দেরি কমপক্ষে 200 ms
+
+===== examples/03-event-loop.js =====
+A: শুরু
+B: async Function, await-এর আগে
+C: শেষ লাইন
+D: Promise
+E: await-এর পরে
+F: setTimeout
+
+===== examples/04-callbacks.js =====
+অপেক্ষা চলছে...
+পাওয়া গেল: Sara
+ব্যর্থ: ভুল ID
+
+===== examples/05-nesting.js =====
+User-এর Order-এর Invoice
+
+===== examples/06-promise-basics.js =====
+ফল: SARA
+প্রথম কাজ শেষ
+ত্রুটি: Server বন্ধ
+দ্বিতীয় কাজ শেষ
+
+===== examples/07-promise-chain.js =====
+User-এর Order-এর Invoice
+
+===== examples/08-async-await.js =====
+main() ডাকা হলো; ফল পরে আসবে
+User-এর Order-এর Invoice
+
+===== examples/10-fetch-basics.js =====
+Status: 200, ok: true
+Sara, Dhaka
+
+===== examples/12-http-errors.js =====
+/api/users: 2টি User
+/api/userz: ব্যর্থ, HTTP 404
+
+===== examples/13-sequential-vs-parallel.js =====
+একটির পর একটি: User, Order; প্রায় 400 ms
+একসঙ্গে: User, Order; প্রায় 200 ms
+
+===== examples/14-combinators.js =====
+all: খ ব্যর্থ
+allSettled: ক | খ ব্যর্থ
+race: দ্রুত
+any: প্রথম সফল
+
+===== examples/15-abort.js =====
+বাতিল: AbortError
+সময় শেষ: TimeoutError
+
+===== examples/16-race-condition.js =====
+Guard ছাড়া: পর্দায় "Ja"-এর ফল
+পুরোনো ফল বাদ: "Ja"-এর ফল
+Guard সহ: পর্দায় "JavaScript"-এর ফল
+
+===== examples/17-retry.js =====
+চেষ্টা 1: Server ব্যস্ত; 100 ms পরে আবার
+চেষ্টা 2: Server ব্যস্ত; 200 ms পরে আবার
+তথ্য পাওয়া গেছে
+
+===== examples/19-foreach-await.js =====
+forEach: 0টি
+for...of: 3টি
+
+===== examples/solutions/s01-order.js =====
+ক
+ঘ
+গ
+খ
+
+===== examples/solutions/s02-wait.js =====
+১
+২
+
+===== examples/solutions/s03-async-rewrite.js =====
+Sara: 2টি Order
+
+===== examples/solutions/s04-missing-await.js =====
+3
+
+===== examples/solutions/s05-try-finally.js =====
+ধরা পড়েছে: Report পাওয়া যায়নি
+Loading বন্ধ
+
+===== examples/solutions/s06-all-products.js =====
+3টি পণ্য, মোট 450 টাকা
+
+===== examples/solutions/s07-all-settled.js =====
+Profile সফল
+Orders ব্যর্থ
+Settings সফল
+
+===== examples/solutions/s08-with-timeout.js =====
+সময়মতো এসেছে
+200 ms পার হয়েছে
+
+===== examples/solutions/s09-get-json.js =====
+/ok: total 5
+/missing: HTTP 404
+/broken: ভাঙা JSON
+
+===== examples/solutions/s10-retry-5xx.js =====
+সফল (3 বারের চেষ্টায়)
+আবার চেষ্টা হয়নি: HTTP 404
+
+===== examples/solutions/s11-run-limited.js =====
+শুরু ক (একসঙ্গে 1)
+শুরু খ (একসঙ্গে 2)
+শুরু গ (একসঙ্গে 2)
+শুরু ঘ (একসঙ্গে 2)
+শেষ: ক, খ, গ, ঘ
+
+===== examples/solutions/s12-debounce.js =====
+খোঁজা হলো: Java
+খোঁজা হলো: JavaScript

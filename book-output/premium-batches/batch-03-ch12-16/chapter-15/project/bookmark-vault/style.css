@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  font-family: 'Hind Siliguri', 'Nirmala UI', sans-serif;
+  background: #f4f6fa;
+  color: #1c2430;
+}
+
+.app {
+  max-width: 720px;
+  margin: 32px auto;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 12px;
+}
+
+form,
+.filters,
+.files,
+#bookmarks li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+#bookmarks li {
+  padding: 8px 0;
+  border-bottom: 1px solid #e3e7ef;
+}
+
+.tags {
+  color: #4a5668;
+  font-size: 0.9em;
+}
+
+[aria-pressed='true'] {
+  background: #ffe9a8;
+}

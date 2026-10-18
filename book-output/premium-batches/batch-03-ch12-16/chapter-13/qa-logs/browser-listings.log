@@ -1,0 +1,96 @@
+Browser: Chrome/155.0.8059.40
+Served from: http://127.0.0.1:54189
+
+===== examples/01-factory-vs-class.js =====
+150 150
+true false
+false true
+
+===== examples/02-class-basics.js =====
+Pen: 45 টাকা
+discount, name, price
+function
+
+===== examples/03-prototype.js =====
+true
+true false
+true
+true
+function
+পণ্য: PEN
+
+===== examples/03b-constructor-function.js =====
+পণ্য: Pen true
+হ্যালো, Sara true
+
+===== examples/04-private.js =====
+300 0
+যথেষ্ট টাকা নেই
+300
+
+===== examples/06-getter-static.js =====
+86
+35 95
+100
+-300 ডিগ্রি সম্ভব নয়
+undefined
+
+===== examples/07-inheritance.js =====
+রিকশা: 3 চাকা
+30 100
+বাস: 6 চাকা, 40 আসন 50
+true true false
+
+===== examples/09-polymorphism.js =====
+Payment: 500 টাকা
+CardPayment: 1020 টাকা
+MobilePayment: 3025 টাকা
+মোট Fee: 45
+
+===== examples/09b-abstract.js =====
+9
+Triangle area() লেখেনি
+
+===== examples/10-lost-this.js =====
+TypeError
+1
+2
+3, 4
+
+===== examples/11-composition.js =====
+Email (sara@example.com): Order 7 গৃহীত
+SMS (01700-000000): Order 8 গৃহীত
+
+===== examples/solutions/s01-book.js =====
+পথের পাঁচালী — বিভূতিভূষণ (320 পৃষ্ঠা)
+
+===== examples/solutions/s02-rectangle.js =====
+12 14
+15
+
+===== examples/solutions/s05-wallet.js =====
+180
+500 টাকা খরচ সম্ভব নয়; আছে 180
+
+===== examples/solutions/s06-shapes.js =====
+19.71
+
+===== examples/solutions/s07-student-marks.js =====
+88
+নম্বর 0 থেকে 100-এর মধ্যে হতে হবে: 120
+88
+
+===== examples/solutions/s08-clock.js =====
+টিক 1
+
+===== examples/solutions/s09-money.js =====
+1250 1,250 টাকা
+
+===== examples/solutions/s11-discounts.js =====
+NoDiscount: 1500
+PercentDiscount: 1350
+FlatDiscount: 1300
+
+===== examples/solutions/s12-stack.js =====
+গ খ 2
+Stack ফাঁকা

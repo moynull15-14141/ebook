@@ -1,0 +1,12 @@
+$ node demo.mjs   (in project\travel-master-pro)
+
+১. Booking (Client price 1 পাঠিয়েছে): 201 CONFIRMED, 25000 টাকা
+২. একই Key আবার: 200 CONFIRMED, 25000 টাকা
+৩. একই Key, ভিন্ন যাত্রী: 409 KEY_CONFLICT
+৪. Token ছাড়া: 401 UNAUTHORIZED
+৫. SYL-2D-তে ৩ জন: 409 SOLD_OUT
+৬. Mina বাতিল করতে চান: 404 NOT_FOUND
+৭. Rafi বাতিল করেন: 200 CANCELLED, 25000 টাকা
+BT-4D-এ আসন: 12
+(node:10764) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)

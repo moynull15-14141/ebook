@@ -1,0 +1,6 @@
+$ node dist/src/demo.js   (in project\typesafe-claims)
+
+201 {"id":"EC-001","employee":"Mina Akter","item
+EC-001 জমা দেওয়া ৳13,800.00
+422 {"code":"VALIDATION","issues":[{"path":"employee","message":"কর্মীর নাম প্রয়োজন"},{"path":"items[0].people","message":"১ থেকে ২০ জন"}]}
+409 {"code":"INVALID_TRANSITION","from":"submitted","action":"pay"}

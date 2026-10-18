@@ -1,0 +1,18 @@
+$ node browser-e2e.mjs   (in .)
+
+Browser: Chrome/155.0.8059.40; served http://127.0.0.1:57100/
+PASS  empty state  কোনো আবেদন নেই · অনুমোদিত Fee ৳0
+PASS  create through the form  VF-001 · Rafi Ahmed · Thailand tourist · ৳3000 · draft
+PASS  Observer: console subscriber ran  নতুন VF-001 ৳3000
+PASS  domain validation message shown  আবেদনকারীর নাম ২-৬০ অক্ষর
+PASS  per-strategy traveller limit  Student Visa-য় সর্বোচ্চ 1 জন যাত্রী
+PASS  express decorator fee and text-only rendering  VF-002 · <b>Mina</b> · Thailand student · ৳3500 · draft (b=0)
+PASS  buttons come from the state machine (draft)  act-submit,act-withdraw
+PASS  buttons after submit  act-requestDocuments,act-approve,act-reject,act-withdraw
+PASS  final state has no buttons  
+PASS  summary  approved 1, draft 1 · অনুমোদিত Fee ৳3000
+PASS  Observer: change logs  নতুন VF-001 ৳3000 | নতুন VF-002 ৳3500 | VF-001: draft থেকে submitted | VF-001: submitted থেকে approved
+PASS  data restored from localStorage after reload  VF-001 · Rafi Ahmed · Thailand tourist · ৳3000 · approved | VF-002 · <b>Mina</b> · Thailand student · ৳3500 · draft
+PASS  id sequence continues after reload  VF-003 · Sara Islam · Thailand tourist · ৳3000 · draft
+PASS  no browser errors  
+14 of 14 browser checks passed

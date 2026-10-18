@@ -1,0 +1,72 @@
+$ node --import file:///D:/MoynullHasan/ebook/allcopy/book-output/premium-batches/batch-05-ch22-26/tools/local-deps.mjs --test   (in project\lead-desk)
+
+TAP version 13
+# Subtest: REST: তৈরি, পড়া, তালিকা, হালনাগাদ, মুছে ফেলা
+ok 1 - REST: তৈরি, পড়া, তালিকা, হালনাগাদ, মুছে ফেলা
+  ---
+  duration_ms: 134.1629
+  type: 'test'
+  ...
+# Subtest: Status Code ও একই আকারের Error Body
+ok 2 - Status Code ও একই আকারের Error Body
+  ---
+  duration_ms: 52.5371
+  type: 'test'
+  ...
+# Subtest: Object-level Authorization: অন্য Agent-এর Lead দেখা যায় না
+ok 3 - Object-level Authorization: অন্য Agent-এর Lead দেখা যায় না
+  ---
+  duration_ms: 67.3876
+  type: 'test'
+  ...
+# Subtest: Cursor Pagination ও Filter
+ok 4 - Cursor Pagination ও Filter
+  ---
+  duration_ms: 63.1702
+  type: 'test'
+  ...
+# Subtest: Idempotency-Key: একই অনুরোধ দুবার, একটিই Lead
+ok 5 - Idempotency-Key: একই অনুরোধ দুবার, একটিই Lead
+  ---
+  duration_ms: 97.6889
+  type: 'test'
+  ...
+# Subtest: If-Match: পুরোনো version দিয়ে হালনাগাদে 412
+ok 6 - If-Match: পুরোনো version দিয়ে হালনাগাদে 412
+  ---
+  duration_ms: 55.0391
+  type: 'test'
+  ...
+# Subtest: Rate Limit: সীমার পরে 429 ও Retry-After; অন্য ব্যবহারকারী আলাদা
+ok 7 - Rate Limit: সীমার পরে 429 ও Retry-After; অন্য ব্যবহারকারী আলাদা
+  ---
+  duration_ms: 30.4025
+  type: 'test'
+  ...
+# Subtest: Request ID Header-এ ও Log-এ; Log-এ Token নেই; Health Token ছাড়া
+ok 8 - Request ID Header-এ ও Log-এ; Log-এ Token নেই; Health Token ছাড়া
+  ---
+  duration_ms: 44.113
+  type: 'test'
+  ...
+# Subtest: shutdown(): চলমান অনুরোধ সম্পূর্ণ, তারপর বন্ধ
+ok 9 - shutdown(): চলমান অনুরোধ সম্পূর্ণ, তারপর বন্ধ
+  ---
+  duration_ms: 2170.5913
+  type: 'test'
+  ...
+# Subtest: Config: ভুল Token-এর তালিকায় শুরুতেই স্পষ্ট Error
+ok 10 - Config: ভুল Token-এর তালিকায় শুরুতেই স্পষ্ট Error
+  ---
+  duration_ms: 1.0614
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2758.7068

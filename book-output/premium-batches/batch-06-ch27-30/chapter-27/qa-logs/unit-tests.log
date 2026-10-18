@@ -1,0 +1,120 @@
+$ node --import file:///D:/MoynullHasan/ebook/allcopy/book-output/premium-batches/batch-06-ch27-30/tools/local-deps.mjs --test   (in project\travel-live)
+
+TAP version 13
+# Subtest: Duplicate, পুরোনো ও ফাঁক আলাদা করে চেনা
+ok 1 - Duplicate, পুরোনো ও ফাঁক আলাদা করে চেনা
+  ---
+  duration_ms: 1.3779
+  type: 'test'
+  ...
+# Subtest: reconnectDelay: Jitter সীমার মধ্যে, ভিত্তি ৩০ সেকেন্ডে থামে
+ok 2 - reconnectDelay: Jitter সীমার মধ্যে, ভিত্তি ৩০ সেকেন্ডে থামে
+  ---
+  duration_ms: 0.4154
+  type: 'test'
+  ...
+# Subtest: Token Bucket: সীমা ছাড়ালে false, সময়ে আবার ভরে
+ok 3 - Token Bucket: সীমা ছাড়ালে false, সময়ে আবার ভরে
+  ---
+  duration_ms: 1.0089
+  type: 'test'
+  ...
+# Subtest: Auth-এর পরে নিজের Booking-এ Subscribe এবং Live Event
+ok 4 - Auth-এর পরে নিজের Booking-এ Subscribe এবং Live Event
+  ---
+  duration_ms: 110.7093
+  type: 'test'
+  ...
+# Subtest: অন্যের Booking-এ Subscribe নিষেধ
+ok 5 - অন্যের Booking-এ Subscribe নিষেধ
+  ---
+  duration_ms: 16.6571
+  type: 'test'
+  ...
+# Subtest: Auth ছাড়া বা ভুল Token: Close Code 4401
+ok 6 - Auth ছাড়া বা ভুল Token: Close Code 4401
+  ---
+  duration_ms: 142.6049
+  type: 'test'
+  ...
+# Subtest: পুনঃসংযোগে শুধু বাদ পড়া Event Replay হয়
+ok 7 - পুনঃসংযোগে শুধু বাদ পড়া Event Replay হয়
+  ---
+  duration_ms: 7.7837
+  type: 'test'
+  ...
+# Subtest: অনুমতি বাতিল হলে Server নিজেই Unsubscribe করে
+ok 8 - অনুমতি বাতিল হলে Server নিজেই Unsubscribe করে
+  ---
+  duration_ms: 6.9256
+  type: 'test'
+  ...
+# Subtest: অচেনা Origin-এর Upgrade: 403
+ok 9 - অচেনা Origin-এর Upgrade: 403
+  ---
+  duration_ms: 9.2811
+  type: 'test'
+  ...
+# Subtest: বড় Message (1009), অবৈধ JSON ও Rate Limit (4429)
+ok 10 - বড় Message (1009), অবৈধ JSON ও Rate Limit (4429)
+  ---
+  duration_ms: 14.9948
+  type: 'test'
+  ...
+# Subtest: Heartbeat: Pong না দেওয়া Client বিচ্ছিন্ন হয়
+ok 11 - Heartbeat: Pong না দেওয়া Client বিচ্ছিন্ন হয়
+  ---
+  duration_ms: 142.467
+  type: 'test'
+  ...
+# Subtest: Health, Static Page ও Auth
+ok 12 - Health, Static Page ও Auth
+  ---
+  duration_ms: 71.994
+  type: 'test'
+  ...
+# Subtest: Booking API: তৈরি, অনুমতি, অবস্থা-বদল ও ভুল Input
+ok 13 - Booking API: তৈরি, অনুমতি, অবস্থা-বদল ও ভুল Input
+  ---
+  duration_ms: 57.651
+  type: 'test'
+  ...
+# Subtest: SSE: Last-Event-ID থেকে Replay, তারপর Live Event
+ok 14 - SSE: Last-Event-ID থেকে Replay, তারপর Live Event
+  ---
+  duration_ms: 32.8818
+  type: 'test'
+  ...
+# Subtest: বৈধ অবস্থা-বদল: Sequence প্রতি Booking-এ ক্রমিক
+ok 15 - বৈধ অবস্থা-বদল: Sequence প্রতি Booking-এ ক্রমিক
+  ---
+  duration_ms: 3.9014
+  type: 'test'
+  ...
+# Subtest: অবৈধ বদল ও অনুমতি
+ok 16 - অবৈধ বদল ও অনুমতি
+  ---
+  duration_ms: 0.9116
+  type: 'test'
+  ...
+# Subtest: Replay: afterSequence-এর পরের Event; History-র বাইরে হলে Snapshot
+ok 17 - Replay: afterSequence-এর পরের Event; History-র বাইরে হলে Snapshot
+  ---
+  duration_ms: 0.3889
+  type: 'test'
+  ...
+# Subtest: Dispatch-এর সময় অনুমতি: বাতিল ব্যবহারকারী আর Event পান না
+ok 18 - Dispatch-এর সময় অনুমতি: বাতিল ব্যবহারকারী আর Event পান না
+  ---
+  duration_ms: 0.569
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 754.0657

@@ -1,0 +1,14 @@
+{
+  "number": 18,
+  "source": "chapter-18-premium.md",
+  "outputBase": "chapter-18-premium",
+  "companion": ["project", "examples"],
+  "logs": "qa-logs",
+  "tests": [
+    { "name": "listings: Node.js run + compare", "cwd": ".", "cmd": ["node", "../tools/extract-and-run.mjs", "."], "log": "listings-run.log" },
+    { "name": "listings: browser run + compare", "cwd": ".", "cmd": ["node", "../tools/run-browser-listings.mjs", "."], "log": "browser-run.log" },
+    { "name": "syntax: project", "cwd": "project/ledger-flow", "cmd": ["node", "--check", "src/transform.mjs"] },
+    { "name": "syntax: tests", "cwd": "project/ledger-flow", "cmd": ["node", "--check", "tests/transform.test.mjs"] },
+    { "name": "unit tests", "cwd": "project/ledger-flow", "cmd": ["node", "--test"], "log": "unit-tests.log" }
+  ]
+}

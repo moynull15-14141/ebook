@@ -1,0 +1,3 @@
+OK    node --check src/gateway.mjs   (in project/travel-live)
+OK    node --check public/app.mjs   (in project/travel-live)
+OK    node --check 09-socketio-design.mjs   (in examples)

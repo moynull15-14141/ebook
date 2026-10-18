@@ -1,0 +1,68 @@
+{
+  "number": 9,
+  "source": "chapter-09-premium.md",
+  "outputBase": "chapter-09-premium",
+  "companion": [
+    "project",
+    "examples"
+  ],
+  "logs": "qa-logs",
+  "tests": [
+    {
+      "name": "listings: Node.js run + compare",
+      "cwd": ".",
+      "cmd": [
+        "node",
+        "../tools/extract-and-run.mjs",
+        "."
+      ],
+      "log": "listings-run.log"
+    },
+    {
+      "name": "listings: browser run + compare",
+      "cwd": ".",
+      "cmd": [
+        "node",
+        "../tools/run-browser-listings.mjs",
+        "."
+      ],
+      "log": "browser-run.log"
+    },
+    {
+      "name": "syntax: project",
+      "cwd": "project/task-manager",
+      "cmd": [
+        "node",
+        "--check",
+        "task-core.js"
+      ]
+    },
+    {
+      "name": "syntax: tests",
+      "cwd": "project/task-manager",
+      "cmd": [
+        "node",
+        "--check",
+        "tests/task-core.test.js"
+      ]
+    },
+    {
+      "name": "unit tests",
+      "cwd": "project/task-manager",
+      "cmd": [
+        "node",
+        "--test"
+      ],
+      "log": "unit-tests.log"
+    },
+    {
+      "name": "project browser tests",
+      "cwd": "project/task-manager",
+      "cmd": [
+        "node",
+        "tests/browser-check.mjs"
+      ],
+      "log": "project-browser-tests.log"
+    }
+  ]
+}

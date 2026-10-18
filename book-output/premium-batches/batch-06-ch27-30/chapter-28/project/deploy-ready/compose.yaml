@@ -1,0 +1,22 @@
+services:
+  api:
+    build: .
+    image: deploy-ready:local
+    # শুধু নিজের Computer থেকে পৌঁছানো যাবে, Network-এর অন্যদের থেকে নয়।
+    ports:
+      - "127.0.0.1:3000:3000"
+    # গোপন মান (OPS_TOKEN) .env-এ; .env কখনো Git-এ নয় (.env.example দেখুন)।
+    env_file: .env
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      DRAIN_DELAY_MS: "5000"
+      SHUTDOWN_TIMEOUT_MS: "15000"
+    # Drain (৫ সে.) + Shutdown Timeout (১৫ সে.) < Grace Period (৩০ সে.)
+    stop_grace_period: 30s
+    restart: unless-stopped
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true

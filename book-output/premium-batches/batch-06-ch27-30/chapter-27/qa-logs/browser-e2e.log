@@ -1,0 +1,12 @@
+$ node --import file:///D:/MoynullHasan/ebook/allcopy/book-output/premium-batches/batch-06-ch27-30/tools/local-deps.mjs ../tools/ch27-browser-e2e.mjs .   (in .)
+
+Browser: Chrome/155.0.8059.80
+PASS  connects and authenticates over WebSocket
+PASS  own booking bk-1 rendered from replay  (bk-1: Cox's Bazar, ৩ দিন — PENDING (#1))
+PASS  foreign booking bk-2 refused (console error FORBIDDEN, still waiting)  (bk-2:  — অপেক্ষমাণ (#0))
+PASS  live CONFIRMED update without reload  (bk-1: Cox's Bazar, ৩ দিন — CONFIRMED (#2))
+PASS  disconnect shown with a backoff delay  (বিচ্ছিন্ন; 546 ms পরে আবার চেষ্টা)
+PASS  reconnects automatically
+PASS  missed CANCELLED event replayed after reconnect  (bk-1: Cox's Bazar, ৩ দিন — CANCELLED (#3))
+PASS  no other console errors
+8 checks, 0 failed

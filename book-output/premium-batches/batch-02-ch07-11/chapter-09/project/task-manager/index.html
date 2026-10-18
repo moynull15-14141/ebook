@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <h1>Task Manager</h1>
+
+    <form id="task-form" novalidate>
+      <label for="task-input">নতুন Task</label>
+      <div class="row">
+        <input id="task-input" autocomplete="off">
+        <button type="submit">যোগ করুন</button>
+      </div>
+    </form>
+    <p id="notice" role="status" aria-live="polite"></p>
+
+    <div class="tools">
+      <label>খুঁজুন <input id="search" type="search"></label>
+      <label>দেখান
+        <select id="filter">
+          <option value="all">সব</option>
+          <option value="active">বাকি</option>
+          <option value="done">সম্পন্ন</option>
+        </select>
+      </label>
+      <button id="clear-done" type="button">সম্পন্নগুলো সরান</button>
+    </div>
+
+    <p id="summary"></p>
+    <ul id="task-list"></ul>
+    <p id="empty">কোনো Task নেই।</p>
+  </main>
+
+  <script src="task-core.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

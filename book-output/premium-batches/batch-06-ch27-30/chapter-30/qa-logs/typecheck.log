@@ -1,0 +1,5 @@
+$ node ../tools/ch30-typecheck.mjs .   (in .)
+
+Version 6.0.2 | @types/node 25.6.0
+PASS  strict checkJs on 7 files in src/: exit 0
+PASS  control: a deliberate type error is reported (src/validation.mjs(45,23): error TS2322: Type 'string' is not assignable to type 'number'.)

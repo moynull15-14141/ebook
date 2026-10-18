@@ -1,0 +1,18 @@
+$ node D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-02-ch07-11\build-system\scripts\check-pdf.mjs D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-02-ch07-11\chapter-09   (in .)
+
+PASS  header: %PDF-1.4
+PASS  file ends with %%EOF (not truncated)
+PASS  page count: 41
+PASS  tagged PDF (structure tree present) — required for correct Bengali copy and for screen readers
+PASS  every font is an embedded font program, none is Type 3 (6 fonts)
+PASS  only the design-system families are used: HindSiliguri-Medium, HindSiliguri-Bold, HindSiliguri-Regular, SourceCodePro-Regular, HindSiliguri-SemiBold, SourceCodePro-Bold
+PASS  every font has a ToUnicode map (text is selectable and searchable)
+PASS  Bengali text layer: 3035 of 3035 source words recovered intact by an ActualText-aware reader
+PASS  all 24 section headings are present in the PDF text
+PASS  code indentation survives text extraction: 342 of 342 indented source lines come back exactly
+PASS  no text outside the page margins (no clipped code or tables)
+PASS  no heading stranded at the bottom of a page
+PASS  no page (except the last) has more than 33% empty space at the bottom
+INFO  size: 1163 KB | bookmarks: 41 | code line capacity: 84 characters
+
+All PDF checks passed

@@ -1,0 +1,36 @@
+$ node D:\MoynullHasan\ebook\allcopy\book-output\master-design-system\scripts\check-typography.mjs D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-03-ch12-16\chapter-14\chapter-14-premium.pdf D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-03-ch12-16\chapter-14\chapter-14-premium.md --json D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-03-ch12-16\chapter-14\.build\typography.json   (in .)
+
+PDF: D:\MoynullHasan\ebook\allcopy\book-output\premium-batches\batch-03-ch12-16\chapter-14\chapter-14-premium.pdf
+Pages: 31 | glyphs: 41920 (11890 Bengali) | source Bengali words: 2658 (759 distinct)
+Fonts: HindSiliguri-Medium, HindSiliguri-Bold, HindSiliguri-Regular, SourceCodePro-Regular, HindSiliguri-SemiBold, SourceCodePro-Bold
+
+[naive] source words recovered intact: 1204 of 2658 (45.3%) | distinct words affected: 502
+   most affected: করে×41, নতুন×31, দেয়×29, দিয়ে×27, তৈরি×27, ফেরত×26, থেকে×25, প্রতিটি×24, অধ্যায়×20, কে×14, মনে×14, রাখে×13
+
+[robust] source words recovered intact: 1245 of 2658 (46.84%) | distinct words affected: 494
+   most affected: করে×41, দেয়×29, দিয়ে×27, তৈরি×27, ফেরত×26, থেকে×25, প্রতিটি×24, অধ্যায়×20, কে×14, মনে×14, রাখে×13, করুন×13
+
+[actual] source words recovered intact: 2658 of 2658 (100%) | distinct words affected: 0
+   most affected: none
+
+Probe words (occurrences in source -> intact / split forms):
+   ভুল ×5:  naive 2 ["ভু ল"] | robust 5 [] | actual 5 []
+   নতুন ×31:  naive 0 ["নতু ন"] | robust 31 [] | actual 31 []
+   পরিবর্তন ×4:  naive 0 [] | robust 0 [] | actual 4 []
+   প্রথম ×8:  naive 7 [] | robust 7 [] | actual 8 []
+   কি ×20:  naive 0 ["ক ি"] | robust 0 ["ক ি"] | actual 20 []
+   ব্যবহারকারী ×2:  naive 0 [] | robust 0 [] | actual 2 []
+   শুভেচ্ছা ×1:  naive 0 [] | robust 0 [] | actual 1 []
+   গুরুত্বপূর্ণ ×2:  naive 0 [] | robust 0 [] | actual 2 []
+
+Naive extractor: spurious in-word breaks occur after these glyphs:
+   ু (advance 0.00 em): 39
+   ল (advance 0.73 em): 30
+   ঁ (advance 0.00 em): 10
+   ক (advance 0.75 em): 4
+   র (advance 0.53 em): 3
+   ৃ (advance 0.00 em): 3
+   য় (advance 0.57 em): 2
+   ল (advance 0.72 em): 2
+   ন (advance 0.57 em): 2
+   ত (advance 0.67 em): 2

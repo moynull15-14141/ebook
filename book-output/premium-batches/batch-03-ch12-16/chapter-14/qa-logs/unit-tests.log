@@ -1,0 +1,146 @@
+$ node --test   (in project\sales-function-lab)
+
+TAP version 13
+# (node:16428) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: pipe: বাঁ থেকে ডানে; কোনো Function না দিলে ইনপুটই ফেরত
+ok 1 - pipe: বাঁ থেকে ডানে; কোনো Function না দিলে ইনপুটই ফেরত
+  ---
+  duration_ms: 1.4382
+  type: 'test'
+  ...
+# Subtest: compose: ডান থেকে বাঁয়ে; compose(f, g) = pipe(g, f)
+ok 2 - compose: ডান থেকে বাঁয়ে; compose(f, g) = pipe(g, f)
+  ---
+  duration_ms: 0.2741
+  type: 'test'
+  ...
+# Subtest: curry: Argument একসঙ্গে, এক এক করে, বা মিশিয়ে
+ok 3 - curry: Argument একসঙ্গে, এক এক করে, বা মিশিয়ে
+  ---
+  duration_ms: 0.266
+  type: 'test'
+  ...
+# Subtest: memoize: একই Argument-এ আসল Function একবারই; ভিন্ন Argument-এ নতুন হিসাব
+ok 4 - memoize: একই Argument-এ আসল Function একবারই; ভিন্ন Argument-এ নতুন হিসাব
+  ---
+  duration_ms: 86.3566
+  type: 'test'
+  ...
+# Subtest: memoize: নিজস্ব keyOf; Object-এর বিষয়বস্তু ধরে Key
+ok 5 - memoize: নিজস্ব keyOf; Object-এর বিষয়বস্তু ধরে Key
+  ---
+  duration_ms: 0.2373
+  type: 'test'
+  ...
+# Subtest: once: প্রথম ফল মনে রাখে; পরের ডাকে আসল Function চলে না
+ok 6 - once: প্রথম ফল মনে রাখে; পরের ডাকে আসল Function চলে না
+  ---
+  duration_ms: 0.2404
+  type: 'test'
+  ...
+# Subtest: debounce: দ্রুত চারটি ডাকে শেষটির পর একবার, শেষ Argument দিয়ে
+ok 7 - debounce: দ্রুত চারটি ডাকে শেষটির পর একবার, শেষ Argument দিয়ে
+  ---
+  duration_ms: 2.9787
+  type: 'test'
+  ...
+# Subtest: debounce: বিরতির পর আবার ডাকলে আবার চলে
+ok 8 - debounce: বিরতির পর আবার ডাকলে আবার চলে
+  ---
+  duration_ms: 0.3416
+  type: 'test'
+  ...
+# Subtest: throttle: প্রতি 10 ms-এ 50টি ঘটনা (500 ms), 100 ms-এ একবার: ঠিক 5 বার
+ok 9 - throttle: প্রতি 10 ms-এ 50টি ঘটনা (500 ms), 100 ms-এ একবার: ঠিক 5 বার
+  ---
+  duration_ms: 1.3785
+  type: 'test'
+  ...
+# Subtest: throttle: প্রথম ঘটনা সঙ্গে সঙ্গে চলে
+ok 10 - throttle: প্রথম ঘটনা সঙ্গে সঙ্গে চলে
+  ---
+  duration_ms: 0.5952
+  type: 'test'
+  ...
+# Subtest: validateSale: বৈধ সারি trim করা, অপরিবর্তনীয় নতুন Object
+ok 11 - validateSale: বৈধ সারি trim করা, অপরিবর্তনীয় নতুন Object
+  ---
+  duration_ms: 61.3051
+  type: 'test'
+  ...
+# Subtest: validateSale: প্রতিটি নিয়মের নিজস্ব বার্তা
+ok 12 - validateSale: প্রতিটি নিয়মের নিজস্ব বার্তা
+  ---
+  duration_ms: 1.9488
+  type: 'test'
+  ...
+# Subtest: withTotal ও Curried সাহায্যকারী
+ok 13 - withTotal ও Curried সাহায্যকারী
+  ---
+  duration_ms: 0.4643
+  type: 'test'
+  ...
+# Subtest: partitionValid: বৈধ ও বাদ আলাদা; সারির নম্বর 1 থেকে; ইনপুট অপরিবর্তিত
+ok 14 - partitionValid: বৈধ ও বাদ আলাদা; সারির নম্বর 1 থেকে; ইনপুট অপরিবর্তিত
+  ---
+  duration_ms: 0.5641
+  type: 'test'
+  ...
+# Subtest: partitionValid: অপ্রত্যাশিত ত্রুটি চাপা পড়ে না
+ok 15 - partitionValid: অপ্রত্যাশিত ত্রুটি চাপা পড়ে না
+  ---
+  duration_ms: 0.3162
+  type: 'test'
+  ...
+# Subtest: totalsByCategory: বেশি আয় আগে; সমান আয়ে নাম ধরে
+ok 16 - totalsByCategory: বেশি আয় আগে; সমান আয়ে নাম ধরে
+  ---
+  duration_ms: 168.99
+  type: 'test'
+  ...
+# Subtest: topSales: Currying দুভাবেই একই; সমান মোটে ID ধরে; ইনপুট অপরিবর্তিত
+ok 17 - topSales: Currying দুভাবেই একই; সমান মোটে ID ধরে; ইনপুট অপরিবর্তিত
+  ---
+  duration_ms: 0.5149
+  type: 'test'
+  ...
+# Subtest: salesReport: নমুনা তথ্যের সম্পূর্ণ Report (অধ্যায়ের Output)
+ok 18 - salesReport: নমুনা তথ্যের সম্পূর্ণ Report (অধ্যায়ের Output)
+  ---
+  duration_ms: 0.4952
+  type: 'test'
+  ...
+# Subtest: salesReport: ফাঁকা তালিকায় শূন্য ও ফাঁকা অংশ
+ok 19 - salesReport: ফাঁকা তালিকায় শূন্য ও ফাঁকা অংশ
+  ---
+  duration_ms: 1.2621
+  type: 'test'
+  ...
+# Subtest: salesReport: একই ইনপুটে একই ফল (Pure)
+ok 20 - salesReport: একই ইনপুটে একই ফল (Pure)
+  ---
+  duration_ms: 0.771
+  type: 'test'
+  ...
+# Subtest: format: দশমিক অনুযায়ী Formatter একবারই তৈরি (Memoization)
+ok 21 - format: দশমিক অনুযায়ী Formatter একবারই তৈরি (Memoization)
+  ---
+  duration_ms: 8.8942
+  type: 'test'
+  ...
+# Subtest: নমুনা তথ্য Report চালানোর পরও অপরিবর্তিত
+ok 22 - নমুনা তথ্য Report চালানোর পরও অপরিবর্তিত
+  ---
+  duration_ms: 0.2393
+  type: 'test'
+  ...
+1..22
+# tests 22
+# suites 0
+# pass 22
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 560.5798

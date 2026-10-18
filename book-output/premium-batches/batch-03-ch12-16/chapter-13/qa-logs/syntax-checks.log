@@ -1,0 +1,2 @@
+OK    node --check src/booking.mjs   (in project/booking-lab)
+OK    node --check tests/booking.test.mjs   (in project/booking-lab)

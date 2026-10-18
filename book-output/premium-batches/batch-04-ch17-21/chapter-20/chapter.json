@@ -1,0 +1,68 @@
+{
+  "number": 20,
+  "source": "chapter-20-premium.md",
+  "outputBase": "chapter-20-premium",
+  "companion": [
+    "project",
+    "examples"
+  ],
+  "logs": "qa-logs",
+  "tests": [
+    {
+      "name": "listings: Node.js run + compare",
+      "cwd": ".",
+      "cmd": [
+        "node",
+        "../tools/extract-and-run.mjs",
+        "."
+      ],
+      "log": "listings-run.log"
+    },
+    {
+      "name": "listings: browser run + compare",
+      "cwd": ".",
+      "cmd": [
+        "node",
+        "../tools/run-browser-listings.mjs",
+        "."
+      ],
+      "log": "browser-run.log"
+    },
+    {
+      "name": "browser: SecureTrip end-to-end in Chrome",
+      "cwd": ".",
+      "cmd": [
+        "node",
+        "browser-e2e.mjs"
+      ],
+      "log": "browser-e2e.log"
+    },
+    {
+      "name": "syntax: project",
+      "cwd": "project/secure-trip",
+      "cmd": [
+        "node",
+        "--check",
+        "src/app.mjs"
+      ]
+    },
+    {
+      "name": "syntax: tests",
+      "cwd": "project/secure-trip",
+      "cmd": [
+        "node",
+        "--check",
+        "tests/api.test.mjs"
+      ]
+    },
+    {
+      "name": "unit tests",
+      "cwd": "project/secure-trip",
+      "cmd": [
+        "node",
+        "--test"
+      ],
+      "log": "unit-tests.log"
+    }
+  ]
+}

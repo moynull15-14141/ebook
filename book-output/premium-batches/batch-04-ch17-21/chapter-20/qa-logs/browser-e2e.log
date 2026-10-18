@@ -1,0 +1,13 @@
+$ node browser-e2e.mjs   (in .)
+
+Browser: Chrome/155.0.8059.40; server http://127.0.0.1:57055
+PASS  login through the UI  Login: rafi@example.com (customer)
+PASS  HttpOnly session cookie is invisible to document.cookie  ""
+PASS  nothing stored in localStorage  {}
+PASS  note with HTML is shown as plain text  cox-3d · 2 জন · 2026-11-04 · ৳25000 · <img src=x onerror="window.__xss=1">
+PASS  no element created and no handler ran  img=0, __xss=undefined
+PASS  server-side price shown  অনুরোধ গৃহীত, মোট ৳25000
+PASS  CSP blocks an injected inline script  __inline=undefined; Executing inline script violates the following Content Security Policy directive 'script-src 'self''. Either the 'unsafe-inline' keyword, a hash ('sha256-SlHSUXvpUrZZqHBPWfdJaR/1l5NR39l5yPTcF2NGT3I='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked.
+7 of 7 browser checks passed
+(node:13240) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)

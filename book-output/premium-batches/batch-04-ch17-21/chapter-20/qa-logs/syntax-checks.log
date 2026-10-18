@@ -1,0 +1,2 @@
+OK    node --check src/app.mjs   (in project/secure-trip)
+OK    node --check tests/api.test.mjs   (in project/secure-trip)

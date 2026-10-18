@@ -1,0 +1,132 @@
+$ node --test   (in project\perf-lab)
+
+TAP version 13
+# Subtest: uniqueSet === uniqueNested, ১০০টি Seed-যুক্ত ইনপুটে
+ok 1 - uniqueSet === uniqueNested, ১০০টি Seed-যুক্ত ইনপুটে
+  ---
+  duration_ms: 6.5066
+  type: 'test'
+  ...
+# Subtest: commonSet === commonNested, ১০০টি Seed-যুক্ত ইনপুটে
+ok 2 - commonSet === commonNested, ১০০টি Seed-যুক্ত ইনপুটে
+  ---
+  duration_ms: 2.335
+  type: 'test'
+  ...
+# Subtest: indexOfBinary === indexOfLinear: উপস্থিত, অনুপস্থিত ও পুনরাবৃত্ত মান
+ok 3 - indexOfBinary === indexOfLinear: উপস্থিত, অনুপস্থিত ও পুনরাবৃত্ত মান
+  ---
+  duration_ms: 2.9894
+  type: 'test'
+  ...
+# Subtest: Binary Search-এর সীমার ক্ষেত্র
+ok 4 - Binary Search-এর সীমার ক্ষেত্র
+  ---
+  duration_ms: 0.4987
+  type: 'test'
+  ...
+# Subtest: uniqueSet প্রথম দেখার ক্রম রাখে
+ok 5 - uniqueSet প্রথম দেখার ক্রম রাখে
+  ---
+  duration_ms: 0.1749
+  type: 'test'
+  ...
+# Subtest: common: a-র পুনরাবৃত্তি ও ক্রম দুই সংস্করণেই একই
+ok 6 - common: a-র পুনরাবৃত্তি ও ক্রম দুই সংস্করণেই একই
+  ---
+  duration_ms: 0.3929
+  type: 'test'
+  ...
+# Subtest: createRandom: একই Seed-এ একই ক্রম, ভিন্ন Seed-এ ভিন্ন
+ok 7 - createRandom: একই Seed-এ একই ক্রম, ভিন্ন Seed-এ ভিন্ন
+  ---
+  duration_ms: 0.2362
+  type: 'test'
+  ...
+# Subtest: randomInts: সব মান 0 থেকে max-এর কম, পূর্ণসংখ্যা
+ok 8 - randomInts: সব মান 0 থেকে max-এর কম, পূর্ণসংখ্যা
+  ---
+  duration_ms: 0.4968
+  type: 'test'
+  ...
+# Subtest: summarize: Median, p95, সর্বনিম্ন, সংখ্যা
+ok 9 - summarize: Median, p95, সর্বনিম্ন, সংখ্যা
+  ---
+  duration_ms: 2.185
+  type: 'test'
+  ...
+# Subtest: bench: কৃত্রিম ঘড়িতে Warm-up বাদ দিয়ে পরিমাপ
+ok 10 - bench: কৃত্রিম ঘড়িতে Warm-up বাদ দিয়ে পরিমাপ
+  ---
+  duration_ms: 0.3894
+  type: 'test'
+  ...
+# Subtest: environment: Node.js সংস্করণ ও Platform
+ok 11 - environment: Node.js সংস্করণ ও Platform
+  ---
+  duration_ms: 1.8197
+  type: 'test'
+  ...
+# Subtest: processInChunks: ফল ও ক্রম সাধারণ map-এর মতো
+ok 12 - processInChunks: ফল ও ক্রম সাধারণ map-এর মতো
+  ---
+  duration_ms: 1.456
+  type: 'test'
+  ...
+# Subtest: processInChunks: টুকরো - 1 বার বিরতি; ফাঁকা তালিকায় কোনো বিরতি নেই
+ok 13 - processInChunks: টুকরো - 1 বার বিরতি; ফাঁকা তালিকায় কোনো বিরতি নেই
+  ---
+  duration_ms: 1.571
+  type: 'test'
+  ...
+# Subtest: processInChunks: অবৈধ size-এ RangeError
+ok 14 - processInChunks: অবৈধ size-এ RangeError
+  ---
+  duration_ms: 0.783
+  type: 'test'
+  ...
+# Subtest: ভর্তি হলে সবচেয়ে পুরোনো ব্যবহৃত Entry বাদ
+ok 15 - ভর্তি হলে সবচেয়ে পুরোনো ব্যবহৃত Entry বাদ
+  ---
+  duration_ms: 4.5842
+  type: 'test'
+  ...
+# Subtest: get একটি Entry-কে সাম্প্রতিক করে, তাই সেটি বাদ পড়ে না
+ok 16 - get একটি Entry-কে সাম্প্রতিক করে, তাই সেটি বাদ পড়ে না
+  ---
+  duration_ms: 0.2277
+  type: 'test'
+  ...
+# Subtest: মেয়াদোত্তীর্ণ Entry পড়লে undefined এবং মুছে যায় (কৃত্রিম ঘড়ি)
+ok 17 - মেয়াদোত্তীর্ণ Entry পড়লে undefined এবং মুছে যায় (কৃত্রিম ঘড়ি)
+  ---
+  duration_ms: 0.2396
+  type: 'test'
+  ...
+# Subtest: পরিসংখ্যান: hits, misses, evictions
+ok 18 - পরিসংখ্যান: hits, misses, evictions
+  ---
+  duration_ms: 1.0355
+  type: 'test'
+  ...
+# Subtest: একই Key আবার set করলে মান বদলায়, Eviction হয় না
+ok 19 - একই Key আবার set করলে মান বদলায়, Eviction হয় না
+  ---
+  duration_ms: 0.2093
+  type: 'test'
+  ...
+# Subtest: অবৈধ limit-এ RangeError
+ok 20 - অবৈধ limit-এ RangeError
+  ---
+  duration_ms: 0.6691
+  type: 'test'
+  ...
+1..20
+# tests 20
+# suites 0
+# pass 20
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 140.4849

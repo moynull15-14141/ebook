@@ -1,0 +1,2 @@
+OK    node --check src/transform.mjs   (in project/ledger-flow)
+OK    node --check tests/transform.test.mjs   (in project/ledger-flow)

@@ -1,0 +1,2 @@
+OK    node --check src/search.mjs   (in project/travel-search)
+OK    node --check tests/e2e.test.mjs   (in project/travel-search)

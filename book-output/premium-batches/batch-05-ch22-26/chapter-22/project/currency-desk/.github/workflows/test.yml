@@ -1,0 +1,14 @@
+# প্রতিটি Push ও Pull Request-এ Test (GitHub Actions)। এই বইয়ের QA-তে
+# এই File-টি GitHub-এ চালানো হয়নি; একই Command স্থানীয়ভাবে চালানো হয়েছে।
+name: CurrencyDesk tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test
+      - run: node --test --experimental-test-coverage

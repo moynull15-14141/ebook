@@ -1,0 +1,138 @@
+===== project/deploy-ready/src/config.mjs  (exit code 0) =====
+
+
+===== examples/01-config-fail-fast.mjs  (exit code 0) =====
+Local, কিছুই দেওয়া নেই: চালু { port: 3000, env: 'development', token: undefined }
+ভুল টাইপ: থামল
+  Configuration ভুল:
+  - PORT হতে হবে 0 থেকে 65535-এর পূর্ণসংখ্যা
+  - LOG_LEVEL হতে হবে debug, info, warn, error
+Production, Token নেই: থামল
+  Configuration ভুল:
+  - Production-এ OPS_TOKEN কমপক্ষে ২৪ অক্ষরের হতে হবে
+Production, ঠিকঠাক: চালু { port: 8080, env: 'production', token: '[REDACTED]' }
+
+===== project/deploy-ready/scripts/check-deploy.mjs  (exit code 0) =====
+Instruction: 11, সমস্যা: 0
+
+===== examples/05-canary-decision.mjs  (exit code 0) =====
+প্রথম ৫ মিনিট: wait: যথেষ্ট Traffic নেই
+সুস্থ: promote: পরের ধাপে (যেমন ৫% থেকে ২৫%)
+Error বেশি: rollback: Error 8.0 গুণ
+ধীর: rollback: p95 140 ms বেশি
+
+===== project/deploy-ready/src/server.mjs  (exit code 0) =====
+
+
+===== project/deploy-ready/src/logger.mjs  (exit code 0) =====
+
+
+===== examples/02-structured-log.mjs  (exit code 0) =====
+{
+  time: '2026-10-18T10:00:00.000Z',
+  level: 'info',
+  event: 'job.created',
+  service: 'deploy-ready',
+  requestId: 'req-7f3a',
+  jobId: 42,
+  priority: 'high'
+}
+{
+  time: '2026-10-18T10:00:01.000Z',
+  level: 'warn',
+  event: 'auth.failed',
+  service: 'deploy-ready',
+  requestId: 'req-7f3a',
+  authorization: '[REDACTED]',
+  ip: '10.0.0.8'
+}
+{
+  time: '2026-10-18T10:00:02.000Z',
+  level: 'error',
+  event: 'db.timeout',
+  service: 'deploy-ready',
+  query: 'list-jobs',
+  durationMs: 5003
+}
+
+===== project/deploy-ready/src/metrics.mjs  (exit code 0) =====
+
+
+===== examples/03-metrics-format.mjs  (exit code 0) =====
+# HELP http_requests_total HTTP অনুরোধের সংখ্যা
+# TYPE http_requests_total counter
+http_requests_total{method="GET",route="/jobs",status="200"} 3
+http_requests_total{method="POST",route="/jobs",status="201"} 1
+http_requests_total{method="POST",route="/jobs",status="422"} 1
+http_requests_total{method="GET",route="/jobs",status="500"} 1
+# HELP http_request_duration_seconds অনুরোধের সময় (সেকেন্ড)
+# TYPE http_request_duration_seconds histogram
+http_request_duration_seconds_bucket{method="GET",route="/jobs",le="0.005"} 1
+http_request_duration_seconds_bucket{method="GET",route="/jobs",le="0.01"} 1
+http_request_duration_seconds_bucket{method="GET",route="/jobs",le="0.05"} 2
+http_request_duration_seconds_bucket{method="GET",route="/jobs",le="0.1"} 2
+http_request_duration_seconds_bucket{method="GET",route="/jobs",le="0.5"} 3
+http_request_duration_seconds_bucket{method="GET",route="/jobs",le="1"} 3
+http_request_duration_seconds_bucket{method="GET",route="/jobs",le="5"} 4
+http_request_duration_seconds_bucket{method="GET",route="/jobs",le="+Inf"} 4
+http_request_duration_seconds_sum{method="GET",route="/jobs"} 2.043
+http_request_duration_seconds_count{method="GET",route="/jobs"} 4
+http_request_duration_seconds_sum{method="POST",route="/jobs"} 0.024
+http_request_duration_seconds_count{method="POST",route="/jobs"} 2
+
+===== examples/04-slo-budget.mjs  (exit code 0) =====
+৩০ দিনের SLI: 99.931%
+Error Budget: 4200 টি ব্যর্থ অনুরোধ
+খরচ হয়েছে: 69.048%
+শেষ ১ ঘণ্টার Error Rate: 1.500%
+Burn Rate: 15.0
+Budget শেষ হবে প্রায় 48 ঘণ্টায়
+Page: এখনই কাউকে জাগান
+
+===== project/deploy-ready/src/jobs.mjs  (exit code 0) =====
+
+
+===== project/deploy-ready/src/app.mjs  (exit code 0) =====
+
+
+===== examples/solutions/s06-empty-title.test.mjs  (exit code 0) =====
+TAP version 13
+# Subtest: ফাঁকা বা শুধু Space-এর title: 422 এবং কারণ
+ok 1 - ফাঁকা বা শুধু Space-এর title: 422 এবং কারণ
+  ---
+  duration_ms: 53.7596
+  type: 'test'
+  ...
+# Subtest: title না দিলেও 422, Server ভাঙে না
+ok 2 - title না দিলেও 422, Server ভাঙে না
+  ---
+  duration_ms: 28.6434
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 131.5394
+
+===== examples/solutions/s07-trace-request.mjs  (exit code 0) =====
+09:00:00.020 warn  db.slow: 4100 ms
+09:00:00.030 error http.unhandled: pool exhausted
+09:00:00.040 info  http.request: 500 in 4210 ms
+
+===== examples/solutions/s09-success-rate.mjs  (exit code 0) =====
+Success Rate: 99.5%
+SLO অনুযায়ী অনুমোদিত ব্যর্থতা: 4.0
+আসল ব্যর্থতা: 20
+Budget-এর 500% খরচ; Burn Rate 5.0
+SLO পূরণ হয়নি
+
+===== examples/solutions/s11-cached-readiness.mjs  (exit code 0) =====
+t=0: true
+t=1s (Cache থেকে): true
+t=2.5s (নতুন যাচাই, Timeout): false
+আসল যাচাই হয়েছে 2 বার

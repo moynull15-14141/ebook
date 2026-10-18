@@ -1,0 +1,2 @@
+OK    node --check task-core.js   (in project/task-manager)
+OK    node --check tests/task-core.test.js   (in project/task-manager)

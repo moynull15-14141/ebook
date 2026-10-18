@@ -1,0 +1,64 @@
+===== examples/01-error-family.js  (exit code 0) =====
+SaveFailedError: Booking সংরক্ষণ হয়নি
+  <- DatabaseError: INSERT ব্যর্থ
+  <- Error: connection reset
+true SAVE true
+
+===== examples/02-aggregate.mjs  (exit code 0) =====
+AggregateError 2
+Server A বন্ধ | Server B বন্ধ
+
+===== examples/03-invariant.js  (exit code 0) =====
+{"a":70,"b":80}
+Invariant ভঙ্গ: a-এর Balance ঋণাত্মক হবে
+
+===== examples/04-last-defense.js  (exit code 0) =====
+Program চলছে
+ধরা পড়েনি: Disk ভর্তি
+
+===== examples/05-logger.js  (exit code 0) =====
+{"level":"info","event":"created","service":"booking","id":"B-1","seats":2}
+{"level":"warn","event":"payment-retry","service":"booking","attempt":1}
+
+===== examples/06-assert-message.mjs  (exit code 0) =====
+ERR_ASSERTION 1750 1575
+পাঁচ আসনে গ্রুপ ছাড় প্রত্যাশিত
+
+1750 !== 1575
+
+===== project/booking-guard/src/errors.mjs  (exit code 0) =====
+
+
+===== project/booking-guard/src/booking-core.mjs  (exit code 0) =====
+
+
+===== project/booking-guard/src/memory-repository.mjs  (exit code 0) =====
+
+
+===== project/booking-guard/src/booking-service.mjs  (exit code 0) =====
+
+
+===== project/booking-guard/demo.mjs  (exit code 0) =====
+{"level":"warn","event":"payment-retry","requestId":"REQ-1","attempt":1}
+{"level":"info","event":"booking-confirmed","id":"REQ-1","seats":5,"amount":1575}
+{"level":"warn","event":"notify-failed","id":"REQ-1","reason":"SMTP বন্ধ"}
+1575 PAY-2 PAY-2 2 5
+SoldOutError SOLD_OUT 5
+ValidationError VALIDATION customer,email,seats
+
+===== examples/solutions/s02-age-boundary.js  (exit code 0) =====
+17:false 18:true 60:true 61:false
+
+===== examples/solutions/s04-greeting-clock.js  (exit code 0) =====
+শুভ সকাল
+শুভ অপরাহ্ন
+
+===== examples/solutions/s05-not-found.js  (exit code 0) =====
+NotFoundError NOT_FOUND Booking B-9 পাওয়া যায়নি true
+
+===== examples/solutions/s11-health.mjs  (exit code 0) =====
+2/3 সুস্থ
+সমস্যা: Payment সাড়া দিচ্ছে না
+
+===== examples/solutions/s12-concurrent-booking.mjs  (exit code 0) =====
+10 10 0

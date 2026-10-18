@@ -1,0 +1,15 @@
+{
+  "number": 22,
+  "source": "chapter-22-premium.md",
+  "outputBase": "chapter-22-premium",
+  "companion": ["project", "examples"],
+  "logs": "qa-logs",
+  "tests": [
+    { "name": "listings: Node.js run + compare", "cwd": ".", "cmd": ["node", "../tools/extract-and-run.mjs", "."], "log": "listings-run.log" },
+    { "name": "listings: browser run + compare", "cwd": ".", "cmd": ["node", "../tools/run-browser-listings.mjs", "."], "log": "browser-run.log" },
+    { "name": "syntax: project", "cwd": "project/currency-desk", "cmd": ["node", "--check", "src/rates.mjs"] },
+    { "name": "syntax: tests", "cwd": "project/currency-desk", "cmd": ["node", "--check", "tests/e2e.test.mjs"] },
+    { "name": "unit, integration and e2e tests", "cwd": "project/currency-desk", "cmd": ["node", "--test"], "log": "unit-tests.log" },
+    { "name": "coverage report", "cwd": "project/currency-desk", "cmd": ["node", "--test", "--experimental-test-coverage"], "log": "coverage.log" }
+  ]
+}

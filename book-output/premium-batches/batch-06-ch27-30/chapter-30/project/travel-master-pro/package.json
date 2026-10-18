@@ -1,0 +1,19 @@
+{
+  "name": "travel-master-pro",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "TravelMaster Pro: Full-Stack Capstone (অধ্যায় ৩০)",
+  "engines": { "node": ">=22.5" },
+  "scripts": {
+    "start": "node main.mjs",
+    "demo": "node demo.mjs",
+    "test": "node --test",
+    "check": "node --check main.mjs && node --check public/app.mjs",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/node": ">=22",
+    "typescript": ">=5.5"
+  }
+}

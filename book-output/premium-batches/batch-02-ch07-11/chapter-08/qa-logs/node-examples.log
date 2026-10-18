@@ -1,0 +1,161 @@
+===== examples/01-immutable.js  (exit code 0) =====
+dhaka
+DHAKA
+dhaka
+DHAKA
+
+===== examples/02-template-literal.js  (exit code 0) =====
+Sara পেয়েছেন 88, Grade A+
+দোকান: Boi Ghar
+মোট: 360 টাকা
+
+===== examples/03-escapes.js  (exit code 0) =====
+প্রথম লাইন
+দ্বিতীয় লাইন
+It's a book
+C:\Users\Sara
+কা
+
+===== examples/04-length.js  (exit code 0) =====
+5
+4
+5
+2
+1
+
+===== examples/05-graphemes.js  (exit code 0) =====
+2
+ক্ষ | মা
+
+===== examples/06-access.js  (exit code 0) =====
+J
+D
+2026
+BD
+JS
+
+===== examples/07-search.js  (exit code 0) =====
+true
+true
+true
+4
+-1
+false
+
+===== examples/08-clean.js  (exit code 0) =====
+[Sara    Ahmed]
+[Sara    Ahmed   ]
+1250,000
+1250000
+007
+----------
+
+===== examples/09-case.js  (exit code 0) =====
+DHAKA
+dhaka
+ঢাকা
+true
+i
+ı
+
+===== examples/10-locale-compare.js  (exit code 0) =====
+[ 'Banana', 'apple', 'cherry' ]
+[ 'apple', 'Banana', 'cherry' ]
+
+===== examples/11-split-join.js  (exit code 0) =====
+[ 'আম', 'কলা', 'লিচু' ]
+[ 'a', 'b', '', 'c' ]
+[ 'Sara', '', 'Ahmed' ]
+[ 2026, 10, 15 ]
+JavaScript শিখুন
+
+===== examples/12-normalize.js  (exit code 0) =====
+1 2
+false
+true
+false 1 2
+true
+
+===== examples/13-regex-intro.js  (exit code 0) =====
+true
+[ '12', '345' ]
+Order # এবং Order #
+Sara Ahmed
+true
+
+===== examples/14-unicode-words.js  (exit code 0) =====
+[ 'JavaScript' ]
+[ 'JavaScript', 'শিখুন', 'প্রতিদিন', '১০', 'মিনিট' ]
+
+===== examples/15-validation.js  (exit code 0) =====
+true
+false
+false
+true
+false
+false
+
+===== examples/17-debug-text.js  (exit code 0) =====
+09df
+09af 09bc
+"Sara "
+2
+00a0
+
+===== project/content-search-utility/text-tools.js  (exit code 0) =====
+শব্দ: 20
+ক্ষমা: 5 Code Point, 2 অক্ষর
+javascript-শেখার-প্রথম-ধাপ
+JavaScript শেখা শুরু করুন। JavaScript...
+javascript (3), করুন (2), browser (1)
+0, 27, 107
+প্রতিদিন [অনুশীলন] করুন, নিয়মিত [অনুশীলন] করুন।
+
+===== examples/18-compare-bug.js  (exit code 0) =====
+false
+
+===== examples/solutions/s01-trim-upper.js  (exit code 0) =====
+[JAVASCRIPT MASTERY]
+[  JavaScript Mastery  ]
+
+===== examples/solutions/s02-date-parts.js  (exit code 0) =====
+2026
+10
+15
+
+===== examples/solutions/s03-mask.js  (exit code 0) =====
+********678
+********678
+
+===== examples/solutions/s05-compare-fixed.js  (exit code 0) =====
+true
+
+===== examples/solutions/s06-vowel-signs.js  (exit code 0) =====
+4
+
+===== examples/solutions/s07-initials.js  (exit code 0) =====
+SAK
+MD
+
+===== examples/solutions/s08-same-text.js  (exit code 0) =====
+false
+true
+true
+
+===== examples/solutions/s09-username.js  (exit code 0) =====
+true
+false
+false
+false
+
+===== examples/solutions/s10-shorten-letters.js  (exit code 0) =====
+ক্ষমা...
+ক্
+
+===== examples/solutions/s11-sentences.js  (exit code 0) =====
+3
+0
+
+===== examples/solutions/s12-search-summary.js  (exit code 0) =====
+2 বার পাওয়া গেছে: "...Node.js দিয়ে ..."
+পাওয়া যায়নি

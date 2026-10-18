@@ -1,0 +1,78 @@
+{
+  "chapter": 28,
+  "ran": "2026-10-18T11:10:03.538Z",
+  "passed": 10,
+  "failed": 0,
+  "results": [
+    {
+      "name": "listings: Node.js run + compare",
+      "ok": true,
+      "exit": 0,
+      "log": "listings-run.log",
+      "summary": "21 files written from the chapter, 16 run, 10 compared with a printed panel, 0 problem(s)"
+    },
+    {
+      "name": "syntax: project",
+      "ok": true,
+      "exit": 0,
+      "log": "syntax-checks.log",
+      "summary": ""
+    },
+    {
+      "name": "npm run check: Dockerfile / .dockerignore / compose static rules",
+      "ok": true,
+      "exit": 0,
+      "log": "deploy-static-check.log",
+      "summary": "Instruction: 11, সমস্যা: 0"
+    },
+    {
+      "name": "project tests: config, observability, HTTP API, graceful shutdown, healthcheck",
+      "ok": true,
+      "exit": 0,
+      "log": "unit-tests.log",
+      "summary": "# duration_ms 1446.3907"
+    },
+    {
+      "name": "deploy validation: YAML parsed (yaml + js-yaml), production-mode smoke test; docker build NOT RUN (no daemon), GitHub Actions NOT RUN",
+      "ok": true,
+      "exit": 0,
+      "log": "deploy-validation.log",
+      "summary": "0 failed"
+    },
+    {
+      "name": "manuscript rules",
+      "ok": true,
+      "exit": 0,
+      "log": "manuscript-check.log",
+      "summary": "All manuscript rules passed, 1 warning(s)"
+    },
+    {
+      "name": "colour tokens",
+      "ok": true,
+      "exit": 0,
+      "log": "tokens-check.log",
+      "summary": "All colour checks passed"
+    },
+    {
+      "name": "PDF checks",
+      "ok": true,
+      "exit": 0,
+      "log": "pdf-check.log",
+      "summary": "All PDF checks passed"
+    },
+    {
+      "name": "DOCX checks",
+      "ok": true,
+      "exit": 0,
+      "log": "docx-check.log",
+      "summary": "All DOCX checks passed"
+    },
+    {
+      "name": "Bengali typography audit",
+      "ok": true,
+      "exit": 0,
+      "log": "typography-audit.log",
+      "summary": "   ব (advance 0.53 em): 1"
+    }
+  ]
+}

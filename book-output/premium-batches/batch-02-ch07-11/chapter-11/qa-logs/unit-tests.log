@@ -1,0 +1,108 @@
+$ node --test   (in project\order-validation)
+
+TAP version 13
+# Subtest: parseQuantity: শুধু 1 থেকে 100-এর পূর্ণসংখ্যা, আগে-পরের ফাঁকা জায়গা চলে
+ok 1 - parseQuantity: শুধু 1 থেকে 100-এর পূর্ণসংখ্যা, আগে-পরের ফাঁকা জায়গা চলে
+  ---
+  duration_ms: 4.142
+  type: 'test'
+  ...
+# Subtest: parseQuantity: ফাঁকা, শূন্য, দশমিক, বৈজ্ঞানিক রূপ, ঋণাত্মক, সীমার বাইরে বাতিল
+ok 2 - parseQuantity: ফাঁকা, শূন্য, দশমিক, বৈজ্ঞানিক রূপ, ঋণাত্মক, সীমার বাইরে বাতিল
+  ---
+  duration_ms: 0.9858
+  type: 'test'
+  ...
+# Subtest: formatTaka: হাজারের কমা; অবৈধ অঙ্কে RangeError
+ok 3 - formatTaka: হাজারের কমা; অবৈধ অঙ্কে RangeError
+  ---
+  duration_ms: 41.0364
+  type: 'test'
+  ...
+# Subtest: validateOrder: বৈধ Order পরিষ্কার করে মোট দামসহ ফেরত দেয়
+ok 4 - validateOrder: বৈধ Order পরিষ্কার করে মোট দামসহ ফেরত দেয়
+  ---
+  duration_ms: 0.547
+  type: 'test'
+  ...
+# Subtest: validateOrder: সব ঘর ফাঁকা হলে চারটি ঘরের বার্তা একসঙ্গে
+ok 5 - validateOrder: সব ঘর ফাঁকা হলে চারটি ঘরের বার্তা একসঙ্গে
+  ---
+  duration_ms: 0.7159
+  type: 'test'
+  ...
+# Subtest: validateOrder: নামের সীমা 2 থেকে 60 অক্ষর
+ok 6 - validateOrder: নামের সীমা 2 থেকে 60 অক্ষর
+  ---
+  duration_ms: 0.4516
+  type: 'test'
+  ...
+# Subtest: validateOrder: Email-এর গঠন
+ok 7 - validateOrder: Email-এর গঠন
+  ---
+  duration_ms: 0.8275
+  type: 'test'
+  ...
+# Subtest: validateOrder: তালিকার বাইরের পণ্য, এবং উত্তরাধিকারসূত্রে পাওয়া Key (toString, __proto__) বাতিল
+ok 8 - validateOrder: তালিকার বাইরের পণ্য, এবং উত্তরাধিকারসূত্রে পাওয়া Key (toString, __proto__) বাতিল
+  ---
+  duration_ms: 0.543
+  type: 'test'
+  ...
+# Subtest: validateOrder: Object না দিলে TypeError (Program-এর ভুল, ValidationError নয়)
+ok 9 - validateOrder: Object না দিলে TypeError (Program-এর ভুল, ValidationError নয়)
+  ---
+  duration_ms: 0.6026
+  type: 'test'
+  ...
+# Subtest: createDemoServer: রসিদ নম্বর ক্রমে; স্টক কমে; বেশি চাইলে ServiceError
+ok 10 - createDemoServer: রসিদ নম্বর ক্রমে; স্টক কমে; বেশি চাইলে ServiceError
+  ---
+  duration_ms: 34.882
+  type: 'test'
+  ...
+# Subtest: createDemoServer: প্রতিটি Server-এর স্টক আলাদা, মূল স্টক Object অপরিবর্তিত
+ok 11 - createDemoServer: প্রতিটি Server-এর স্টক আলাদা, মূল স্টক Object অপরিবর্তিত
+  ---
+  duration_ms: 30.0357
+  type: 'test'
+  ...
+# Subtest: placeOrder: সফল হলে ok, Order ও রসিদ
+ok 12 - placeOrder: সফল হলে ok, Order ও রসিদ
+  ---
+  duration_ms: 35.8813
+  type: 'test'
+  ...
+# Subtest: placeOrder: যাচাইয়ের ত্রুটি ফলাফল হিসেবে; Server ডাকা হয় না
+ok 13 - placeOrder: যাচাইয়ের ত্রুটি ফলাফল হিসেবে; Server ডাকা হয় না
+  ---
+  duration_ms: 0.4548
+  type: 'test'
+  ...
+# Subtest: placeOrder: Server-এর প্রত্যাখ্যান service; অন্য যেকোনো পাঠানোর ত্রুটি network, মূল ত্রুটি cause-এ
+ok 14 - placeOrder: Server-এর প্রত্যাখ্যান service; অন্য যেকোনো পাঠানোর ত্রুটি network, মূল ত্রুটি cause-এ
+  ---
+  duration_ms: 2.4989
+  type: 'test'
+  ...
+# Subtest: placeOrder: অপ্রত্যাশিত ত্রুটি (Program-এর ভুল) ফলাফলে লুকায় না, ওপরে যায়
+ok 15 - placeOrder: অপ্রত্যাশিত ত্রুটি (Program-এর ভুল) ফলাফলে লুকায় না, ওপরে যায়
+  ---
+  duration_ms: 0.2875
+  type: 'test'
+  ...
+# Subtest: CATALOG-এর প্রতিটি দাম নিরাপদ পূর্ণসংখ্যা; 100টির মোটও নিরাপদ
+ok 16 - CATALOG-এর প্রতিটি দাম নিরাপদ পূর্ণসংখ্যা; 100টির মোটও নিরাপদ
+  ---
+  duration_ms: 0.3066
+  type: 'test'
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 374.4487

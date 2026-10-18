@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TravelSearch Explorer</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="src/app.mjs"></script>
+</head>
+<body>
+  <h1>TravelSearch Explorer <small>শিক্ষামূলক Demo</small></h1>
+  <p id="status" role="status">তথ্য তৈরি হচ্ছে...</p>
+  <label>খুঁজুন <input id="query" placeholder="যেমন: sylhet tea"></label>
+  <label>সাজান <select id="sort">
+    <option value="relevance">ক্রমিক</option>
+    <option value="price">দাম</option>
+    <option value="rating">Rating</option>
+  </select></label>
+  <p id="count"></p>
+  <div id="list">
+    <div id="spacer"></div>
+    <ul id="rows"></ul>
+  </div>
+</body>
+</html>

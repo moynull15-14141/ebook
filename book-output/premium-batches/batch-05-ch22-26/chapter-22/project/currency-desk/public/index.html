@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CurrencyDesk</title>
+  <script type="module" src="/app.mjs"></script>
+</head>
+<body>
+  <h1>CurrencyDesk <small>শিক্ষামূলক Demo</small></h1>
+  <form id="quote-form">
+    <label>থেকে <input id="from" value="USD" maxlength="3"></label>
+    <label>প্রতি <input id="to" value="BDT" maxlength="3"></label>
+    <label>পরিমাণ <input id="amount" inputmode="decimal"></label>
+    <button id="get-quote">Quote দেখুন</button>
+  </form>
+  <p id="result" role="status"></p>
+</body>
+</html>

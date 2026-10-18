@@ -1,0 +1,106 @@
+===== examples/01-factory.js  (exit code 0) =====
+SMS rafi: আপনার Visa আবেদন জমা হয়েছে
+Email rafi: আপনার Visa আবেদন জমা হয়েছে
+অজানা Channel: fax
+
+===== examples/02-strategy.js  (exit code 0) =====
+none       40000
+earlyBird  36000
+group      34000
+unknown    40000
+student    32000
+
+===== examples/03-observer.js  (exit code 0) =====
+Email: VF-001 অনুমোদিত
+Report হালনাগাদ: VF-001
+Report হালনাগাদ: VF-002
+
+===== examples/04-di.js  (exit code 0) =====
+সুপ্রভাত, Mina
+শুভ সন্ধ্যা, Mina
+অজানা ব্যবহারকারী
+
+===== examples/05-singleton/counter.mjs  (exit code 0) =====
+
+
+===== examples/05-singleton/main.mjs  (exit code 0) =====
+2 true
+
+===== project/visa-flow/src/domain/errors.mjs  (exit code 0) =====
+
+
+===== project/visa-flow/src/domain/fees.mjs  (exit code 0) =====
+
+
+===== project/visa-flow/src/domain/workflow.mjs  (exit code 0) =====
+
+
+===== project/visa-flow/src/domain/application.mjs  (exit code 0) =====
+
+
+===== project/visa-flow/src/app/events.mjs  (exit code 0) =====
+
+
+===== project/visa-flow/src/app/ids.mjs  (exit code 0) =====
+
+
+===== project/visa-flow/src/app/service.mjs  (exit code 0) =====
+
+
+===== project/visa-flow/src/infra/memory-repository.mjs  (exit code 0) =====
+
+
+===== project/visa-flow/src/infra/storage-repository.mjs  (exit code 0) =====
+
+
+===== project/visa-flow/demo.mjs  (exit code 0) =====
+Rafi Ahmed 6000 9100 2500
+  VF-001: draft থেকে submitted
+  VF-001: submitted থেকে approved
+  VF-002: draft থেকে submitted
+  VF-002: submitted থেকে documents-requested
+  VF-003: draft থেকে withdrawn
+  INVALID_TRANSITION: withdrawn অবস্থায় "submit" করা যায় না
+  NOT_FOUND: VF-999 নামে কোনো আবেদন নেই
+{ approved: 1, 'documents-requested': 1, withdrawn: 1 } 6000
+
+===== examples/solutions/s02-transit.mjs  (exit code 0) =====
+2400 3360
+4
+
+===== examples/solutions/s04-once.mjs  (exit code 0) =====
+প্রথমবার: 1
+0
+
+===== examples/solutions/s06-logging-repo.mjs  (exit code 0) =====
+{ save: 1, get: 2 } 1
+
+===== examples/solutions/s07-diagram.mjs  (exit code 0) =====
+stateDiagram
+  draft --submit--> submitted
+  draft --withdraw--> withdrawn
+  submitted --requestDocuments--> documents-requested
+  submitted --approve--> approved
+  submitted --reject--> rejected
+  submitted --withdraw--> withdrawn
+  documents-requested --resubmit--> submitted
+  documents-requested --withdraw--> withdrawn
+
+===== examples/solutions/s08-json-repo.mjs  (exit code 0) =====
+[ 'VF-001 submitted' ] true
+
+===== examples/solutions/s09-audit.mjs  (exit code 0) =====
+VF-001:submitted | VF-001:documents-requested | VF-001:submitted 0
+
+===== examples/solutions/s10-undo.mjs  (exit code 0) =====
+submitted draft
+draft থেকে Undo করা যায় না
+withdrawn থেকে Undo করা যায় না
+
+===== examples/solutions/s11-registry.mjs  (exit code 0) =====
+TypeError bad: label, maxTravelers ও fee প্রয়োজন
+TypeError transit: label, maxTravelers ও fee প্রয়োজন
+[ 'transit' ] 1200
+
+===== examples/solutions/s12-refactor.mjs  (exit code 0) =====
+[ 3000, 9000, 11200 ] [ 11200 ]

@@ -1,0 +1,15 @@
+{
+  "number": 30,
+  "source": "chapter-30-premium.md",
+  "outputBase": "chapter-30-premium",
+  "companion": ["project", "examples"],
+  "logs": "qa-logs",
+  "tests": [
+    { "name": "listings: Node.js run + compare", "cwd": ".", "cmd": ["node", "../tools/extract-and-run.mjs", "."], "log": "listings-run.log" },
+    { "name": "syntax: server, frontend", "cwd": "project/travel-master-pro", "cmd": ["node", "--check", "public/app.mjs"] },
+    { "name": "project tests: validation, domain, auth, HTTP, 4-thread concurrency (node:sqlite)", "cwd": "project/travel-master-pro", "cmd": ["node", "--test"], "log": "unit-tests.log" },
+    { "name": "type check: tsc strict checkJs on src/ (TypeScript 6.0.2, local) + control error", "cwd": ".", "cmd": ["node", "../tools/ch30-typecheck.mjs", "."], "log": "typecheck.log" },
+    { "name": "browser end-to-end: frontend in headless Chrome against the real server", "cwd": ".", "cmd": ["node", "../tools/ch30-browser-e2e.mjs", "."], "log": "browser-e2e.log" },
+    { "name": "capstone demo over HTTP", "cwd": "project/travel-master-pro", "cmd": ["node", "demo.mjs"], "log": "demo.log" }
+  ]
+}

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TravelLive</title>
+  <link rel="icon" href="data:,">
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; }
+    #connection { font-weight: bold; }
+    li[data-status="CONFIRMED"] { color: #0a7a3b; }
+    li[data-status="CANCELLED"] { color: #b42318; }
+  </style>
+</head>
+<body>
+  <h1>TravelLive</h1>
+  <p>সংযোগ: <span id="connection" role="status">বিচ্ছিন্ন</span></p>
+  <ul id="bookings" aria-live="polite"></ul>
+  <!-- Token থাকে URL-এর # অংশে (যেমন #token-rafi:bk-1); তা Server-এ যায় না। -->
+  <script type="module" src="/app.mjs"></script>
+</body>
+</html>

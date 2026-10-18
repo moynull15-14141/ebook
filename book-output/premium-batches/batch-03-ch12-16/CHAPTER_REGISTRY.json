@@ -1,0 +1,383 @@
+{
+  "book": "JavaScript Mastery — শূন্য থেকে প্রফেশনাল",
+  "author": "Moynul Hasan",
+  "pathsRelativeTo": "repository root (the allcopy folder)",
+  "generated": "2026-10-15T10:48:57.191Z",
+  "supersedes": "book-output/premium-batches/batch-02-ch07-11/CHAPTER_REGISTRY.json (left unchanged)",
+  "chapters": [
+    {
+      "number": 1,
+      "title": "JavaScript-এর জগতে প্রথম পদক্ষেপ",
+      "paths": {
+        "markdown": "book-output/premium-final/chapter-01/chapter-01-final.md",
+        "pdf": "book-output/premium-final/chapter-01/JavaScript_Mastery_Chapter_01_Final.pdf",
+        "docx": "book-output/premium-final/chapter-01/JavaScript_Mastery_Chapter_01_Final.docx",
+        "project": "book-output/premium-final/chapter-01/project/interactive-greeting-app"
+      },
+      "missing": [],
+      "productionStatus": "final (Phase 3B)",
+      "qaStatus": "PASS (13 of 13 gates)",
+      "sourceManuscript": "v30",
+      "lastVerifiedBuild": {
+        "builtAt": "2026-10-11T10:19:05.785Z",
+        "qaRunAt": "2026-10-11T10:20:20.275Z",
+        "pdfPages": 38,
+        "explanatoryWords": 6068,
+        "designSystem": "master-design-system 1.0.0 (before label fix)",
+        "pdfSha256": "edf7bee7ddaf139ad7318b1b67cdd28dd51430e74e5ca2cec2d929342efed97c",
+        "docxSha256": "7bcf6f8154eff55a5a111ab0d01ab53f96595e49822642cf4d0273bea1a78d36"
+      }
+    },
+    {
+      "number": 2,
+      "title": "Variables, Data Types এবং Memory",
+      "paths": {
+        "markdown": "book-output/premium-batches/batch-01-ch02-06/chapter-02/chapter-02-premium.md",
+        "pdf": "book-output/premium-batches/batch-01-ch02-06/chapter-02/chapter-02-premium.pdf",
+        "docx": "book-output/premium-batches/batch-01-ch02-06/chapter-02/chapter-02-premium.docx",
+        "project": "book-output/premium-batches/batch-01-ch02-06/chapter-02/project/student-result-calculator"
+      },
+      "missing": [],
+      "productionStatus": "premium, batch 01 (Phase 4A)",
+      "qaStatus": "PASS (9 of 9 gates)",
+      "sourceManuscript": "v30",
+      "lastVerifiedBuild": {
+        "builtAt": "2026-10-11T10:39:52.031Z",
+        "qaRunAt": "2026-10-11T11:36:49.388Z",
+        "pdfPages": 32,
+        "explanatoryWords": 3662,
+        "designSystem": "master-design-system 1.0.0 (before label fix; project parts captioned \"Selected Excerpt\")",
+        "pdfSha256": "21e953ec085f3a070850a9486af30739a8f271a6da62ce112b544d17f0c8c7e5",
+        "docxSha256": "9e8a4be3fb710f3350fd680ebd26d5225d82e60a57eff8992f6417dee1b9c390"
+      }
+    },
+    {
+      "number": 3,
+      "title": "Operators এবং Decision Making",
+      "paths": {
+        "markdown": "book-output/premium-batches/batch-01-ch02-06/chapter-03/chapter-03-premium.md",
+        "pdf": "book-output/premium-batches/batch-01-ch02-06/chapter-03/chapter-03-premium.pdf",
+        "docx": "book-output/premium-batches/batch-01-ch02-06/chapter-03/chapter-03-premium.docx",
+        "project": "book-output/premium-batches/batch-01-ch02-06/chapter-03/project/shopping-discount-calculator"
+      },
+      "missing": [],
+      "productionStatus": "premium, batch 01 (Phase 4A)",
+      "qaStatus": "PASS (9 of 9 gates)",
+      "sourceManuscript": "v30",
+      "lastVerifiedBuild": {
+        "builtAt": "2026-10-11T10:44:17.388Z",
+        "qaRunAt": "2026-10-11T11:36:54.575Z",
+        "pdfPages": 33,
+        "explanatoryWords": 3271,
+        "designSystem": "master-design-system 1.0.0 (before label fix; project parts captioned \"Selected Excerpt\")",
+        "pdfSha256": "7ddf75dda0f45068155646dadf849e5c56d4537bba2ded523d35d332c5fcb254",
+        "docxSha256": "bc4b0afe0aaf02792cf004709124498e0edbb5e0eb3f7c481dd5ed101fb75acd"
+      }
+    },
+    {
+      "number": 4,
+      "title": "Loops এবং Iteration",
+      "paths": {
+        "markdown": "book-output/premium-batches/batch-01-ch02-06/chapter-04/chapter-04-premium.md",
+        "pdf": "book-output/premium-batches/batch-01-ch02-06/chapter-04/chapter-04-premium.pdf",
+        "docx": "book-output/premium-batches/batch-01-ch02-06/chapter-04/chapter-04-premium.docx",
+        "project": "book-output/premium-batches/batch-01-ch02-06/chapter-04/project/cart-analyzer"
+      },
+      "missing": [],
+      "productionStatus": "premium, batch 01 (Phase 4A)",
+      "qaStatus": "PASS (9 of 9 gates)",
+      "sourceManuscript": "v30",
+      "lastVerifiedBuild": {
+        "builtAt": "2026-10-11T10:48:49.841Z",
+        "qaRunAt": "2026-10-11T11:36:59.938Z",
+        "pdfPages": 32,
+        "explanatoryWords": 3267,
+        "designSystem": "master-design-system 1.0.0 (before label fix; project parts captioned \"Selected Excerpt\")",
+        "pdfSha256": "d29807ffab1e49cca0ccad5395db4f27517319bb21744b27188bc7800d00eff4",
+        "docxSha256": "522c3ee88a419f3b5295952016479e50ea34600578530f54dfb0abf3f362e09c"
+      }
+    },
+    {
+      "number": 5,
+      "title": "Functions এবং Scope",
+      "paths": {
+        "markdown": "book-output/premium-batches/batch-01-ch02-06/chapter-05/chapter-05-premium.md",
+        "pdf": "book-output/premium-batches/batch-01-ch02-06/chapter-05/chapter-05-premium.pdf",
+        "docx": "book-output/premium-batches/batch-01-ch02-06/chapter-05/chapter-05-premium.docx",
+        "project": "book-output/premium-batches/batch-01-ch02-06/chapter-05/project/invoice-calculator"
+      },
+      "missing": [],
+      "productionStatus": "premium, batch 01 (Phase 4A)",
+      "qaStatus": "PASS (9 of 9 gates)",
+      "sourceManuscript": "v30",
+      "lastVerifiedBuild": {
+        "builtAt": "2026-10-11T10:53:10.069Z",
+        "qaRunAt": "2026-10-11T11:37:04.733Z",
+        "pdfPages": 34,
+        "explanatoryWords": 3615,
+        "designSystem": "master-design-system 1.0.0 (before label fix; project parts captioned \"Selected Excerpt\")",
+        "pdfSha256": "9507f70864a2491eef7aea9e646f486df530ddbeea2740e790094146afc41363",
+        "docxSha256": "93fb2ca426a8aa4338b62a66c7b7b390f30ba7ecc50e62d660bf8a9a8ff73c36"
+      }
+    },
+    {
+      "number": 6,
+      "title": "Arrays এবং Data Processing",
+      "paths": {
+        "markdown": "book-output/premium-batches/batch-01-ch02-06/chapter-06/chapter-06-premium.md",
+        "pdf": "book-output/premium-batches/batch-01-ch02-06/chapter-06/chapter-06-premium.pdf",
+        "docx": "book-output/premium-batches/batch-01-ch02-06/chapter-06/chapter-06-premium.docx",
+        "project": "book-output/premium-batches/batch-01-ch02-06/chapter-06/project/inventory-dashboard"
+      },
+      "missing": [],
+      "productionStatus": "premium, batch 01 (Phase 4A)",
+      "qaStatus": "PASS (9 of 9 gates)",
+      "sourceManuscript": "v30",
+      "lastVerifiedBuild": {
+        "builtAt": "2026-10-11T11:35:00.092Z",
+        "qaRunAt": "2026-10-11T11:37:09.409Z",
+        "pdfPages": 33,
+        "explanatoryWords": 3317,
+        "designSystem": "master-design-system 1.0.0 (before label fix; project parts captioned \"Selected Excerpt\")",
+        "pdfSha256": "2bc7856214e74a5eb53d89c2690f98338f1ab953cbd65aa0dd7f1505eaa7c734",
+        "docxSha256": "5fba855e74b259ef3b156331cbbfacd977f3e34fff8efbcf69d9d93d651d791a"
+      }
+    },
+    {
+      "number": 7,
+      "title": "Objects: Properties, Methods, Destructuring এবং Data Modeling",
+      "paths": {
+        "markdown": "book-output/premium-batches/batch-02-ch07-11/chapter-07/chapter-07-premium.md",
+        "pdf": "book-output/premium-batches/batch-02-ch07-11/chapter-07/chapter-07-premium.pdf",
+        "docx": "book-output/premium-batches/batch-02-ch07-11/chapter-07/chapter-07-premium.docx",
+        "project": "book-output/premium-batches/batch-02-ch07-11/chapter-07/project/student-management"
+      },
+      "missing": [],
+      "productionStatus": "premium, batch 02 (Phase 4B)",
+      "qaStatus": "PASS (10 of 10 gates)",
+      "sourceManuscript": "v30",
+      "lastVerifiedBuild": {
+        "builtAt": "2026-10-15T05:35:06.972Z",
+        "qaRunAt": "2026-10-15T05:35:23.676Z",
+        "pdfPages": 34,
+        "explanatoryWords": 3462,
+        "designSystem": "batch-02 build-system (master copy + part captions)",
+        "pdfSha256": "83f35dd7ff803e84096ff5ffc4b59bd1b7b37bc64ed1798892a3f19a238a664f",
+        "docxSha256": "9c00d20eccaea71035c795afdee20ccf4317a821ce5619a0c7124ba5de064302"
+      }
+    },
+    {
+      "number": 8,
+      "title": "Strings এবং Modern Text Processing",
+      "paths": {
+        "markdown": "book-output/premium-batches/batch-02-ch07-11/chapter-08/chapter-08-premium.md",
+        "pdf": "book-output/premium-batches/batch-02-ch07-11/chapter-08/chapter-08-premium.pdf",
+        "docx": "book-output/premium-batches/batch-02-ch07-11/chapter-08/chapter-08-premium.docx",
+        "project": "book-output/premium-batches/batch-02-ch07-11/chapter-08/project/content-search-utility"
+      },
+      "missing": [],
+      "productionStatus": "premium, batch 02 (Phase 4B)",
+      "qaStatus": "PASS (10 of 10 gates)",
+      "sourceManuscript": "v30",
+      "lastVerifiedBuild": {
+        "builtAt": "2026-10-15T05:35:35.411Z",
+        "qaRunAt": "2026-10-15T05:35:59.485Z",
+        "pdfPages": 32,
+        "explanatoryWords": 3591,
+        "designSystem": "batch-02 build-system (master copy + part captions)",
+        "pdfSha256": "07a186b3e32f44e3cf01cdaf87511c93c05404720f3e196cc8012efe7db840a3",
+        "docxSha256": "602341d21fa8166de785c54ca892b0944ed5584d1bedc2decd0fdb0faaaf7437"
+      }
+    },
+    {
+      "number": 9,
+      "title": "DOM Manipulation, Events এবং Interactive Web Applications",
+      "paths": {
+        "markdown": "book-output/premium-batches/batch-02-ch07-11/chapter-09/chapter-09-premium.md",
+        "pdf": "book-output/premium-batches/batch-02-ch07-11/chapter-09/chapter-09-premium.pdf",
+        "docx": "book-output/premium-batches/batch-02-ch07-11/chapter-09/chapter-09-premium.docx",
+        "project": "book-output/premium-batches/batch-02-ch07-11/chapter-09/project/task-manager"
+      },
+      "missing": [],
+      "productionStatus": "premium, batch 02 (Phase 4B)",
+      "qaStatus": "PASS (11 of 11 gates)",
+      "sourceManuscript": "v30",
+      "lastVerifiedBuild": {
+        "builtAt": "2026-10-15T05:14:31.936Z",
+        "qaRunAt": "2026-10-15T05:14:48.445Z",
+        "pdfPages": 41,
+        "explanatoryWords": 3690,
+        "designSystem": "batch-02 build-system (master copy + part captions)",
+        "pdfSha256": "067dfcba90108e0c64eef905937b8fe696c51f62dd96a12bd3afd55188b507b2",
+        "docxSha256": "f0ab08e6e357a361c522dad15e7a12dc4599a5b72ca3b71c24bcb8e235c64a04"
+      }
+    },
+    {
+      "number": 10,
+      "title": "Asynchronous JavaScript: Callbacks, Promises, async/await এবং Event Loop",
+      "paths": {
+        "markdown": "book-output/premium-batches/batch-02-ch07-11/chapter-10/chapter-10-premium.md",
+        "pdf": "book-output/premium-batches/batch-02-ch07-11/chapter-10/chapter-10-premium.pdf",
+        "docx": "book-output/premium-batches/batch-02-ch07-11/chapter-10/chapter-10-premium.docx",
+        "project": "book-output/premium-batches/batch-02-ch07-11/chapter-10/project/user-directory-explorer"
+      },
+      "missing": [],
+      "productionStatus": "premium, batch 02 (Phase 4B)",
+      "qaStatus": "PASS (11 of 11 gates)",
+      "sourceManuscript": "v30",
+      "lastVerifiedBuild": {
+        "builtAt": "2026-10-15T05:25:07.429Z",
+        "qaRunAt": "2026-10-15T05:26:39.819Z",
+        "pdfPages": 41,
+        "explanatoryWords": 3469,
+        "designSystem": "batch-02 build-system (master copy + part captions)",
+        "pdfSha256": "b10c3b201cdf9e76c8496d2dbf80d55c6750385731a1e74b70489a7498b2d682",
+        "docxSha256": "fe43e8d883320a54749e2c3720e1d967790758a14cb98063465a9c352fb785cb"
+      }
+    },
+    {
+      "number": 11,
+      "title": "Error Handling, Debugging এবং Defensive Programming",
+      "paths": {
+        "markdown": "book-output/premium-batches/batch-02-ch07-11/chapter-11/chapter-11-premium.md",
+        "pdf": "book-output/premium-batches/batch-02-ch07-11/chapter-11/chapter-11-premium.pdf",
+        "docx": "book-output/premium-batches/batch-02-ch07-11/chapter-11/chapter-11-premium.docx",
+        "project": "book-output/premium-batches/batch-02-ch07-11/chapter-11/project/order-validation"
+      },
+      "missing": [],
+      "productionStatus": "premium, batch 02 (Phase 4B)",
+      "qaStatus": "PASS (11 of 11 gates)",
+      "sourceManuscript": "v30",
+      "lastVerifiedBuild": {
+        "builtAt": "2026-10-15T05:34:31.443Z",
+        "qaRunAt": "2026-10-15T05:34:51.342Z",
+        "pdfPages": 36,
+        "explanatoryWords": 3227,
+        "designSystem": "batch-02 build-system (master copy + part captions)",
+        "pdfSha256": "f92fc3d1469f8104fc49a867c8eeb18e1c189bb42d6bc2a726ced84484756e5e",
+        "docxSha256": "2836080fa0249f6341d3d896b8242bcc626354b377ca5ba9609aae4c1faa34ea"
+      }
+    },
+    {
+      "number": 12,
+      "title": "Modern JavaScript (ES6+), Modules এবং Clean Code Practices",
+      "paths": {
+        "markdown": "book-output/premium-batches/batch-03-ch12-16/chapter-12/chapter-12-premium.md",
+        "pdf": "book-output/premium-batches/batch-03-ch12-16/chapter-12/chapter-12-premium.pdf",
+        "docx": "book-output/premium-batches/batch-03-ch12-16/chapter-12/chapter-12-premium.docx",
+        "project": "book-output/premium-batches/batch-03-ch12-16/chapter-12/project/modular-shopping-cart"
+      },
+      "missing": [],
+      "productionStatus": "premium, batch 03 (Phase 4C)",
+      "qaStatus": "PASS (11 of 11 gates)",
+      "sourceManuscript": "v30",
+      "lastVerifiedBuild": {
+        "builtAt": "2026-10-15T06:02:19.298Z",
+        "qaRunAt": "2026-10-15T10:43:36.555Z",
+        "pdfPages": 36,
+        "explanatoryWords": 3320,
+        "designSystem": "master-design-system 1.0.0 + 2026-10-15 listing-label fix",
+        "pdfSha256": "443bbdea0a636828818e860ed6ced07a0a8ef3137c2fd98d71f416c96f8a4b0a",
+        "docxSha256": "a354fdab46269465721316eeae4b663463b26177c266c9423197df1a4ea5aa6c"
+      }
+    },
+    {
+      "number": 13,
+      "title": "Object-Oriented Programming (OOP): Classes, Prototypes, Inheritance এবং Encapsulation",
+      "paths": {
+        "markdown": "book-output/premium-batches/batch-03-ch12-16/chapter-13/chapter-13-premium.md",
+        "pdf": "book-output/premium-batches/batch-03-ch12-16/chapter-13/chapter-13-premium.pdf",
+        "docx": "book-output/premium-batches/batch-03-ch12-16/chapter-13/chapter-13-premium.docx",
+        "project": "book-output/premium-batches/batch-03-ch12-16/chapter-13/project/booking-lab"
+      },
+      "missing": [],
+      "productionStatus": "premium, batch 03 (Phase 4C)",
+      "qaStatus": "PASS (10 of 10 gates)",
+      "sourceManuscript": "v30",
+      "lastVerifiedBuild": {
+        "builtAt": "2026-10-15T06:11:02.523Z",
+        "qaRunAt": "2026-10-15T10:43:52.068Z",
+        "pdfPages": 40,
+        "explanatoryWords": 3230,
+        "designSystem": "master-design-system 1.0.0 + 2026-10-15 listing-label fix",
+        "pdfSha256": "34b5e070afb49f1f758bb658f6b8745bca9978803d18a080b020d5e8664ce0f3",
+        "docxSha256": "94505e45537df2fac44c93ce8c0d3285ee66d3bacd442e7d5a587d4bfa768b52"
+      }
+    },
+    {
+      "number": 14,
+      "title": "Advanced Functions, Closures, Higher-Order Patterns এবং Functional Programming",
+      "paths": {
+        "markdown": "book-output/premium-batches/batch-03-ch12-16/chapter-14/chapter-14-premium.md",
+        "pdf": "book-output/premium-batches/batch-03-ch12-16/chapter-14/chapter-14-premium.pdf",
+        "docx": "book-output/premium-batches/batch-03-ch12-16/chapter-14/chapter-14-premium.docx",
+        "project": "book-output/premium-batches/batch-03-ch12-16/chapter-14/project/sales-function-lab"
+      },
+      "missing": [],
+      "productionStatus": "premium, batch 03 (Phase 4C)",
+      "qaStatus": "PASS (10 of 10 gates)",
+      "sourceManuscript": "v30",
+      "lastVerifiedBuild": {
+        "builtAt": "2026-10-15T10:47:17.745Z",
+        "qaRunAt": "2026-10-15T10:47:38.465Z",
+        "pdfPages": 31,
+        "explanatoryWords": 3229,
+        "designSystem": "master-design-system 1.0.0 + 2026-10-15 listing-label fix",
+        "pdfSha256": "4a58d5218caa16dc9fe110835c7695a37bd0113d7f063f1c3701de029d258136",
+        "docxSha256": "3ab857d84f4afb81d204d7bf3193cd5f8a2998d6acc3d51160d0b38ff7f0e4a4"
+      }
+    },
+    {
+      "number": 15,
+      "title": "JavaScript Browser APIs, Web Storage, Fetch, URL এবং Real-World Browser Applications",
+      "paths": {
+        "markdown": "book-output/premium-batches/batch-03-ch12-16/chapter-15/chapter-15-premium.md",
+        "pdf": "book-output/premium-batches/batch-03-ch12-16/chapter-15/chapter-15-premium.pdf",
+        "docx": "book-output/premium-batches/batch-03-ch12-16/chapter-15/chapter-15-premium.docx",
+        "project": "book-output/premium-batches/batch-03-ch12-16/chapter-15/project/bookmark-vault"
+      },
+      "missing": [],
+      "productionStatus": "premium, batch 03 (Phase 4C)",
+      "qaStatus": "PASS (11 of 11 gates)",
+      "sourceManuscript": "v30",
+      "lastVerifiedBuild": {
+        "builtAt": "2026-10-15T06:27:29.155Z",
+        "qaRunAt": "2026-10-15T10:44:29.615Z",
+        "pdfPages": 37,
+        "explanatoryWords": 3240,
+        "designSystem": "master-design-system 1.0.0 + 2026-10-15 listing-label fix",
+        "pdfSha256": "ff15c5c218490ee812d25af6212414eefcd789c50d4157419c49dd1491b9bdea",
+        "docxSha256": "30239b2a0b3ed5d89205678edf590ac6b25239ea67eb2dbe65916fcf87686f07"
+      }
+    },
+    {
+      "number": 16,
+      "title": "JavaScript Error Handling, Debugging, Testing এবং Software Reliability",
+      "paths": {
+        "markdown": "book-output/premium-batches/batch-03-ch12-16/chapter-16/chapter-16-premium.md",
+        "pdf": "book-output/premium-batches/batch-03-ch12-16/chapter-16/chapter-16-premium.pdf",
+        "docx": "book-output/premium-batches/batch-03-ch12-16/chapter-16/chapter-16-premium.docx",
+        "project": "book-output/premium-batches/batch-03-ch12-16/chapter-16/project/booking-guard"
+      },
+      "missing": [],
+      "productionStatus": "premium, batch 03 (Phase 4C)",
+      "qaStatus": "PASS (11 of 11 gates)",
+      "sourceManuscript": "v30",
+      "lastVerifiedBuild": {
+        "builtAt": "2026-10-15T10:42:59.807Z",
+        "qaRunAt": "2026-10-15T10:43:10.181Z",
+        "pdfPages": 32,
+        "explanatoryWords": 3474,
+        "designSystem": "master-design-system 1.0.0 + 2026-10-15 listing-label fix",
+        "pdfSha256": "682cfe79b99c984b0804572edde1b03b40249ae368c5cc4b460dc31b071d760e",
+        "docxSha256": "7436d88b268a90760a73785dd18e2aa8e0a484000179f908042209112e4ffc7e"
+      }
+    }
+  ],
+  "validation": {
+    "orderedUniqueNumbers": true,
+    "allPathsExist": true,
+    "allTitlesRead": true,
+    "valid": true
+  }
+}

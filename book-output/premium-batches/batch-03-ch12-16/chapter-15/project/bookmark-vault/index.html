@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bookmark Vault</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <main class="app">
+    <h1>Bookmark Vault</h1>
+
+    <form id="bookmark-form">
+      <label>শিরোনাম <input name="title" autocomplete="off"></label>
+      <label>URL <input name="url" type="url" placeholder="https://"></label>
+      <label>Tag (কমা দিয়ে) <input name="tags" autocomplete="off"></label>
+      <button type="submit">যোগ করুন</button>
+    </form>
+
+    <div class="filters">
+      <label>খুঁজুন <input id="search" type="search"></label>
+      <label>Tag <select id="tag"></select></label>
+      <label><input id="favorites-only" type="checkbox"> শুধু প্রিয়</label>
+    </div>
+
+    <p id="count"></p>
+    <ul id="bookmarks"></ul>
+
+    <div class="files">
+      <button id="export" type="button">Export</button>
+      <label>Import
+        <input id="import" type="file" accept="application/json,.json">
+      </label>
+    </div>
+    <p id="status" role="status" aria-live="polite"></p>
+  </main>
+</body>
+</html>

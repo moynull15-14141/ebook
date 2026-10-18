@@ -66,7 +66,10 @@ function splitLines(html) {
 const LANG_LABEL = { js: 'JavaScript', javascript: 'JavaScript', ts: 'TypeScript', typescript: 'TypeScript', bash: 'Terminal', html: 'HTML', css: 'CSS', json: 'JSON', sql: 'SQL', yaml: 'YAML', dockerfile: 'Dockerfile', http: 'HTTP', text: 'Text' };
 const KIND_LABEL = { output: 'Output', error: 'Error Message', terminal: 'Terminal', structure: 'Folder-এর কাঠামো' };
 const RUN_LABEL = { node: 'চলবে: Node.js', browser: 'চলবে: Browser', both: 'চলবে: Browser Console ও Node.js' };
-export const EXCERPT_LABEL = 'নির্বাচিত অংশ (Selected Excerpt)';
+export const EXCERPT_LABEL = 'নির্বাচিত অংশ (Selected Excerpt — Complete file in Companion Code)';
+// Listing labels (2026-10-15): consecutive listings that together form one complete file are labelled as parts, not excerpts.
+const BN = n => String(n).replace(/[0-9]/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+const partLabel = p => { const [n, m] = p.split('/'); return `অংশ ${BN(n)} / ${BN(m)} (Part ${n} of ${m})`; };
 export const FRAGMENT_LABEL = 'যোগ করার অংশ (Fragment)';
 
 /** Parses a fence info string: ```javascript run=node file=hello.js   |   ```css run=browser file=style.css excerpt=project/app/style.css */
@@ -120,7 +123,8 @@ export function blocks(md, opts = {}) {
       const parts = [];
       if (info.file) parts.push(`<span class="file">${esc(info.file)}</span>`);
       parts.push(`<span class="lang">${esc(KIND_LABEL[kind] ?? LANG_LABEL[lang] ?? lang)}</span>`);
-      if (info.excerpt) parts.push(`<span class="excerpt">${EXCERPT_LABEL}</span>`);
+      if (info.part) parts.push(`<span class="excerpt">${partLabel(info.part)}</span>`);
+      else if (info.excerpt) parts.push(`<span class="excerpt">${EXCERPT_LABEL}</span>`);
       if (info.fragment) parts.push(`<span class="excerpt">${FRAGMENT_LABEL}</span>`);
       if (info.run) parts.push(`<span class="run">${esc(RUN_LABEL[info.run] ?? info.run)}</span>`);
       const c = tokens.code;
@@ -137,7 +141,7 @@ export function blocks(md, opts = {}) {
         return `<span class="ln wrap" data-hang="${hang}" style="padding-left:${hang}ch;text-indent:-${hang}ch">${h}</span>`;
       }).join('');
       opts.wrappedLines = (opts.wrappedLines ?? 0) + body.filter(willWrap).length;
-      const cls = `code ${kind}${info.excerpt || info.fragment ? ' excerpt' : ''}${body.length <= c.keepTogetherLines ? ' keep' : ''}`;
+      const cls = `code ${kind}${(info.excerpt && !info.part) || info.fragment ? ' excerpt' : ''}${body.length <= c.keepTogetherLines ? ' keep' : ''}`;
       (opts.codeBlocks ??= []).push({ lang, kind, run: info.run ?? null, file: info.file ?? null, excerpt: info.excerpt ?? null, fragment: info.fragment ?? null, lines: body.length, longest: Math.max(0, ...body.map(l => [...l].length)) });
       out.push(`<figure class="${cls}"><figcaption>${parts.join('')}</figcaption><pre><code>${ln}</code></pre></figure>`);
       continue;

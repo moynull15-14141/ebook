@@ -1,0 +1,2 @@
+OK    node --check src/bookmarks.mjs   (in project/bookmark-vault)
+OK    node --check tests/bookmarks.test.mjs   (in project/bookmark-vault)

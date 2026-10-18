@@ -1,0 +1,133 @@
+$ node --test examples/**/*.test.mjs   (in .)
+
+TAP version 13
+# Subtest: ৪ দিয়ে বিভাজ্য: অধিবর্ষ
+ok 1 - ৪ দিয়ে বিভাজ্য: অধিবর্ষ
+  ---
+  duration_ms: 1.2832
+  type: 'test'
+  ...
+# Subtest: ৪ দিয়ে অবিভাজ্য: নয়
+ok 2 - ৪ দিয়ে অবিভাজ্য: নয়
+  ---
+  duration_ms: 0.2481
+  type: 'test'
+  ...
+# Subtest: ১০০ দিয়ে বিভাজ্য, ৪০০ দিয়ে নয়: নয়
+ok 3 - ১০০ দিয়ে বিভাজ্য, ৪০০ দিয়ে নয়: নয়
+  ---
+  duration_ms: 0.1611
+  type: 'test'
+  ...
+# Subtest: ৪০০ দিয়ে বিভাজ্য: অধিবর্ষ
+ok 4 - ৪০০ দিয়ে বিভাজ্য: অধিবর্ষ
+  ---
+  duration_ms: 1.6768
+  type: 'test'
+  ...
+# Subtest: সফল সাড়ায় তাপমাত্রা
+ok 5 - সফল সাড়ায় তাপমাত্রা
+  ---
+  duration_ms: 43.0459
+  type: 'test'
+  ...
+# Subtest: 404-এ ত্রুটি
+ok 6 - 404-এ ত্রুটি
+  ---
+  duration_ms: 1.5828
+  type: 'test'
+  ...
+# Subtest: নিবন্ধনে ঠিক একটি info Log, Password ছাড়া
+ok 7 - নিবন্ধনে ঠিক একটি info Log, Password ছাড়া
+  ---
+  duration_ms: 4.1543
+  type: 'test'
+  ...
+# Subtest: যোগ ও খোঁজা, বড়-ছোট হাতের অক্ষর নির্বিশেষে
+ok 8 - যোগ ও খোঁজা, বড়-ছোট হাতের অক্ষর নির্বিশেষে
+  ---
+  duration_ms: 1.4024
+  type: 'test'
+  ...
+# Subtest: একই Email দুবার নয়; সংরক্ষিত Object অক্ষত
+ok 9 - একই Email দুবার নয়; সংরক্ষিত Object অক্ষত
+  ---
+  duration_ms: 0.8615
+  type: 'test'
+  ...
+# Subtest: Regression: একই Coupon দুবার প্রয়োগে ছাড় একবার
+ok 10 - Regression: একই Coupon দুবার প্রয়োগে ছাড় একবার
+  ---
+  duration_ms: 1.199
+  type: 'test'
+  ...
+# Subtest: তিনবার ব্যর্থতার পর সফল: বিরতি 100, 200, 400
+ok 11 - তিনবার ব্যর্থতার পর সফল: বিরতি 100, 200, 400
+  ---
+  duration_ms: 3.1554
+  type: 'test'
+  ...
+# Subtest: সব চেষ্টা ব্যর্থ: শেষ ত্রুটি ছোড়ে, বিরতি তিনবার
+ok 12 - সব চেষ্টা ব্যর্থ: শেষ ত্রুটি ছোড়ে, বিরতি তিনবার
+  ---
+  duration_ms: 1.5441
+  type: 'test'
+  ...
+# Subtest: Stub ও Mock: Payment-এর নির্দিষ্ট উত্তর, Email ঠিক একবার
+ok 13 - Stub ও Mock: Payment-এর নির্দিষ্ট উত্তর, Email ঠিক একবার
+  ---
+  duration_ms: 2.2918
+  type: 'test'
+  ...
+# Subtest: Stub-এর ব্যর্থতা: Payment ব্যর্থ হলে Email যায় না
+ok 14 - Stub-এর ব্যর্থতা: Payment ব্যর্থ হলে Email যায় না
+  ---
+  duration_ms: 0.7306
+  type: 'test'
+  ...
+# Subtest: Spy: একটি বিদ্যমান Object-এর Method-এর ডাক গোনা
+ok 15 - Spy: একটি বিদ্যমান Object-এর Method-এর ডাক গোনা
+  ---
+  duration_ms: 1.5889
+  type: 'test'
+  ...
+# Subtest: priceFor
+    # Subtest: ৪ আসনে ছাড় নেই
+    ok 1 - ৪ আসনে ছাড় নেই
+      ---
+      duration_ms: 2.2352
+      type: 'test'
+      ...
+    # Subtest: ৫ আসন থেকে ১০% গ্রুপ ছাড়
+    ok 2 - ৫ আসন থেকে ১০% গ্রুপ ছাড়
+      ---
+      duration_ms: 0.3262
+      type: 'test'
+      ...
+    # Subtest: প্রতিটি Test নতুন অবস্থায় শুরু হয়
+    ok 3 - প্রতিটি Test নতুন অবস্থায় শুরু হয়
+      ---
+      duration_ms: 1.1938
+      type: 'test'
+      ...
+    # Subtest: আসনের সর্বোচ্চ সীমা
+    ok 4 - আসনের সর্বোচ্চ সীমা # TODO
+      ---
+      duration_ms: 0.385
+      type: 'test'
+      ...
+    1..4
+ok 16 - priceFor
+  ---
+  duration_ms: 5.8246
+  type: 'suite'
+  ...
+1..16
+# tests 19
+# suites 1
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 1
+# duration_ms 385.0791

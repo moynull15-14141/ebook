@@ -1,0 +1,78 @@
+$ node --test dist/tests/*.test.js   (in project\typesafe-claims)
+
+TAP version 13
+# Subtest: HTTP Status: 201, 200, 422, 404, 409
+ok 1 - HTTP Status: 201, 200, 422, 404, 409
+  ---
+  duration_ms: 2.4577
+  type: 'test'
+  ...
+# Subtest: ব্যর্থতার Body-তে code ও বিস্তারিত
+ok 2 - ব্যর্থতার Body-তে code ও বিস্তারিত
+  ---
+  duration_ms: 1.5159
+  type: 'test'
+  ...
+# Subtest: বৈধ ইনপুট: Type-যুক্ত NewClaim, লেখা পরিষ্কার
+ok 3 - বৈধ ইনপুট: Type-যুক্ত NewClaim, লেখা পরিষ্কার
+  ---
+  duration_ms: 2.3036
+  type: 'test'
+  ...
+# Subtest: বাড়তি Field (যেমন status, total) গ্রহণ করা হয় না
+ok 4 - বাড়তি Field (যেমন status, total) গ্রহণ করা হয় না
+  ---
+  duration_ms: 0.3443
+  type: 'test'
+  ...
+# Subtest: প্রতিটি ভুলের পথ ও বার্তা
+ok 5 - প্রতিটি ভুলের পথ ও বার্তা
+  ---
+  duration_ms: 0.3773
+  type: 'test'
+  ...
+# Subtest: ধরনের ভুল: সংখ্যার জায়গায় লেখা, Object-এর জায়গায় Array
+ok 6 - ধরনের ভুল: সংখ্যার জায়গায় লেখা, Object-এর জায়গায় Array
+  ---
+  duration_ms: 0.3927
+  type: 'test'
+  ...
+# Subtest: তৈরি: মোট পরিমাণ, draft অবস্থা, ক্রমিক id
+ok 7 - তৈরি: মোট পরিমাণ, draft অবস্থা, ক্রমিক id
+  ---
+  duration_ms: 1.9956
+  type: 'test'
+  ...
+# Subtest: নীতির সীমা: সীমায় চলে, এক পয়সা বেশিতে OVER_LIMIT
+ok 8 - নীতির সীমা: সীমায় চলে, এক পয়সা বেশিতে OVER_LIMIT
+  ---
+  duration_ms: 1.1135
+  type: 'test'
+  ...
+# Subtest: Workflow: সম্পূর্ণ পথ এবং অবৈধ কাজ
+ok 9 - Workflow: সম্পূর্ণ পথ এবং অবৈধ কাজ
+  ---
+  duration_ms: 0.5796
+  type: 'test'
+  ...
+# Subtest: Repository-তে পুরোনো Object বদলায় না (Immutable হালনাগাদ)
+ok 10 - Repository-তে পুরোনো Object বদলায় না (Immutable হালনাগাদ)
+  ---
+  duration_ms: 0.3617
+  type: 'test'
+  ...
+# Subtest: সহায়ক Function: সীমা, বর্ণনা, লেবেল, টাকা
+ok 11 - সহায়ক Function: সীমা, বর্ণনা, লেবেল, টাকা
+  ---
+  duration_ms: 23.9696
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 169.5258

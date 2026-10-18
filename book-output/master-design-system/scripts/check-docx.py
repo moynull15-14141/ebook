@@ -88,7 +88,7 @@ for b in fences:
             lost += 1
 check('every code line is present character for character (indentation included)', lost == 0, f'{md_lines - lost} of {md_lines}')
 excerpts = len(re.findall(r'^```[\w-]+[^\n]*\b(?:excerpt|fragment)=', md, re.M))
-labelled = sum(1 for c in by_style.get('CodeCaption', []) if 'Selected Excerpt' in c or 'Fragment' in c)
+labelled = sum(1 for c in by_style.get('CodeCaption', []) if 'Selected Excerpt' in c or 'Fragment' in c or 'Part ' in c)
 check('excerpts and fragments are labelled in their caption', labelled == excerpts, f'{labelled} of {excerpts}')
 
 md_tables = len(re.findall(r'^\s*\|\s*:?-{2,}', md, re.M))

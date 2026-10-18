@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TravelMaster Pro</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>TravelMaster Pro</h1>
+    <p id="who">অতিথি হিসেবে দেখছেন</p>
+    <button id="logout" type="button" hidden>Logout</button>
+  </header>
+  <p id="message" role="status" aria-live="polite"></p>
+  <main>
+    <section aria-labelledby="catalog-title">
+      <h2 id="catalog-title">Package</h2>
+      <ul id="packages"><li>লোড হচ্ছে...</li></ul>
+    </section>
+    <section id="account" aria-labelledby="account-title">
+      <h2 id="account-title">Account</h2>
+      <form id="register">
+        <label>নাম <input name="name" autocomplete="name" required></label>
+        <label>Email <input name="email" type="email" required></label>
+        <label>Password <input name="password" type="password"
+          minlength="12" autocomplete="new-password" required></label>
+        <button>নিবন্ধন</button>
+      </form>
+      <form id="login">
+        <label>Email <input name="email" type="email" required></label>
+        <label>Password <input name="password" type="password"
+          autocomplete="current-password" required></label>
+        <button>Login</button>
+      </form>
+    </section>
+    <section id="booking" aria-labelledby="booking-title" hidden>
+      <h2 id="booking-title">Booking</h2>
+      <form id="book">
+        <label>Package <select name="packageId" required></select></label>
+        <label>যাত্রী <input name="travelers" type="number" min="1" max="10"
+          value="1" required></label>
+        <button id="book-button">Book করুন</button>
+      </form>
+      <h2>আমার Booking</h2>
+      <ul id="bookings"></ul>
+    </section>
+  </main>
+  <script type="module" src="/app.mjs"></script>
+</body>
+</html>
